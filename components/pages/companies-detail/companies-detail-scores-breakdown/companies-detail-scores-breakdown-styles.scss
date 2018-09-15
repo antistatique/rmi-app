@@ -1,0 +1,120 @@
+@import 'css/settings';
+
+.c-companies-detail-scores-breakdown {
+
+  .summary-print-title {
+    display: none;
+
+    @media print {
+      display: block;
+
+      font-size: $font-size-big;
+      color: $color-1;
+    }
+  }
+
+  :global(.c-summary) {
+    transform: translate(0, -25px);
+
+    @media print {
+      transform: none;
+    }
+  }
+
+  .mine-sites-results {
+    .subtitle {
+      font-size: $font-size-bigger;
+      margin-bottom: 40px;
+    }
+  }
+
+  .score-section {
+    &:not(:first-child) {
+      margin: 35px 0 0;
+    }
+  }
+
+  .overall-scores-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 25px 0;
+  }
+
+  .stacked-bars-container {
+    @media print {
+      :global(.c-stacked-bars) {
+        page-break-inside: avoid;
+      }
+    }
+  }
+
+  .overall-measurement-container {
+    border-top: 1px solid black;
+    padding: 35px 0 75px;
+
+    .barchart-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 50px 0 0;
+    }
+
+    @media print {
+      border-top: 0;
+      padding: 35px 0 0;
+    }
+  }
+
+  .graph-legend {
+    margin-bottom: 50px;
+    font-size: $font-size-regular ;
+    font-weight: $font-weight-light;
+    line-height: 1.8;
+    font-style: italic;
+
+    @media print {
+      margin: 0;
+
+      > p {
+        font-size: $font-size-small;
+        line-height: 1.25;
+      }
+    }
+  }
+
+  .contextual-table {
+    &:not(:first-child) {
+      margin: 35px 0 0;
+    }
+  }
+
+  .miscellaneous-lists {
+    margin: -35px 0 0;
+
+    :global(.title) {
+      margin: 35px 0 0;
+    }
+  }
+
+  .accordion-header {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 35px 0px;
+    background: $color-3;
+    color: $color-7;
+    font-size: $font-size-bigger;
+    font-family: $font-family-2;
+
+    @media print {
+      background: $color-7;
+      color: $color-1;
+    }
+  }
+
+  .table-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+}

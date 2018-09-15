@@ -1,0 +1,29 @@
+@import 'css/settings';
+
+.c-barchart {
+
+  :global(text > tspan) {
+    font-size: 12px;
+
+    @media #{$mq-md} {
+      font-size: $font-size-regular;
+    }
+
+    @media print {
+      fill: $color-1;
+    }
+  }
+
+  @media print {
+    margin: 35px 0 0;
+
+    :global(text),
+    :global(tspan) {
+      fill: $color-1 !important;
+    }
+
+    :global(line) {
+      stroke: $color-1 !important;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "plugins": [
+    [
+      "module-resolver", {
+        "root": ["."],
+        "alias": {
+          "components": "./components",
+          "modules": "./modules",
+          "pages": "./pages",
+          "css": "./css",
+          "services": "./services",
+          "utils": "./utils",
+          "constants": "./constants",
+          "helpers": "./helpers"
+        },
+        "cwd": "babelrc"
+      }
+    ]
+  ],
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": { "modules": "commonjs" },
+        "styled-jsx": {
+          "plugins": [
+            [
+              "styled-jsx-plugin-sass", {
+                "sassOptions": {
+                  "includePaths": ["./css", "node_modules"],
+                  "precision": 2
+                }
+              }
+            ],
+            "styled-jsx-plugin-postcss"
+          ]
+        }
+      }
+    ]
+  ],
+  "ignore": []
+}

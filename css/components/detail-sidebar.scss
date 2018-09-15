@@ -1,0 +1,71 @@
+.c-detail-sidebar {
+  position: relative;
+  height: 100%;
+
+  .definitions-container {
+    margin: -25px 0 0;
+  }
+
+  .definition-item {
+    margin: 25px 0 0;
+
+    > .definition-key,
+    > .definition-value {
+      font-size: $font-size-regular;
+      font-weight: $font-weight-light;
+      color: $color-7;
+
+      @media print {
+        color: $color-1;
+      }
+    }
+
+    > .definition-value {
+      margin: 5px 0 0;
+      font-weight: $font-weight-bold;
+      line-height: 1.2;
+
+      > span {
+        font-weight: $font-weight-light;
+      }
+    }
+
+    @media print {
+      margin: 15px 0 0;
+
+      > .definition-key,
+      > .definition-value {
+        font-size: $font-size-small;
+      }
+    }
+  }
+
+  .definition-sublist {
+    margin: 5px 0 0;
+
+    > .definition-sublist-item {
+      color: $color-7;
+      font-weight: $font-weight-bold;
+
+      &:not(:first-child) {
+        margin: 15px 0 0;
+      }
+
+      .definition-sublist-item-container {
+        display: inline-flex;
+        flex-direction: column;
+        margin: 0 0 0 5px;
+
+        > span {
+          &:not(:first-child) {
+            margin: 5px 0 0;
+          }
+        }
+      }
+
+      @media print {
+        color: $color-1;
+      }
+    }
+  }
+}

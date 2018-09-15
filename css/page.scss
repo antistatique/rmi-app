@@ -1,0 +1,111 @@
+
+.page-intro {
+  padding: 30px 0;
+
+  @media #{$mq-md} {
+    padding: 75px 0;
+  }
+
+  .c-breadcrumbs + .title {
+    margin: 25px 0 0;
+  }
+
+  .title {
+    font-family: $font-family-2;
+    font-size: $font-size-bigger;
+    line-height: 1.33;
+
+    @media #{$mq-md} {
+      font-size: $font-size-giant;
+    }
+  }
+
+  .subtitle {
+    margin: 25px 0 0;
+
+    font-family: $font-family-1;
+    font-size: $font-size-big;
+    font-weight: $font-weight-light;
+    line-height: 1.21;
+
+    @media #{$mq-md} {
+      font-size: $font-size-huge;
+    }
+  }
+
+  .summary {
+    margin: 75px 0 0;
+
+    font-size: $font-size-big;
+    font-weight: $font-weight-light;
+    line-height: 1.66;
+
+    @media #{$mq-md} {
+      font-size: $font-size-huge;
+    }
+  }
+
+  .thematic-description {
+    margin: 15px 0 0;
+
+    @media #{$mq-md} {
+      margin: 0;
+    }
+  }
+}
+
+.section {
+  padding: 25px 0 45px;
+
+  &.-dark {
+    background: $color-2;
+
+    @media print {
+      background: none;
+    }
+  }
+
+  &.-gray {
+    background: $color-6;
+
+    @media print {
+      background: none;
+    }
+  }
+
+  .title {
+    font-family: $font-family-2;
+    font-size: $font-size-huge;
+    line-height: 1.42;
+
+    &.-small {
+      font-size: $font-size-big;
+    }
+  }
+
+  .subtitle {
+    margin: 25px 0 0;
+
+    font-size: $font-size-big;
+    font-family: $font-family-1;
+    font-weight: $font-weight-light;
+    line-height: 1.31;
+  }
+
+  .highlight {
+    margin: 25px 0 0;
+
+    font-family: $font-family-1;
+    font-size: $font-size-bigger;
+    font-weight: $font-weight-light;
+    line-height: 1.66;
+  }
+
+  .sidenote {
+    font-weight: $font-weight-light;
+  }
+
+  @media #{$mq-md} {
+    padding: 55px 0 75px;
+  }
+}

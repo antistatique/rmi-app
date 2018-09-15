@@ -1,0 +1,28 @@
+@import 'css/settings';
+
+.c-companies-detail-page {
+
+  .companies-detail-intro {
+    background: $color-2;
+
+    @media print {
+      background: $color-7;
+    }
+  }
+
+  .companies-detail-preview {
+    padding: calc(#{$header-company-detail-height} + 95px) 0 35px;
+
+    @media #{$mq-sm} {
+      padding: calc(#{$header-company-detail-height} + 55px) 0 35px;
+    }
+
+    @media #{$mq-md} {
+      padding: calc(#{$header-company-detail-height} + 35px) 0 35px;
+    }
+
+    @media print {
+      padding: 0 0 35px;
+    }
+  }
+}

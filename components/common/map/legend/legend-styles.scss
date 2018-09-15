@@ -1,0 +1,59 @@
+@import 'css/settings';
+
+
+$circle-size: 10px;
+
+.c-legend {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 15px 0;
+
+  > .legend-item {
+    display: inline-flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin: 10px 0 0 0;
+    }
+
+    > .legend-item-color {
+      display: inline-block;
+      min-width: 25px;
+      min-height: 10px;
+
+      &.-circle {
+        position: relative;
+        min-width: $circle-size;
+        min-height: $circle-size;
+        margin: 0 7px;
+        border-radius: 50%;
+        border: 2px solid rgba($color-1, .5);
+      }
+
+      @media print {
+        display: block;
+        page-break-inside: avoid;
+      }
+    }
+
+    > .legend-item-name {
+      margin: 0 0 0 15px;
+
+      font-size: $font-size-small;
+      font-weight: $font-weight-light;
+      color: $color-7;
+
+      @media print {
+        color: $color-1;
+      }
+    }
+
+    @media print {
+      page-break-inside: avoid;
+    }
+  }
+
+  @media print {
+    page-break-inside: avoid;
+  }
+}

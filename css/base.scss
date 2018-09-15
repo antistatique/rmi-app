@@ -1,0 +1,69 @@
+
+html, body {
+  &.-no-scroll {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+body {
+  font-family: $font-family-1;
+  font-size: $font-size-regular;
+  -webkit-font-smoothing: antialiased;
+}
+
+// titles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-2;
+}
+
+// paragraphs
+p {
+  font-size: $font-size-big;
+  line-height: 1.44;
+
+  & + p {
+    margin: 15px 0 0;
+  }
+}
+
+// links
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// inputs & buttons
+input,
+button {
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  background: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+.map-container {
+  margin: 35px 0 0;
+  background: $color-2;
+
+  @media #{$mq-md} {
+    margin: 0;
+  }
+
+  @media print {
+    background: $color-7;
+  }
+}

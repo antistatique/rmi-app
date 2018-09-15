@@ -1,0 +1,18 @@
+.row {
+  &.-equal-height {
+    margin-top: -$gutter-width;
+
+    div[class^=col], div[class*=col] {
+      display: flex;
+      flex-direction: column;
+      margin-top: $gutter-width;
+    }
+  }
+
+  &[class^=center-], &[class*=center-] {
+
+    &.-no-text-align {
+      text-align: left;
+    }
+  }
+}

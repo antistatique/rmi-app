@@ -1,0 +1,36 @@
+@import 'css/settings';
+
+.c-mine-sites-detail-assessments-table {
+  position: relative;
+
+  .filters-container {
+    display: flex;
+    flex-direction: column;
+    margin: 35px 0 25px;
+
+    :global(.c-select) {
+      margin: 15px 0 0;
+    }
+
+    @media #{$mq-sm} {
+      flex-direction: row;
+      justify-content: space-between;
+
+      :global(.c-select) {
+        margin: 0;
+      }
+    }
+  }
+
+  .paginator-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0 0;
+  }
+
+  .no-data {
+    margin: 25px 0 0;
+
+    font-size: $font-size-big;
+  }
+}

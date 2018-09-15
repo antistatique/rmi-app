@@ -1,0 +1,18 @@
+
+// flexboxgrid doesn't take into account the space between
+// the content and the viewport using its "wrapper" class
+// that's why we use this class instead: to add space between
+// content and viewport.
+.l-layout {
+  max-width: #{$layout-max-width + ($gutter-width * 2)};
+  padding: 0 $gutter-width;
+  margin: 0 auto;
+}
+
+.layout-content {
+  padding: $header-height-mobile 0 0;
+
+  @media #{$mq-md} {
+    padding: $header-height 0 0;
+  }
+}

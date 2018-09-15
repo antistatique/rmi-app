@@ -1,0 +1,56 @@
+@import 'css/settings';
+
+
+.c-overall-graphs {
+  margin: -45px 0 0;
+
+  .explanation {
+    margin: 55px 0 0;
+
+    .aggregation-line {
+      display: inline-block;
+      width: 45px;
+      margin: 0 10px 0 0;
+      border: 2px dashed $color-8;
+      transform: translate(0, -2px);
+    }
+
+    > p {
+      font-style: italic;
+      color: $color-7;
+    }
+  }
+}
+
+.graph-item {
+  margin: 45px 0 0;
+
+  .chart-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media #{$mq-md} {
+      justify-content: flex-start;
+      margin: 0 0 0 65px;
+    }
+
+    > .icon-background {
+      display: inline-flex;
+
+      > :global(.c-icon) {
+        fill: $color-7;
+      }
+
+      & + .title {
+        margin: 0 0 0 15px;
+      }
+    }
+
+    > .title {
+      font-family: $font-family-1;
+      font-size: $font-size-big;
+      color: $color-7;
+    }
+  }
+}

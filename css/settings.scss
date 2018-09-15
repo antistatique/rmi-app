@@ -1,0 +1,88 @@
+
+// layout settings
+$layout-max-width: 1080px;
+$flexboxgrid-grid-columns: 12;
+$gutter-width: 20px;
+$header-height-mobile: 42px;
+$header-height: 102px;
+$header-company-detail-height: 71px;
+
+// grid settings
+$grid-gap: 20px;
+
+// colours —— common
+$color-1: #000;
+$color-2: #3b3a40;
+$color-3: #272626;
+$color-4: #4d4c52;
+$color-5: #9c9aa2;
+$color-6: #f2f2f2;
+$color-7: #fff;
+$color-8: #bf3132;
+
+// colours —— graph / issues
+$color-9: #0b46dd;
+$color-10: #255dec;
+$color-11: #4f80fc;
+$color-12: #86a8fe;
+$color-13: #af8862;
+$color-14: #c09872;
+$color-15: #d0a77f;
+$color-16: #edcaa8;
+$color-17: #f89d0f;
+$color-18: #fab03b;
+$color-19: #fdbf5f;
+$color-20: #ffcF85;
+$color-21: #a3196a;
+$color-22: #b7247a;
+$color-23: #ce348e;
+$color-24: #eb61B1;
+$color-25: #de1F0a;
+$color-26: #ef3521;
+$color-27: #f85948;
+$color-28: #fa7d6f;
+$color-29: #69a820;
+$color-30: #83c13A;
+$color-31: #9ccd63;
+$color-32: #bbdf92;
+
+// typography —— families
+$font-family-1: 'Yantramanav', sans-serif;
+$font-family-2: 'Bitter', serif;
+
+// typography —— weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 500;
+
+// typography —— sizes
+$font-size-smallest: 11px;
+$font-size-small: 14px;
+$font-size-regular: 16px;
+$font-size-big: 18px;
+$font-size-bigger: 26px;
+$font-size-huge: 28px;
+$font-size-giant: 60px;
+
+// modal
+$max-width-modal: 880px;
+$max-width-modal-medium: 600px;
+
+$animation-time: .75s;
+$animation-time-2: .35s;
+
+$ease-in-sine: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$ease-in-out-sine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+$ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+
+
+// responsive
+$sm: 48rem;
+$md: 64rem;
+$lg: 80rem;
+
+// responsive – media queries
+$mq-sm: screen and (min-width: $sm);
+$mq-md: screen and (min-width: $md);
+$mq-lg: screen and (min-width: $lg);

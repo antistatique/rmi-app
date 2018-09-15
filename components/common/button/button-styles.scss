@@ -1,0 +1,54 @@
+@import 'css/settings';
+
+.c-button {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  background: none;
+
+  font-family: $font-family-1;
+  font-size: $font-size-regular;
+  font-weight: $font-weight-bold;
+  color: $color-7;
+
+  &.-padding {
+    padding: 10px 35px;
+
+    &.-big {
+      padding: 10px 50px;
+    }
+  }
+
+  &.-round {
+    border-radius: 100px;
+  }
+
+  &.-red {
+    background: $color-8;
+  }
+
+  &.-gray {
+    background: $color-5;
+  }
+
+  &.-white {
+    background: $color-7;
+    color: $color-1;
+  }
+
+  &.-shadow {
+    box-shadow: 0 2px 3px 0 rgba($color-1, .1);
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  @media #{$mq-md} {
+    & + .c-button {
+      margin: 0 0 0 25px;
+    }
+  }
+}

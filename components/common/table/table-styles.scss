@@ -1,0 +1,89 @@
+@import 'css/settings';
+
+.c-table {
+  width: 100%;
+
+  > :global(thead) {
+    :global(th) {
+      padding: 15px;
+      text-align: left;
+      vertical-align: middle;
+      font-weight: $font-weight-light;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+
+        @media print {
+          color: $color-1 !important;
+        }
+      }
+
+      @media print {
+        font-size: 12px;
+        color: $color-1 !important;
+        padding: 15px 5px;
+      }
+    }
+  }
+
+  :global(> tbody) {
+    :global(> tr) {
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba($color-1, .2)
+      }
+
+      :global(> td) {
+        padding: 15px;
+        font-size: $font-size-regular;
+        text-align: left;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 20px;
+
+          @media #{$mq-md} {
+            padding-right: 0;
+          }
+        }
+
+        @media print {
+          width: 11%;
+          padding: 15px 5px;
+        }
+      }
+
+      :global(> td > a) {
+        font-weight: $font-weight-bold;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.-theme-2 {
+    color: $color-7;
+
+    :global(> tbody) {
+      :global(> tr) {
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba($color-7, .2);
+
+          @media print {
+            border-bottom: 1px solid $color-1;
+          }
+        }
+      }
+    }
+  }
+
+  @media print {
+    color: $color-1 !important;
+    page-break-after: always;
+  }
+}
