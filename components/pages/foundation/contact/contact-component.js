@@ -11,11 +11,7 @@ class ContactPage extends PureComponent {
     const { content } = this.props;
     const {
       title,
-      'address-line-1': addressFirstLine,
-      'address-line-2': addressSecondLine,
-      'address-line-3': addressThirdLine,
-      email,
-      telephone
+      intro
     } = content;
 
     return (
@@ -36,22 +32,9 @@ class ContactPage extends PureComponent {
             <div className="l-layout">
               <div className="row">
                 <div className="col-xs-12">
-                  <address>
                     <h3 className="title">{title}</h3>
-                    <div className="location">
-                      <span className="address-line">{addressFirstLine}</span>
-                      {addressSecondLine &&
-                        <span className="address-line">{addressSecondLine}</span>}
-                      {addressThirdLine &&
-                        <span className="address-line">{addressThirdLine}</span>}
-                    </div>
-
-                    <div className="contact-links">
-                      <a className="address-line" href={`mailto:${email}`}>{email}</a>
-                      <a className="address-line" href={`tel:${telephone}`}>{telephone}</a>
-                    </div>
-                  </address>
                 </div>
+                    <div className="col-xs-12" dangerouslySetInnerHTML={{ __html: intro }}></div>
               </div>
             </div>
           </section>
