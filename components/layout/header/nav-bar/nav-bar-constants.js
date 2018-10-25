@@ -54,14 +54,6 @@ export const INDEX_NAVIGATION = [{
 
 export const FOUNDATION_NAVIGATION = [{
   id: 5,
-  label: 'Context',
-  slug: 'context',
-  query: {
-    route: 'context',
-    params: {}
-  }
-}, {
-  id: 6,
   label: 'About',
   slug: 'about',
   query: {
@@ -69,24 +61,8 @@ export const FOUNDATION_NAVIGATION = [{
     params: {}
   }
 }, {
-  id: 7,
-  label: 'Media',
-  slug: 'media',
-  query: {
-    route: 'media',
-    params: {}
-  }
-}, {
-  id: 8,
-  label: 'Contact',
-  slug: 'contact',
-  query: {
-    route: 'contact',
-    params: {}
-  }
-}, {
-  id: 9,
-  label: 'Index',
+  id: 6,
+  label: 'Our work',
   query: {
     route: 'index',
     params: {}
@@ -101,6 +77,24 @@ export const FOUNDATION_NAVIGATION = [{
       params: {}
     }
   }]
+},
+  {
+  id: 7,
+  label: 'Media',
+  slug: 'media',
+  query: {
+    route: 'media',
+    params: {}
+  }
+},
+  {
+  id: 8,
+  label: 'Contact',
+  slug: 'contact',
+  query: {
+    route: 'contact',
+    params: {}
+  }
 }];
 
 export default {

@@ -62,6 +62,7 @@ class Head extends PureComponent {
         <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/static/favicon/manifest.json" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/static/favicon/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
