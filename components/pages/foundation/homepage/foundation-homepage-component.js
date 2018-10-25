@@ -8,6 +8,7 @@ import Button from 'components/common/button';
 import Modal from 'components/common/modal';
 import CustomContent from 'components/common/custom-content';
 import NewsSlider from './news-slider';
+import NewsBlock from './news-block';
 import ModalContent from './modal-content';
 
 // styles
@@ -51,69 +52,47 @@ class FoundationHomepagePage extends PureComponent {
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
-                <h2 className="title">{homeTitle}</h2>
-                <h3 className="subtitle">{homeSubtitle}</h3>
+                <blockquote>
+                  <h3 className="subtitle">{homeSubtitle}</h3>
+                </blockquote>
               </div>
             </div>
           </div>
         </div>
 
-        <section className="section -mining-society -gray">
-          <div className="l-layout">
-            <div className="row center-xs">
-              <div className="col-xs-12 col-md-10">
-                <h4 className="title">{societyTitle}</h4>
-                <p className="subtitle">{societySummary}</p>
-                <div className="button-box">
-                  <Button
-                    className="-big -round -gray"
-                  >
-                    <Link
-                      route="context"
-                      params={{ language: currentLanguage }}
-                    >
-                      <a>Show more</a>
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
         <div className="page-content">
-          <section className="section -index">
+
+          <section className="section sectionNews">
             <div className="l-layout">
-              <div className="row center-xs -no-text-align">
-                <div className="col-xs-12 col-md-10">
-                  <div className="row">
-                    <div className="col-xs-12">
-                      <h4 className="title">{indexTitle}</h4>
+              <div className="row">
+                <div className="col-md-6">
+                  {!!news.length &&
+                  <section className="section sectionNews">
+                    <div className="l-layout">
+                      <NewsBlock
+                        currentLanguage={currentLanguage}
+                      />
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-xs-12 col-md-6">
-                      <div className="highlight">
-                        <CustomContent>
-                          <div className="content" dangerouslySetInnerHTML={{ __html: indexText }} />
-                        </CustomContent>
-                      </div>
+                  </section>}
+                </div>
+
+
+
+                <div className="col-md-6">
+                  <div className="card card-cascade wider">
+                    <div className="view view-cascade gradient-card-header red-gradient">
+                      <h2 className="card-header-title mb-3">{indexTitle}</h2>
                     </div>
-                    <div className="col-xs-12 col-md-5 col-md-offset-1">
-                      <div className="sidenote">
-                        <div className="sidenote-content" dangerouslySetInnerHTML={{ __html: indexSidenote }} />
-                        <div className="button-box">
-                          <Button
-                            className="-round -red"
-                          >
-                            <Link
-                              route="index"
-                              params={{ language: currentLanguage }}
-                            >
-                              <a>Go to Index 2018</a>
-                            </Link>
-                          </Button>
-                        </div>
-                      </div>
+                    <div className="card-body card-body-cascade text-center indexBackground" >
+                      <Link
+                        route="index"
+                        className="red-text d-flex text-center flex-row-reverse p-2"
+                        params={{ language: currentLanguage }}
+                      >
+                        <a>
+                          <div className="foundationTitle" dangerouslySetInnerHTML={{ __html: indexSidenote }}></div>
+                        </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -137,12 +116,7 @@ class FoundationHomepagePage extends PureComponent {
               </div>
             </section>}
 
-          {!!news.length &&
-            <section className="section">
-              <div className="l-layout">
-                <NewsSlider />
-              </div>
-            </section>}
+
         </div>
         <Modal
           isOpen={modalOpen}
@@ -150,6 +124,8 @@ class FoundationHomepagePage extends PureComponent {
         >
           <ModalContent />
         </Modal>
+
+
       </div>
     );
   }

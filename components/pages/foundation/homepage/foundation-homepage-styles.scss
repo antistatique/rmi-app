@@ -1,5 +1,13 @@
 @import 'css/settings';
 
+.page-intro {
+  padding: 15px 0;
+
+  .subtitle {
+    font-size: 1.5em;
+    font-style: italic;
+  }
+}
 .c-foundation-homepage {
 
   .section {
@@ -13,7 +21,7 @@
   }
 
   .page-content {
-    padding: 100px 0;
+    padding: 30px 0;
 
     .section {
       padding: 0;
@@ -36,6 +44,155 @@
 
           > .button-box {
             margin: 25px 0 0;
+          }
+        }
+      }
+    }
+
+    .card {
+      -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      border: 0;
+      height: 400px;
+      font-weight: 400;
+      max-width: 490px;
+    }
+    .card {
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+
+      &.card-cascade.wider {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background-color: transparent;
+        border: 0;
+      }
+
+      h2 {
+        font-weight: 500;
+        font-size: 2rem;
+      }
+    }
+
+    .p-2 {
+      padding: .5rem!important;
+    }
+    .flex-row-reverse {
+      -ms-flex-direction: row-reverse!important;
+      flex-direction: row-reverse!important;
+      display: flex!important;
+    }
+
+    .waves-effect {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .red-text {
+      color: #bf3132;
+    }
+    .brown-text {
+      color: #603c2c;
+    }
+    .grey-text {
+      color: #9c9aa2;
+    }
+    .view {
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .card.card-cascade.wider .view.view-cascade {
+      z-index: 2;
+      padding: 1.6rem 1rem;
+      text-align: center;
+      color:#fff;
+      -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+      box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+      -webkit-border-radius: .25rem;
+      border-radius: .25rem;
+    }
+
+    .red-gradient {
+      background: -webkit-linear-gradient(50deg,#f8645c,#bf3132)!important;
+      background: -o-linear-gradient(50deg,#f8645c,#bf3132)!important;
+      background: linear-gradient(40deg,#f8645c,#bf3132)!important;
+    }
+    .grey-gradient {
+      background: -webkit-linear-gradient(50deg,#cdcbd3,#9c9aa2)!important;
+      background: -o-linear-gradient(50deg,#cdcbd3,#9c9aa2)!important;
+      background: linear-gradient(40deg,#cdcbd3,#9c9aa2)!important;
+    }
+    .brown-gradient {
+      background: -webkit-linear-gradient(50deg,#603c2c,#341501)!important;
+      background: -o-linear-gradient(50deg,#603c2c,#341501)!important;
+      background: linear-gradient(40deg,#603c2c,#341501)!important;
+    }
+
+    .card.card-cascade.wider .card-body.card-body-cascade {
+      -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+      margin-left: 4%;
+      margin-right: 4%;
+      background: #fff;
+      z-index: 1;
+      -webkit-border-radius: 0 0 .25rem .25rem;
+      border-radius: 0 0 .25rem .25rem;
+    }
+
+    .card-body {
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      padding: 1.25rem;
+
+      &.indexBackground {
+        background-image: url(/static/images/homepage_background_foundation.jpg) !important;
+        background-size: cover !important;
+        background-position: 50% 75% !important;
+        background-repeat: no-repeat !important;
+      }
+
+      .foundationTitle {
+        color: #bf3132;
+        text-align: center;
+        background: #fff;
+        border-radius: 10px;
+        padding: 10px 0;
+        margin-top: 120px;
+
+        &:hover {
+          -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+          box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+        }
+      }
+      .card-text {
+        color: #747373;
+        font-size: .9rem;
+        font-weight: 400;
+      }
+
+      ul {
+        li {
+          margin-bottom: 10px;
+
+          a:hover {
+            color: #bf3132;
+            text-decoration: underline;
           }
         }
       }
