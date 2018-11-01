@@ -179,14 +179,6 @@ class NavBar extends PureComponent {
     return (
       <nav className={navBarClass}>
         <style jsx global>{styles}</style>
-        <div className="logo">
-          <Link
-            route={root}
-            params={{ language: currentLanguage }}
-          >
-            <a><img className="logo-img" src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
-          </Link>
-        </div>
         {this.renderTabs()}
       </nav>
     );
