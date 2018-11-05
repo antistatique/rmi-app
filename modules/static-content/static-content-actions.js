@@ -9,6 +9,7 @@ import AboutService from 'services/foundation/about';
 import MediaService from 'services/foundation/media';
 import MethodologyYearService from 'services/foundation/methodology-year';
 import ResultsSectionService from 'services/results-section';
+import OurWorkService from 'services/foundation/our-work';
 
 export const setPageContent = createAction('static-content/setPageContent');
 export const setPageContentLoading = createAction('static-content/setPageContentLoading');
@@ -104,6 +105,21 @@ export const getMethodologyYear = createThunkAction('static-content/getMethodolo
         }).catch(errors => reject(errors));
     }));
 
+export const getOurWork = createThunkAction('static-content/getOurWork', (_options = {}) =>
+  dispatch =>
+    new Promise((resolve, reject) => {
+      dispatch(setPageContentLoading(true));
+
+      OurWorkService.getOurWork(_options)
+        .then((data) => {
+          const parsedData = new Jsona().deserialize(data);
+          dispatch(setPageContentLoading(false));
+
+          resolve(parsedData);
+          dispatch(setPageContent(parsedData));
+        }).catch(errors => reject(errors));
+    }));
+
 export const getResultSection = createThunkAction('static-content/getResultSection', (_options = {}) =>
   dispatch =>
     new Promise((resolve, reject) => {
@@ -129,5 +145,6 @@ export default {
   getAbout,
   getMedia,
   getMethodologyYear,
+  getOurWork,
   getResultSection
 };

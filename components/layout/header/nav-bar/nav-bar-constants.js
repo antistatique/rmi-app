@@ -63,11 +63,11 @@ export const FOUNDATION_NAVIGATION = [{
 }, {
   id: 6,
   label: 'Our work',
+  slug: 'index',
   query: {
     route: 'index',
     params: {}
   },
-  noLink: true,
   children: [{
     id: '9-1',
     label: 'Index 2018',

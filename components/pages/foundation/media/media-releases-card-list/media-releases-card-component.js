@@ -21,6 +21,8 @@ class MediaReleaseCard extends PureComponent {
   handleClick = () => {
     const { onClick, mediaRelease } = this.props;
     onClick(mediaRelease);
+    console.log('mediaRelease', mediaRelease);
+
   }
 
   render() {
