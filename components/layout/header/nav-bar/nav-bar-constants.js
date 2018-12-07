@@ -59,7 +59,8 @@ export const FOUNDATION_NAVIGATION = [{
   query: {
     route: 'about',
     params: {}
-  }
+  },
+  noLink: true
 }, {
   id: 6,
   label: 'Our work',
@@ -68,15 +69,8 @@ export const FOUNDATION_NAVIGATION = [{
     route: 'index',
     params: {}
   },
-  children: [{
-    id: '9-1',
-    label: 'Index 2018',
-    slug: 'index-2018',
-    query: {
-      route: 'index',
-      params: {}
-    }
-  }]
+  noLink: true,
+  children: []
 },
   {
   id: 7,

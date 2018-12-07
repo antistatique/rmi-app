@@ -14,9 +14,6 @@ class OurWorkPage extends PureComponent {
       text
     } = content[0];
 
-    console.log('props', this.props);
-    console.log('title', title);
-    console.log('content', content[0]);
 
     return (
       <div className="c-contact">

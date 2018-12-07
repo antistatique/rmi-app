@@ -13,7 +13,7 @@ import MediaReleasesCardList from './media-releases-card-list-component';
 export default connect(
   state => ({
     mediaReleases: parseMediaReleases(state),
-    loading: state.staticContent.loading
+    currentLanguage: state.language.current
   }),
   {
     toggleModal,

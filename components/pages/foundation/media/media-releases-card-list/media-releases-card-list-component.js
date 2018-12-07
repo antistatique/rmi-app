@@ -10,7 +10,8 @@ class MediaReleasesCardList extends PureComponent {
     mediaReleases: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
     toggleModal: PropTypes.func.isRequired,
-    setResourceId: PropTypes.func.isRequired
+    setResourceId: PropTypes.func.isRequired,
+    currentLanguage: PropTypes.string.isRequired,
   };
 
   openModal({ id }) {
@@ -21,7 +22,8 @@ class MediaReleasesCardList extends PureComponent {
   handleClick = mediaRelease => this.openModal(mediaRelease)
 
   render() {
-    const { mediaReleases, loading } = this.props;
+    const { mediaReleases, loading, currentLanguage } = this.props;
+
 
     return (
       <div className="media-releases-card-list">
@@ -29,6 +31,7 @@ class MediaReleasesCardList extends PureComponent {
           {mediaReleases.map(mediaRelease => (
             <div className="col-md-4" key={mediaRelease.id}>
               <MediaReleaseCard
+                currentLanguage={currentLanguage}
                 mediaRelease={mediaRelease}
                 onClick={this.handleClick}
               />

@@ -10,7 +10,8 @@ import Media from './media-component';
 export default connect(
   state => ({
     modalOpen: state.app.modal.open,
-    content: state.staticContent.content
+    content: state.staticContent.content,
+    currentLanguage: state.language.current
   }),
   {
     toggleModal,

@@ -14,7 +14,10 @@ import Media from 'components/pages/foundation/media';
 import { getMedia } from 'modules/static-content/static-content-actions';
 
 class MediaPage extends Page {
-  static propTypes = { mediaSection: PropTypes.string }
+  static propTypes = {
+    mediaSection: PropTypes.string,
+    mediaId: PropTypes.string
+  }
 
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
@@ -22,15 +25,18 @@ class MediaPage extends Page {
     await context.store.dispatch(getMedia({ include: ['media-releases'].join(',') }));
 
     return { ...props };
+
   }
 
   render() {
+    const mediaId = this.props.url.query.id;
+
     return (
       <Layout
         title="Media | The Foundation"
         description="Welcome to RMI | Media"
       >
-        <Media />
+        <Media  mediaId={mediaId} />
       </Layout>
     );
   }
