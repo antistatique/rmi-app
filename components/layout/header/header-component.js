@@ -22,8 +22,6 @@ class Header extends PureComponent {
     const logo = root === 'index' ?
       'RMI_Index_Color' : 'RMI_Foundation_Color';
 
-    console.log('pros', this.props);
-    console.log('root', root);
     const headerClass = classnames({
       'c-header': true,
       '-theme-1': root === 'index',

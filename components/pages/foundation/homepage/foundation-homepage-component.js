@@ -84,7 +84,7 @@ class FoundationHomepagePage extends PureComponent {
               }
 
 
-                <div className="col-md-4 col-xs-12">
+                <div className={"col-xs-12 col-md-" + (!news.length || !researchInsights.length? '6' : '4')}>
                   <div className="card card-cascade wider">
                     <div className="view view-cascade gradient-card-header red-gradient">
                       <h2 className="card-header-title mb-3">{indexTitle}</h2>

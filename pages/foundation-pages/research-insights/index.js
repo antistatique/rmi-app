@@ -26,7 +26,6 @@ class ResearchInsightsPage extends Page {
 
   render() {
 
-    console.log('fef',this.props.url.query);
     const researchInsightId = this.props.url.query.id;
 
     return (

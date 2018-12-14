@@ -108,7 +108,7 @@ export const getNavigation = createSelector(
         id: indexChild.id,
         label: indexChild.title,
         query: {
-          route: 'foundation-indexes',
+          route: 'our-work',
           params: {
             language: _currentLanguage,
             section: indexChild.slug
@@ -116,7 +116,7 @@ export const getNavigation = createSelector(
         }
       }));
 
-      const currentTreeIndex = mainNav.findIndex(tree => tree.query.route === 'index');
+      const currentTreeIndex = mainNav.findIndex(tree => tree.query.route === 'our-work');
       if (currentTreeIndex === -1) return mainNav;
       const currentTree = mainNav[currentTreeIndex];
       const treeWithChildren = {

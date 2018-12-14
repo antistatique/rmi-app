@@ -11,12 +11,14 @@ import FoundationHomepage from 'components/pages/foundation/homepage';
 
 // actions
 import { getHomePageContent } from 'modules/static-content/static-content-actions';
+import { getResearchInsights } from 'modules/static-content/static-content-actions';
 
 class FoundationPage extends Page {
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
 
-    await context.store.dispatch(getHomePageContent({ include: ['news'].join(',') }));
+    await context.store.dispatch(getHomePageContent({ include: ['news', 'research-insights'].join(',') }));
+
 
     return { ...props };
   }
