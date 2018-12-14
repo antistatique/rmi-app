@@ -7,12 +7,12 @@ const routes = nextRoutes();
 // Foundation routes
 routes.add('context', '/:language/foundation/context', 'foundation-pages/mining-society');
 routes.add('about', '/:language/foundation/about/:section?', 'foundation-pages/about');
-routes.add('our-work', '/:language/foundation/our-work/', 'foundation-pages/our-work');
+routes.add('our-work', '/:language/foundation/our-work', 'foundation-pages/our-work');
 routes.add('media', '/:language/foundation/media/:id?', 'foundation-pages/media');
 routes.add('contact', '/:language/foundation/contact', 'foundation-pages/contact');
 routes.add('news', '/:language/foundation/news', 'foundation-pages/news');
-routes.add('research-insights', '/:language/foundation/research-insights', 'foundation-pages/research-insights');
-routes.add('foundation-indexes', '/:language/foundation/index/:section', 'foundation-pages/indexes');
+routes.add('research-insights', '/:language/foundation/research-insights/:id?', 'foundation-pages/research-insights');
+routes.add('foundation-indexes', '/:language/foundation/our-work/:section', 'foundation-pages/indexes');
 routes.add('foundation', '/:language/foundation', 'foundation');
 
 // // Index routes

@@ -10,6 +10,7 @@ import MediaService from 'services/foundation/media';
 import MethodologyYearService from 'services/foundation/methodology-year';
 import ResultsSectionService from 'services/results-section';
 import OurWorkService from 'services/foundation/our-work';
+import ResearchInsightsService from 'services/foundation/research-insights';
 
 export const setPageContent = createAction('static-content/setPageContent');
 export const setPageContentLoading = createAction('static-content/setPageContentLoading');
@@ -60,6 +61,24 @@ export const getContact = createThunkAction('static-content/getContact', (_optio
         }).catch(errors => reject(errors));
     }));
 
+export const getResearchInsights = createThunkAction('static-content/getResearchInsights', (_options = {}) =>
+  dispatch =>
+    new Promise((resolve, reject) => {
+      dispatch(setPageContentLoading(true));
+
+      ResearchInsightsService.getResearchInsights(_options)
+        .then((data) => {
+          const parsedData = new Jsona().deserialize(data);
+          dispatch(setPageContentLoading(false));
+
+          resolve(parsedData);
+          dispatch(setPageContent(parsedData));
+        }).catch(errors => reject(errors));
+    }));
+
+
+
+
 export const getAbout = createThunkAction('static-content/getAbout', (_options = {}) =>
   dispatch =>
     new Promise((resolve, reject) => {
@@ -89,6 +108,7 @@ export const getMedia = createThunkAction('static-content/getMedia', (_options =
           dispatch(setPageContent(parsedData));
         }).catch(errors => reject(errors));
     }));
+
 
 export const getMethodologyYear = createThunkAction('static-content/getMethodologyYear', (_options = {}) =>
   dispatch =>
@@ -144,6 +164,7 @@ export default {
   getContact,
   getAbout,
   getMedia,
+  getResearchInsights,
   getMethodologyYear,
   getOurWork,
   getResultSection
