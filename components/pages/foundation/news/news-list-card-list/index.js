@@ -1,5 +1,4 @@
 // redux
-console.log('render or no ?');
 
 import { connect } from 'react-redux';
 

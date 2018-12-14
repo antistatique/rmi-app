@@ -33,7 +33,6 @@ class NewsListCardList extends PureComponent {
   render() {
     const { news, loading, currentLanguage } = this.props;
 
-    console.log('hehoo', news);
     return (
       <div className="news-list-card-list">
           <div className="row -equal-height">
