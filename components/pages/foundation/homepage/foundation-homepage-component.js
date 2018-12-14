@@ -7,7 +7,7 @@ import isEmpty from 'lodash/isEmpty';
 import Button from 'components/common/button';
 import Modal from 'components/common/modal';
 import CustomContent from 'components/common/custom-content';
-import NewsSlider from './news-slider';
+import ResearchInsightsBlock from 'components/pages/foundation/research-insights/research-insights-block';
 import NewsBlock from './news-block';
 import ModalContent from './modal-content';
 
@@ -18,6 +18,7 @@ class FoundationHomepagePage extends PureComponent {
   static propTypes = {
     content: PropTypes.object.isRequired,
     news: PropTypes.array.isRequired,
+    researchInsights: PropTypes.array.isRequired,
     setResourceId: PropTypes.func.isRequired,
     modalOpen: PropTypes.bool.isRequired,
     currentLanguage: PropTypes.string.isRequired,
@@ -30,7 +31,8 @@ class FoundationHomepagePage extends PureComponent {
   }
 
   render() {
-    const { content, news, modalOpen, currentLanguage } = this.props;
+
+    const { content, news, modalOpen, currentLanguage, researchInsights } = this.props;
     const {
       'home-title': homeTitle,
       'home-subtitle': homeSubtitle,
@@ -63,22 +65,26 @@ class FoundationHomepagePage extends PureComponent {
         <div className="page-content">
 
           <section className="section sectionNews">
-            <div className="l-layout">
-              <div className="row">
-                <div className="col-md-6">
-                  {!!news.length &&
-                  <section className="section sectionNews">
-                    <div className="l-layout">
+            <div className="l-layout row">
+              {!!news.length &&
+
+              <div className={"col-xs-12 col-md-" + (!!researchInsights.length ? '4' : '6 col-md-push-2')}>
+
                       <NewsBlock
                         currentLanguage={currentLanguage}
                       />
-                    </div>
-                  </section>}
                 </div>
+              }
+
+              {!!researchInsights.length &&
+                <div className={"col-xs-12 col-md-" + (!!news.length ? '4' : '6 col-md-push-2')}>
+                  <ResearchInsightsBlock currentLanguage={currentLanguage} />
+
+                </div>
+              }
 
 
-
-                <div className="col-md-6">
+                <div className="col-md-4 col-xs-12">
                   <div className="card card-cascade wider">
                     <div className="view view-cascade gradient-card-header red-gradient">
                       <h2 className="card-header-title mb-3">{indexTitle}</h2>
@@ -96,35 +102,11 @@ class FoundationHomepagePage extends PureComponent {
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           </section>
 
-          {existsRoadMapContent &&
-            <section className="section">
-              <div className="l-layout">
-                <div className="row center-xs -no-text-align">
-                  <div className="col-xs-12 col-md-10">
-                    {!isEmpty(roadmapTitle) &&
-                      <h4 className="title">{roadmapTitle}</h4>}
-                    {!isEmpty(roadmapText) &&
-                      <CustomContent>
-                        <div className="content" dangerouslySetInnerHTML={{ __html: roadmapText }} />
-                      </CustomContent>}
-                  </div>
-                </div>
-              </div>
-            </section>}
-
 
         </div>
-        <Modal
-          isOpen={modalOpen}
-          onRequestClose={this.closeModal}
-        >
-          <ModalContent />
-        </Modal>
-
 
       </div>
     );

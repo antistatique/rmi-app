@@ -11,6 +11,7 @@ export default connect(
     modalOpen: state.app.modal.open,
     content: state.staticContent.content,
     news: state.staticContent.content.news,
+    researchInsights: state.staticContent.content['research-insights'],
     currentLanguage: state.language.current
   }),
   {

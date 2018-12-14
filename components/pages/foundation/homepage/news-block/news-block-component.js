@@ -8,7 +8,7 @@ import { Link } from 'routes';
 import styles from './news-block-styles.scss';
 
 // constants
-const NEWS_PER_BLOCK = 5;
+const NEWS_PER_BLOCK = 4;
 
 class NewsBlock extends PureComponent {
   static propTypes = {
