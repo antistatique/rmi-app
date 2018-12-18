@@ -69,7 +69,15 @@ export const FOUNDATION_NAVIGATION = [{
     route: 'our-work',
     params: {}
   },
-  children: []
+  children: [{
+    id: '6-1',
+    label: 'Responsible Mining Index 2018',
+    slug: 'index',
+    query: {
+      route: 'index',
+      params: {}
+    }
+  }]
 },
   {
   id: 7,
