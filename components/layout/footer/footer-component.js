@@ -127,25 +127,14 @@ class Footer extends PureComponent {
                         and indicate if changes were made. The licensed
                         material may not be used for commercial purposes,
                         or in a discriminating, degrading or distorting way.
-                        When cited, attribute to: ‚ÄúResponsible Mining Index
-                        2018 (RMI), Responsible Mining Foundation (RMF).‚Äù
+                        When cited, attribute to: ìResponsible Mining Index
+                        2018 (RMI), Responsible Mining Foundation (RMF).î
                         Images, photographs, and video content depicted on
                         RMI and RMF websites are excluded from this license,
                         except where noted.
                       </p>
                     </div>
                   </div>}
-                <div className="footer-section -vizzuality">
-                  <span>Designed by
-                    <a
-                      href="https://vizzuality.com/"
-                      rel="noreferrer noopener"
-                      target="_blank"
-                    >
-                      <img src="/static/logos/Vizz_Index_WHITE.svg" alt="Vizzuality" />
-                    </a>
-                  </span>
-                </div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
