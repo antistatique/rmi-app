@@ -127,8 +127,8 @@ class Footer extends PureComponent {
                         and indicate if changes were made. The licensed
                         material may not be used for commercial purposes,
                         or in a discriminating, degrading or distorting way.
-                        When cited, attribute to: “Responsible Mining Index
-                        2018 (RMI), Responsible Mining Foundation (RMF).”
+                        When cited, attribute to: "Responsible Mining Index
+                        2018 (RMI), Responsible Mining Foundation (RMF)."
                         Images, photographs, and video content depicted on
                         RMI and RMF websites are excluded from this license,
                         except where noted.
