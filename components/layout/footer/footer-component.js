@@ -26,16 +26,6 @@ class Footer extends PureComponent {
           <div className="row">
             <div className="col-xs-12 col-sm-6">
               <div className="left-side">
-                <div className="footer-section">
-                  <Link
-                    route={root}
-                    params={{ language: currentLanguage }}
-                  >
-                    <a href="">
-                      <img src={`/static/logos/${logo}.svg`} alt="Responsible Mining Index" />
-                    </a>
-                  </Link>
-                </div>
                 {isFoundation &&
                   <div className="footer-section">
                     <span>&copy; 2018 - Responsible Mining FOUNDATION</span>
