@@ -32,7 +32,7 @@ class Footer extends PureComponent {
                     params={{ language: currentLanguage }}
                   >
                     <a href="">
-                      <img src={'/static/logos/${logo}.svg'} alt="Responsible Mining Index" />
+                      <img src={'/static/logos/RMI_Index_WHITE.svg'} alt="Responsible Mining Index" />
                     </a>
                   </Link>
                 </div>
