@@ -29,16 +29,15 @@ React & Node powered.
     vim .env
     ```
    
-    Set the API port, by default `3001` if unchanged in your RMI-API project
-
+    Set the App port, by default your RMI-API project use `3001` don't use the same
     ```
-    PORT=3001
+    PORT=3002
     ```
    
-    Set the API url, by default `http://localhost`. Obviously the RMI-API Docker should be up
+    Set the API url, by default `http://localhost:3001`. Obviously the RMI-API Docker should be up
 
     ```
-    API_URL=http://localhost
+    API_URL=http://localhost:3001
     ```
    
     Set the API token, which can be found in your RMI-API `docker-compose.yml` -> `secretKey`
