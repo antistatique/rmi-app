@@ -37,10 +37,16 @@ React & Node powered.
     Set the API url, by default `http://localhost:3001`. Obviously the RMI-API Docker should be up
 
     ```
-    API_URL=http://localhost:3001
+    API_URL=http://localhost:3001/api
     ```
    
-    Set the API token, which can be found in your RMI-API `docker-compose.yml` -> `secretKey`
+    Set the API token, if unchanged in your RMI-API Docker, get the token on 1Password under `RMI - Responsible Mining Index (RMI) - API` in the *.env* section. Otherwise, you can check the key `AUTH_TOKEN` into `docker-compose.yml` of your RMI-API Docker project.
+
+    ```
+    API_TOKEN=
+    ```
+   
+    Set the TRANSIFEX API key, which can be found 1Password under `RMI - Responsible Mining Index (RMI) - API` in the *.env* section
 
     ```
     API_TOKEN=
