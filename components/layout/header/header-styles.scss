@@ -13,19 +13,28 @@
   }
 
   .logo {
-    height: 100%;
+    display: inline-flex;
+    height: 2em;
+    align-self: flex-end;
+    margin-top: 1.25em;
 
-    a {
+    .logo-img {
       height: 100%;
+    }
 
-      img {
-        height: 35%;
-        margin-top: 5%;
-      }
+    .logo-year {
+      color: white;
+      font-family: "Bitter",serif;
+      font-size: 2.2em;
+      display: block;
+      margin-left: 0.25em;
+      position: relative;
+      top: -0.05em;
     }
   }
+
   &.-theme-1 {
-    background: $color-2;
+    background: $color-3;
   }
 
   &.-theme-2 {

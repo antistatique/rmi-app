@@ -94,7 +94,7 @@ class Footer extends PureComponent {
 
                     </ul>
                     <Link
-                      /*route="foundation"*/
+                      route="foundation"
                       params={{ language: currentLanguage }}
                     >
                       <a href="https://responsibleminingfoundation.org"

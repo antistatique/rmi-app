@@ -34,14 +34,15 @@ class Header extends PureComponent {
         <div className="l-layout">
           <div className="row">
             <div className="col-md-4">
-              <div className="logo">
-                <Link
-                  route={root}
-                  params={{ language: currentLanguage }}
-                >
-                  <a><img className="logo-img" src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
-                </Link>
-              </div>
+              <Link
+                route={root}
+                params={{ language: currentLanguage }}
+              >
+                <a className="logo">
+                  <img className="logo-img" src={`/static/logos/${logo}.svg`} alt="RMI logo" />
+                  <span className="logo-year">2020</span>
+                </a>
+              </Link>
             </div>
             <div className="col-md-8">
               <div className="row float-right">

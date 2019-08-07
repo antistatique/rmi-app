@@ -27,13 +27,24 @@ export const INDEX_NAVIGATION = [{
     noLink: true
   }]
 }, {
-  id: 2,
-  label: 'Leading Practices',
-  slug: 'leading-practices',
+  id: 9,
+  label: 'Findings',
+  slug: 'findings',
   query: {
-    route: 'leading-practices',
+    route: 'findings',
     params: {}
-  }
+  },
+  children: [
+    {
+      id: '9-1',
+      label: 'Leading Practices',
+      slug: 'leading-practices',
+      query: {
+        route: 'leading-practices',
+        params: {}
+      }
+    }
+  ],
 }, {
   id: 3,
   label: 'Companies',
@@ -48,6 +59,105 @@ export const INDEX_NAVIGATION = [{
   slug: 'mine-sites',
   query: {
     route: 'mine-sites',
+    params: {}
+  }
+}, {
+  id: 10,
+  label: 'Resources',
+  slug: 'resources',
+  query: {
+    route: 'resources',
+    params: {}
+  },
+  children: [
+    {
+      id: '10-1',
+      label: 'Document library',
+      slug: 'document-library',
+      query: {
+        route: 'resources/document-library',
+        params: {}
+      }
+    },
+    {
+      id: '10-2',
+      label: 'Company subsidiaries',
+      slug: 'company-subsidiaries',
+      query: {
+        route: 'resources/company-subsidiaries',
+        params: {}
+      }
+    },
+    {
+      id: '10-3',
+      label: 'Maps & Tables',
+      slug: 'maps-and-tables',
+      query: {
+        route: 'resources/maps-and-tables',
+        params: {}
+      }
+    },
+    {
+      id: '10-4',
+      label: 'Summary reports',
+      slug: 'summary-reports',
+      query: {
+        route: 'resources/summary-reports',
+        params: {}
+      }
+    },
+    {
+      id: '10-5',
+      label: 'Additional translations',
+      slug: 'additional-translations',
+      query: {
+        route: 'resources/additional-translations',
+        params: {}
+      }
+    },
+    {
+      id: '10-6',
+      label: 'Raw data',
+      slug: 'raw-data',
+      query: {
+        route: 'resources/raw-data',
+        params: {}
+      }
+    },
+    {
+      id: '10-7',
+      label: 'Scoring framework',
+      slug: 'scoring-framework',
+      query: {
+        route: 'resources/scoring-framework',
+        params: {}
+      }
+    },
+    {
+      id: '10-8',
+      label: 'Methodology',
+      slug: 'methodology',
+      query: {
+        route: 'resources/methodology',
+        params: {}
+      }
+    },
+    {
+      id: '10-9',
+      label: 'Corrigenda',
+      slug: 'Corrigenda',
+      query: {
+        route: 'resources/corrigenda',
+        params: {}
+      }
+    }
+  ]
+},
+{
+  id: 11,
+  label: 'About',
+  query: {
+    route: 'results',
     params: {}
   }
 }];
