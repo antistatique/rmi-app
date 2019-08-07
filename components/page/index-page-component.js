@@ -7,7 +7,6 @@ import { setRoute } from 'modules/routes/routes-actions';
 import { mobileParser } from 'react-responsive-redux';
 import { setMobileDetect } from 'modules/responsive/responsive-actions';
 import { setCurrentLanguage } from 'modules/language/languages-actions';
-import { getResultsTree } from 'modules/navigation/navigation-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 
 // helpers
@@ -41,7 +40,6 @@ class Page extends PureComponent {
 
       // retrieve resuls tree to populate navigation
       await store.dispatch(getIndicators({ 'filter[kind]': 'issue_areas' }));
-      await store.dispatch(getResultsTree({ sort: 'position' }));
 
       return { routes };
     } catch (e) {

@@ -17,11 +17,27 @@ export const INDEX_NAVIGATION = [{
     }
   }, {
     id: '1-2',
+    label: 'Overall Mine-site Results',
+    slug: 'mine-site-summary',
+    query: {
+      route: 'results/mine-site-summary',
+      params: { }
+    }
+  }, {
+    id: '1-3',
+    label: 'What RMI measures',
+    slug: 'what-rmi-measures',
+    query: {
+      route: 'results/what-rmi-measures',
+      params: { }
+    }
+  }, {
+    id: '1-4',
     label: 'Thematic Areas',
     slug: 'thematic-areas',
     query: {
-      route: 'results',
-      params: { route: 'results' }
+      route: 'results/thematic-areas',
+      params: { }
     },
     children: [],
     noLink: true
@@ -37,10 +53,34 @@ export const INDEX_NAVIGATION = [{
   children: [
     {
       id: '9-1',
+      label: 'Key Findings',
+      slug: 'key-findings',
+      query: {
+        route: 'findings/key-findings',
+        params: {}
+      }
+    }, {
+      id: '9-2',
+      label: 'Observations',
+      slug: 'observations',
+      query: {
+        route: 'findings/observations',
+        params: {}
+      }
+    }, {
+      id: '9-3',
       label: 'Leading Practices',
       slug: 'leading-practices',
       query: {
-        route: 'leading-practices',
+        route: 'findings/leading-practices',
+        params: {}
+      }
+    }, {
+      id: '9-4',
+      label: 'Adverse Impacts',
+      slug: 'adverse-impacts',
+      query: {
+        route: 'findings/adverse-impacts',
         params: {}
       }
     }

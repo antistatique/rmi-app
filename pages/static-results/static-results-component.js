@@ -9,8 +9,6 @@ import Page from 'components/page';
 import Layout from 'components/layout';
 import StaticResult from 'components/pages/static-result';
 
-// actions
-import { getResultSection } from 'modules/static-content/static-content-actions';
 
 class StaticResultsPage extends Page {
   static async getInitialProps(context) {
