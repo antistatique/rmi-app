@@ -7,6 +7,9 @@ import { getScoresByIssueArea } from './overall-graphs-selectors';
 import OverallGraphs from './overall-graphs-component';
 
 export default connect(
-  state => ({ data: getScoresByIssueArea(state) }),
+  state => ({
+    data: getScoresByIssueArea(state),
+    currentLanguage: state.language.current
+  }),
   {}
 )(OverallGraphs);
