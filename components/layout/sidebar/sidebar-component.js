@@ -44,9 +44,6 @@ class Sidebar extends Component {
       '-theme-2': root !== 'index'
     });
 
-    const logo = root === 'index' ?
-      'RMI_Index_Color' : 'RMI_Foundation_Color';
-
     return (
       <div className={sidebarClasses}>
         <style jsx>{styles}</style>
@@ -57,7 +54,7 @@ class Sidebar extends Component {
                 route={root}
                 params={{ language: currentLanguage }}
               >
-                <a className="app-logo"><img src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
+                <a className="app-logo"><img src={`/static/logos/RMI_Index_Color.svg`} alt="RMI logo" /></a>
               </Link>
               <Button
                 padding={false}

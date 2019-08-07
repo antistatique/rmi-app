@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import orderBy from 'lodash/orderBy';
 
 // constants
-import { INDEX_NAVIGATION, FOUNDATION_NAVIGATION } from './nav-bar-constants';
+import { INDEX_NAVIGATION } from './nav-bar-constants';
 
 const routeRoot = state => state.routes.root;
 const navChildren = state => state.navigation;
@@ -13,13 +13,12 @@ const currentLanguage = state => state.language.current;
 export const getNavigation = createSelector(
   [routeRoot, navChildren, indicators, currentLanguage],
   (_routeRoot, _navChildren, _indicators, _currentLanguage) => {
-    const isFoundation = _routeRoot === 'foundation';
     const { resultsChildren, aboutChildren, indexChildren } = _navChildren;
-    const mainNav = isFoundation ? [...FOUNDATION_NAVIGATION] : [...INDEX_NAVIGATION];
+    const mainNav = [...INDEX_NAVIGATION];
     let firstStaticPages = [];
 
     // results tree - other pages
-    if (!isFoundation && resultsChildren) {
+    if (resultsChildren) {
       const children = resultsChildren.map(resultChildren => ({
         id: resultChildren.id,
         label: resultChildren.title,
@@ -50,7 +49,7 @@ export const getNavigation = createSelector(
     }
 
     // results tree - indicators
-    if (!isFoundation && _indicators.length) {
+    if (_indicators.length) {
       const children = _indicators.filter(ind => ind.kind === 'issue_areas').map(indicatorChild => ({
         id: indicatorChild.id,
         label: indicatorChild.label,
@@ -78,56 +77,6 @@ export const getNavigation = createSelector(
       firstStaticPages.reverse().forEach((sp) => {
         mainNav[currentTreeIndex].children.unshift(sp);
       });
-    }
-
-    // about tree
-    if (isFoundation && aboutChildren) {
-      const children = orderBy(aboutChildren, 'position', 'asc').map(aboutChild => ({
-        id: aboutChild.id,
-        label: aboutChild.title,
-        query: {
-          route: 'about',
-          params: {
-            language: _currentLanguage,
-            section: aboutChild.slug
-          }
-        }
-      }));
-
-      const currentTreeIndex = mainNav.findIndex(tree => tree.query.route === 'about');
-      if (currentTreeIndex === -1) return mainNav;
-      const currentTree = mainNav[currentTreeIndex];
-      const treeWithChildren = Object.assign({}, currentTree, { children });
-
-      mainNav[currentTreeIndex] = treeWithChildren;
-    }
-
-    // index tree
-    if (isFoundation && indexChildren) {
-      const children = indexChildren.map(indexChild => ({
-        id: indexChild.id,
-        label: indexChild.title,
-        query: {
-          route: 'our-work',
-          params: {
-            language: _currentLanguage,
-            section: indexChild.slug
-          }
-        }
-      }));
-
-      const currentTreeIndex = mainNav.findIndex(tree => tree.query.route === 'our-work');
-      if (currentTreeIndex === -1) return mainNav;
-      const currentTree = mainNav[currentTreeIndex];
-      const treeWithChildren = {
-        ...currentTree,
-        children: [
-          ...currentTree.children,
-          ...children
-        ]
-      };
-
-      mainNav[currentTreeIndex] = treeWithChildren;
     }
 
     // sets language

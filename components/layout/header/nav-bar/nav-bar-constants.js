@@ -162,53 +162,7 @@ export const INDEX_NAVIGATION = [{
   }
 }];
 
-export const FOUNDATION_NAVIGATION = [{
-  id: 5,
-  label: 'About',
-  slug: 'about',
-  query: {
-    route: 'about',
-    params: {}
-  },
-  noLink: true
-}, {
-  id: 6,
-  label: 'Our work',
-  slug: 'our-work',
-  query: {
-    route: 'our-work',
-    params: {}
-  },
-  children: [{
-    id: '6-1',
-    label: 'Responsible Mining Index 2018',
-    slug: 'index',
-    query: {
-      route: 'index',
-      params: {}
-    }
-  }]
-},
-  {
-  id: 7,
-  label: 'Media',
-  slug: 'media',
-  query: {
-    route: 'media',
-    params: {}
-  }
-},
-  {
-  id: 8,
-  label: 'Contact',
-  slug: 'contact',
-  query: {
-    route: 'contact',
-    params: {}
-  }
-}];
 
 export default {
-  INDEX_NAVIGATION,
-  FOUNDATION_NAVIGATION
+  INDEX_NAVIGATION
 };

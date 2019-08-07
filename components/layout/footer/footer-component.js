@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'routes';
+import Disclaimer from 'components/common/disclaimer';
 
 // styles
 import styles from './footer-styles.scss';
@@ -97,9 +96,7 @@ class Footer extends PureComponent {
           </div>
           <div>
             <div className="copyright">
-              <h3>Disclaimer</h3>
-              <p>Son if far bar get administration business sister. Air describe heart lose.
-              Collection response increase language attention treatment per.</p>
+              <Disclaimer />
             </div>
           </div>
         </div>

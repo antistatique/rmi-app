@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 // components
 import Map from 'components/common/map';
-import Disclaimer from 'components/common/disclaimer';
 import CompanyDetailHeader from './companies-detail-header';
 import CompaniesDetailSidebar from './companies-detail-sidebar';
 import CompaniesDetailScoresBreakDown from './companies-detail-scores-breakdown';
@@ -79,16 +78,6 @@ class CompaniesDetail extends PureComponent {
             </div>
           </div>
           <CompaniesDetailScoresBreakDown />
-          <div className="page-break" />
-          <div className="section">
-            <div className="l-layout">
-              <div className="row">
-                <div className="col-xs-12">
-                  <Disclaimer />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     );

@@ -164,20 +164,8 @@ class NavBar extends PureComponent {
   }
 
   render() {
-    const { routes, currentLanguage } = this.props;
-    const { root } = routes;
-
-    const logo = root === 'index' ?
-      'RMI_Index_Color' : 'RMI_Foundation_Color';
-
-    const navBarClass = classnames({
-      'c-nav-bar': true,
-      '-theme-1': root === 'index',
-      '-theme-2': root !== 'index'
-    });
-
     return (
-      <nav className={navBarClass}>
+      <nav className="c-nav-bar">
         <style jsx global>{styles}</style>
         {this.renderTabs()}
       </nav>

@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HeadNext from 'next/head';
@@ -35,7 +35,6 @@ class Head extends PureComponent {
 
   render() {
     const { title, description, root } = this.props;
-    const isFoundation = root !== 'index';
     const originalUrl = this.props.originalUrl || window.location.pathname;
 
     return (
@@ -68,28 +67,10 @@ class Head extends PureComponent {
         <meta name="theme-color" content="#ffffff" />
 
         {/* Social media sharing  */}
-        {!isFoundation &&
-          <Fragment>
-            <meta property="og:title" content={`${title} | RMI - Responsible Mining Index 2018`} />
-            <meta property="og:description" content={description} />
-            <meta property="og:image" content="http://rmi.vizzuality.com/static/images/homepage_background.jpg" />
-          </Fragment>
-        }
-
-        {isFoundation &&
-          <Fragment>
-            <meta property="og:title" content={title} />
-            <meta
-              property="og:description"
-              content="Encouraging continuous improvement in
-                responsible mining in the minerals and metals industry by transparently assessing the
-                performance of mining companies, highlighting leading practice and supporting learning"
-            />
-            <meta property="og:image" content="http://rmi.vizzuality.com/static/images/rmf-social-og.png" />
-
-          </Fragment>
-        }
-
+        <meta property="og:title" content={`${title} | RMI - Responsible Mining Index 2018`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="http://rmi.vizzuality.com/static/images/homepage_background.jpg" />
+      
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:url" content={originalUrl} />
 
