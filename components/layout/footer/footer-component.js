@@ -6,19 +6,7 @@ import { Link } from 'routes';
 import styles from './footer-styles.scss';
 
 class Footer extends PureComponent {
-  static propTypes = {
-    root: PropTypes.string.isRequired,
-    currentLanguage: PropTypes.string.isRequired
-  }
-
   render() {
-    const { root, currentLanguage } = this.props;
-
-    const isFoundation = root !== 'index';
-
-    const logo = isFoundation ?
-      'RMF-logo-WHITE' : 'RMI_Index_WHITE';
-
     return (
       <footer className="c-footer">
         <style jsx>{styles}</style>
@@ -26,82 +14,6 @@ class Footer extends PureComponent {
           <div className="row">
             <div className="col-xs-12 col-sm-6">
               <div className="left-side">
-                <div className="footer-section">
-                  <Link
-                    route={root}
-                    params={{ language: currentLanguage }}
-                  >
-                    <a href="">
-                      <img src={'/static/logos/RMI_Index_WHITE.svg'} alt="Responsible Mining Index" />
-                    </a>
-                  </Link>
-                </div>
-                {isFoundation &&
-                  <div className="footer-section">
-                    <span>&copy; 2018 - Responsible Mining FOUNDATION</span>
-                  </div>}
-                {!isFoundation &&
-                  <div className="footer-section">
-                    <ul className="footer-nav-links-list">
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="subsidiaries"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Search by subsidiary</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="library"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Document Library</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="downloads"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Downloads</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="scoring-framework"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Scoring Framework</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="methodology"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Methodology</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="corrigenda"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Corrigenda</a>
-                        </Link>
-                      </li>
-
-                    </ul>
-                    <Link
-                      route="foundation"
-                      params={{ language: currentLanguage }}
-                    >
-                      <a href="https://responsibleminingfoundation.org"
-                        target="_blank" className="foundation-link" >Responsible Mining FOUNDATION</a>
-                    </Link>
-                  </div>}
-                {!isFoundation &&
                   <div className="footer-section">
                     <div className="copyright">
                       <p>Copyright notice</p>
@@ -135,7 +47,7 @@ class Footer extends PureComponent {
                         except where noted.
                       </p>
                     </div>
-                  </div>}
+                  </div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
@@ -181,6 +93,13 @@ class Footer extends PureComponent {
                   </form>
                 </div>
               </div>
+            </div>
+          </div>
+          <div>
+            <div className="copyright">
+              <h3>Disclaimer</h3>
+              <p>Son if far bar get administration business sister. Air describe heart lose.
+              Collection response increase language attention treatment per.</p>
             </div>
           </div>
         </div>

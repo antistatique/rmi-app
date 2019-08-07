@@ -19,17 +19,8 @@ class Header extends PureComponent {
   render() {
     const { root, currentLanguage } = this.props;
 
-    const logo = root === 'index' ?
-      'RMI_Index_Color' : 'RMI_Foundation_Color';
-
-    const headerClass = classnames({
-      'c-header': true,
-      '-theme-1': root === 'index',
-      '-theme-2': root !== 'index'
-    });
-
     return (
-      <header className={headerClass}>
+      <header className="c-header">
         <style jsx>{styles}</style>
         <div className="l-layout">
           <div className="row">
@@ -39,7 +30,7 @@ class Header extends PureComponent {
                 params={{ language: currentLanguage }}
               >
                 <a className="logo">
-                  <img className="logo-img" src={`/static/logos/${logo}.svg`} alt="RMI logo" />
+                  <img className="logo-img" src={`/static/logos/RMI_Index_Color.svg`} alt="RMI logo" />
                   <span className="logo-year">2020</span>
                 </a>
               </Link>
