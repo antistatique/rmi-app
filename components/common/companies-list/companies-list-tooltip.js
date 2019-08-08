@@ -45,7 +45,7 @@ class CompaniesListTooltip extends PureComponent {
             company: company.id
           }}
         >
-          <a className="company-link">See company report</a>
+          <a className="company-link">Go to company report</a>
         </Link>
       </div>
     );
