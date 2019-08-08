@@ -51,6 +51,10 @@
       font-family: $font-family-1;
       font-size: $font-size-big;
       color: $color-7;
+
+      :hover {
+        color: $color-5;
+      }
     }
   }
 }
