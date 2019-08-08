@@ -2,7 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 // components
-import OverallGraphsItem from './overall-graphs-item';
+import OverallGraphsItem from './overall-graphs-item-container';
 
 // constants
 import { GRAPHS_PER_ROW } from './overall-graphs-constants';
@@ -23,7 +23,10 @@ class OverallGraphs extends PureComponent {
         <div className="row">
           {graphs.map(graph => (
             <div key={graph.id} className="col-xs-12 col-md-4">
-              <OverallGraphsItem data={graph} currentLanguage={currentLanguage} />
+              <OverallGraphsItem
+                data={graph}
+                currentLanguage={currentLanguage}
+              />
             </div>
           ))}
         </div>
