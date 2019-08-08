@@ -6,6 +6,7 @@ import {
   ResponsiveContainer,
   BarChart,
   Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -51,6 +52,7 @@ class StackedBarsChart extends PureComponent {
 
   render() {
     const { data, bars } = this.props;
+
     const {
       // general chart config
       width,
@@ -120,7 +122,14 @@ class StackedBarsChart extends PureComponent {
                 onMouseOver={barOnMouseOver}
                 stackId="stack"
                 fill={this.handleBarFill(bar)}
-              />
+              >
+                {data.map(item => (
+                  <Cell
+                    key={item.name}
+                    fill={this.handleBarFill({ ...bar, ...item })}
+                  />
+                ))}
+              </Bar>
             ))}
             {showReferenceLine &&
               <ReferenceLine
