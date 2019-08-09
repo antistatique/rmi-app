@@ -9,6 +9,8 @@ import breakpoints from 'utils/responsive';
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
 import MineSitesFilters from 'components/pages/mine-sites/mine-sites-filters';
+import CountriesCentroids from 'components/common/map/data/countries-centroids.json';
+
 // constants
 import { MAP_LEGEND } from './mine-sites-constants';
 
@@ -26,13 +28,24 @@ class MineSite extends PureComponent {
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
 
+  constructor(props) {
+    super(props);
+
+    this.state = { center: null, zoom: null };
+  }
+
   componentWillUnmount() {
     this.props.resetFilters();
   }
 
-  handleClickGeography = (geography) => {
+  handleClickGeography = (geography, evt, map) => {
+    const x = (evt.target.getBoundingClientRect().width * 100) / map.width;
+    const y = (evt.target.getBoundingClientRect().height * 100) / map.height;
+    const zoom = 100 / Math.max(x, y);
+    const center = [CountriesCentroids[geography.properties.ISO_A2].lng, CountriesCentroids[geography.properties.ISO_A2].lat];
     const { ISO_A3 } = geography.properties;
     this.props.setFilters({ country: ISO_A3 });
+    this.setState({ zoom, center });
   };
 
   handleOpenTooltip = ({ id }) => {
@@ -102,6 +115,8 @@ class MineSite extends PureComponent {
                       setCountryColor={MineSite.setCountryColor}
                       legend={MAP_LEGEND}
                       onClickGeography={this.handleClickGeography}
+                      center={this.state.center !== null ? this.state.center : undefined}
+                      zoom={this.state.zoom !== null ? this.state.zoom : undefined}
                     />
                   </div>
                 </div>
