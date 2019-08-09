@@ -25,25 +25,25 @@ class Map extends PureComponent {
     setCountryColor: PropTypes.func.isRequired,
     legend: PropTypes.array.isRequired,
     responsive: PropTypes.object.isRequired,
-    onClickGeography: PropTypes.func
+    onClickGeography: PropTypes.func,
+    zoom: PropTypes.number,
+    center: PropTypes.array
   }
 
   static defaultProps = {
     markers: [],
-    onClickGeography: () => {}
+    onClickGeography: () => {},
+    zoom: 1,
+    center: [40, 0]
   }
 
   constructor(props) {
     super(props);
 
-    const { zoom, center } = MAP_DEFAULT_OPTIONS;
-
     this.state = {
-      zoom,
-      center
-    };
-
-    this.debouncedHandleMovedEnd = debounce(this.handleMoveEnd, 300);
+      zoom: null,
+      center: null
+    }
   }
 
   componentDidMount() {
@@ -52,6 +52,14 @@ class Map extends PureComponent {
   }
 
   componentWillUnmount() { this.tip.hide(); }
+
+  handleOnClickGeography(...args) {
+    this.setState({
+      zoom: null,
+      center: null
+    });
+    return this.props.onClickGeography(...args, ComposableMap.defaultProps);
+  }
 
   handleMove = (geography, evt) => {
     const x = evt.clientX;
@@ -84,12 +92,13 @@ class Map extends PureComponent {
 
   handleResetZoom = () => {
     const { zoom, center } = MAP_DEFAULT_OPTIONS;
-    this.setState({ zoom, center });
+    this.setState({
+      zoom,
+      center
+    });
   }
 
   handleZoomOut = () => { this.setState({ zoom: this.state.zoom - 1 }); }
-
-  handleMoveEnd = (center) => { this.setState({ center }); };
 
   renderMarkers() {
     return this.props.markers.map(marker =>
@@ -97,13 +106,12 @@ class Map extends PureComponent {
   }
 
   render() {
-    const { paths, legend, setCountryColor, onClickGeography, responsive } = this.props;
+    const { paths, legend, setCountryColor, responsive } = this.props;
     const { minZoom, maxZoom } = MAP_DEFAULT_OPTIONS;
     const { mobile } = responsive;
-    const { zoom, center } = this.state;
     const markers = this.renderMarkers();
-    const isZoomInDisabled = zoom === maxZoom;
-    const isZoomOutDisabled = zoom === minZoom;
+    const isZoomInDisabled = this.props.zoom >= maxZoom;
+    const isZoomOutDisabled = this.props.zoom <= minZoom;
 
     return (
       <div className="c-map">
@@ -135,9 +143,8 @@ class Map extends PureComponent {
           }
         >
           <ZoomableGroup
-            center={center}
-            zoom={zoom}
-            onMoveEnd={this.debouncedHandleMovedEnd}
+            center={this.state.center !== null && this.state.center !== undefined ? this.state.center : this.props.center}
+            zoom={this.state.zoom !== null && this.state.zoom !== undefined ? this.state.zoom : this.props.zoom}
           >
             <Geographies geography={paths} disableOptimization>
               {(geographies, projection) => geographies.map(geography => (
@@ -145,7 +152,7 @@ class Map extends PureComponent {
                   key={geography.properties.id}
                   geography={geography}
                   projection={projection}
-                  onClick={geography.properties.isClickable ? onClickGeography : undefined}
+                  onClick={geography.properties.isClickable ? this.handleOnClickGeography.bind(this) : undefined}
                   onMouseMove={this.handleMove}
                   onMouseLeave={this.handleLeave}
                   style={{
