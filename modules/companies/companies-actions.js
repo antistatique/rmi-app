@@ -28,8 +28,11 @@ export const getCompanies = createThunkAction('companies/getCompanies', _options
       CompaniesService.getCompanies(options)
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
-
-          resolve(parsedData);
+          resolve(parsedData.sort((firstElement, secondElement) => {
+            const firstElementNormalized = firstElement.name.toLowerCase();
+            const secondElementNormalized = secondElement.name.toLowerCase();
+            return (firstElementNormalized < secondElementNormalized) ? -1 : (firstElementNormalized > secondElementNormalized) ? 1 : 0;
+          }));
           dispatch(setCompaniesLoading(false));
           dispatch(setCompanies(parsedData));
         })
