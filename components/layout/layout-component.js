@@ -11,6 +11,7 @@ import Header from 'components/layout/header';
 import HeaderMobile from 'components/layout/header-mobile';
 import Sidebar from 'components/layout/sidebar';
 import Footer from 'components/layout/footer';
+import GoTopButton from 'components/layout/go-top-button/go-top-button-component';
 
 import styles from 'css/index.scss';
 
@@ -87,6 +88,7 @@ class Layout extends PureComponent {
         {/* content */}
         <div className="layout-content">
           {children}
+          <GoTopButton />
         </div>
 
         {/* footer */}

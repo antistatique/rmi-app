@@ -1,0 +1,12 @@
+@import 'css/settings';
+
+.go-top-button {
+    display: block;
+    position: fixed;
+    bottom: 50px;
+    right: 90px;
+    height: 40px;
+    width: 40px;
+    z-index: 99;
+    color: white;
+}
