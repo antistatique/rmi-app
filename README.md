@@ -57,3 +57,23 @@ React & Node powered.
     ```bash
     yarn dev
     ```
+   
+## 🏃 Run & Serve
+
+Once the project installed (see previous section), you may only need the `yarn dev` command.
+
+```bash
+nvm use v8.10.0
+yarn dev
+```
+
+`yarn dev` will automatically watch the directory for any future changes.
+
+You will be able to browser the project on `http://localhost:3002`. 
+The port may vary according value of `PORT` in your `.env` file, setup during project bootstrap.
+
+## After a git pull/merge
+
+```bash
+yarn dev
+```
