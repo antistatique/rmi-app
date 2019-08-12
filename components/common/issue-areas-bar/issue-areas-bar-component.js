@@ -19,6 +19,14 @@ class IssueAreasBar extends PureComponent {
 
   static defaultProps = { selectedissueArea: null }
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      stickyOffset: 0,
+    };
+  }
+
   getBackground(issueArea) {
     const { selectedissueArea } = this.props;
 
@@ -26,13 +34,27 @@ class IssueAreasBar extends PureComponent {
       AREA_ISSUE_COLOURS[issueArea.id] : 'transparent';
   }
 
+  componentDidMount() {
+    // As we have multiple sticky header, we have to offset the css:sticky property to works.
+    // We calculate the height of the 2 sticky headers and add it as offset.
+    const siteHeader = document.querySelector('header');
+    const companyHeader = document.querySelector('.c-companies-detail-header');
+
+    const stickyOffset = siteHeader.offsetHeight + companyHeader.offsetHeight + 25
+    this.setState({
+      stickyOffset: stickyOffset,
+    });
+  }
+
   render() {
     const { issueAreas, setIssueArea } = this.props;
 
     return (
-      <div className="c-issue-areas-bar">
+      <div className="c-issue-areas-bar align-items-start">
         <style jsx>{styles}</style>
-        <ul>
+        <ul className="sticky-top" style={{
+          top: this.state.stickyOffset
+        }}>
           {issueAreas.map(issueArea => (
             <li key={issueArea.id}>
               <button
