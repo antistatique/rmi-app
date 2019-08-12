@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import Button from 'components/common/button';
+import Icon from 'components/common/icon';
 
 // styles
 import styles from './go-top-button-styles.scss';
@@ -33,7 +33,9 @@ class GoTopButton extends PureComponent {
     return (
       <div className="c-go-top-button">
         <style jsx>{styles}</style>
-        { this.state.show && <button onClick={this.goToTop} className="go-top-button">Hello</button> }
+        { this.state.show && <button onClick={this.goToTop} className="go-top-button">
+          <Icon name="arrow-up" className="-big" />
+        </button> }
       </div>
     );
   }
