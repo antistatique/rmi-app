@@ -25,15 +25,14 @@ class GoTopButton extends PureComponent {
   }
 
   goToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   render() {
     return (
       <div className="c-go-top-button">
         <style jsx>{styles}</style>
-        { this.state.show && <button onClick={this.goToTop} className="go-top-button">
+        {<button onClick={this.goToTop} className={'go-top-button ' + (this.state.show ? 'go-top-button-show' : '')}>
           <Icon name="arrow-up" className="-big" />
         </button> }
       </div>
