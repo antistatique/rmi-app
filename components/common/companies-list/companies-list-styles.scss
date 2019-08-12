@@ -80,5 +80,9 @@
 
     font-size: $font-size-big;
     text-align: center;
+
+    &:hover {
+      background-color: $color-5;
+    }
   }
 }
