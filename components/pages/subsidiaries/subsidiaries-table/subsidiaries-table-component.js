@@ -60,6 +60,7 @@ class SubsidiariesTable extends PureComponent {
             placeholder={limit}
             options={TABLE_SIZE_VALUES}
             onChange={this.handleSize}
+            className="c-select-bordered c-select-tiny"
           />
         </div>
 
