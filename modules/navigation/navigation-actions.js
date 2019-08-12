@@ -1,7 +1,5 @@
-import { createAction, createThunkAction } from 'redux-tools';
+import { createAction } from 'redux-tools';
 
 export const setContent = createAction('navigation/setContent');
 
-export default {
-  setContent
-};
+export default { setContent };

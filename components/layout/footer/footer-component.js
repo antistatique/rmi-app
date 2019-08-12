@@ -13,40 +13,40 @@ class Footer extends PureComponent {
           <div className="row">
             <div className="col-xs-12 col-sm-6">
               <div className="left-side">
-                  <div className="footer-section">
-                    <div className="copyright">
-                      <p>Copyright notice</p>
-                      <p>
-                        All data and written content are licensed
-                        under the Creative Commons Attribution-NonCommercial
-                        4.0 International License (CC BY-NC 4.0).
-                      </p>
-                      <a
-                        href="https://creativecommons.org/licenses/by-nc/4.0/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="license"
-                      >
-                        <img
-                          className="license-img"
-                          src="/static/images/cc-by-nc_icon.png"
-                          alt="Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)"
-                        />
-                      </a>
-                      <p>
-                        Users are free to share and adapt the material but must give
-                        appropriate credit, provide a link to the license
-                        and indicate if changes were made. The licensed
-                        material may not be used for commercial purposes,
-                        or in a discriminating, degrading or distorting way.
-                        When cited, attribute to: "Responsible Mining Index
-                        2018 (RMI), Responsible Mining Foundation (RMF)."
-                        Images, photographs, and video content depicted on
-                        RMI and RMF websites are excluded from this license,
-                        except where noted.
-                      </p>
-                    </div>
+                <div className="footer-section">
+                  <div className="copyright">
+                    <p>Copyright notice</p>
+                    <p>
+                      All data and written content are licensed
+                      under the Creative Commons Attribution-NonCommercial
+                      4.0 International License (CC BY-NC 4.0).
+                    </p>
+                    <a
+                      href="https://creativecommons.org/licenses/by-nc/4.0/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="license"
+                    >
+                      <img
+                        className="license-img"
+                        src="/static/images/cc-by-nc_icon.png"
+                        alt="Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)"
+                      />
+                    </a>
+                    <p>
+                      Users are free to share and adapt the material but must give
+                      appropriate credit, provide a link to the license
+                      and indicate if changes were made. The licensed
+                      material may not be used for commercial purposes,
+                      or in a discriminating, degrading or distorting way.
+                      When cited, attribute to: "Responsible Mining Index
+                      2018 (RMI), Responsible Mining Foundation (RMF)."
+                      Images, photographs, and video content depicted on
+                      RMI and RMF websites are excluded from this license,
+                      except where noted.
+                    </p>
                   </div>
+                </div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
