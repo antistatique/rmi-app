@@ -33,7 +33,7 @@ class Header extends PureComponent {
         <style jsx>{styles}</style>
         <div className="l-layout">
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-xs-4">
               <div className="logo">
                 <Link
                   route={root}
@@ -43,7 +43,7 @@ class Header extends PureComponent {
                 </Link>
               </div>
             </div>
-            <div className="col-md-8">
+            <div className="col-xs-8">
               <div className="row float-right">
                 <LanguageBar />
               </div>

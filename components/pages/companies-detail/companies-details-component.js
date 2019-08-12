@@ -55,7 +55,7 @@ class CompaniesDetail extends PureComponent {
         <style jsx>{styles}</style>
 
         <div className="page-content">
-          <div className="companies-detail-intro">
+          <div className="companies-detail-intro" id="contextual-data">
             <CompanyDetailHeader />
             <div className="l-layout">
               <div className="companies-detail-preview">

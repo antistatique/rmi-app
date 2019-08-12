@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Router, Link } from 'routes';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 // components
 import Icon from 'components/common/icon';
@@ -23,10 +24,12 @@ class CompaniesDetailHeader extends PureComponent {
     const parsedListings = (listings || '').split(' - ')
       .map(list => list.split(':'));
 
+    const styleLink = {display: "inline-block", padding: "0.5em 1em 0.5em 0", fontSize: "0.9em"};
+
     return (
       <div className="c-companies-detail-header">
         <style jsx>{styles}</style>
-        <div className="l-layout">
+        <div className="l-layout main-section-container">
           <div className="print-logo">
             <h2 className="print-page-title">Company report</h2>
             <img className="logo-img" src="/static/logos/RMIndex_vector.svg" alt="RMI logo" />
@@ -71,6 +74,23 @@ class CompaniesDetailHeader extends PureComponent {
                     Print Report
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="anchor-navigation-container">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-md-12">
+                <ul className="anchor-navigation">
+                  <li><AnchorLink offset="100" style={styleLink} href="#contextual-data">Contextual Data</AnchorLink></li>
+                  <li><AnchorLink offset="100" style={styleLink} href="#overall-results">Overall Results</AnchorLink></li>
+                  <li><AnchorLink offset="100" style={styleLink} href="#indicator-by-indicator-results">Indicator-by-indicator Results</AnchorLink></li>
+                  <li><AnchorLink offset="100" style={styleLink} href="#mine-site-selection">Mine-site selection</AnchorLink></li>
+                  <li><AnchorLink offset="100" style={styleLink} href="#list-of-all-mine-sites">List of all mine sites</AnchorLink></li>
+                  <li><AnchorLink offset="100" style={styleLink} href="#shareholders-and-subsidiaries">Shareholders and Subsidiaries</AnchorLink></li>
+                  <li><AnchorLink offset="100" style={styleLink} href="#tax-jurisdictions">Tax jurisdictions</AnchorLink></li>
+                </ul>
               </div>
             </div>
           </div>
