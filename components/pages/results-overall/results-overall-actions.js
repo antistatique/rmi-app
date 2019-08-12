@@ -6,6 +6,8 @@ import scoresService from 'services/scores';
 
 export const setScores = createAction('overall-results-page/setScores');
 export const setLoadingScores = createAction('overall-results-page/setLoadingScores');
+export const setSelectedCompany = createAction('overall-results-page/setSelectedCompany');
+export const resetSelectedCompany = createAction('overall-results-page/resetSelectedCompany');
 
 export const getScores = createThunkAction('overall-results-page/getScores', _options =>
   dispatch =>

@@ -53,11 +53,7 @@ export const BAR_CONFIG = {
   xAxisTick: false,
   xAxisHeight: 10,
   // reference line config
-  showReferenceLine: true,
-  yReferenceLine: 0,
-  strokeReferenceLine: 'red',
-  strokeDasharrayReferenceLine: '3 5',
-  labelReferenceLine: 'Current Best Practice'
+  showReferenceLine: false
 };
 
 export default {

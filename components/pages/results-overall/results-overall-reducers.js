@@ -1,5 +1,6 @@
 
 import * as actions from './results-overall-actions';
+import initialState from './results-overall-initial-state';
 
 export default {
   [actions.setScores]: (state, { payload }) => ({
@@ -15,5 +16,8 @@ export default {
       ...state[payload.key],
       loading: payload.value
     }
-  })
+  }),
+  [actions.setSelectedCompany]: (state, { payload }) => ({ ...state, selectedCompany: payload }),
+  [actions.resetSelectedCompany]: state =>
+    ({ ...state, selectedCompany: initialState.selectedCompany })
 };

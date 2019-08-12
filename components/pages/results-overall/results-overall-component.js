@@ -53,11 +53,12 @@ class ResultsOverall extends PureComponent {
                   <OverallGraph />
                 </div>
               </div>
-              <div className="row">
+              { false && <div className="row">
                 <div className="col-xs-12">
                   <TopCompanies />
                 </div>
-              </div>
+                </div>
+              }
             </div>
           </section>
         </div>
