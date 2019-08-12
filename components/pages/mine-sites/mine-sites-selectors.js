@@ -29,7 +29,8 @@ export const getUpdatedPaths = createSelector(
             ...geography.properties,
             id: index,
             isClickable: !!((country.companies || []).length ||
-            (country.secondaryCompanies || []).length),
+              (country.secondaryCompanies || []).length ||
+              (country.producingCompanies || []).length),
             isHome: !!((country.companies || []).length ||
               (country.secondaryCompanies || []).length),
             isProducing: !!((country.producingCompanies || []).length)
