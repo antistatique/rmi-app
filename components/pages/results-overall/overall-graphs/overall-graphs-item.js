@@ -43,7 +43,7 @@ class OverallGraphs extends PureComponent {
                 className="-x-big"
               />
             </div>
-            <Link route="results" params={{ language: currentLanguage, section: 'thematic', id }}><a title="test" className="title">{label}</a></Link>
+            <Link route="results" params={{ language: currentLanguage, section: 'thematic', id }}><a title="Click here" className="title">{label} →</a></Link>
           </div>
         </div>
       </div>
