@@ -28,10 +28,16 @@ export const getCompanies = createThunkAction('companies/getCompanies', _options
       CompaniesService.getCompanies(options)
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
-          resolve(parsedData.sort((firstElement, secondElement) => {
-            const firstElementNormalized = firstElement.name.toLowerCase();
-            const secondElementNormalized = secondElement.name.toLowerCase();
-            return (firstElementNormalized < secondElementNormalized) ? -1 : (firstElementNormalized > secondElementNormalized) ? 1 : 0;
+          resolve(parsedData.sort((currentElement, nextElement) => {
+            // Due to API inconsistency, the array of companies needs to be ordered
+            const currentElementNormalized = currentElement.name.toLowerCase();
+            const nextElementNormalized = nextElement.name.toLowerCase();
+            if (currentElementNormalized < nextElementNormalized) {
+              return -1;
+            } else if (currentElementNormalized > nextElementNormalized) {
+              return 1;
+            }
+            return 0;
           }));
           dispatch(setCompaniesLoading(false));
           dispatch(setCompanies(parsedData));
