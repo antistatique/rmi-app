@@ -20,7 +20,10 @@
 @import 'global';
 
 // utilities
+@import 'utilities/breakpoints';
+@import 'utilities/display';
 @import 'utilities/spacing';
+@import 'utilities/flex';
 
 // components
 @import 'components/accordion';
