@@ -85,7 +85,7 @@ class CompaniesListItem extends PureComponent {
                 company: id
               }}
             >
-              <a className="company-name">{selectedCountry === company.country.id ? `${name} + Selected` : name}</a>
+              <a className={`company-name ${selectedCountry === company.country.id ? 'highlighted' : ''}`}>{name}</a>
             </Link>
           </div>
         </Fragment>
@@ -113,7 +113,7 @@ class CompaniesListItem extends PureComponent {
             className="companies-list-item"
             onClick={this.handleToggle}
           >
-            <span className="company-name">{selectedCountry === company.country.id ? `${name} + Selected` : name}</span>
+            <span className={`company-name ${selectedCountry === company.country.id ? 'highlighted' : ''}`}>{name}</span>
           </div>
           {visibility &&
             <CompaniesListTooltip
