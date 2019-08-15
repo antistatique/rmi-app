@@ -15,5 +15,10 @@ export default {
     list: [],
     loading: false,
     error: null
+  },
+  companies: {
+    list: [],
+    loading: false,
+    error: null
   }
 };

@@ -14,6 +14,7 @@ import styles from './leading-practices-styles.scss';
 class LeadingPracticesPage extends PureComponent {
   static propTypes = {
     topics: PropTypes.array.isRequired,
+    companies: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     leadingPracticesPagination: PropTypes.object.isRequired,
     modalOpen: PropTypes.bool.isRequired,
@@ -34,12 +35,23 @@ class LeadingPracticesPage extends PureComponent {
   handlePagination = (nextPage) => {
     this.props.setPaginationPage(nextPage);
     this.props.getLeadingPractices({ include: ['companies'].join(',') });
-  }
+  };
+
+  handleCompany = (selectedCompany) => {
+    const { filters } = this.props;
+    const { topic } = filters;
+
+    this.props.setPaginationPage(1);
+    this.props.setLeadingPracticesFilters({ company: selectedCompany.value, topic: topic ? topic.value : null });
+  };
 
   handleTopic = (selectedTopic) => {
+    const { filters } = this.props;
+    const { company } = filters;
+
     this.props.setPaginationPage(1);
-    this.props.setLeadingPracticesFilters({ topic: selectedTopic.value });
-  }
+    this.props.setLeadingPracticesFilters({ company: company ? company.value : '', topic: selectedTopic.value });
+  };
 
   closeModal = () => {
     this.props.toggleModal(false);
@@ -47,9 +59,9 @@ class LeadingPracticesPage extends PureComponent {
   }
 
   render() {
-    const { topics, leadingPracticesPagination, filters, modalOpen } = this.props;
+    const { topics, companies, leadingPracticesPagination, filters, modalOpen } = this.props;
     const { size, page, limit } = leadingPracticesPagination;
-    const { topic } = filters;
+    const { topic, company } = filters;
 
     return (
       <div className="c-leading-practices-page">
@@ -78,8 +90,20 @@ class LeadingPracticesPage extends PureComponent {
         <div className="section -dark">
           <div className="l-layout">
             <div className="leading-practices-container">
-              <div className="row end-sm">
-                <div className="col-xs-12 col-sm-6">
+              <div className="d-md-flex justify-content-md-end">
+                <div className="mr-md-4">
+                  <div className="filters-container">
+                    <Select
+                      onChange={this.handleCompany}
+                      options={companies}
+                      placeholder="Select a company"
+                      theme="light"
+                      selectedValue={company}
+                      className="-underline"
+                    />
+                  </div>
+                </div>
+                <div className="">
                   <div className="filters-container">
                     <Select
                       onChange={this.handleTopic}

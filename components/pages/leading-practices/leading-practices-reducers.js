@@ -95,5 +95,29 @@ export default {
         ...state.topics,
         error: payload
       }
-    })
+    }),
+  [actions.setCompanies]: (state, { payload }) => (
+    {
+      ...state,
+      companies: {
+        ...state.companies,
+        list: payload
+      }
+    }),
+  [actions.setCompaniesLoading]: (state, { payload }) => (
+    {
+      ...state,
+      companies: {
+        ...state.companies,
+        loading: payload
+      }
+    }),
+  [actions.setCompaniesError]: (state, { payload }) => (
+    {
+      ...state,
+      companies: {
+        ...state.companies,
+        error: payload
+      }
+    }),
 };

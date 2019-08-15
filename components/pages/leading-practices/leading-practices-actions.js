@@ -3,6 +3,8 @@ import { Deserializer } from 'jsonapi-serializer';
 
 import LeadingPracticesService from 'services/leading-practices';
 import TopicsService from 'services/topics';
+import CompaniesService from 'services/companies';
+import Jsona from 'jsona';
 
 export const setLeadingPractices = createAction('leading-practices-page/setLeadingPractices');
 export const setSelectedLeadingPractice = createAction('leading-practices-page/setSelectedLeadingPractice');
@@ -16,17 +18,23 @@ export const setPaginationPage = createAction('leading-practices-page/setPaginat
 export const setPaginationSize = createAction('leading-practices-page/setPaginationSize');
 export const resetPagination = createAction('leading-practices-page/resetPagination');
 
+// Get companies.
+export const setCompanies = createAction('leading-practices-page/setCompanies');
+export const setCompaniesLoading = createAction('leading-practices-page/setCompaniesLoading');
+export const setCompaniesError = createAction('leading-practices-page/setCompaniesError');
+
 export const getLeadingPractices = createThunkAction('leading-practices-page/getLeadingPractices', (_options = {}) =>
   (dispatch, getState) => {
     const { leadingPracticesPage } = getState();
     const { pagination, filters } = leadingPracticesPage.leadingPractices;
-    const { topic } = filters;
+    const { topic, company } = filters;
     const { limit, page } = pagination;
     const deserializer = new Deserializer({});
 
     const options = {
       ..._options,
       'filter[topic]': topic,
+      'filter[company]': company,
       'page[number]': page,
       'page[size]': limit
     };
@@ -69,6 +77,31 @@ export const getTopics = createThunkAction('leading-practices-page/getTopics', (
     });
   });
 
+export const getCompanies = createThunkAction('leading-practices-page/getCompanies', (_options = {}) =>
+  (dispatch) => {
+    return new Promise((resolve, reject) => {
+      dispatch(setCompaniesLoading(true));
+
+      CompaniesService.getCompanies(_options)
+        .then((data) => {
+          const parsedData = new Jsona().deserialize(data);
+          resolve(parsedData.sort((currentElement, nextElement) => {
+            // Due to API inconsistency, the array of companies needs to be ordered
+            const currentElementNormalized = currentElement.name.toLowerCase();
+            const nextElementNormalized = nextElement.name.toLowerCase();
+            if (currentElementNormalized < nextElementNormalized) {
+              return -1;
+            } else if (currentElementNormalized > nextElementNormalized) {
+              return 1;
+            }
+            return 0;
+          }));
+          dispatch(setCompaniesLoading(false));
+          dispatch(setCompanies(parsedData));
+        })
+        .catch(errors => reject(errors));
+    });
+  });
 
 export default {
   setLeadingPractices,
@@ -79,5 +112,9 @@ export default {
   setTopics,
   setTopicsLoading,
   setTopicsError,
-  getTopics
+  getTopics,
+  setCompanies,
+  setCompaniesLoading,
+  setCompaniesError,
+  getCompanies
 };
