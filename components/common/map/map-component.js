@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { ComposableMap, ZoomableGroup, Geographies, Geography, Markers } from 'react-simple-maps';
 import { PatternLines } from '@vx/pattern';
 import tooltip from 'wsdm-tooltip';
-import debounce from 'lodash/debounce';
 
 // components
 import Icon from 'components/common/icon';
@@ -27,7 +26,8 @@ class Map extends PureComponent {
     responsive: PropTypes.object.isRequired,
     onClickGeography: PropTypes.func,
     zoom: PropTypes.number,
-    center: PropTypes.array
+    center: PropTypes.array,
+    setSelectedCountry: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -69,6 +69,7 @@ class Map extends PureComponent {
 
     if (!isClickable && !isProducing) return;
 
+    this.props.setSelectedCountry(geography.properties.countryId);
     this.tip.show(`<div>${geography.properties.NAME}</div>`);
     this.tip.position({ pageX: x, pageY: y });
   }
@@ -86,7 +87,10 @@ class Map extends PureComponent {
     this.tip.position({ pageX: x, pageY: y });
   }
 
-  handleLeave = () => { this.tip.hide(); }
+  handleLeave = () => {
+    this.tip.hide();
+    this.props.setSelectedCountry(null);
+  }
 
   handleZoomIn = () => { this.setState({ zoom: this.state.zoom + 1 }); }
 
