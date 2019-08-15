@@ -20,6 +20,7 @@ import scoresModule from 'modules/scores';
 import documentMineSitesModule from 'modules/document-mine-sites';
 import subsidiariesModule from 'modules/subsidiaries';
 import staticPagesModule from 'modules/static-pages';
+import mapModule from 'modules/map';
 
 // components modules
 import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
@@ -56,5 +57,6 @@ export default {
   resultsOverallPage: handleModule(ResultsOverallPageModule),
   resultsDetailPage: handleModule(ResultsDetailPageModule),
   staticContent: handleModule(staticContentModule),
-  staticPages: handleModule(staticPagesModule)
+  staticPages: handleModule(staticPagesModule),
+  map: handleModule(mapModule)
 };
