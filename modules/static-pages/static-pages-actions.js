@@ -9,20 +9,17 @@ export const setPageContentLoading = createAction('static-pages/setPageContentLo
 
 export const getStaticPage = createThunkAction('static-pages/getStaticPage', (_options = {}) =>
   (dispatch) => {
-    const { key, queryParams } = _options;
+    const { slug } = _options;
     return new Promise((resolve, reject) => {
-      dispatch(setPageContentLoading({ key, loading: true }));
+      dispatch(setPageContentLoading({ loading: true }));
 
-      StaticPagesService.getStaticPage(queryParams)
+      StaticPagesService.getStaticPage(slug)
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
-          dispatch(setPageContentLoading({ key, loading: false }));
+          dispatch(setPageContentLoading({ loading: false }));
 
+          dispatch(setPageContent({ content: parsedData[0] }));
           resolve(parsedData);
-          dispatch(setPageContent({
-            key,
-            content: parsedData
-          }));
         }).catch(errors => reject(errors));
     });
   });
