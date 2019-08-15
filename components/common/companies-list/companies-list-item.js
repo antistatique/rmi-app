@@ -20,14 +20,16 @@ class CompaniesListItem extends PureComponent {
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
-    onCloseTooltip: PropTypes.func
+    onCloseTooltip: PropTypes.func,
+    selectedCountry: PropTypes.string
   }
 
   static defaultProps = {
     onMouseEnter: () => {},
     onMouseLeave: () => {},
     onOpenTooltip: null,
-    onCloseTooltip: null
+    onCloseTooltip: null,
+    selectedCountry: null
   }
 
   constructor(props) {
@@ -62,7 +64,7 @@ class CompaniesListItem extends PureComponent {
   }
 
   render() {
-    const { isCompanyPage, currentLanguage, company, onMouseEnter, onMouseLeave } = this.props;
+    const { isCompanyPage, currentLanguage, company, onMouseEnter, onMouseLeave, selectedCountry } = this.props;
     const { name, id, 'selected-mine-sites': mineSites } = company;
     const { visibility } = this.state;
 
@@ -83,7 +85,7 @@ class CompaniesListItem extends PureComponent {
                 company: id
               }}
             >
-              <a className="company-name">{name}</a>
+              <a className="company-name">{selectedCountry === company.country.id ? `${name} + Selected` : name}</a>
             </Link>
           </div>
         </Fragment>
@@ -111,7 +113,7 @@ class CompaniesListItem extends PureComponent {
             className="companies-list-item"
             onClick={this.handleToggle}
           >
-            <span className="company-name">{name}</span>
+            <span className="company-name">{selectedCountry === company.country.id ? `${name} + Selected` : name}</span>
           </div>
           {visibility &&
             <CompaniesListTooltip
