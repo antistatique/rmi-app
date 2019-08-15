@@ -76,7 +76,6 @@ $ease-in-out-sine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
 
 $ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 
-
 // responsive
 $sm: 48rem;
 $md: 64rem;
@@ -86,3 +85,16 @@ $lg: 80rem;
 $mq-sm: screen and (min-width: $sm);
 $mq-md: screen and (min-width: $md);
 $mq-lg: screen and (min-width: $lg);
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
