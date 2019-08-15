@@ -43,7 +43,7 @@ class MineSitesPage extends Page {
       }));
     } else {
       await context.store.dispatch(getCompanies({
-        include: ['selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities'].join(','),
+        include: ['country', 'selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities'].join(','),
         sort: 'name'
       }));
 
