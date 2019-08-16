@@ -27,7 +27,7 @@ routes.add('downloads', '/:language/downloads', 'downloads');
 routes.add('scoring-framework', '/:language/scoring-framework', 'scoring-framework');
 routes.add('corrigenda', '/:language/corrigenda', 'corrigenda');
 routes.add('sources', '/:language/sources', 'sources');
-routes.add('static-page', '/:language/pages/:slug', 'static-pages');
+routes.add('static-page', '/:language/:slug', 'static-pages');
 routes.add('index', '/:language', 'index');
 
 // 404
