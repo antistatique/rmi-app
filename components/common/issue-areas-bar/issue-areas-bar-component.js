@@ -40,10 +40,12 @@ class IssueAreasBar extends PureComponent {
     const siteHeader = document.querySelector('header');
     const companyHeader = document.querySelector('.c-companies-detail-header');
 
-    const stickyOffset = siteHeader.offsetHeight + companyHeader.offsetHeight + 25
-    this.setState({
-      stickyOffset: stickyOffset,
-    });
+    if (companyHeader && siteHeader) {
+      const stickyOffset = siteHeader.offsetHeight + companyHeader.offsetHeight + 25;
+      this.setState({
+        stickyOffset: stickyOffset,
+      })
+    }
   }
 
   render() {
@@ -52,9 +54,12 @@ class IssueAreasBar extends PureComponent {
     return (
       <div className="c-issue-areas-bar align-items-start">
         <style jsx>{styles}</style>
-        <ul className="sticky-top" style={{
-          top: this.state.stickyOffset
-        }}>
+        <ul
+          className={this.state.stickyOffset ? 'sticky-top' : ''}
+          style={
+            this.state.stickyOffset ? { top: this.state.stickyOffset } : {}
+          }
+        >
           {issueAreas.map(issueArea => (
             <li key={issueArea.id}>
               <button
