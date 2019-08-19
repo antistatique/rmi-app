@@ -56,7 +56,8 @@ $bar-height: 40px;
 
   > .score-bar > .score-avg,
   > .score-bar > .score-min,
-  > .score-bar > .score-max {
+  > .score-bar > .score-max,
+  > .score-bar > .score-max-hovered {
     > .legend {
       position: absolute;
       bottom: 0;
@@ -86,12 +87,14 @@ $bar-height: 40px;
 
   > .score-bar > .score-min,
   > .score-bar > .score-max,
+  > .score-bar > .score-max-hovered,
   > .score-bar > .score-avg {
     transform: translate(-1px, 0);
   }
 
   > .score-bar > .score-min,
-  > .score-bar > .score-max {
+  > .score-bar > .score-max,
+  > .score-bar > .score-max-hovered {
     position: absolute;
     top: 0;
     height: #{(($bar-height * 2) - 1px)};
@@ -102,7 +105,8 @@ $bar-height: 40px;
     }
   }
 
-  > .score-bar > .score-max {
+  > .score-bar > .score-max,
+  > .score-bar > .score-max-hovered {
     height: #{(($bar-height * 3) - 1px)};
 
     > .legend {

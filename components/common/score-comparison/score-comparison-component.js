@@ -18,6 +18,19 @@ class ScoreComparison extends PureComponent {
     return `${((value * 100) / 6)}%`;
   }
 
+  constructor(props) {
+    super(props);
+    this.state = { maxScoreHovered: false };
+  }
+
+  handleMouseEnterMax = () => {
+    this.setState({ maxScoreHovered: true });
+  }
+
+  handleMouseLeaveMax = () => {
+    this.setState({ maxScoreHovered: false });
+  }
+
   render() {
     const { data, config } = this.props;
     const { avg, min, max, value } = data;
@@ -66,8 +79,10 @@ class ScoreComparison extends PureComponent {
           }
 
           <div
-            className="score-max"
+            className={this.state.maxScoreHovered ? 'score-max-hovered' : 'score-max'}
             style={{ left: `calc(${ScoreComparison.getWidth(max)} + 1px)` }}
+            onMouseEnter={this.handleMouseEnterMax}
+            onMouseLeave={this.handleMouseLeaveMax}
           >
             <div className="legend">
               <span>Max</span>
