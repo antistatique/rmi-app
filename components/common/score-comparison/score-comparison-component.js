@@ -11,7 +11,8 @@ import styles from './score-comparison-styles.scss';
 class ScoreComparison extends PureComponent {
   static propTypes = {
     data: PropTypes.object.isRequired,
-    config: PropTypes.object.isRequired
+    config: PropTypes.object.isRequired,
+    phone: PropTypes.bool.isRequired
   }
 
   static getWidth(value) {
@@ -20,19 +21,15 @@ class ScoreComparison extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = { maxScoreHovered: false };
+    this.state = { maxScoreDisplay: false };
   }
 
-  handleMouseEnterMax = () => {
-    this.setState({ maxScoreHovered: true });
-  }
-
-  handleMouseLeaveMax = () => {
-    this.setState({ maxScoreHovered: false });
+  handleClickMax = () => {
+    this.setState({ maxScoreDisplay: !this.state.maxScoreDisplay });
   }
 
   render() {
-    const { data, config } = this.props;
+    const { data, config, phone } = this.props;
     const { avg, min, max, value } = data;
     const { color, hideInnerValue } = config;
     const scoreValueClass = classnames({
@@ -79,15 +76,22 @@ class ScoreComparison extends PureComponent {
           }
 
           <div
-            className={this.state.maxScoreHovered ? 'score-max-hovered' : 'score-max'}
+            className="score-max"
             style={{ left: `calc(${ScoreComparison.getWidth(max)} + 1px)` }}
-            onMouseEnter={this.handleMouseEnterMax}
-            onMouseLeave={this.handleMouseLeaveMax}
+            onClick={this.handleClickMax}
           >
-            <div className="legend">
+            <div className={`${this.state.maxScoreDisplay || phone ? 'legend legend-hovered' : 'legend'}`}>
               <span>Max</span>
               <span>{fixedValue(max)}</span>
             </div>
+            {
+              (this.state.maxScoreDisplay || phone) && <div
+                className="companies"
+              >
+                <span>Company 1</span>
+                <span>Company 2</span>
+              </div>
+            }
           </div>
         </div>
       </div>

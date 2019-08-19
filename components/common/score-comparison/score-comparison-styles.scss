@@ -63,8 +63,19 @@ $bar-height: 40px;
       bottom: 0;
       padding: 0 0 0 10px;
 
+      &.legend-hovered {
+        width: 130px;
+        background-color: red;
+
+        span {
+          color: black;
+        }
+      }
+
       span {
+        text-align: right;
         display: block;
+        cursor: pointer;
         line-height: 1.1;
         color: $color-7;
 
@@ -75,6 +86,20 @@ $bar-height: 40px;
         &:last-child {
           text-align: right;
         }
+      }
+    }
+
+    > .companies {
+      position: absolute;
+      bottom: -50px;
+      width: 130px;
+      border: 1px;
+      border-color: white;
+      border-style: solid;
+
+      span {
+        display: block;
+        padding-left: 5px;
       }
     }
   }
@@ -110,6 +135,11 @@ $bar-height: 40px;
     height: #{(($bar-height * 3) - 1px)};
 
     > .legend {
+      padding: 0 10px 0 0;
+      transform: translate(-100%, 0)
+    }
+
+    > .companies {
       padding: 0 10px 0 0;
       transform: translate(-100%, 0)
     }

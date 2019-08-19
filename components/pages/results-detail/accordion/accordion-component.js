@@ -38,6 +38,7 @@ class ResultsDetailAccordion extends PureComponent {
                     color: d.color,
                     hideInnerValue: true
                   }}
+                  phone={phone}
                 />
               </div>
               <div className="col-xs-12">
@@ -76,6 +77,7 @@ class ResultsDetailAccordion extends PureComponent {
                   color: d.color,
                   hideInnerValue: true
                 }}
+                phone={phone}
               />
             </div>
           </div>
