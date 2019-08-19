@@ -10,11 +10,40 @@ import Layout from 'components/layout';
 import ResultsOverall from 'components/pages/results-overall';
 
 // actions
-import { getScores } from 'modules/scores/scores-actions';
+import { getScores } from 'components/pages/results-overall/results-overall-actions';
 
 class ResultsOverallPage extends Page {
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
+
+    // scores for stacked-bar charts
+    await context.store.dispatch(getScores({
+      key: 'breakdownScores',
+      queryParams: {
+        include: ['company'].join(','),
+        'filter[kind]': 'absolute_breakdown',
+        'page[size]': 1000
+      }
+    }));
+
+    await context.store.dispatch(getScores({
+      key: 'bestPracticesScores',
+      queryParams: {
+        include: ['indicator'].join(','),
+        'filter[kind]': 'current_best_practice',
+        'page[size]': 1000
+      }
+    }));
+
+    // scores for top companies
+    await context.store.dispatch(getScores({
+      key: 'overallScores',
+      queryParams: {
+        include: ['company'].join(','),
+        'filter[kind]': 'overall_indicator',
+        'page[size]': 1000
+      }
+    }));
 
     await context.store.dispatch(getScores({
       include: ['company'].join(','),
