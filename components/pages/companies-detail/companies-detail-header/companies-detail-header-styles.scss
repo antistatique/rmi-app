@@ -3,14 +3,41 @@
 .c-companies-detail-header {
   z-index: 3;
   position: fixed;
+  top: 100px;
   left: 0;
   width: 100%;
-  padding: 20px 0;
+  
   background: $color-3;
   transform: translate(0, -1px);
 
   border-bottom: 1px solid rgba($color-7, .2);
   box-shadow: 0 4px 16px 0 rgba($color-1, .1);
+
+
+  .main-section-container {
+    padding: 20px 0;
+  }
+
+  .anchor-navigation-container {
+    padding: 10px 0;
+    background: white;
+  }
+
+  .anchor-navigation {
+    list-style: none;
+
+    li {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+
+      .link {
+        display: inline-block !important;
+        font-size: 0.9em !important;
+        padding: 0.5em 1em 0.5em 0 !important;
+      }
+    }
+  } 
 
   .left-side,
   .right-side {

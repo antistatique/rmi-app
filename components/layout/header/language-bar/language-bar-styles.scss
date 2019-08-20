@@ -19,6 +19,24 @@
   > .languages-list > .languages-item {
     display: inline-block;
 
+    .code {
+      display: block;
+    }
+
+    .fullname {
+      display: none;
+    }
+
+    @media #{$mq-md} {
+      .code {
+        display: none;
+      }
+  
+      .fullname {
+        display: block;
+      }
+    }
+
     &:not(:first-child) {
       margin-left: 15px;
     }

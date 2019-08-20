@@ -41,7 +41,8 @@ class LanguageBar extends PureComponent {
                 data-code={languageItem.code}
                 onClick={onClickLanguage}
               >
-                {languageItem.name}
+                <span className="code">{languageItem.code}</span>
+                <span className="fullname">{languageItem.name}</span>
               </button>
             </li>))}
         </ul>

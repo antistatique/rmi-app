@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { Link } from 'routes';
 
 // components
@@ -27,17 +26,8 @@ class HeaderMobile extends PureComponent {
   render() {
     const { root, currentLanguage } = this.props;
 
-    const headerClass = classnames({
-      'c-header-mobile': true,
-      '-theme-1': root === 'index',
-      '-theme-2': root !== 'index'
-    });
-
-    const logo = root === 'index' ?
-      'RMI_Index_Color' : 'RMI_Foundation_Color';
-
     return (
-      <header className={headerClass}>
+      <header className="c-header-mobile">
         <style jsx>{styles}</style>
         <div className="l-layout">
           <div className="header-mobile-container">
@@ -45,7 +35,7 @@ class HeaderMobile extends PureComponent {
               route={root}
               params={{ language: currentLanguage }}
             >
-              <a className="app-logo"><img src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
+              <a className="app-logo"><img src={`/static/logos/RMI_Index_Color.svg`} alt="RMI logo" /></a>
             </Link>
             <Button
               padding={false}
