@@ -44,7 +44,8 @@
       }
 
       > .highlighted {
-        background-color: $color-8;
+        border-color: $color-7;
+        background-color: transparentize($color-7, 0.7);
       }
     }
 
