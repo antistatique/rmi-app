@@ -13,6 +13,36 @@ export const getNavigation = createSelector(
   [routeRoot, navChildren, indicators, currentLanguage],
   (_routeRoot, _navChildren, _indicators, _currentLanguage) => {
     const mainNav = [...INDEX_NAVIGATION];
+    let firstStaticPages = [];
+
+    if (_indicators.length) {	
+      const children = _indicators.filter(ind => ind.kind === 'issue_areas').map(indicatorChild => ({	
+        id: indicatorChild.id,	
+        label: indicatorChild.label,	
+        query: {	
+          route: 'results-thematic',	
+          params: {	
+            language: _currentLanguage,	
+            id: indicatorChild.id	
+          }	
+        }	
+      }));	
+
+        const currentTreeIndex = mainNav.findIndex(tree => tree.query.route === 'results');	
+      if (currentTreeIndex === -1) return mainNav;	
+
+        const subTreeIndex = mainNav[currentTreeIndex].children.findIndex(child => child.slug === 'thematic-areas');	
+      if (subTreeIndex === -1) return mainNav;	
+
+        const subTree = mainNav[currentTreeIndex].children[subTreeIndex];	
+      const subtreeWithChildren = Object.assign({}, subTree, { children });	
+
+        mainNav[currentTreeIndex].children[subTreeIndex] = subtreeWithChildren;	
+
+        firstStaticPages.reverse().forEach((sp) => {	
+        mainNav[currentTreeIndex].children.unshift(sp);	
+      });	
+    }
 
     // sets language
     mainNav.forEach((item, index) => {

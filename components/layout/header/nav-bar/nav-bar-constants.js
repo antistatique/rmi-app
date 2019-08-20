@@ -39,6 +39,7 @@ export const INDEX_NAVIGATION = [{
       route: 'results/thematic-areas',
       params: { }
     },
+    children: [],
     noLink: true
   }]
 }, {
