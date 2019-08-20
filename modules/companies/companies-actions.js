@@ -18,7 +18,7 @@ export const getCompanies = createThunkAction('companies/getCompanies', _options
 
     const options = {
       ..._options,
-      'filter[country]': country,
+      'filter[countries]': country,
       'filter[commodities]': commodities ? commodities.join(',') : undefined
     };
 

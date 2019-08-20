@@ -122,16 +122,8 @@ class NavBarMobile extends PureComponent {
   }
 
   render() {
-    const { root } = this.props.routes;
-
-    const navBarClass = classnames({
-      'c-nav-bar-mobile': true,
-      '-theme-1': root === 'index',
-      '-theme-2': root !== 'index'
-    });
-
     return (
-      <nav className={navBarClass}>
+      <nav className="c-nav-bar-mobile">
         <style jsx global>{styles}</style>
         {this.renderMenu()}
       </nav>
