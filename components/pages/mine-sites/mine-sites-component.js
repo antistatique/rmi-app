@@ -1,9 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import MediaQuery from 'react-responsive';
-
-// utils
-import breakpoints from 'utils/responsive';
 
 // components
 import Map from 'components/common/map';
@@ -87,27 +83,7 @@ class MineSite extends PureComponent {
           <div className="section -dark">
             <div className="l-layout">
               <div className="row">
-                <div className="col-md-3">
-                  <MediaQuery
-                    maxDeviceWidth={breakpoints.md - 1}
-                    values={{ deviceWidth: responsive.fakeWidth }}
-                  >
-                    <MineSitesFilters />
-                  </MediaQuery>
-                  <CompaniesList
-                    isCompanyPage={false}
-                    onOpenTooltip={this.handleOpenTooltip}
-                    onCloseTooltip={this.handleCloseTooltip}
-                  />
-                </div>
-                <div className="col-md-9">
-                  <MediaQuery
-                    minDeviceWidth={breakpoints.md}
-                    values={{ deviceWidth: responsive.fakeWidth }}
-                  >
-                    <MineSitesFilters />
-                  </MediaQuery>
-
+                <div className="col-xs-12">
                   <div className="map-container">
                     <Map
                       paths={paths}
@@ -119,6 +95,16 @@ class MineSite extends PureComponent {
                       zoom={this.state.zoom !== null ? this.state.zoom : undefined}
                     />
                   </div>
+                </div>
+                
+                <div className="col-xs-12">
+                  <h3 class="text-white mb-4">List of all companies</h3>
+                  <MineSitesFilters />
+                  <CompaniesList
+                    isCompanyPage={false}
+                    onOpenTooltip={this.handleOpenTooltip}
+                    onCloseTooltip={this.handleCloseTooltip}
+                  />
                 </div>
               </div>
             </div>
