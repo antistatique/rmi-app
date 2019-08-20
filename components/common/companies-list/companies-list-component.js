@@ -20,7 +20,8 @@ class CompaniesList extends PureComponent {
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
-    onCloseTooltip: PropTypes.func
+    onCloseTooltip: PropTypes.func,
+    selectedCountry: PropTypes.string
   }
 
   static defaultProps = {
@@ -28,7 +29,8 @@ class CompaniesList extends PureComponent {
     onMouseEnter: () => {},
     onMouseLeave: () => {},
     onOpenTooltip: null,
-    onCloseTooltip: null
+    onCloseTooltip: null,
+    selectedCountry: null
   };
 
   renderCompaniesRow(companies, key) {
@@ -88,7 +90,8 @@ class CompaniesList extends PureComponent {
       onMouseEnter,
       onMouseLeave,
       onOpenTooltip,
-      onCloseTooltip
+      onCloseTooltip,
+      selectedCountry
     } = this.props;
     // const companies = this.renderCompanies();
 
@@ -107,7 +110,7 @@ class CompaniesList extends PureComponent {
             {companies.map(company => (
               <div
                 key={company.id}
-                className="col-xs-6 col-sm-4"
+                className="col-xs-3 col-md-1"
               >
                 <CompaniesListItem
                   company={company}
@@ -117,6 +120,7 @@ class CompaniesList extends PureComponent {
                   isCompanyPage={isCompanyPage}
                   onOpenTooltip={onOpenTooltip}
                   onCloseTooltip={onCloseTooltip}
+                  selectedCountry={selectedCountry}
                 />
               </div>
             ))}

@@ -42,6 +42,11 @@
         text-align: center;
         cursor: pointer;
       }
+
+      > .highlighted {
+        border-color: $color-7;
+        background-color: transparentize($color-7, 0.7);
+      }
     }
 
     .veil {
