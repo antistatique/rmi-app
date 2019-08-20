@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // components
-import Disclaimer from 'components/common/disclaimer';
 import MineSitesDetailHeader from './mine-sites-detail-header';
 import MineSitesDetailSidebar from './mine-sites-detail-sidebar';
 import MineSiteSatelliteView from './mine-site-satellite-view';
@@ -97,18 +96,6 @@ class MineSitesDetail extends PureComponent {
               <div className="row">
                 <div className="col-xs-12">
                   <MineSitesDetailCountryComparison />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Disclaimer */}
-          <div className="page-break" />
-          <section className="section disclaimer">
-            <div className="l-layout">
-              <div className="row">
-                <div className="col-xs-12">
-                  <Disclaimer />
                 </div>
               </div>
             </div>
