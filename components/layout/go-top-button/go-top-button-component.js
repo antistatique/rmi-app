@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import Icon from 'components/common/icon';
 
@@ -24,17 +25,15 @@ class GoTopButton extends PureComponent {
     }
   }
 
-  goToTop() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
-
   render() {
     return (
       <div className="c-go-top-button">
         <style jsx>{styles}</style>
-        {<button onClick={this.goToTop} className={'go-top-button ' + (this.state.show ? 'go-top-button-show' : '')}>
-          <Icon name="arrow-up" className="-big" />
-        </button> }
+        <div className={'go-top-button ' + (this.state.show ? 'go-top-button-show' : '')}>
+          <AnchorLink href="#main-content">
+            <Icon name="arrow-up" className="-big" />
+          </AnchorLink>
+        </div>
       </div>
     );
   }
