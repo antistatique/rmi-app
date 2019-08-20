@@ -40,12 +40,15 @@ class IssueAreasBar extends PureComponent {
     const siteHeader = document.querySelector('header');
     const companyHeader = document.querySelector('.c-companies-detail-header');
 
-    if (companyHeader && siteHeader) {
-      const stickyOffset = siteHeader.offsetHeight + companyHeader.offsetHeight + 25;
-      this.setState({
-        stickyOffset: stickyOffset,
-      })
-    }
+    // Setup the basic offset to 0.5 of the parent <section> element. CSS Sticky property badly deal
+    // with padding on parent.
+    let stickyOffset = 27.5;
+    stickyOffset += companyHeader ? companyHeader.offsetHeight : 0;
+    stickyOffset += siteHeader ? siteHeader.offsetHeight : 0;
+
+    this.setState({
+      stickyOffset: stickyOffset,
+    });
   }
 
   render() {
