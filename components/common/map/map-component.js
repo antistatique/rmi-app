@@ -41,7 +41,7 @@ class Map extends PureComponent {
     super(props);
 
     this.state = {
-      zoom: null,
+      zoom: 1,
       center: null
     }
   }
@@ -55,7 +55,7 @@ class Map extends PureComponent {
 
   handleOnClickGeography(...args) {
     this.setState({
-      zoom: null,
+      zoom: 1,
       center: null
     });
     return this.props.onClickGeography(...args, ComposableMap.defaultProps);
@@ -114,8 +114,8 @@ class Map extends PureComponent {
     const { minZoom, maxZoom } = MAP_DEFAULT_OPTIONS;
     const { mobile } = responsive;
     const markers = this.renderMarkers();
-    const isZoomInDisabled = this.props.zoom >= maxZoom;
-    const isZoomOutDisabled = this.props.zoom <= minZoom;
+    const isZoomInDisabled = this.state.zoom > maxZoom;
+    const isZoomOutDisabled = this.state.zoom <= minZoom;
 
     return (
       <div className="c-map">
