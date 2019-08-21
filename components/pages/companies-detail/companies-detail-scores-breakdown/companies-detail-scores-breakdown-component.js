@@ -66,13 +66,14 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
       <div className="c-companies-detail-scores-breakdown">
         <style jsx>{styles}</style>
         <div className="l-layout">
+          
           <h2 className="summary-print-title">Summary Results</h2>
           {summary && <Summary content={summary} />}
           <div className="page-break" />
           <section className="section measurement-scores-container">
             <div className="row center-md -no-text-align">
               <div className="col-xs-12">
-                <h3 className="title center-xs mb-3">Summary results</h3>
+                <h3 id="overall-results" className="title center-xs mb-3">Summary results</h3>
               </div>
               <div className="col-xs-12 col-md-10">
                 <div className="stacked-bars-container">
@@ -126,7 +127,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
-                <h2>
+                <h2 id="indicator-by-indicator-results">
                   Indicator-by-indicator results
                 </h2>
               </div>
@@ -148,7 +149,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row center-md">
               <div className="col-xs-12">
-                <h2 className="title">Selected Mine sites results</h2>
+                <h2 id="mine-site-selection" className="title">Selected Mine sites results</h2>
                 <h3 className="subtitle">Mine sites individually assessed but not included
                   {!mobile && <br />} in the overall company score
                 </h3>
@@ -175,7 +176,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row between-md">
               <div className="col-xs-12 col-md-5">
-                <h3 className="title">Main Shareholders</h3>
+                <h3 id="shareholders-and-subsidiaries" className="title">Main Shareholders</h3>
                 {shareholders.length ?
                   <Table
                     columns={[
@@ -204,7 +205,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
 
             <div className="row">
               <div className="col-xs-12">
-                <h3 className="title">Known Tax Jurisdictions</h3>
+                <h3 id="tax-jurisdictions" className="title">Known Tax Jurisdictions</h3>
                 {knownTaxJurisdictions.length ?
                   <Gradient className="-gray">
                     <Table

@@ -11,10 +11,10 @@
   }
 
   .companies-detail-preview {
-    padding: calc(#{$header-company-detail-height} + 95px) 0 35px;
+    padding: calc(#{$header-company-detail-height} + 115px) 0 35px;
 
     @media #{$mq-sm} {
-      padding: calc(#{$header-company-detail-height} + 55px) 0 35px;
+      padding: calc(#{$header-company-detail-height} + 65px) 0 35px;
     }
 
     @media #{$mq-md} {
