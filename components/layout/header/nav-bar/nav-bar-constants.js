@@ -12,8 +12,8 @@ export const INDEX_NAVIGATION = [{
     label: 'Overall results',
     slug: 'results-overall',
     query: {
-      route: 'results',
-      params: { section: 'overall' }
+      route: 'results-overall',
+      params: {}
     }
   }, {
     id: '1-2',
