@@ -10,7 +10,7 @@ class Disclaimer extends PureComponent {
         <style jsx>{styles}</style>
         <p className="disclaimer-text">Disclaimer</p>
         <p className="disclaimer-text">
-          The findings, conclusions and interpretations within this 2018 Responsible Mining Index
+          The findings, conclusions and interpretations within this 2020 Responsible Mining Index
           (RMI) report do not necessarily represent the views of funders, trustees, and employees
           of the Responsible Mining Foundation, and others who participated in consultations and
           as advisors to the report.
@@ -21,7 +21,7 @@ class Disclaimer extends PureComponent {
           promotional material in any respect. The report is not intended to provide accounting,
           legal, tax or investment advice or recommendations, neither is it intended as an offer
           or solicitation for the purchase or sale of any financial instrument. In order to fully
-          understand the methodology of the 2018 Responsible Mining Index, the respective sections
+          understand the methodology of the 2020 Responsible Mining Index, the respective sections
           on the website should be consulted.
         </p>
 
@@ -48,7 +48,7 @@ class Disclaimer extends PureComponent {
         <p className="disclaimer-text">
           Although every effort has been made to verify the accuracy of translations, the English
           language version should be taken as the definitive version. The RMI reserves the right to
-          publish corrigenda on its web page, and readers of the 2018 RMI report should consult the
+          publish corrigenda on its web page, and readers of the 2020 RMI report should consult the
           web page for corrections or clarifications <a href="https://www.responsibleminingindex.org" rel="noopener noreferrer">https://www.responsibleminingindex.org</a>.
         </p>
       </div>

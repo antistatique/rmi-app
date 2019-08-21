@@ -25,7 +25,7 @@ class StaticPage extends Page {
     const { content, loading } = this.props;
     return (
       <Layout
-        title="test"
+        title={content.title}
         description="Welcome to RMI | Results - Overall"
       >
         <StaticPageComponent

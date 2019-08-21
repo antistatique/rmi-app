@@ -2,10 +2,9 @@
 @import 'mixins';
 
 .c-nav-bar-mobile {
+  color: $color-7;
 
   ul {
-    // transform: translate(0, -10px);
-
     li {
       padding: 5px 0;
       margin: 10px 0 0;
@@ -77,14 +76,5 @@
         font-size: $font-size-regular;
       }
     }
-  }
-
-
-  &.-theme-1 {
-    color: $color-7;
-  }
-
-  &.-theme-2 {
-    color: $color-1;
   }
 }
