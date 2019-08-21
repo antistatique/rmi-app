@@ -35,7 +35,8 @@ export default connect(
     companies: state.companies.list,
     filters: state.companiesPage.filters,
     loading: state.companies.loading,
-    currentLanguage: state.language.current
+    currentLanguage: state.language.current,
+    selectedCountry: state.map.selectedCountry
   }),
   { getCompanies }
 )(CompaniesListContainer);

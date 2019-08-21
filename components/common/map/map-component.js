@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { ComposableMap, ZoomableGroup, Geographies, Geography, Markers } from 'react-simple-maps';
 import { PatternLines } from '@vx/pattern';
 import tooltip from 'wsdm-tooltip';
-import debounce from 'lodash/debounce';
 
 // components
 import Icon from 'components/common/icon';
@@ -27,7 +26,8 @@ class Map extends PureComponent {
     responsive: PropTypes.object.isRequired,
     onClickGeography: PropTypes.func,
     zoom: PropTypes.number,
-    center: PropTypes.array
+    center: PropTypes.array,
+    setSelectedCountry: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -41,7 +41,7 @@ class Map extends PureComponent {
     super(props);
 
     this.state = {
-      zoom: null,
+      zoom: 1,
       center: null
     }
   }
@@ -55,7 +55,7 @@ class Map extends PureComponent {
 
   handleOnClickGeography(...args) {
     this.setState({
-      zoom: null,
+      zoom: 1,
       center: null
     });
     return this.props.onClickGeography(...args, ComposableMap.defaultProps);
@@ -69,6 +69,7 @@ class Map extends PureComponent {
 
     if (!isClickable && !isProducing) return;
 
+    this.props.setSelectedCountry(geography.properties.countryId);
     this.tip.show(`<div>${geography.properties.NAME}</div>`);
     this.tip.position({ pageX: x, pageY: y });
   }
@@ -86,7 +87,10 @@ class Map extends PureComponent {
     this.tip.position({ pageX: x, pageY: y });
   }
 
-  handleLeave = () => { this.tip.hide(); }
+  handleLeave = () => {
+    this.tip.hide();
+    this.props.setSelectedCountry(null);
+  }
 
   handleZoomIn = () => { this.setState({ zoom: this.state.zoom + 1 }); }
 
@@ -110,8 +114,8 @@ class Map extends PureComponent {
     const { minZoom, maxZoom } = MAP_DEFAULT_OPTIONS;
     const { mobile } = responsive;
     const markers = this.renderMarkers();
-    const isZoomInDisabled = this.props.zoom >= maxZoom;
-    const isZoomOutDisabled = this.props.zoom <= minZoom;
+    const isZoomInDisabled = this.state.zoom > maxZoom;
+    const isZoomOutDisabled = this.state.zoom <= minZoom;
 
     return (
       <div className="c-map">

@@ -10,6 +10,7 @@
 @import 'reset';
 @import 'base';
 @import 'print';
+@import 'helpers';
 
 // layout & grid
 @import 'grid';
@@ -19,7 +20,10 @@
 @import 'global';
 
 // utilities
+@import 'utilities/breakpoints';
+@import 'utilities/display';
 @import 'utilities/spacing';
+@import 'utilities/flex';
 
 // components
 @import 'components/accordion';

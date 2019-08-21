@@ -2,25 +2,19 @@ import * as actions from './static-pages-actions';
 
 export default {
   [actions.setPageContent]: (state, { payload }) => {
-    const { key, content } = payload;
+    const { content } = payload;
 
     return ({
       ...state,
-      [key]: {
-        ...state[key],
-        content
-      }
+      content
     });
   },
   [actions.setPageContentLoading]: (state, { payload }) => {
-    const { key, loading } = payload;
+    const { loading } = payload;
 
     return ({
       ...state,
-      [key]: {
-        ...state[key],
-        loading
-      }
+      loading
     });
   }
 };

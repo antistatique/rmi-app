@@ -11,15 +11,26 @@ import styles from './score-comparison-styles.scss';
 class ScoreComparison extends PureComponent {
   static propTypes = {
     data: PropTypes.object.isRequired,
-    config: PropTypes.object.isRequired
+    config: PropTypes.object.isRequired,
+    // phone is the prop to see if the device used is a phone
+    phone: PropTypes.bool.isRequired
   }
 
   static getWidth(value) {
     return `${((value * 100) / 6)}%`;
   }
 
+  constructor(props) {
+    super(props);
+    this.state = { maxScoreDisplay: false };
+  }
+
+  handleClickMax = () => {
+    this.setState({ maxScoreDisplay: !this.state.maxScoreDisplay });
+  }
+
   render() {
-    const { data, config } = this.props;
+    const { data, config, phone } = this.props;
     const { avg, min, max, value } = data;
     const { color, hideInnerValue } = config;
     const scoreValueClass = classnames({
@@ -68,10 +79,21 @@ class ScoreComparison extends PureComponent {
           <div
             className="score-max"
             style={{ left: `calc(${ScoreComparison.getWidth(max)} + 1px)` }}
+            onClick={this.handleClickMax}
           >
-            <div className="legend">
+            <div className={`${(!this.state.maxScoreDisplay && !phone) ? 'legend' : 'legend closed'}`}>
               <span>Max</span>
               <span>{fixedValue(max)}</span>
+            </div>
+            <div className={`${(this.state.maxScoreDisplay || phone) ? 'legend-popup opened' : 'legend-popup'}`}>
+              <div className="header">
+                <span>Max</span>
+                <span>{fixedValue(max)}</span>
+              </div>
+              <div className="content">
+                <span>Company 1</span>
+                <span>Company 2</span>
+              </div>
             </div>
           </div>
         </div>

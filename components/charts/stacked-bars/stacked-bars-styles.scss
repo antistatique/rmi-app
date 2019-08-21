@@ -4,6 +4,7 @@ $bar-height: 15px;
 
 .c-stacked-bars {
   display: flex;
+  align-items: flex-end;
 
   &:not(:first-child) {
     margin: 30px 0 0;
@@ -35,7 +36,19 @@ $bar-height: 15px;
     > .stacked-bars-container {
       display: flex;
       margin: 10px 0 0;
+      flex-direction: column;
       justify-content: space-between;
+
+      .bar-wrapper {
+        display: flex;
+        width: 100%;
+        transition: opacity 0.50s linear;
+        opacity: 1;
+
+        &.bar-wrapper-hidden {
+          opacity: 0;
+        }
+      }
 
       .bar {
         display: inline-flex;

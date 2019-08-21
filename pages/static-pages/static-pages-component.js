@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+// redux
 import withRedux from 'next-redux-wrapper';
 import { initStore } from 'store';
 
@@ -8,40 +8,25 @@ import { initStore } from 'store';
 import Page from 'components/page';
 import Layout from 'components/layout';
 
-// components
 import StaticPageComponent from 'components/pages/static-page';
 
 import { getStaticPage } from 'modules/static-pages/static-pages-actions';
 
-class SourcesPage extends Page {
-  static propTypes = { sourcesStatusPage: PropTypes.object }
-
-  static defaultProps = { sourcesStatusPage: {} }
-
+class StaticPage extends Page {
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
-    const state = context.store.getState();
 
-    if (!state.staticPages.sources) {
-      await context.store.dispatch(getStaticPage({
-        key: 'sources',
-        queryParams: {
-          endpoint: 'foundation/source',
-          qParams: {}
-        }
-      }));
-    }
+    await context.store.dispatch(getStaticPage({ slug: context.query.slug }));
 
     return { ...props };
   }
 
   render() {
-    const { content, loading } = this.props.sourcesStatusPage;
-
+    const { content, loading } = this.props;
     return (
       <Layout
-        title="RMI | Sources"
-        description="Welcome to RMI | Sources"
+        title={content.title}
+        description="Welcome to RMI | Results - Overall"
       >
         <StaticPageComponent
           content={content}
@@ -54,6 +39,9 @@ class SourcesPage extends Page {
 
 export default withRedux(
   initStore,
-  state => ({ sourcesStatusPage: state.staticPages.sources }),
+  state => ({
+    content: state.staticPages.content,
+    loading: state.staticPages.loading
+  }),
   {}
-)(SourcesPage);
+)(StaticPage);

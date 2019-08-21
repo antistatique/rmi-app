@@ -12,7 +12,7 @@ class Subsidiaries extends PureComponent {
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12 col-md-5">
-                <h2 className="title">Search by subsidiary</h2>
+                <h2 className="title">Company subsidiaries</h2>
               </div>
             </div>
           </div>
