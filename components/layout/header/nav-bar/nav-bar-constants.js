@@ -71,7 +71,7 @@ export const FOUNDATION_NAVIGATION = [{
   },
   children: [{
     id: '6-1',
-    label: 'Responsible Mining Index 2018',
+    label: 'Responsible Mining Index 2020',
     slug: 'index',
     query: {
       route: 'index',
