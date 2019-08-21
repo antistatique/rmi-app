@@ -25,8 +25,7 @@ class CompaniesDetail extends PureComponent {
     printable: PropTypes.bool.isRequired,
     setIssueArea: PropTypes.func.isRequired,
     resetCompanies: PropTypes.func.isRequired,
-    togglePrintable: PropTypes.func.isRequired,
-    print: PropTypes.bool.isRequired
+    togglePrintable: PropTypes.func.isRequired
   }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
@@ -49,7 +48,7 @@ class CompaniesDetail extends PureComponent {
   }
 
   render() {
-    const { paths, mineSites, print } = this.props;
+    const { paths, mineSites } = this.props;
 
     return (
       <div className="c-companies-detail-page">
@@ -79,7 +78,7 @@ class CompaniesDetail extends PureComponent {
               </div>
             </div>
           </div>
-          <CompaniesDetailScoresBreakDown print={print} />
+          <CompaniesDetailScoresBreakDown />
         </div>
       </div>
     );

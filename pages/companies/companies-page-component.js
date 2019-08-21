@@ -18,6 +18,7 @@ import { getCountriesWithCompanies } from 'components/pages/companies/companies-
 import { getCommodities } from 'modules/commodities/commodities-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 import { getSubsidiaries } from 'modules/subsidiaries/subsidiaries-actions';
+import { togglePrintable } from 'modules/app/app-actions';
 
 class CompaniesPage extends Page {
   static propTypes = {
@@ -29,12 +30,12 @@ class CompaniesPage extends Page {
 
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
-    let print = false;
 
     // If we use a Link, the context doesn't have the req object, so we need this condition to not break the app
     if (context.req !== undefined) {
-      // 5 is the length of the url when print route is called
-      print = context.req.url.split('/')[context.req.url.split('/').length - 1] === 'print' ? true : false;
+      context.req.url.split('/')[context.req.url.split('/').length - 1] === 'print'
+        ? await context.store.dispatch(togglePrintable(true))
+        : await context.store.dispatch(togglePrintable(false));
     }
 
     const state = context.store.getState();
@@ -98,11 +99,11 @@ class CompaniesPage extends Page {
       }));
     }
 
-    return { print, ...props };
+    return { ...props };
   }
 
   render() {
-    const { companyId, company, print } = this.props;
+    const { companyId, company } = this.props;
     const { name } = company;
 
     const customTitle = !companyId ?
@@ -114,7 +115,7 @@ class CompaniesPage extends Page {
         description="Welcome to RMI | Companies"
       >
         {companyId ?
-          <CompaniesDetail print={print} /> : <Companies />}
+          <CompaniesDetail /> : <Companies />}
       </Layout>
     );
   }
