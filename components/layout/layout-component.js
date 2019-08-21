@@ -86,7 +86,7 @@ class Layout extends PureComponent {
         </MediaQuery>
 
         {/* content */}
-        <div className="layout-content">
+        <div className="layout-content" id="main-content">
           {children}
           <GoTopButton />
         </div>
