@@ -38,7 +38,8 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     knownTaxJurisdictions: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired,
     responsive: PropTypes.object.isRequired,
-    printable: PropTypes.bool
+    printable: PropTypes.bool,
+    print: PropTypes.bool.isRequired
   }
 
   static defaultProps = { printable: false }
@@ -47,7 +48,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     const {
       company, breakdownScores, mineSites,
       shareholders, investmentDisputes, knownTaxJurisdictions,
-      responsive, printable
+      responsive, printable, print
     } = this.props;
     const {
       'shareholders-date': shareholdersDate,
@@ -115,7 +116,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 {!printable && phone && <Slider />}
-                {printable && <PrintableMeasurements />}
+                {(printable || print) && <PrintableMeasurements />}
                 {!printable && !phone && <CompaniesDetailOverallMeasurements />}
               </div>
             </div>
@@ -139,7 +140,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
-                {!printable ? <CompaniesDetailAccordion /> : <PrintableIssueAreas />}
+                {(printable || print) ? <PrintableIssueAreas /> : <CompaniesDetailAccordion /> }
               </div>
             </div>
           </div>

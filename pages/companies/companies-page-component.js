@@ -29,6 +29,13 @@ class CompaniesPage extends Page {
 
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
+    let print = false;
+
+    // If we use a Link, the context doesn't have the req object, so we need this condition to not break the app
+    if (context.req !== undefined) {
+      // 5 is the length of the url when print route is called
+      print = context.req.url.split('/')[context.req.url.split('/').length - 1] === 'print' ? true : false;
+    }
 
     const state = context.store.getState();
 
@@ -91,11 +98,11 @@ class CompaniesPage extends Page {
       }));
     }
 
-    return { ...props };
+    return { print, ...props };
   }
 
   render() {
-    const { companyId, company } = this.props;
+    const { companyId, company, print } = this.props;
     const { name } = company;
 
     const customTitle = !companyId ?
@@ -107,7 +114,7 @@ class CompaniesPage extends Page {
         description="Welcome to RMI | Companies"
       >
         {companyId ?
-          <CompaniesDetail /> : <Companies />}
+          <CompaniesDetail print={print} /> : <Companies />}
       </Layout>
     );
   }
