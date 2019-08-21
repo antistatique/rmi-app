@@ -17,23 +17,74 @@ export const INDEX_NAVIGATION = [{
     }
   }, {
     id: '1-2',
+    label: 'Overall Mine-site Results',
+    slug: 'mine-site-summary',
+    query: {
+      route: 'results/mine-site-summary',
+      params: { }
+    }
+  }, {
+    id: '1-3',
+    label: 'What RMI measures',
+    slug: 'what-rmi-measures',
+    query: {
+      route: 'results/what-rmi-measures',
+      params: { }
+    }
+  }, {
+    id: '1-4',
     label: 'Thematic Areas',
     slug: 'thematic-areas',
     query: {
-      route: 'results',
-      params: { route: 'results' }
+      route: 'results/thematic-areas',
+      params: { }
     },
     children: [],
     noLink: true
   }]
 }, {
-  id: 2,
-  label: 'Leading Practices',
-  slug: 'leading-practices',
+  id: 9,
+  label: 'Findings',
+  slug: 'findings',
   query: {
-    route: 'leading-practices',
+    route: 'findings',
     params: {}
-  }
+  },
+  children: [
+    {
+      id: '9-1',
+      label: 'Key Findings',
+      slug: 'key-findings',
+      query: {
+        route: 'findings/key-findings',
+        params: {}
+      }
+    }, {
+      id: '9-2',
+      label: 'Observations',
+      slug: 'observations',
+      query: {
+        route: 'findings/observations',
+        params: {}
+      }
+    }, {
+      id: '9-3',
+      label: 'Leading Practices',
+      slug: 'leading-practices',
+      query: {
+        route: 'findings/leading-practices',
+        params: {}
+      }
+    }, {
+      id: '9-4',
+      label: 'Adverse Impacts',
+      slug: 'adverse-impacts',
+      query: {
+        route: 'findings/adverse-impacts',
+        params: {}
+      }
+    }
+  ],
 }, {
   id: 3,
   label: 'Companies',
@@ -50,55 +101,108 @@ export const INDEX_NAVIGATION = [{
     route: 'mine-sites',
     params: {}
   }
-}];
-
-export const FOUNDATION_NAVIGATION = [{
-  id: 5,
+}, {
+  id: 10,
+  label: 'Resources',
+  slug: 'resources',
+  query: {
+    route: 'resources',
+    params: {}
+  },
+  children: [
+    {
+      id: '10-1',
+      label: 'Document library',
+      slug: 'document-library',
+      query: {
+        route: 'resources/document-library',
+        params: {}
+      }
+    },
+    {
+      id: '10-2',
+      label: 'Company subsidiaries',
+      slug: 'company-subsidiaries',
+      query: {
+        route: 'resources/company-subsidiaries',
+        params: {}
+      }
+    },
+    {
+      id: '10-3',
+      label: 'Maps & Tables',
+      slug: 'maps-and-tables',
+      query: {
+        route: 'resources/maps-and-tables',
+        params: {}
+      }
+    },
+    {
+      id: '10-4',
+      label: 'Summary reports',
+      slug: 'summary-reports',
+      query: {
+        route: 'resources/summary-reports',
+        params: {}
+      }
+    },
+    {
+      id: '10-5',
+      label: 'Additional translations',
+      slug: 'additional-translations',
+      query: {
+        route: 'resources/additional-translations',
+        params: {}
+      }
+    },
+    {
+      id: '10-6',
+      label: 'Raw data',
+      slug: 'raw-data',
+      query: {
+        route: 'resources/raw-data',
+        params: {}
+      }
+    },
+    {
+      id: '10-7',
+      label: 'Scoring framework',
+      slug: 'scoring-framework',
+      query: {
+        route: 'resources/scoring-framework',
+        params: {}
+      }
+    },
+    {
+      id: '10-8',
+      label: 'Methodology',
+      slug: 'methodology',
+      query: {
+        route: 'resources/methodology',
+        params: {}
+      }
+    },
+    {
+      id: '10-9',
+      label: 'Corrigenda',
+      slug: 'Corrigenda',
+      query: {
+        route: 'resources/corrigenda',
+        params: {}
+      }
+    }
+  ]
+},
+{
+  id: 11,
   label: 'About',
-  slug: 'about',
   query: {
     route: 'about',
     params: {}
-  },
-  noLink: true
-}, {
-  id: 6,
-  label: 'Our work',
-  slug: 'our-work',
-  query: {
-    route: 'our-work',
-    params: {}
-  },
-  children: [{
-    id: '6-1',
-    label: 'Responsible Mining Index 2020',
-    slug: 'index',
-    query: {
-      route: 'index',
-      params: {}
-    }
-  }]
-},
-  {
-  id: 7,
-  label: 'Media',
-  slug: 'media',
-  query: {
-    route: 'media',
-    params: {}
-  }
-},
-  {
-  id: 8,
-  label: 'Contact',
-  slug: 'contact',
-  query: {
-    route: 'contact',
-    params: {}
   }
 }];
 
+
 export default {
-  INDEX_NAVIGATION,
-  FOUNDATION_NAVIGATION
+  INDEX_NAVIGATION
 };
