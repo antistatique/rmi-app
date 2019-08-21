@@ -20,16 +20,16 @@ export const INDEX_NAVIGATION = [{
     label: 'Overall Mine-site Results',
     slug: 'mine-site-summary',
     query: {
-      route: 'results/mine-site-summary',
-      params: { }
+      route: 'static-page',
+      params: { slug: 'mine-site-summary' }
     }
   }, {
     id: '1-3',
     label: 'What RMI measures',
     slug: 'what-rmi-measures',
     query: {
-      route: 'results/what-rmi-measures',
-      params: { }
+      route: 'static-page',
+      params: { slug: 'what-rmi-measures' }
     }
   }, {
     id: '1-4',
@@ -56,23 +56,23 @@ export const INDEX_NAVIGATION = [{
       label: 'Key Findings',
       slug: 'key-findings',
       query: {
-        route: 'findings/key-findings',
-        params: {}
+        route: 'static-page',
+        params: { slug: 'key-findings' }
       }
     }, {
       id: '9-2',
       label: 'Observations',
       slug: 'observations',
       query: {
-        route: 'findings/observations',
-        params: {}
+        route: 'static-page',
+        params: { slug: 'observations' }
       }
     }, {
       id: '9-3',
       label: 'Leading Practices',
       slug: 'leading-practices',
       query: {
-        route: 'findings/leading-practices',
+        route: 'leading-practices',
         params: {}
       }
     }, {
@@ -80,8 +80,8 @@ export const INDEX_NAVIGATION = [{
       label: 'Adverse Impacts',
       slug: 'adverse-impacts',
       query: {
-        route: 'findings/adverse-impacts',
-        params: {}
+        route: 'static-page',
+        params: { slug: 'adverse-impacts' }
       }
     }
   ],
@@ -115,7 +115,7 @@ export const INDEX_NAVIGATION = [{
       label: 'Document library',
       slug: 'document-library',
       query: {
-        route: 'resources/document-library',
+        route: 'library',
         params: {}
       }
     },
@@ -124,7 +124,7 @@ export const INDEX_NAVIGATION = [{
       label: 'Company subsidiaries',
       slug: 'company-subsidiaries',
       query: {
-        route: 'resources/company-subsidiaries',
+        route: 'subsidiaries',
         params: {}
       }
     },
@@ -142,8 +142,8 @@ export const INDEX_NAVIGATION = [{
       label: 'Summary reports',
       slug: 'summary-reports',
       query: {
-        route: 'resources/summary-reports',
-        params: {}
+        route: 'static-page',
+        params: { slug: 'summary-reports' }
       }
     },
     {
@@ -151,8 +151,8 @@ export const INDEX_NAVIGATION = [{
       label: 'Additional translations',
       slug: 'additional-translations',
       query: {
-        route: 'resources/additional-translations',
-        params: {}
+        route: 'static-page',
+        params: { slug: 'downloads' }
       }
     },
     {
@@ -160,8 +160,8 @@ export const INDEX_NAVIGATION = [{
       label: 'Raw data',
       slug: 'raw-data',
       query: {
-        route: 'resources/raw-data',
-        params: {}
+        route: 'static-page',
+        params: { slug: 'raw-data' }
       }
     },
     {
@@ -169,8 +169,8 @@ export const INDEX_NAVIGATION = [{
       label: 'Scoring framework',
       slug: 'scoring-framework',
       query: {
-        route: 'resources/scoring-framework',
-        params: {}
+        route: 'static-page',
+        params: { slug: 'scoring-framework' }
       }
     },
     {
@@ -178,8 +178,8 @@ export const INDEX_NAVIGATION = [{
       label: 'Methodology',
       slug: 'methodology',
       query: {
-        route: 'resources/methodology',
-        params: {}
+        route: 'static-page',
+        params: { slug: 'methodology' }
       }
     },
     {
@@ -187,8 +187,8 @@ export const INDEX_NAVIGATION = [{
       label: 'Corrigenda',
       slug: 'Corrigenda',
       query: {
-        route: 'resources/corrigenda',
-        params: {}
+        route: 'static-page',
+        params: { slug: 'corrigenda' }
       }
     }
   ]
