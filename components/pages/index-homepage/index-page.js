@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'routes';
-// components
-import Button from 'components/common/button';
 
 // styles
 import styles from './index-page-styles.scss';
@@ -55,7 +53,7 @@ class IndexPage extends PureComponent {
             </div>
           </div>
         </div>
-        <section className="section -dark intro">
+        <section className="section -dark">
           <div className="l-layout">
             <div className="row between-md">
               <div className="col-xs-6 col-md-4">

@@ -36,6 +36,22 @@
     }
   }
 
+
+  .download-summary {
+    padding: 50px 0 0;
+    background: $color-2;
+
+    .download-button-container {
+      display: flex;
+      flex-direction: column;
+
+      @media #{$mq-md} {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  }
+
   .c-index-card {
     flex: 1;
     height: calc(100% - 1em);
@@ -63,78 +79,7 @@
       line-height: 1.2;
     }
   }
-
-  .download-summary {
-    padding: 50px 0 0;
-    background: $color-2;
-
-    .download-button-container {
-      display: flex;
-      flex-direction: column;
-
-      @media #{$mq-md} {
-        flex-direction: row;
-        justify-content: center;
-      }
-    }
-  }
-
-  .intro {
-
-    .text-section {
-
-      &:first-child {
-        margin: 0 0 20px;
-      }
-
-      .title {
-        font-family: $font-family-2;
-        font-size: $font-size-big;
-        color: $color-7;
-
-        & + p {
-          margin: 20px 0 0;
-        }
-      }
-
-      p {
-        color: $color-7;
-
-        & + .title {
-          margin: 20px 0 0;
-        }
-      }
-
-      img {
-        margin: 35px 0 0;
-        width: 100%;
-      }
-    }
-
-    .buttons-container {
-      display: flex;
-      flex-direction: column;
-      margin: 35px 0 0;
-
-      > :global(button) {
-        &:not(:first-child) {
-          margin: 15px 0 0;
-        }
-      }
-
-      @media #{$mq-lg} {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0 25px;
-
-        > :global(button) {
-          &:not(:first-child) {
-            margin: 0 auto auto;
-          }
-        }
-      }
-    }
-  }
+  
 
   .splash-credits {
     padding: 10px 0;
@@ -144,21 +89,6 @@
       font-size: $font-size-smallest;
       font-style: italic;
       color: $color-7;
-    }
-  }
-
-  .summary-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 35px;
-    margin: 15px 0 0;
-    border-radius: 100px;
-    background: $color-7;
-    color: $color-1;
-
-    @media #{$mq-lg} {
-      margin: 0;
     }
   }
 }
