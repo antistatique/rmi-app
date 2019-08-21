@@ -23,7 +23,7 @@ class Header extends PureComponent {
         <style jsx>{styles}</style>
         <div className="l-layout">
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-xs-4">
               <Link
                 route={root}
                 params={{ language: currentLanguage }}
