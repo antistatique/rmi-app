@@ -7,6 +7,7 @@ const routes = nextRoutes();
 // // Index routes
 routes.add('companies', '/:language/companies/:company?', 'companies');
 routes.add('mine-sites', '/:language/mine-sites/:mineSite?', 'mine-sites');
+routes.add('mine-sites-print', '/:language/mine-sites/:mineSite?/print', 'mine-sites');
 routes.add('results-overall', '/:language/results/overall', 'results-overall');
 routes.add('results-thematic', '/:language/results/thematic/:id', 'results-detail');
 routes.add('leading-practices', '/:language/leading-practices', 'leading-practices');

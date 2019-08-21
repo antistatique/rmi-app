@@ -11,7 +11,8 @@ import { SCORE_COMPARISON_CONFIG } from 'components/common/score-comparison/scor
 class MineSitesDetailAccordion extends PureComponent {
   static propTypes = {
     data: PropTypes.array.isRequired,
-    printable: PropTypes.bool.isRequired
+    printable: PropTypes.bool.isRequired,
+    print: PropTypes.bool.isRequired
   }
 
   static renderContent(data = []) {
@@ -46,12 +47,12 @@ class MineSitesDetailAccordion extends PureComponent {
   }
 
   render() {
-    const { data, printable } = this.props;
+    const { data, printable, print } = this.props;
 
     return (
       <div className="c-mine-sites-detail-accordion">
         <Accordion
-          accordion={!printable}
+          accordion={print ? false : !printable}
           data={data}
           contentRenderer={MineSitesDetailAccordion.renderContent}
         />

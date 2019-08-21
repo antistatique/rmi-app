@@ -16,7 +16,8 @@ import styles from './mine-sites-detail-styles.scss';
 class MineSitesDetail extends PureComponent {
   static propTypes = {
     printable: PropTypes.bool.isRequired,
-    togglePrintable: PropTypes.func.isRequired
+    togglePrintable: PropTypes.func.isRequired,
+    print: PropTypes.bool.isRequired
   }
 
   componentDidUpdate(prevProps) {
@@ -28,6 +29,8 @@ class MineSitesDetail extends PureComponent {
   }
 
   render() {
+    const { print } = this.props;
+    
     return (
       <div className="c-mine-sites-detail-page">
         <style jsx>{styles}</style>
@@ -72,7 +75,7 @@ class MineSitesDetail extends PureComponent {
             <div className="l-layout">
               <div className="row">
                 <div className="col-xs-12">
-                  <MineSitesDetailAccordion />
+                  <MineSitesDetailAccordion print={print} />
                 </div>
               </div>
             </div>

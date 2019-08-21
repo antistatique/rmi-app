@@ -22,6 +22,12 @@ class MineSitesPage extends Page {
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
 
+    let print = false;
+
+    if (context.req !== undefined) {
+      print = context.req.url.split('/')[context.req.url.split('/').length - 1] === 'print' ? true : false;
+    }
+
     if (context.query.mineSite) {
       // gets mine site info and relationships
       context.store.dispatch(getMineSite({
@@ -59,11 +65,11 @@ class MineSitesPage extends Page {
       }));
     }
 
-    return { ...props };
+    return { print, ...props };
   }
 
   render() {
-    const { currentMineSite, mineSiteError, mineSiteId } = this.props;
+    const { currentMineSite, mineSiteError, mineSiteId, print } = this.props;
     const { mineSite } = this.props.url.query;
     const {
       'selected-for-mine-site-indicators': allowedMineSite,
@@ -80,7 +86,7 @@ class MineSitesPage extends Page {
         title={customTitle}
         description="Welcome to RMI | Mine sites"
       >
-        {mineSite && allowedMineSite && <MineSiteDetailPageComponent />}
+        {mineSite && allowedMineSite && <MineSiteDetailPageComponent print={print} />}
         {!mineSite && <MineSitePageComponent />}
       </Layout>
     );
