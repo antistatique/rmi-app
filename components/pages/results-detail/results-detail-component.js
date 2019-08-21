@@ -28,9 +28,8 @@ class ResultsDetail extends PureComponent {
     Router.pushRoute(route, params);
   }
 
-  handleArea = areaId => Router.pushRoute('results', {
+  handleArea = areaId => Router.pushRoute('results-thematic', {
     language: this.props.currentLanguage,
-    section: 'thematic',
     id: areaId
   })
 
