@@ -15,7 +15,8 @@
 
 
   .main-section-container {
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .anchor-navigation-container {
@@ -79,7 +80,7 @@
       margin: -5px 0 0 0;
 
       .company-listing-item {
-        flex-basis: 33.333%;
+        flex-basis: 33.33%;
         padding: 0 5px 0 0;
         margin: 5px 0 0 0;
 
@@ -92,8 +93,8 @@
           }
         }
 
+
         > .company-listing-item-value {
-          margin: 0 0 0 5px;
           font-weight: $font-weight-bold;
         }
       }
