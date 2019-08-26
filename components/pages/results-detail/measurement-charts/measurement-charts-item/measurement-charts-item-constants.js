@@ -12,6 +12,7 @@ export const CHART_CONFIG = {
   // reference line config
   showReferenceLine: true,
   yReferenceLine: 0,
+  yReferenceLines: [],
   strokeReferenceLine: 'red',
   strokeDasharrayReferenceLine: '3 5',
   labelReferenceLine: 'Current Best Practice'

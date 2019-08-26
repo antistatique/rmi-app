@@ -39,7 +39,8 @@ export const parseScores = createSelector(
       name: _issueArea.name,
       slug: _issueArea.slug,
       scores: orderBy(totalScores, 'overallScore', 'desc'),
-      bestPracticeScore: bestPracticeScore.value
+      bestPracticeScore: bestPracticeScore.value,
+      previousBestPracticeScore: bestPracticeScore.value
     });
   }
 );
