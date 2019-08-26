@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 // components
 import Tooltip from 'rc-tooltip';
 import Icon from 'components/common/icon';
-import ToggleSwitch from 'components/common/toggle-switch';
 
 // constants
 import { AREA_ISSUE_COLOURS } from 'constants/graph-colors';
@@ -15,10 +14,9 @@ import styles from './stacked-bars-styles.scss';
 class StackedBars extends PureComponent {
   static propTypes = {
     data: PropTypes.object.isRequired,
-    colors: PropTypes.array.isRequired
-  }
-
-  state = { showDiff: false };
+    colors: PropTypes.array.isRequired,
+    isPrevYearVisible: PropTypes.bool.isRequired
+  };
 
   getBarAttributes(bar, index) {
     const { colors } = this.props;
@@ -30,14 +28,8 @@ class StackedBars extends PureComponent {
     };
   }
 
-  handleToggleClick = ({ enabled }) => {
-    this.setState({ showDiff: enabled });
-  };
-
   render() {
-    const { showDiff } = this.state;
-
-    const { data } = this.props;
+    const { data, isPrevYearVisible } = this.props;
     const { name, indicatorId, children } = data;
     let totalScore = 0;
 
@@ -45,7 +37,7 @@ class StackedBars extends PureComponent {
 
     return (
       <div>
-        <div className="c-stacked-bars">
+        <div className={`c-stacked-bars ${ this.props.className }`}>
           <style jsx>{styles}</style>
 
           <div
@@ -84,7 +76,7 @@ class StackedBars extends PureComponent {
                   <span className="current-score">{totalScore.toFixed(3)} <span className="total-score"> / 1.000</span></span>
                 </div>
               </div>
-              <div className={`bar-wrapper ${ !showDiff ? 'bar-wrapper-hidden' : ''}`}>
+              <div className={`bar-wrapper ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
                 <div className="bar">
                   {(children).map((bar, index) => (
                     <Tooltip
@@ -108,10 +100,6 @@ class StackedBars extends PureComponent {
               </div>
             </div>
           </div>
-        </div>
-        <div className="d-flex align-items-center mt-2 mb-4">
-          <ToggleSwitch onStateChanged={ this.handleToggleClick }/>
-          <span className="ml-2">Compare with 2018 results</span>
         </div>
       </div>
     );
