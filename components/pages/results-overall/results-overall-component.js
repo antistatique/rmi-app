@@ -5,7 +5,6 @@ import { Router } from 'routes';
 // components
 import Select from 'components/common/select';
 import OverallGraph from './overall-graphs';
-import TopCompanies from './top-companies';
 
 class ResultsOverall extends PureComponent {
   static propTypes = { issueAreas: PropTypes.array.isRequired }
