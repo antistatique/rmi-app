@@ -26,7 +26,7 @@ class Search extends PureComponent {
     const { placeholder } = this.props;
 
     return (
-      <div className="c-search">
+      <div className={`c-search form-control form-control-bordered ${ this.props.className }`}>
         <style jsx>{styles}</style>
         <Icon name="search" />
         <input
