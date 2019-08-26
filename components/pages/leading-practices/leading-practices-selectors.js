@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 
 const topics = state => state.leadingPracticesPage.topics.list;
 const companies = state => state.leadingPracticesPage.companies.list;
+const indicators = state => state.leadingPracticesPage.indicators.list;
 
 export const parseTopics = createSelector(
   [topics],
@@ -10,8 +11,13 @@ export const parseTopics = createSelector(
 );
 
 export const parseCompanies = createSelector(
-[companies],
+  [companies],
   (_companies = []) => _companies.map(company => ({ label: company.name, value: company.id }))
 );
 
-export default { parseTopics, parseCompanies };
+export const parseIndicators = createSelector(
+  [indicators],
+  (_indicators = []) => _indicators.map(indicator => ({ label: indicator.name, value: indicator.id }))
+);
+
+export default { parseTopics, parseCompanies, parseIndicators };

@@ -4,6 +4,7 @@ import { Deserializer } from 'jsonapi-serializer';
 import LeadingPracticesService from 'services/leading-practices';
 import TopicsService from 'services/topics';
 import CompaniesService from 'services/companies';
+import IndicatorsService from 'services/indicators';
 import Jsona from 'jsona';
 
 export const setLeadingPractices = createAction('leading-practices-page/setLeadingPractices');
@@ -23,21 +24,27 @@ export const setCompanies = createAction('leading-practices-page/setCompanies');
 export const setCompaniesLoading = createAction('leading-practices-page/setCompaniesLoading');
 export const setCompaniesError = createAction('leading-practices-page/setCompaniesError');
 
+export const setIndicators = createAction('leading-practices-page/setIndicators');
+export const setIndicatorsLoading = createAction('leading-practices-page/setIndicatorsLoading');
+export const setIndicatorsError = createAction('leading-practices-page/setIndicatorsError');
+
 export const getLeadingPractices = createThunkAction('leading-practices-page/getLeadingPractices', (_options = {}) =>
   (dispatch, getState) => {
     const { leadingPracticesPage } = getState();
     const { pagination, filters } = leadingPracticesPage.leadingPractices;
-    const { topic, company } = filters;
+    const { topic, company, indicator } = filters;
     const { limit, page } = pagination;
     const deserializer = new Deserializer({});
 
     const options = {
       ..._options,
-      'filter[topic]': topic,
-      'filter[company]': company,
       'page[number]': page,
       'page[size]': limit
     };
+
+    if (topic) { options['filter[topic]'] = topic; }
+    if (company) { options['filter[companies]'] = company; }
+    if (indicator) { options['filter[indicators]'] = indicator; }
 
     return new Promise((resolve, reject) => {
       dispatch(setLeadingPracticesLoading(true));
@@ -103,6 +110,26 @@ export const getCompanies = createThunkAction('leading-practices-page/getCompani
     });
   });
 
+export const getIndicators = createThunkAction('leading-practices-page/getIndicators', (_options = {}) =>
+  (dispatch) => {
+    const deserializer = new Deserializer({});
+
+    return new Promise((resolve, reject) => {
+      dispatch(setIndicatorsLoading(true));
+
+      IndicatorsService.getIndicators(_options)
+        .then((data) => {
+          deserializer.deserialize(data)
+            .then((parsedData) => {
+              resolve(parsedData);
+              dispatch(setIndicatorsLoading(false));
+              dispatch(setIndicators(parsedData));
+            })
+            .catch(errors => reject(errors));
+        });
+    });
+  });
+
 export default {
   setLeadingPractices,
   setLeadingPracticesLoading,
@@ -116,5 +143,9 @@ export default {
   setCompanies,
   setCompaniesLoading,
   setCompaniesError,
-  getCompanies
+  getCompanies,
+  setIndicators,
+  setIndicatorsLoading,
+  setIndicatorsError,
+  getIndicators
 };

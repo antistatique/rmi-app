@@ -15,6 +15,7 @@ class LeadingPracticesPage extends PureComponent {
   static propTypes = {
     topics: PropTypes.array.isRequired,
     companies: PropTypes.array.isRequired,
+    indicators: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     leadingPracticesPagination: PropTypes.object.isRequired,
     modalOpen: PropTypes.bool.isRequired,
@@ -39,19 +40,27 @@ class LeadingPracticesPage extends PureComponent {
 
   handleCompany = (selectedCompany) => {
     const { filters } = this.props;
-    const { topic } = filters;
+    const { topic, indicator } = filters;
 
     this.props.setPaginationPage(1);
-    this.props.setLeadingPracticesFilters({ company: selectedCompany.value, topic: topic ? topic.value : null });
+    this.props.setLeadingPracticesFilters({ topic, indicator, company: selectedCompany.value });
   };
 
   handleTopic = (selectedTopic) => {
     const { filters } = this.props;
-    const { company } = filters;
+    const { company, indicator } = filters;
 
     this.props.setPaginationPage(1);
-    this.props.setLeadingPracticesFilters({ company: company ? company.value : '', topic: selectedTopic.value });
+    this.props.setLeadingPracticesFilters({ company, indicator, topic: selectedTopic.value });
   };
+
+  handleIndicator = (selectedIndicator) => {
+    const { filters } = this.props;
+    const { company, topic } = filters;
+
+    this.props.setPaginationPage(1);
+    this.props.setLeadingPracticesFilters({ company, topic, indicator: selectedIndicator.value });
+  }
 
   closeModal = () => {
     this.props.toggleModal(false);
@@ -59,9 +68,16 @@ class LeadingPracticesPage extends PureComponent {
   }
 
   render() {
-    const { topics, companies, leadingPracticesPagination, filters, modalOpen } = this.props;
+    const {
+      topics,
+      companies,
+      indicators,
+      leadingPracticesPagination,
+      filters,
+      modalOpen
+    } = this.props;
     const { size, page, limit } = leadingPracticesPagination;
-    const { topic, company } = filters;
+    const { topic, company, indicator } = filters;
 
     return (
       <div className="c-leading-practices-page">
@@ -111,6 +127,18 @@ class LeadingPracticesPage extends PureComponent {
                       placeholder="Select a topic"
                       theme="light"
                       selectedValue={topic}
+                      className="-underline"
+                    />
+                  </div>
+                </div>
+                <div className="">
+                  <div className="filters-container">
+                    <Select
+                      onChange={this.handleTopic}
+                      options={indicators}
+                      placeholder="Select an indicator"
+                      theme="light"
+                      selectedValue={indicator}
                       className="-underline"
                     />
                   </div>

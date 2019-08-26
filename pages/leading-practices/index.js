@@ -10,7 +10,7 @@ import Layout from 'components/layout';
 // components
 import LeadingPracticesPageComponent from 'components/pages/leading-practices';
 
-import { getLeadingPractices, getTopics, getCompanies } from 'components/pages/leading-practices/leading-practices-actions';
+import { getLeadingPractices, getTopics, getCompanies, getIndicators } from 'components/pages/leading-practices/leading-practices-actions';
 
 class LeadingPracticesPage extends Page {
   static async getInitialProps(context) {
@@ -20,6 +20,7 @@ class LeadingPracticesPage extends Page {
 
     await context.store.dispatch(getTopics({}));
     await context.store.dispatch(getCompanies({}));
+    await context.store.dispatch(getIndicators({}));
 
     return { ...props };
   }

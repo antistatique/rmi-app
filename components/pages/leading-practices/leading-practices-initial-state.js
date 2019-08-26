@@ -20,5 +20,10 @@ export default {
     list: [],
     loading: false,
     error: null
+  },
+  indicators: {
+    list: [],
+    loading: false,
+    error: null
   }
 };

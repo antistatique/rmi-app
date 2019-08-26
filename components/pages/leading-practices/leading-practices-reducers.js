@@ -120,4 +120,28 @@ export default {
         error: payload
       }
     }),
+  [actions.setIndicators]: (state, { payload }) => (
+    {
+      ...state,
+      indicators: {
+        ...state.indicators,
+        list: payload
+      }
+    }),
+  [actions.setIndicatorsLoading]: (state, { payload }) => (
+    {
+      ...state,
+      indicators: {
+        ...state.indicators,
+        loading: payload
+      }
+    }),
+  [actions.setIndicatorsError]: (state, { payload }) => (
+    {
+      ...state,
+      indicators: {
+        ...state.indicators,
+        error: payload
+      }
+    })
 };
