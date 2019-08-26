@@ -71,7 +71,7 @@ class ResultsDetail extends PureComponent {
               <div className="row">
                 <div className="col-xs-12 col-md-1">
                   <IssueAreasBar
-                    selectedissueArea={id}
+                    selectedIssueArea={id}
                     setIssueArea={this.handleArea}
                   />
                 </div>
