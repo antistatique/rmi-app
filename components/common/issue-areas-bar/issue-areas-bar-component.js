@@ -71,7 +71,7 @@ class IssueAreasBar extends PureComponent {
               >
                 <Icon
                   name={issueArea.id}
-                  className="-x-big"
+                  className={`${issueArea.id === selectedIssueArea ? 'active' : ''} -x-big`}
                   style={{ stroke: this.getColor(issueArea), fill: this.getColor(issueArea) }}
                 />
               </button>

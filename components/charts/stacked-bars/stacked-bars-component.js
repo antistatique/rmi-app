@@ -42,11 +42,11 @@ class StackedBars extends PureComponent {
 
           <div
             className="bar-icon"
-            style={{ background: AREA_ISSUE_COLOURS[indicatorId] }}
           >
             <Icon
               name={indicatorId.toString()}
               className="-x-big"
+              style={{ stroke: `${AREA_ISSUE_COLOURS[indicatorId]} !important`, fill: `${AREA_ISSUE_COLOURS[indicatorId]} !important` }}
             />
           </div>
 
