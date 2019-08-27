@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 // components
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
-import CompaniesFilters from './companies-filters';
 import Alert from 'components/common/alert';
+import CompaniesFilters from './companies-filters';
 
 // constants
 import { MAP_LEGEND } from './companies-constants';
@@ -41,9 +41,6 @@ class Companies extends PureComponent {
 
     return (
       <div className="c-companies-page">
-        <Alert variant="warning">
-          This page is also available in <a href="#">Français</a> & <a href="#">English</a>.
-        </Alert>
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
