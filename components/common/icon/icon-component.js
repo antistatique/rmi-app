@@ -8,14 +8,13 @@ import styles from './icon-styles.scss';
 class Icon extends PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    className: PropTypes.string
-  }
+    className: PropTypes.string,
+  };
 
   static defaultProps = { className: null }
 
   render() {
     const { className, name, ...restProps } = this.props;
-
     const iconClasess = classnames({
       'c-icon': true,
       [className]: !!className
