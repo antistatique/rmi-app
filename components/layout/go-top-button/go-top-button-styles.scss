@@ -3,13 +3,14 @@
 .go-top-button {
   display: none;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 45px;
-  height: 45px;
+  bottom: 40px;
+  right: 50px;
+  width: 55px;
+  height: 55px;
   z-index: 99;
-  color: $color-5;
+  color: $color-7;
   border: 1px solid $color-7;
+  border-radius: 50px;
   background-color: $color-2;
   opacity: 0;
   transition: opacity 0.5s ease-in;
