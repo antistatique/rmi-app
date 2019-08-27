@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Router } from 'routes';
 import { ComposableMap, ZoomableGroup, Geographies, Geography, Markers } from 'react-simple-maps';
 import { PatternLines } from '@vx/pattern';
 import tooltip from 'wsdm-tooltip';
@@ -59,11 +60,15 @@ class Map extends PureComponent {
   }
 
   handleOnClickMarker = (coordinates, mineSiteId, language) => {
+    if (this.state.zoom === MAP_DEFAULT_OPTIONS.maxZoom) {
+      Router.pushRoute('mine-sites', {
+        mineSite: mineSiteId,
+        language
+      });
+    }
     this.setState({
       zoom: MAP_DEFAULT_OPTIONS.maxZoom,
-      center: coordinates,
-      mineSiteId,
-      language
+      center: coordinates
     });
   }
 
