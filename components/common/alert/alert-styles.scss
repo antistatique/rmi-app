@@ -1,0 +1,91 @@
+@import 'css/settings';
+
+//
+// Alerts
+
+$alert-padding-y:          $font-size-regular * 0.75 !default;
+$alert-padding-x:          $font-size-regular * 1.25 !default;
+$alert-margin-bottom:      $font-size-regular !default;
+$alert-link-font-weight:   800 !default;
+$alert-border-width:       1px !default;
+
+//
+// Close
+
+$close-font-size: $font-size-regular * 1.5 !default;
+
+$alert-theme-colors: (
+  "success":    $color-30,
+  "info":       $color-11,
+  "warning":    $color-18,
+  "danger":     $color-26,
+);
+
+//
+// Base styles
+
+.alert {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  border: $alert-border-width solid transparent;
+
+  :global(a) {
+    display: inline-block;
+    font-weight: $alert-link-font-weight;
+    border-bottom: 2px solid currentColor;
+    line-height: 0.85;
+    text-shadow:
+      2px 2px white,
+      2px -2px white,
+      -2px 2px white,
+      -2px -2px white;
+  }
+}
+
+// Headings for larger alerts
+.alert-heading {
+  // Specified to prevent conflicts of changing $headings-color
+  color: inherit;
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissible {
+  padding-right: $close-font-size + $alert-padding-x * 2;
+
+  // Adjust close link position
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $alert-padding-y $alert-padding-x;
+    color: inherit;
+  }
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+@each $color, $value in $alert-theme-colors {
+  $border: darken($value, 5%);
+  $bg: lighten($value, 30%);
+
+  .alert-#{$color} {
+    color: darken($value, 10%);
+    background-color: $bg;
+    border-color: $border;
+
+    :global(a) {
+      color: darken($value, 12%);
+      text-shadow:
+        2px 2px $bg,
+        2px -2px $bg,
+        -2px 2px $bg,
+        -2px -2px $bg;
+    }
+  }
+}
