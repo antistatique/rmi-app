@@ -14,16 +14,13 @@ export const paths = feature(
   topojson.objects[Object.keys(topojson.objects)[0]]
 ).features;
 
-export const createMarker = (data = {}, onMouseEnter, onMouseLeave) => (
+export const createMarker = (data = {}, onMouseEnter, onMouseLeave, onClick) => (
   <Marker
     key={data.id}
     marker={data}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    onClick={() => Router.pushRoute('mine-sites', {
-      mineSite: data.id,
-      language: data.language
-    })}
+    onClick={() => onClick(data.coordinates, data.id, data.language)}
     style={MARKER_STYLES}
   >
     <circle cx={0} cy={0} r={6} fill="#bf3132" stroke="rgba(0, 0, 0, .5)" strokeWidth={3} />

@@ -58,6 +58,15 @@ class Map extends PureComponent {
     return this.props.onClickGeography(...args, ComposableMap.defaultProps);
   }
 
+  handleOnClickMarker = (coordinates, mineSiteId, language) => {
+    this.setState({
+      zoom: MAP_DEFAULT_OPTIONS.maxZoom,
+      center: coordinates,
+      mineSiteId,
+      language
+    });
+  }
+
   handleMove = (geography, evt) => {
     const x = evt.clientX;
     const y = evt.clientY + window.pageYOffset;
@@ -72,16 +81,18 @@ class Map extends PureComponent {
   }
 
   handleMoveMarker = (marker, evt) => {
-    const x = evt.clientX;
-    const y = evt.clientY + window.pageYOffset;
+    if (this.state.zoom && this.state.zoom === MAP_DEFAULT_OPTIONS.maxZoom) {
+      const x = evt.clientX;
+      const y = evt.clientY + window.pageYOffset;
 
-    const markerStyles = 'text-align:center;font-size:18px;';
+      const markerStyles = 'text-align:center;font-size:18px;';
 
-    this.tip.show(`<div style=${markerStyles}>
-      ${marker.name}
-      <p className="country-name">[${marker.country}]</p>
-    </div>`);
-    this.tip.position({ pageX: x, pageY: y });
+      this.tip.show(`<div style=${markerStyles}>
+        ${marker.name}
+        <p className="country-name">[${marker.country}]</p>
+      </div>`);
+      this.tip.position({ pageX: x, pageY: y });
+    }
   }
 
   handleLeave = () => {
@@ -103,7 +114,7 @@ class Map extends PureComponent {
 
   renderMarkers() {
     return this.props.markers.map(marker =>
-      createMarker(marker, this.handleMoveMarker, this.handleLeave));
+      createMarker(marker, this.handleMoveMarker, this.handleLeave, this.handleOnClickMarker));
   }
 
   render() {
