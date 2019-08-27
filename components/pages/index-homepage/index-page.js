@@ -39,8 +39,8 @@ class IndexPage extends PureComponent {
               <div className="col-xs-12">
                 <div className="download-button-container">
                   <Link
-                    route="downloads"
-                    params={{ language: currentLanguage }}
+                    route="static-page"
+                    params={{ slug: 'downloads', language: currentLanguage }}
                   >
                     <a
                       className="summary-link"
@@ -57,48 +57,78 @@ class IndexPage extends PureComponent {
           <div className="l-layout">
             <div className="row between-md">
               <div className="col-xs-6 col-md-4">
-                <div className="c-index-card">
-                  <img src="https://via.placeholder.com/150x100" />
-                  <h3>Overall Company Results</h3>
-                  <p>Detailed rankings and all the indicator-level scores in the six thematic areas</p>
-                </div>
+                <Link
+                  route="results-overall"
+                  params={{ language: currentLanguage }}
+                >
+                  <a className="c-index-card d-block">
+                    <img src="https://via.placeholder.com/150x100" />
+                    <h3>Overall Company Results</h3>
+                    <p>Detailed rankings and all the indicator-level scores in the six thematic areas</p>
+                  </a>
+                </Link>
               </div>
               <div className="col-xs-6 col-md-4">
-                <div className="c-index-card">
-                  <img src="https://via.placeholder.com/150x100" />
-                  <h3>Findings & Observations</h3>
-                  <p>Learnings, achievements, gaps and weaknesses: Insights to encourage continuous improvement</p>
-                </div>
+                <Link
+                  route="static-page"
+                  params={{ slug: 'key-findings', language: currentLanguage }}
+                >
+                  <a className="c-index-card d-block">
+                    <img src="https://via.placeholder.com/150x100" />
+                    <h3>Findings & Observations</h3>
+                    <p>Learnings, achievements, gaps and weaknesses: Insights to encourage continuous improvement</p>
+                  </a>
+                </Link>
               </div>
               <div className="col-xs-6 col-md-4">
-                <div className="c-index-card">
-                  <img src="https://via.placeholder.com/150x100" />
-                  <h3>Leading Practices</h3>
-                  <p>Practices that are exceptionaly responsive to the challenges and opportunities of responsible mining</p>
-                </div>
+                <Link
+                  route="leading-practices"
+                  params={{ language: currentLanguage }}
+                >
+                  <a className="c-index-card d-block">
+                    <img src="https://via.placeholder.com/150x100" />
+                    <h3>Leading Practices</h3>
+                    <p>Practices that are exceptionaly responsive to the challenges and opportunities of responsible mining</p>
+                  </a>
+                </Link>
               </div>
               <div className="col-xs-6 col-md-4">
-                <div className="c-index-card">
-                  <img src="https://via.placeholder.com/150x100" />
-                  <h3>Companies</h3>
-                  <p>37 individual company result pages and discover their scores and contextual information</p>
-                </div>
+                <Link
+                  route="companies"
+                  params={{ language: currentLanguage }}
+                >
+                  <a className="c-index-card d-block">
+                    <img src="https://via.placeholder.com/150x100" />
+                    <h3>Companies</h3>
+                    <p>37 individual company result pages and discover their scores and contextual information</p>
+                  </a>
+                </Link>
               </div>
               <div className="col-xs-6 col-md-4">
-                <div className="c-index-card">
-                  <img src="https://via.placeholder.com/150x100" />
-                  <h3>Mine Sites</h3>
-                  <p>Access the individual scores of 200+ mine sites selected out of the 850+ operatig sites of RMI</p>
-                </div>
+                <Link
+                  route="mine-sites"
+                  params={{ language: currentLanguage }}
+                >
+                  <a className="c-index-card d-block">
+                    <img src="https://via.placeholder.com/150x100" />
+                    <h3>Mine Sites</h3>
+                    <p>Access the individual scores of 200+ mine sites selected out of the 850+ operatig sites of RMI</p>
+                  </a>
+                </Link>
               </div>
               <div className="col-xs-6 col-md-4">
-                <div className="c-index-card">
-                  <img src="https://via.placeholder.com/150x100" />
-                  <h3>Extra Resources</h3>
-                  <p>Document library, maps, tables, translations, scoring framework, raw data, methodology, more!</p>
-                </div>
+                <Link
+                  route="library"
+                  params={{ language: currentLanguage }}
+                >
+                  <a className="c-index-card d-block">
+                    <img src="https://via.placeholder.com/150x100" />
+                    <h3>Extra Resources</h3>
+                    <p>Document library, maps, tables, translations, scoring framework, raw data, methodology, more!</p>
+                  </a>
+                </Link>
               </div>
-              
+
             </div>
           </div>
         </section>
