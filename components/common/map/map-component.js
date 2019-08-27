@@ -40,10 +40,7 @@ class Map extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      zoom: 1,
-      center: null
-    }
+    this.state = {};
   }
 
   componentDidMount() {
@@ -55,7 +52,7 @@ class Map extends PureComponent {
 
   handleOnClickGeography(...args) {
     this.setState({
-      zoom: 1,
+      zoom: null,
       center: null
     });
     return this.props.onClickGeography(...args, ComposableMap.defaultProps);
@@ -92,7 +89,7 @@ class Map extends PureComponent {
     this.props.setSelectedCountry(null);
   }
 
-  handleZoomIn = () => { this.setState({ zoom: this.state.zoom + 1 }); }
+  handleZoomIn = () => { this.setState({ zoom: this.state.zoom ? this.state.zoom + 1 : 2 }); }
 
   handleResetZoom = () => {
     const { zoom, center } = MAP_DEFAULT_OPTIONS;
@@ -102,7 +99,7 @@ class Map extends PureComponent {
     });
   }
 
-  handleZoomOut = () => { this.setState({ zoom: this.state.zoom - 1 }); }
+  handleZoomOut = () => { this.setState({ zoom: this.state.zoom ? this.state.zoom - 1 : 1 }); }
 
   renderMarkers() {
     return this.props.markers.map(marker =>
@@ -114,8 +111,8 @@ class Map extends PureComponent {
     const { minZoom, maxZoom } = MAP_DEFAULT_OPTIONS;
     const { mobile } = responsive;
     const markers = this.renderMarkers();
-    const isZoomInDisabled = this.state.zoom > maxZoom;
-    const isZoomOutDisabled = this.state.zoom <= minZoom;
+    const isZoomInDisabled = this.state.zoom ? false : this.state.zoom > maxZoom;
+    const isZoomOutDisabled = this.state.zoom ? this.state.zoom <= minZoom : true;
 
     return (
       <div className="c-map">
@@ -147,8 +144,8 @@ class Map extends PureComponent {
           }
         >
           <ZoomableGroup
-            center={this.state.center !== null && this.state.center !== undefined ? this.state.center : this.props.center}
-            zoom={this.state.zoom !== null && this.state.zoom !== undefined ? this.state.zoom : this.props.zoom}
+            center={this.state.center ? this.state.center : this.props.center}
+            zoom={this.state.zoom ? this.state.zoom : this.props.zoom}
           >
             <Geographies geography={paths} disableOptimization>
               {(geographies, projection) => geographies.map(geography => (
