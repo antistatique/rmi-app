@@ -55,17 +55,13 @@ class CompaniesDetail extends PureComponent {
         <style jsx>{styles}</style>
 
         <div className="page-content">
-          <div className="companies-detail-intro">
+          <div className="companies-detail-intro" id="contextual-data">
             <CompanyDetailHeader />
             <div className="l-layout">
               <div className="companies-detail-preview">
                 <div className="row">
-                  <div className="col-xs-12 col-md-5">
-                    <CompaniesDetailSidebar />
-                  </div>
-
-                  <div className="col-md-7">
-                    <div className="map-container">
+                  <div className="col-xs-12">
+                    <div className="map-container my-4">
                       <Map
                         paths={paths}
                         markers={mineSites}
@@ -74,6 +70,10 @@ class CompaniesDetail extends PureComponent {
                       />
                     </div>
                   </div>
+                  <div className="col-xs-12">
+                    <CompaniesDetailSidebar />
+                  </div>
+
                 </div>
               </div>
             </div>

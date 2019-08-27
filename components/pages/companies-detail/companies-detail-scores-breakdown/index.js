@@ -8,6 +8,7 @@ import {
   parseShareholders,
   parseInvestmentDisputes
 } from './companies-detail-scores-breakdown-selectors';
+import { setPreviousYearVisibility } from 'modules/chart/chart-actions';
 
 export default connect(
   state => ({
@@ -20,5 +21,5 @@ export default connect(
     responsive: state.responsive,
     printable: state.app.printable
   }),
-  {}
+  { setPreviousYearVisibility }
 )(CompaniesDetailScoresBreakdown);

@@ -1,12 +1,34 @@
 @import 'css/settings';
 
 .go-top-button {
-    display: block;
-    position: fixed;
-    bottom: 50px;
-    right: 90px;
-    height: 40px;
-    width: 40px;
-    z-index: 99;
-    color: white;
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  width: 55px;
+  height: 55px;
+  z-index: 99;
+  color: $color-7;
+  border: 1px solid $color-7;
+  border-radius: 50px;
+  background-color: $color-2;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+  cursor: pointer;
+
+  @media #{$mq-md} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-show {
+    opacity: 1;
+  }
+
+  .c-icon {
+    width: 22px;
+    height: 22px;
+  }
 }
+

@@ -12,11 +12,6 @@ routes.add('results-thematic', '/:language/results/thematic/:id', 'results-detai
 routes.add('leading-practices', '/:language/leading-practices', 'leading-practices');
 routes.add('library', '/:language/library', 'library');
 routes.add('subsidiaries', '/:language/subsidiaries', 'subsidiaries');
-routes.add('methodology', '/:language/methodology/:year?', 'methodology');
-routes.add('downloads', '/:language/downloads', 'downloads');
-routes.add('scoring-framework', '/:language/scoring-framework', 'scoring-framework');
-routes.add('corrigenda', '/:language/corrigenda', 'corrigenda');
-routes.add('sources', '/:language/sources', 'sources');
 routes.add('static-page', '/:language/:slug', 'static-pages');
 routes.add('index', '/:language', 'index');
 
