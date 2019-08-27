@@ -22,13 +22,11 @@ class SubsidiariesFilters extends PureComponent {
     return (
       <div className="c-subsidiaries-filters">
         <style jsx>{styles}</style>
-        <div className="row middle-md">
-          <div className="col-xs-12">
-            <div className="filters-container">
-              <Search
-                onSearch={this.handleSearch}
-              />
-            </div>
+        <div className="d-flex justify-content-md-end">
+          <div className="filters-container">
+            <Search
+              onSearch={this.handleSearch}
+            />
           </div>
         </div>
       </div>

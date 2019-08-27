@@ -21,6 +21,7 @@ import documentMineSitesModule from 'modules/document-mine-sites';
 import subsidiariesModule from 'modules/subsidiaries';
 import staticPagesModule from 'modules/static-pages';
 import mapModule from 'modules/map';
+import chartModule from 'modules/chart';
 
 // components modules
 import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
@@ -58,5 +59,6 @@ export default {
   resultsDetailPage: handleModule(ResultsDetailPageModule),
   staticContent: handleModule(staticContentModule),
   staticPages: handleModule(staticPagesModule),
-  map: handleModule(mapModule)
+  map: handleModule(mapModule),
+  chart: handleModule(chartModule)
 };

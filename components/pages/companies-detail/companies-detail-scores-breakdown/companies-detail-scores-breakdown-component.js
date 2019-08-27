@@ -18,6 +18,7 @@ import PrintableMeasurements from './printable-measurements';
 import Slider from './slider';
 import SubsidiariesTable from './subsidiaries-table';
 import Unknowndata from './unknown-data';
+import ToggleSwitch from 'components/common/toggle-switch';
 
 // constants
 import {
@@ -38,10 +39,15 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     knownTaxJurisdictions: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired,
     responsive: PropTypes.object.isRequired,
-    printable: PropTypes.bool
-  }
+    printable: PropTypes.bool,
+    setPreviousYearVisibility: PropTypes.func.isRequired
+  };
 
   static defaultProps = { printable: false }
+
+  handleToggleClick = ({ enabled }) => {
+    this.props.setPreviousYearVisibility(enabled);
+  };
 
   render() {
     const {
@@ -66,7 +72,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
       <div className="c-companies-detail-scores-breakdown">
         <style jsx>{styles}</style>
         <div className="l-layout">
-          
+
           <h2 className="summary-print-title">Summary Results</h2>
           {summary && <Summary content={summary} />}
           <div className="page-break" />
@@ -76,12 +82,17 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 <h3 id="overall-results" className="title center-xs mb-3">Summary results</h3>
               </div>
               <div className="col-xs-12 col-md-10">
+                <div className="d-flex align-items-center mt-2 mb-3">
+                  <ToggleSwitch onStateChanged={ this.handleToggleClick }/>
+                  <span className="ml-2">Compare with 2018 results</span>
+                </div>
                 <div className="stacked-bars-container">
                   {breakdownScores.map((breakdownScore, index) => (
                     <StackedBars
                       key={breakdownScore.id}
                       data={breakdownScore}
                       colors={measurementColors[index]}
+                      className="mb-4"
                     />
                   ))}
                 </div>
