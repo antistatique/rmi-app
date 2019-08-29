@@ -61,6 +61,9 @@ class CompaniesDetail extends PureComponent {
               <div className="companies-detail-preview">
                 <div className="row">
                   <div className="col-xs-12">
+                    <CompaniesDetailSidebar />
+                  </div>
+                  <div className="col-xs-12">
                     <div className="map-container my-4">
                       <Map
                         paths={paths}
@@ -70,10 +73,6 @@ class CompaniesDetail extends PureComponent {
                       />
                     </div>
                   </div>
-                  <div className="col-xs-12">
-                    <CompaniesDetailSidebar />
-                  </div>
-
                 </div>
               </div>
             </div>

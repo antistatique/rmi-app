@@ -6,7 +6,7 @@
   top: 100px;
   left: 0;
   width: 100%;
-  
+
   background: $color-3;
   transform: translate(0, -1px);
 
@@ -23,22 +23,6 @@
     padding: 10px 0;
     background: white;
   }
-
-  .anchor-navigation {
-    list-style: none;
-
-    li {
-      margin: 0;
-      padding: 0;
-      display: inline-block;
-
-      .link {
-        display: inline-block !important;
-        font-size: 0.9em !important;
-        padding: 0.5em 1em 0.5em 0 !important;
-      }
-    }
-  } 
 
   .left-side,
   .right-side {
