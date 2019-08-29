@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Router, Link } from 'routes';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import Scrollspy from 'components/common/scroll-spy';
 
 // components
 import Icon from 'components/common/icon';
@@ -23,8 +23,6 @@ class CompaniesDetailHeader extends PureComponent {
     const { name, listings } = company;
     const parsedListings = (listings || '').split(' - ')
       .map(list => list.split(':'));
-
-    const styleLink = {display: "inline-block", padding: "0.5em 1em 0.5em 0", fontSize: "0.9em"};
 
     return (
       <div className="c-companies-detail-header">
@@ -78,19 +76,42 @@ class CompaniesDetailHeader extends PureComponent {
             </div>
           </div>
         </div>
-        <div className="anchor-navigation-container">
+        <div className="anchor-navigation-container d-none d-md-block">
           <div className="l-layout">
             <div className="row">
               <div className="col-md-12">
-                <ul className="anchor-navigation">
-                  <li><AnchorLink offset="100" style={styleLink} href="#contextual-data">Contextual Data</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#overall-results">Overall Results</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#indicator-by-indicator-results">Indicator-by-indicator Results</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#mine-site-selection">Mine-site selection</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#list-of-all-mine-sites">List of all mine sites</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#shareholders-and-subsidiaries">Shareholders and Subsidiaries</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#tax-jurisdictions">Tax jurisdictions</AnchorLink></li>
-                </ul>
+                <Scrollspy items={[
+                    {
+                      'anchor': 'contextual-data',
+                      'label': 'Contextual Data',
+                    },
+                    {
+                      'anchor': 'overall-results',
+                      'label': 'Overall Results',
+                    },
+                    {
+                      'anchor': 'indicator-by-indicator-results',
+                      'label': 'Indicator-by-indicator Results',
+                    },
+                    {
+                      'anchor': 'mine-site-selection',
+                      'label': 'Mine-site selection',
+                    },
+                    {
+                      'anchor': 'list-of-all-mine-sites',
+                      'label': 'List of all mine sites',
+                    },
+                    {
+                      'anchor': 'shareholders-and-subsidiaries',
+                      'label': 'Shareholders and Subsidiaries',
+                    },
+                    {
+                      'anchor': 'tax-jurisdictions',
+                      'label': 'Tax jurisdictions',
+                    },
+                  ]}
+                  currentClassName="active"
+                />
               </div>
             </div>
           </div>
