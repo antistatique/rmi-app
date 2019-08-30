@@ -1,0 +1,15 @@
+- name: Create deploy directory
+  file:
+    path: "{{ deploy_to }}/{{ item }}"
+    state: directory
+    owner: "{{ deploy_user }}"
+    group: "{{ deploy_group }}"
+    mode: 0755
+    recurse: yes
+  with_items:
+    - releases
+    - shared
+    - shared/database
+    - shared/system
+    - shared/uploads
+    - shared/ckeditor_assets
