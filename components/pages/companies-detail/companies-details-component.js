@@ -57,22 +57,16 @@ class CompaniesDetail extends PureComponent {
         <div className="page-content">
           <div className="companies-detail-intro" id="contextual-data">
             <CompanyDetailHeader />
-            <div className="l-layout">
-              <div className="companies-detail-preview">
-                <div className="row">
-                  <div className="col-xs-12">
-                    <CompaniesDetailSidebar />
-                  </div>
-                  <div className="col-xs-12">
-                    <div className="map-container my-4">
-                      <Map
-                        paths={paths}
-                        markers={mineSites}
-                        setCountryColor={CompaniesDetail.setCountryColor}
-                        legend={MAP_LEGEND}
-                      />
-                    </div>
-                  </div>
+            <div className="companies-detail-preview">
+              <CompaniesDetailSidebar />
+              <div className="l-layout">
+                <div className="map-container my-4">
+                  <Map
+                    paths={paths}
+                    markers={mineSites}
+                    setCountryColor={CompaniesDetail.setCountryColor}
+                    legend={MAP_LEGEND}
+                  />
                 </div>
               </div>
             </div>
