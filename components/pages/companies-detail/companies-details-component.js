@@ -66,6 +66,7 @@ class CompaniesDetail extends PureComponent {
                     markers={mineSites}
                     setCountryColor={CompaniesDetail.setCountryColor}
                     legend={MAP_LEGEND}
+                    center={[40, 10]}
                   />
                 </div>
               </div>
