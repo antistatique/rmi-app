@@ -1,0 +1,27 @@
+@import 'css/settings';
+
+.related-leading-practices {
+  ul {
+    padding-left: 20px;
+    font-size: $font-size-big;
+    list-style: initial;
+  }
+
+  li {
+    margin-bottom: 2px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: $color-4;
+
+    &:hover {
+      color: $color-6;
+      text-decoration-color: $color-5;
+    }
+  }
+}
