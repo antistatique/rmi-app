@@ -6,6 +6,7 @@ import {
   AccordionItemTitle,
   AccordionItemBody
 } from 'react-accessible-accordion';
+import RelatedLeadingPractices from '../related-leading-practices';
 
 // styles
 import styles from './accordion-styles.scss';
@@ -31,6 +32,7 @@ class CompaniesDetailAccordion extends PureComponent {
         </AccordionItemTitle>
         <AccordionItemBody>
           {contentRenderer(data.children)}
+          <RelatedLeadingPractices />
         </AccordionItemBody>
       </AccordionItem>
     );
