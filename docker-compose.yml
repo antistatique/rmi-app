@@ -9,4 +9,5 @@ services:
       - PORT=3000
       - NODE_ENV=production
     restart: always
-    command: "yarn start"
+    # the yarn build required a lot of env variables. Moved here.
+    command: bash -c "yarn run build && yarn start"
