@@ -9,7 +9,3 @@
   with_items:
     - releases
     - shared
-    - shared/database
-    - shared/system
-    - shared/uploads
-    - shared/ckeditor_assets
