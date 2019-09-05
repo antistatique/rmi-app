@@ -35,34 +35,31 @@ class AdverseImpactsFilter extends PureComponent {
     const { company, mineSite, indicator } = filters;
 
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-4">
-          <Select
-            placeholder="Select a company"
-            options={companies}
-            theme="dark"
-            selectedValue={company}
-            onChange={this.handleCompany}
-          />
-        </div>
-        <div className="col-xs-12 col-sm-4">
-          <Select
-            placeholder="Select a mine-site"
-            options={mineSites}
-            theme="dark"
-            selectedValue={mineSite}
-            onChange={this.handleMineSite}
-          />
-        </div>
-        <div className="col-xs-12 col-sm-4">
-          <Select
-            placeholder="Select a topic"
-            options={indicators}
-            theme="dark"
-            selectedValue={indicator}
-            onChange={this.handleIndicator}
-          />
-        </div>
+      <div className="d-flex flex-column flex-md-row justify-content-md-end">
+        <Select
+          placeholder="Select a company"
+          options={companies}
+          theme="dark"
+          selectedValue={company}
+          onChange={this.handleCompany}
+          className="c-select-bordered ml-0 mb-3 mb-md-0 mr-0 mr-md-3"
+        />
+        <Select
+          placeholder="Select a mine-site"
+          options={mineSites}
+          theme="dark"
+          selectedValue={mineSite}
+          onChange={this.handleMineSite}
+          className="c-select-bordered ml-0 mb-3 mb-md-0 mr-0 mr-md-3"
+        />
+        <Select
+          placeholder="Select a topic"
+          options={indicators}
+          theme="dark"
+          selectedValue={indicator}
+          onChange={this.handleIndicator}
+          className="c-select-bordered ml-0 mb-3 mb-md-0 mr-0"
+        />
       </div>
     );
   }
