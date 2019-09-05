@@ -80,8 +80,8 @@ export const INDEX_NAVIGATION = [{
       label: 'Adverse Impacts',
       slug: 'adverse-impacts',
       query: {
-        route: 'static-page',
-        params: { slug: 'adverse-impacts' }
+        route: 'adverse-impacts',
+        params: {}
       }
     }
   ],
