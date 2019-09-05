@@ -26,7 +26,7 @@ export const getLeadingPractices = createThunkAction('leading-practices-page/get
 
     const options = {
       ..._options,
-      'filter[topic]': topic,
+      'filter[topics]': topic,
       'page[number]': page,
       'page[size]': limit
     };

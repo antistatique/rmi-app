@@ -17,7 +17,7 @@ class CompaniesDetailSidebar extends PureComponent {
       'secondary-country': secondaryCountry,
       sector,
       'government-ownership': governmentOwnership,
-      'pretax-revenues-busd': preTaxRevenuesBusd,
+      'total-revenue-busd': totalRevenueBusd,
       'number-workers': workers,
       'number-employees': employees,
       'fatality-reports': fatalityReports,
@@ -60,11 +60,11 @@ class CompaniesDetailSidebar extends PureComponent {
                     </div>}
                 </div>
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
-                  {preTaxRevenuesBusd !== null &&
+                  {totalRevenueBusd !== null &&
                     <div className="definition-item">
                       <div className="definition-key">Pre-tax Revenues (in BUSD):</div>
                       <div className="definition-value">
-                        {preTaxRevenuesBusd.toLocaleString()}
+                        {totalRevenueBusd.toLocaleString()}
                         <span>{revenuesDate && ` (${revenuesDate})`}</span>
                       </div>
                     </div>}
@@ -98,24 +98,12 @@ class CompaniesDetailSidebar extends PureComponent {
                           <li key={fatalityReport.id} className="definition-sublist-item">
                             <span>{fatalityReport.year} | </span>
                             <div className="definition-sublist-item-container">
-                              {fatalityReport.workers !== null
-                                && <span>Workers: {fatalityReport.workers.toLocaleString()}</span>}
-                              {fatalityReport.workers === null
-                                &&
-                                  <span>
-                                    Employees: {fatalityReport.employees.toLocaleString()}
-                                  </span>}
-                              {fatalityReport.workers === null
-                                &&
-                                  <span>
-                                    Contractors: {fatalityReport.contractors.toLocaleString()}
-                                  </span>}
+                              <span>{fatalityReport.category}: {fatalityReport.value}</span>
                             </div>
                           </li>
                         ))}
                       </ul>
-                    </div>
-                  }
+                    </div>}
                 </div>
               </div>
             </div>

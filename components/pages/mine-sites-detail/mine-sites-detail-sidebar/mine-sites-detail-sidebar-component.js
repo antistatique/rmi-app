@@ -16,8 +16,7 @@ class MineSitesDetailSidebar extends PureComponent {
       products,
       openingYear,
       acquisitionYear,
-      company,
-      companyShare
+      companies
     } = mineSite;
 
     return (
@@ -63,23 +62,19 @@ class MineSitesDetailSidebar extends PureComponent {
             <div className="col-xs-6">
               <div className="definition-item">
                 <div className="definition-key">Company:</div>
-                <div className="definition-value">
-                  <Link
-                    route="companies"
-                    params={{
+                { companies.map(company => (
+                  <div className="definition-value">
+                    <Link
+                      route="companies"
+                      params={{
                       language: currentLanguage,
                       company: company.id
                     }}
-                  >
-                    {company.name || '-'}
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-6">
-              <div className="definition-item">
-                <div className="definition-key">Company&apos;s Share (%):</div>
-                <div className="definition-value">{companyShare || '-'}</div>
+                    >
+                      {company.name || '-'}
+                    </Link>
+                  </div>
+                )) }
               </div>
             </div>
           </div>
