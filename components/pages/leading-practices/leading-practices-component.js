@@ -14,6 +14,7 @@ import styles from './leading-practices-styles.scss';
 class LeadingPracticesPage extends PureComponent {
   static propTypes = {
     topics: PropTypes.array.isRequired,
+    companies: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     leadingPracticesPagination: PropTypes.object.isRequired,
     modalOpen: PropTypes.bool.isRequired,
@@ -41,15 +42,20 @@ class LeadingPracticesPage extends PureComponent {
     this.props.setLeadingPracticesFilters({ topic: selectedTopic.value });
   }
 
+  handleCompany = (selectedCompany) => {
+    this.props.setPaginationPage(1);
+    this.props.setLeadingPracticesFilters({ company: selectedCompany.value });
+  }
+
   closeModal = () => {
     this.props.toggleModal(false);
     this.props.setSelectedLeadingPractice(null);
   }
 
   render() {
-    const { topics, leadingPracticesPagination, filters, modalOpen } = this.props;
+    const { topics, companies, leadingPracticesPagination, filters, modalOpen } = this.props;
     const { size, page, limit } = leadingPracticesPagination;
-    const { topic } = filters;
+    const { topic, company } = filters;
 
     return (
       <div className="c-leading-practices-page">
@@ -79,7 +85,7 @@ class LeadingPracticesPage extends PureComponent {
           <div className="l-layout">
             <div className="leading-practices-container">
               <div className="row end-sm">
-                <div className="col-xs-12 col-sm-6">
+                <div className="col-xs-12 col-sm-4">
                   <div className="filters-container">
                     <Select
                       onChange={this.handleTopic}
@@ -87,6 +93,18 @@ class LeadingPracticesPage extends PureComponent {
                       placeholder="Select a topic"
                       theme="light"
                       selectedValue={topic}
+                      className="-underline"
+                    />
+                  </div>
+                </div>
+                <div className="col-xs-12 col-sm-4">
+                  <div className="filters-container">
+                    <Select
+                      onChange={this.handleCompany}
+                      options={companies}
+                      placeholder="Select a company"
+                      theme="light"
+                      selectedValue={company}
                       className="-underline"
                     />
                   </div>
