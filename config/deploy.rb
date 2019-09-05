@@ -8,13 +8,12 @@ set :docker_app_name, -> {
   [fetch(:application), fetch(:stage)].join('_')
 }
 set :docker_app_service, 'app'
-set :docker_volumes, []
 
 # Link file docker-compose.override.yml
 set :linked_files, fetch(:linked_files, []).push('docker-compose.prod.yml')
 
 # Link dirs files and private-files
-# set :linked_dirs, fetch(:linked_dirs, []).push('web/app/uploads')
+set :linked_dirs, []
 
 # Default value for :scm is :git
 set :scm, :git
@@ -52,12 +51,6 @@ namespace :deploy do
         else
           execute :docker_compose, 'up', '-d', '--no-deps', '--build', fetch(:docker_app_service)
         end
-
-        # Ensure volumes have right owner
-        # volumes = fetch(:docker_volumes).join(' ')
-        # unless volumes.empty?
-        #   execute :docker_compose, 'exec', '-T', fetch(:docker_app_service), :chown, '-R', 'www-data:www-data', volumes
-        # end
       end
     end
   end
