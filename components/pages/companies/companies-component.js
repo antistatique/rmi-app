@@ -74,6 +74,7 @@ class Companies extends PureComponent {
                       setCountryColor={Companies.setCountryColor}
                       legend={MAP_LEGEND}
                       onClickGeography={this.handleClickGeography}
+                      center={[40, 10]}
                     />
                   </div>
                 </div>

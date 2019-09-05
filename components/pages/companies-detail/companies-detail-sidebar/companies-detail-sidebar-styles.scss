@@ -1,0 +1,20 @@
+@import 'css/settings';
+
+.white-sidebar {
+  background: $color-7;
+  padding-top: 40px;
+  padding-bottom: 30px;
+
+  .definition-item {
+    > .definition-key,
+    > .definition-value {
+      color: $color-1;
+    }
+  }
+
+  .definition-sublist {
+    > .definition-sublist-item {
+      color: $color-1;
+    }
+  }
+}

@@ -89,7 +89,7 @@ class ScrollSpy extends PureComponent {
 
     return (
       <ul className="anchor-navigation d-flex justify-content-between">
-        <style jsx>{styles}</style>`
+        <style jsx>{styles}</style>
         {items.map(item => (
           <li
             className={`anchor-nav-item ${ currentTarget === item.anchor ? currentClassName : '' }`}
