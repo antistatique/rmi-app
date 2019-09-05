@@ -1,4 +1,4 @@
-set :branch, :deploy
+set :branch, :dev
 set :deploy_to, '/data/docker-data/2020.responsibleminingindex.org/front'
 
 server '83.166.150.184', port: '54698', user: 'antistatique', roles: %w{app db web}
