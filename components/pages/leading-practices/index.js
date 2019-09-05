@@ -15,7 +15,7 @@ import initialState from './leading-practices-initial-state';
 import LeadingPracticesPage from './leading-practices-component';
 
 // selectors
-import { parseTopics } from './leading-practices-selectors';
+import { parseTopics, parseCompanies } from './leading-practices-selectors';
 
 export { actions, reducers, initialState };
 
@@ -47,6 +47,7 @@ export default connect(
     modalOpen: state.app.modal.open,
     filters: state.leadingPracticesPage.leadingPractices.filters,
     topics: parseTopics(state),
+    companies: parseCompanies(state),
     leadingPracticesPagination: state.leadingPracticesPage.leadingPractices.pagination
   }),
   {

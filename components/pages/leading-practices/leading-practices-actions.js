@@ -20,13 +20,14 @@ export const getLeadingPractices = createThunkAction('leading-practices-page/get
   (dispatch, getState) => {
     const { leadingPracticesPage } = getState();
     const { pagination, filters } = leadingPracticesPage.leadingPractices;
-    const { topic } = filters;
+    const { topic, company } = filters;
     const { limit, page } = pagination;
     const deserializer = new Deserializer({});
 
     const options = {
       ..._options,
       'filter[topics]': topic,
+      'filter[companies]': company,
       'page[number]': page,
       'page[size]': limit
     };
