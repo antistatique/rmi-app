@@ -22,6 +22,7 @@ import subsidiariesModule from 'modules/subsidiaries';
 import staticPagesModule from 'modules/static-pages';
 import mapModule from 'modules/map';
 import chartModule from 'modules/chart';
+import adverseImpactsModule from 'modules/adverse-impacts';
 
 // components modules
 import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
@@ -33,6 +34,7 @@ import * as CompaniesDetailModule from 'components/pages/companies-detail';
 import * as MineSitesPageModule from 'components/pages/mine-sites';
 import * as ResultsOverallPageModule from 'components/pages/results-overall';
 import * as ResultsDetailPageModule from 'components/pages/results-detail';
+import * as AdverseImpactsPageModule from 'components/pages/adverse-impacts';
 
 export default {
   app: handleModule(appModule),
@@ -60,5 +62,7 @@ export default {
   staticContent: handleModule(staticContentModule),
   staticPages: handleModule(staticPagesModule),
   map: handleModule(mapModule),
-  chart: handleModule(chartModule)
+  chart: handleModule(chartModule),
+  adverseImpacts: handleModule(adverseImpactsModule),
+  adverseImpactsPage: handleModule(AdverseImpactsPageModule)
 };
