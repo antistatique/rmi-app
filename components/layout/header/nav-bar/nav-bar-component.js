@@ -58,12 +58,18 @@ class NavBar extends PureComponent {
         return (
           <Fragment key={tab.id}>
             <li className={`d-flex align-items-center ${this.getTabClass(tab)}`}>
-              <Link
-                route={tab.query.route}
-                params={tab.query.params}
-              >
-                <a>{tab.label}</a>
-              </Link>
+              {tab.externalUrl ? (
+                  <a href={tab.externalUrl} target="_blank">{tab.label}</a>
+                ) : (
+                  <Link
+                    route={tab.query.route}
+                    params={tab.query.params}
+                  >
+                    <a>{tab.label}</a>
+                  </Link>
+                )
+              }
+
               {tab.icon &&
                 < Icon name={tab.icon} className="ml-1" />
               }
