@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 // components
 import Spinner from 'components/common/spinner';
+import Alert from 'components/common/alert';
 
 // styles
 import styles from './companies-detail-sidebar-styles.scss';
@@ -23,7 +24,8 @@ class CompaniesDetailSidebar extends PureComponent {
       'fatality-reports': fatalityReports,
       'revenues-date': revenuesDate,
       'number-workers-date': workersDate,
-      'number-employees-date': employeesDate
+      'number-employees-date': employeesDate,
+      'extra-languages': extraLanguages
     } = company;
     const { name: countryName } = country || {};
     const { name: secondaryCountryName } = secondaryCountry || {};
@@ -34,6 +36,18 @@ class CompaniesDetailSidebar extends PureComponent {
         {!Object.keys(company).length && <Spinner />}
         {Object.keys(company).length &&
           <div className="l-layout">
+            { extraLanguages.length !== 0 &&
+            <div className="row">
+              <div className="col-xs-12">
+                <Alert variant="warning">
+                  This page is available in&nbsp;
+                  { extraLanguages.map((extraLanguage, index) => (
+                    <span><a href="#">{extraLanguage.name}</a> {extraLanguages.length - 1 === index ? '' : '&'} </span>
+                  ))}
+                </Alert>
+              </div>
+            </div>
+            }
             <div className="definitions-container">
               <div className="row mb-3">
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
