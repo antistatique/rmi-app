@@ -12,12 +12,12 @@ export const measurementColors = [blue, brown, pink, yellow, red, green];
 export const HOVER_COLOUR = '#000';
 
 export const AREA_ISSUE_COLOURS = {
-  145: overallColors[1],
-  146: overallColors[5],
-  147: overallColors[4],
-  148: overallColors[2],
-  149: overallColors[0],
-  150: overallColors[3]
+  315: overallColors[1],
+  316: overallColors[5],
+  317: overallColors[4],
+  318: overallColors[2],
+  319: overallColors[0],
+  320: overallColors[3]
 };
 
 export const STACKED_BAR_COLOURS = {
