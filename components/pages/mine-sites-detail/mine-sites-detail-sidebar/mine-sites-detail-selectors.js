@@ -7,6 +7,7 @@ export const parseMineSite = createSelector(
   mineSite,
   (_mineSite) => {
     return {
+      id: _mineSite.id,
       aliases: _mineSite.aliases,
       miningType: _mineSite['mining-type'],
       products: _mineSite.commodities.map(commodity => commodity.name).join(', '),

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'routes';
 
 // components
 import Spinner from 'components/common/spinner';
@@ -14,6 +15,7 @@ class CompaniesDetailSidebar extends PureComponent {
   render() {
     const { company } = this.props;
     const {
+      id,
       country,
       'secondary-country': secondaryCountry,
       sector,
@@ -39,10 +41,20 @@ class CompaniesDetailSidebar extends PureComponent {
             { extraLanguages.length !== 0 &&
             <div className="row">
               <div className="col-xs-12">
-                <Alert variant="warning">
+                <Alert variant="info">
                   This page is available in&nbsp;
                   { extraLanguages.map((extraLanguage, index) => (
-                    <span><a href="#">{extraLanguage.name}</a> {extraLanguages.length - 1 === index ? '' : '&'} </span>
+                    <span>
+                      <Link
+                        route="companies"
+                        params={{
+                          language: extraLanguage['web-code'],
+                          company: id
+                        }}
+                      >
+                        <a>{extraLanguage.name} {extraLanguages.length - 1 === index ? '' : '&'} </a>
+                      </Link>
+                    </span>
                   ))}
                 </Alert>
               </div>
