@@ -11,6 +11,7 @@ import Table from 'components/common/table';
 import Summary from 'components/common/summary';
 import Gradient from 'components/common/gradient';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
+import CompaniesDetailTailingsList from './companies-detail-tailings-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import PrintableIssueAreas from './printable-issue-areas';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
@@ -181,6 +182,15 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <CompaniesDetailMineSitesList />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="section -dark">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-xs-12">
+                <CompaniesDetailTailingsList />
               </div>
             </div>
           </div>
