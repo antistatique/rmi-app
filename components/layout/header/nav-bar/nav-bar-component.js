@@ -53,8 +53,6 @@ class NavBar extends PureComponent {
   renderTabs() {
     const { tabs } = this.props;
 
-    console.log(tabs);
-
     const tabElements = tabs.map((tab) => {
       if (!tab.children) {
         return (
