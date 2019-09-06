@@ -41,7 +41,8 @@ class CompaniesPage extends Page {
           include: ['country', 'secondary-country', 'producing-countries', 'mine-sites', 'mine-sites.country',
             'mine-sites.commodities', 'mine-sites.scores', 'scores', 'shareholders', 'subsidiaries',
             'beneficial-owners', 'company-country-tax-jurisdictions', 'company-country-tax-jurisdictions.country',
-            'investment-disputes', 'fatality-reports', 'selected-mine-sites', 'tailing-storage-facilities', 'tailing-storage-facilities.country'
+            'investment-disputes', 'fatality-reports', 'selected-mine-sites', 'extra-languages', 'tailing-storage-facilities',
+            'tailing-storage-facilities.country'
           ].join(','),
           'page[size]': 9999
         }
