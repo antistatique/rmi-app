@@ -202,7 +202,8 @@ export const INDEX_NAVIGATION = [
     query: {
       route: 'about',
       params: {}
-    }
+    },
+    icon: 'target-blank'
   }
 ];
 

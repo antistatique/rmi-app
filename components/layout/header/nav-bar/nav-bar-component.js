@@ -7,6 +7,7 @@ import debounce from 'lodash/debounce';
 
 // styles
 import styles from './nav-bar-styles.scss';
+import Icon from '../../../common/icon';
 
 class NavBar extends PureComponent {
   static propTypes = {
@@ -52,17 +53,22 @@ class NavBar extends PureComponent {
   renderTabs() {
     const { tabs } = this.props;
 
+    console.log(tabs);
+
     const tabElements = tabs.map((tab) => {
       if (!tab.children) {
         return (
           <Fragment key={tab.id}>
-            <li className={this.getTabClass(tab)}>
+            <li className={`d-flex align-items-center ${this.getTabClass(tab)}`}>
               <Link
                 route={tab.query.route}
                 params={tab.query.params}
               >
                 <a>{tab.label}</a>
               </Link>
+              {tab.icon &&
+                < Icon name={tab.icon} className="ml-1" />
+              }
             </li>
           </Fragment>);
       }
