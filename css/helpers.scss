@@ -23,3 +23,13 @@
 .text-white {
   color: white;
 }
+
+:global(.bg-darkblue) {
+  background: $color-3;
+  color: $color-7;
+
+  @media print {
+    background: $color-7;
+    color: $color-1;
+  }
+}

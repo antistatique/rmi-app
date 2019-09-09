@@ -1,0 +1,32 @@
+@import 'css/settings';
+
+.c-companies-detail-tailings-list {
+
+  .table {
+
+    &:not(:first-child) {
+      margin: 35px 0 0;
+    }
+
+    .table-title {
+      margin: 0 0 25px;
+
+      font-family: $font-family-2;
+      font-size: $font-size-big;
+      color: $color-7;
+      line-height: 1.4;
+
+      &.-big {
+        font-size: $font-size-bigger;
+      }
+
+      &.-red {
+        color: $color-8;
+      }
+
+      @media print {
+        color: $color-1 !important;
+      }
+    }
+  }
+}

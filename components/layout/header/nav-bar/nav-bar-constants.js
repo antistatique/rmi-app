@@ -203,6 +203,7 @@ export const INDEX_NAVIGATION = [
       route: 'about',
       params: {}
     },
+    externalUrl: 'https://responsibleminingfoundation.org',
     icon: 'target-blank'
   }
 ];
