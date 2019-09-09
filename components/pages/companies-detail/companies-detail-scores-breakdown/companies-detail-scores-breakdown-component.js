@@ -18,6 +18,7 @@ import PrintableMeasurements from './printable-measurements';
 import Slider from './slider';
 import SubsidiariesTable from './subsidiaries-table';
 import ShareholdersTable from './shareholders-table';
+import BeneficialOwnersTable from './beneficial-owners-table';
 import Unknowndata from './unknown-data';
 import ToggleSwitch from 'components/common/toggle-switch';
 
@@ -193,6 +194,12 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               </div>
               <div className="col-xs-12 col-md-5">
                 <SubsidiariesTable />
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-xs-12 col-md-5">
+                <BeneficialOwnersTable />
               </div>
             </div>
 

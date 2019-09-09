@@ -4,19 +4,16 @@ import PropTypes from 'prop-types';
 // components
 import Table from 'components/common/table';
 import Paginator from 'components/common/paginator';
-import Search from 'components/common/search';
 import Unknowndata from '../unknown-data';
 
-// styles
-import styles from './shareholders-table-styles.scss';
+import styles from './beneficial-owners-table-styles.scss';
 
-class ShareholdersTable extends PureComponent {
+class BeneficialOwnersTable extends PureComponent {
   static propTypes = {
-    shareholders: PropTypes.array.isRequired,
+    beneficialOwners: PropTypes.array.isRequired,
     pagination: PropTypes.object.isRequired,
-    shareholdersDate: PropTypes.string.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
-    setSearch: PropTypes.func.isRequired
+    beneficialOwnersDate: PropTypes.string.isRequired
   }
 
   static renderUnknown = () => (
@@ -29,39 +26,28 @@ class ShareholdersTable extends PureComponent {
 
   handlePagination = nextPage => this.props.setPaginationPage(nextPage);
 
-  handleSearch = (value) => {
-    this.props.setPaginationPage(1);
-    this.props.setSearch(value);
-  }
-
   render() {
     const {
-      shareholders,
-      pagination,
-      shareholdersDate
+      beneficialOwners,
+      beneficialOwnersDate,
+      pagination
     } = this.props;
     const { size, limit, page } = pagination;
 
     return (
-      <div className="c-shareholders-table">
+      <div className="c-beneficial-owners-table">
         <style jsx>{styles}</style>
-        <h3 className="title">Known Shareholders</h3>
-        <div className="filters-container">
-          <Search
-            onSearch={this.handleSearch}
-            placeholder="Search for a shareholder..."
-          />
-        </div>
-        {shareholders.length ?
+        <h3 className="title">Known Beneficial Owners</h3>
+        {beneficialOwners.length ?
           <Fragment>
             <Table
               columns={[
                 {
                   property: 'name',
-                  header: { label: `As of: ${shareholdersDate || 'unknown'}` }
+                  header: { label: `As of: ${beneficialOwnersDate || 'unknown'}` }
                 },
                 {
-                  property: 'percent-shares',
+                  property: 'percent-ownership',
                   header: { label: 'Shares (%)' },
                   props: {
                       style: {
@@ -71,7 +57,7 @@ class ShareholdersTable extends PureComponent {
                   }
                 }
               ]}
-              rows={shareholders}
+              rows={beneficialOwners}
             />
             <div className="paginator-container">
               <Paginator
@@ -86,8 +72,8 @@ class ShareholdersTable extends PureComponent {
             </div>
           </Fragment> : <Unknowndata />}
       </div>
-    )
+    );
   }
 }
 
-export default ShareholdersTable;
+export default BeneficialOwnersTable;

@@ -19,6 +19,7 @@ import { getCommodities } from 'modules/commodities/commodities-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 import { getSubsidiaries } from 'modules/subsidiaries/subsidiaries-actions';
 import { getShareholders } from 'modules/shareholders/shareholders-actions';
+import { getBeneficialOwners } from 'modules/beneficial-owners/beneficial-owners-actions';
 
 class CompaniesPage extends Page {
   static propTypes = {
@@ -66,6 +67,12 @@ class CompaniesPage extends Page {
 
       // gets shareholders
       await context.store.dispatch(getShareholders({
+        'filter[company]': context.query.company,
+        sort: 'name'
+      }));
+
+      // get beneficial owners
+      await context.store.dispatch(getBeneficialOwners({
         'filter[company]': context.query.company,
         sort: 'name'
       }));
