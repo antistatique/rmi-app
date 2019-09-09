@@ -19,7 +19,6 @@ class CompaniesDetailTailingsList extends PureComponent {
       <div className="c-companies-detail-tailings-list">
         <style jsx>{styles}</style>
         <div className="table">
-          <h3 id="list-of-all-mine-sites" className="table-title -big">Tailings</h3>
           <Gradient className="-dark" >
             <Table
               columns={TAILINGS_TABLE_COLUMNS}
