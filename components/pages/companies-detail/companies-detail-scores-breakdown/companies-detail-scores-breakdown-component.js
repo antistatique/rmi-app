@@ -11,6 +11,7 @@ import Table from 'components/common/table';
 import Summary from 'components/common/summary';
 import Gradient from 'components/common/gradient';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
+import CompaniesDetailTailingsList from './companies-detail-tailings-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import PrintableIssueAreas from './printable-issue-areas';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
@@ -136,12 +137,12 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
         </section>
 
         <div className="page-break" />
-        <div className="accordion-header">
+        <div className="accordion-header bg-darkblue">
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
                 <h2 id="indicator-by-indicator-results" className="text-left">
-                  Indicator-by-indicator results
+                  Detailed  results
                 </h2>
               </div>
             </div>
@@ -181,6 +182,29 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <CompaniesDetailMineSitesList />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="page-break" />
+        <div className="accordion-header bg-darkblue">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-xs-12">
+                <h2 id="indicator-by-indicator-results" className="text-left">
+                  Tailings
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section className="section -dark">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-xs-12">
+                <CompaniesDetailTailingsList />
               </div>
             </div>
           </div>
