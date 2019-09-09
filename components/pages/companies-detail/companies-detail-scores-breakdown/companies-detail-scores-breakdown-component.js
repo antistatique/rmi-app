@@ -20,10 +20,10 @@ import Slider from './slider';
 import SubsidiariesTable from './subsidiaries-table';
 import Unknowndata from './unknown-data';
 import ToggleSwitch from 'components/common/toggle-switch';
+import SelectedMineSitesTable from './selected-mine-sites-table';
 
 // constants
 import {
-  MINE_SITE_TABLE_COLUMNS,
   INVESTMENT_DISPUTES_COLUMNS,
   TAX_JURISDICTIONS_COLUMNS
 } from './companies-detail-scores-breakdown-constants';
@@ -33,7 +33,6 @@ import styles from './companies-detail-scores-breakdown-styles.scss';
 
 class CompaniesDetailScoresBreakDown extends PureComponent {
   static propTypes = {
-    mineSites: PropTypes.array.isRequired,
     breakdownScores: PropTypes.array.isRequired,
     shareholders: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
@@ -52,7 +51,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
 
   render() {
     const {
-      company, breakdownScores, mineSites,
+      company, breakdownScores,
       shareholders, investmentDisputes, knownTaxJurisdictions,
       responsive, printable
     } = this.props;
@@ -168,10 +167,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                   {!mobile && <br />} in the overall company score
                 </h3>
                 <div className="table-container">
-                  <Table
-                    columns={MINE_SITE_TABLE_COLUMNS}
-                    rows={mineSites}
-                  />
+                  <SelectedMineSitesTable />
                 </div>
               </div>
             </div>
