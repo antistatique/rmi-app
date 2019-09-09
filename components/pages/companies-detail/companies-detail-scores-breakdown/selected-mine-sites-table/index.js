@@ -10,16 +10,6 @@ import styles from './selected-mine-sites-table-styles.scss';
 class SelectedMineSitesTable extends PureComponent {
   static propTypes = { mineSites: PropTypes.array.isRequired }
 
-  totalScore(mineSite) {
-    let total = 0;
-    const { scores } = this.props.mineSites.find(ms => ms.id === mineSite);
-    Object.keys(scores).map((key) => {
-      total += scores[key];
-    });
-
-    return total;
-  }
-
   render() {
     const { mineSites } = this.props;
 
@@ -102,7 +92,7 @@ class SelectedMineSitesTable extends PureComponent {
           <tr className="bg-darkblue">
             <td className="score-title">Mine-site Score<br /><span>(score /30)</span></td>
             {mineSites.map(mineSite => (
-              <td>{this.totalScore(mineSite.id)}</td>
+              <td>{mineSite.overall}</td>
             ))}
           </tr>
         </tbody>
