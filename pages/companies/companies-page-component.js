@@ -18,6 +18,7 @@ import { getCountriesWithCompanies } from 'components/pages/companies/companies-
 import { getCommodities } from 'modules/commodities/commodities-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 import { getSubsidiaries } from 'modules/subsidiaries/subsidiaries-actions';
+import { getShareholders } from 'modules/shareholders/shareholders-actions';
 
 class CompaniesPage extends Page {
   static propTypes = {
@@ -61,6 +62,12 @@ class CompaniesPage extends Page {
         'filter[company]': context.query.company,
         sort: 'name',
         include: 'country'
+      }));
+
+      // gets shareholders
+      await context.store.dispatch(getShareholders({
+        'filter[company]': context.query.company,
+        sort: 'name'
       }));
     } else {
       await context.store.dispatch(getCompanies({

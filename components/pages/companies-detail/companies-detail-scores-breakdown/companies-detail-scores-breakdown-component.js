@@ -17,6 +17,7 @@ import CompaniesDetailOverallMeasurements from './companies-detail-overall-measu
 import PrintableMeasurements from './printable-measurements';
 import Slider from './slider';
 import SubsidiariesTable from './subsidiaries-table';
+import ShareholdersTable from './shareholders-table';
 import Unknowndata from './unknown-data';
 import ToggleSwitch from 'components/common/toggle-switch';
 
@@ -34,7 +35,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
   static propTypes = {
     mineSites: PropTypes.array.isRequired,
     breakdownScores: PropTypes.array.isRequired,
-    shareholders: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired,
@@ -185,31 +185,11 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
           </div>
         </section>
-        <section className="section -gray miscellaneous-lists">
+        <section id="shareholders-and-subsidiaries" className="section -gray miscellaneous-lists">
           <div className="l-layout">
             <div className="row between-md">
               <div className="col-xs-12 col-md-5">
-                <h3 id="shareholders-and-subsidiaries" className="title text-left">Main Shareholders</h3>
-                {shareholders.length ?
-                  <Table
-                    columns={[
-                      {
-                        property: 'name',
-                        header: { label: `As of: ${shareholdersDate || 'unknown'}` }
-                      },
-                      {
-                        property: 'percent-shares',
-                        header: { label: 'Shares (%)' },
-                        props: {
-                          style: {
-                            textAlign: 'right',
-                            minWidth: 90
-                          }
-                        }
-                      }
-                    ]}
-                    rows={shareholders}
-                  /> : <Unknowndata />}
+                <ShareholdersTable />
               </div>
               <div className="col-xs-12 col-md-5">
                 <SubsidiariesTable />

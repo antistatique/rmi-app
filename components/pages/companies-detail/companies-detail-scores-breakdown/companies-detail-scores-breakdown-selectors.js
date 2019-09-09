@@ -7,15 +7,9 @@ import { valueParser, fixedValue } from 'utils/value-parser'
 const scores = state => (state.companies.list[0] || {}).scores;
 const selectedMineSites = state => (state.companies.list[0] || {})['selected-mine-sites'];
 const currentLanguage = state => state.language.current;
-const shareholders = state => (state.companies.list[0] || {}).shareholders;
 const investmentDisputes = state => (state.companies.list[0] || {})['investment-disputes'];
 const knownTaxJurisdictions = state =>
   (state.companies.list[0] || {})['company-country-tax-jurisdictions'];
-
-export const parseShareholders = createSelector(
-  [shareholders],
-  (_shareholders = []) => orderBy(_shareholders, 'percent-shares', ['desc'])
-)
 
 export const parseInvestmentDisputes = createSelector(
   [investmentDisputes],
