@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'routes';
 
 import styles from './custom-modal-styles.scss';
 import Icon from '../icon';
@@ -9,8 +10,11 @@ class Modal extends PureComponent {
     open: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
     children: PropTypes.object.isRequired,
-    onClose: PropTypes.func.isRequired
+    onClose: PropTypes.func.isRequired,
+    links: PropTypes.array
   }
+
+  static defaultProps = { links: [] }
 
   constructor(props) {
     super(props);
@@ -28,7 +32,7 @@ class Modal extends PureComponent {
   }
 
   render() {
-    const { title } = this.props;
+    const { title, links } = this.props;
 
     return (
       <div className={`c-custom-modal-wrapper ${this.state.open ? 'open' : ''}`}>
@@ -41,6 +45,13 @@ class Modal extends PureComponent {
           <div className="c-custom-modal-content">
             <div className="header">
               <h2>{title}</h2>
+              {links.length > 0 && links.map(link => (
+                <h5 className="company">
+                  <Link route="companies" params={{ language: link.language, company: link.id }}>
+                    <a>{link.name}</a>
+                  </Link>
+                </h5>
+              ))}
             </div>
             <div className="content">
               {this.props.children}

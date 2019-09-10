@@ -40,6 +40,18 @@ class LeadingPracticesCard extends PureComponent {
     this.setState({ modalOpen: true });
   }
 
+  buildLinks = () => {
+    const companies = this.props.leadingPractice.companies.map((company) => {
+      return {
+        name: company.name,
+        id: company.id,
+        language: this.props.currentLanguage
+      };
+    });
+
+    return companies;
+  }
+
   handleClose = () => {
     this.setState({ modalOpen: false });
   }
@@ -47,6 +59,7 @@ class LeadingPracticesCard extends PureComponent {
   render() {
     const { leadingPractice, currentLanguage } = this.props;
     const { title, companies, description } = leadingPractice;
+    const links = this.buildLinks();
 
     return (
       <div
@@ -82,6 +95,7 @@ class LeadingPracticesCard extends PureComponent {
           open={this.state.modalOpen}
           title={title}
           onClose={this.handleClose}
+          links={links}
         >
           <div>
             <p>{description}</p>
