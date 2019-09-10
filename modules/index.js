@@ -23,6 +23,8 @@ import staticPagesModule from 'modules/static-pages';
 import mapModule from 'modules/map';
 import chartModule from 'modules/chart';
 import adverseImpactsModule from 'modules/adverse-impacts';
+import shareholdersModule from 'modules/shareholders';
+import beneficialOwnersModule from 'modules/beneficial-owners';
 
 // components modules
 import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
@@ -64,5 +66,7 @@ export default {
   map: handleModule(mapModule),
   chart: handleModule(chartModule),
   adverseImpacts: handleModule(adverseImpactsModule),
-  adverseImpactsPage: handleModule(AdverseImpactsPageModule)
+  adverseImpactsPage: handleModule(AdverseImpactsPageModule),
+  shareholders: handleModule(shareholdersModule),
+  beneficialOwners: handleModule(beneficialOwnersModule)
 };

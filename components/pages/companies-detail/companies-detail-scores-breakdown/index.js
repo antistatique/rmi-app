@@ -5,7 +5,6 @@ import {
   getBreakdownScores,
   parseMineSitesScores,
   parseKnownTaxJurisdictions,
-  parseShareholders,
   parseInvestmentDisputes
 } from './companies-detail-scores-breakdown-selectors';
 import { setPreviousYearVisibility } from 'modules/chart/chart-actions';
@@ -14,7 +13,6 @@ export default connect(
   state => ({
     breakdownScores: getBreakdownScores(state),
     mineSites: parseMineSitesScores(state),
-    shareholders: parseShareholders(state),
     investmentDisputes: parseInvestmentDisputes(state),
     knownTaxJurisdictions: parseKnownTaxJurisdictions(state),
     company: state.companies.list,

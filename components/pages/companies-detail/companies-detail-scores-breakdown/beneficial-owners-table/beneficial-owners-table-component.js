@@ -4,73 +4,52 @@ import PropTypes from 'prop-types';
 // components
 import Table from 'components/common/table';
 import Paginator from 'components/common/paginator';
-import Search from 'components/common/search';
 import Unknowndata from '../unknown-data';
 
+import styles from './beneficial-owners-table-styles.scss';
 
-// styles
-import styles from './subsidiaries-table-styles.scss';
-
-class SubsidiariesTable extends PureComponent {
+class BeneficialOwnersTable extends PureComponent {
   static propTypes = {
-    subsidiaries: PropTypes.array,
-    subsidiariesDate: PropTypes.string.isRequired,
+    beneficialOwners: PropTypes.array.isRequired,
     pagination: PropTypes.object.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
-    setSearch: PropTypes.func.isRequired
+    beneficialOwnersDate: PropTypes.string.isRequired
   }
-
-  static defaultProps = { subsidiaries: [] }
 
   static renderUnknown = () => (
     <div className="unknown-container">
       <style jsx>{styles}</style>
       <span className="as-of">As of: Unknown</span>
       <span className="unknow-value">Unknown</span>
-    </div>)
+    </div>
+  )
 
   handlePagination = nextPage => this.props.setPaginationPage(nextPage);
 
-  handleSearch = (value) => {
-    this.props.setPaginationPage(1);
-    this.props.setSearch(value);
-  }
-
   render() {
     const {
-      subsidiaries,
-      subsidiariesDate,
+      beneficialOwners,
+      beneficialOwnersDate,
       pagination
     } = this.props;
     const { size, limit, page } = pagination;
 
     return (
-      <div className="c-subsidiaries-table">
+      <div className="c-beneficial-owners-table">
         <style jsx>{styles}</style>
-        <h3 className="title">Known Subsidiaries</h3>
-        <div className="filters-container">
-          <Search
-            onSearch={this.handleSearch}
-            placeholder="Search for a subsidiary..."
-          />
-        </div>
-        {subsidiaries.length ?
+        <h3 className="title">Known Beneficial Owners</h3>
+        {beneficialOwners.length ?
           <Fragment>
             <Table
               className="borderless"
               columns={[
                 {
                   property: 'name',
-                  header: { label: `As of: ${subsidiariesDate || 'unknown'}` }
+                  header: { label: `As of: ${beneficialOwnersDate || 'unknown'}` }
                 },
                 {
-                  property: 'country',
-                  header: { label: 'Country' },
-                  cell: {
-                    formatters: [
-                      (country, { rowData }) => (rowData.country ? rowData.country.name : 'unknown')
-                    ]
-                  },
+                  property: 'percent-ownership',
+                  header: { label: 'Shares (%)' },
                   props: {
                       style: {
                       textAlign: 'right',
@@ -79,7 +58,7 @@ class SubsidiariesTable extends PureComponent {
                   }
                 }
               ]}
-              rows={subsidiaries}
+              rows={beneficialOwners}
             />
             <div className="paginator-container">
               <Paginator
@@ -98,4 +77,4 @@ class SubsidiariesTable extends PureComponent {
   }
 }
 
-export default SubsidiariesTable;
+export default BeneficialOwnersTable;

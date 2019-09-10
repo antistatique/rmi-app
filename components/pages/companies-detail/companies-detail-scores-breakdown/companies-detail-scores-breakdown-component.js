@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -18,6 +18,8 @@ import CompaniesDetailOverallMeasurements from './companies-detail-overall-measu
 import PrintableMeasurements from './printable-measurements';
 import Slider from './slider';
 import SubsidiariesTable from './subsidiaries-table';
+import ShareholdersTable from './shareholders-table';
+import BeneficialOwnersTable from './beneficial-owners-table';
 import Unknowndata from './unknown-data';
 import ToggleSwitch from 'components/common/toggle-switch';
 import SelectedMineSitesTable from './selected-mine-sites-table';
@@ -34,7 +36,6 @@ import styles from './companies-detail-scores-breakdown-styles.scss';
 class CompaniesDetailScoresBreakDown extends PureComponent {
   static propTypes = {
     breakdownScores: PropTypes.array.isRequired,
-    shareholders: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired,
@@ -182,7 +183,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
           </div>
         </section>
-
         <div className="page-break" />
         <div className="accordion-header bg-darkblue">
           <div className="l-layout">
@@ -205,31 +205,13 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
           </div>
         </section>
-        <section className="section -gray miscellaneous-lists">
+        <section id="shareholders-and-subsidiaries" className="section -gray miscellaneous-lists">
           <div className="l-layout">
             <div className="row between-md">
               <div className="col-xs-12 col-md-5">
-                <h3 id="shareholders-and-subsidiaries" className="title text-left">Main Shareholders</h3>
-                {shareholders.length ?
-                  <Table
-                    columns={[
-                      {
-                        property: 'name',
-                        header: { label: `As of: ${shareholdersDate || 'unknown'}` }
-                      },
-                      {
-                        property: 'percent-shares',
-                        header: { label: 'Shares (%)' },
-                        props: {
-                          style: {
-                            textAlign: 'right',
-                            minWidth: 90
-                          }
-                        }
-                      }
-                    ]}
-                    rows={shareholders}
-                  /> : <Unknowndata />}
+                <ShareholdersTable />
+                <div className="mb-4"></div>
+                <BeneficialOwnersTable />
               </div>
               <div className="col-xs-12 col-md-5">
                 <SubsidiariesTable />
@@ -237,20 +219,23 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
 
             <div className="row">
-              <div className="col-xs-12">
+              <div className="col-xs-12 col-md-5">
                 <h3 id="tax-jurisdictions" className="title">Known Tax Jurisdictions</h3>
                 {knownTaxJurisdictions.length ?
-                  <Gradient className="-gray">
+                  <Fragment>
                     <Table
                       columns={TAX_JURISDICTIONS_COLUMNS}
                       rows={knownTaxJurisdictions}
+                      className="borderless"
                     />
-                  </Gradient> : <Unknowndata asOf={false} />}
+                  </Fragment> : <Unknowndata asOf={false} />}
               </div>
             </div>
             <div className="row">
               <div className="col-xs-12">
-                <h3 className="title -small">Recent involvements in Investor/State investment disputes (since 2014)</h3>
+                <h3 className="title">Investor/State investment disputes
+                  <div className="title -small d-inline ml-1">(involvements since 2014)</div>
+                </h3>
                 {investmentDisputes.length ?
                   <Gradient className="-gray">
                     <Table

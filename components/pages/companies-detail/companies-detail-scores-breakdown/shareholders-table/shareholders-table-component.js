@@ -7,27 +7,25 @@ import Paginator from 'components/common/paginator';
 import Search from 'components/common/search';
 import Unknowndata from '../unknown-data';
 
-
 // styles
-import styles from './subsidiaries-table-styles.scss';
+import styles from './shareholders-table-styles.scss';
 
-class SubsidiariesTable extends PureComponent {
+class ShareholdersTable extends PureComponent {
   static propTypes = {
-    subsidiaries: PropTypes.array,
-    subsidiariesDate: PropTypes.string.isRequired,
+    shareholders: PropTypes.array.isRequired,
     pagination: PropTypes.object.isRequired,
+    shareholdersDate: PropTypes.string.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
     setSearch: PropTypes.func.isRequired
   }
-
-  static defaultProps = { subsidiaries: [] }
 
   static renderUnknown = () => (
     <div className="unknown-container">
       <style jsx>{styles}</style>
       <span className="as-of">As of: Unknown</span>
       <span className="unknow-value">Unknown</span>
-    </div>)
+    </div>
+  )
 
   handlePagination = nextPage => this.props.setPaginationPage(nextPage);
 
@@ -38,39 +36,34 @@ class SubsidiariesTable extends PureComponent {
 
   render() {
     const {
-      subsidiaries,
-      subsidiariesDate,
-      pagination
+      shareholders,
+      pagination,
+      shareholdersDate
     } = this.props;
     const { size, limit, page } = pagination;
 
     return (
-      <div className="c-subsidiaries-table">
+      <div className="c-shareholders-table">
         <style jsx>{styles}</style>
-        <h3 className="title">Known Subsidiaries</h3>
+        <h3 className="title">Known Shareholders</h3>
         <div className="filters-container">
           <Search
             onSearch={this.handleSearch}
-            placeholder="Search for a subsidiary..."
+            placeholder="Search for a shareholder..."
           />
         </div>
-        {subsidiaries.length ?
+        {shareholders.length ?
           <Fragment>
             <Table
               className="borderless"
               columns={[
                 {
                   property: 'name',
-                  header: { label: `As of: ${subsidiariesDate || 'unknown'}` }
+                  header: { label: `As of: ${shareholdersDate || 'unknown'}` }
                 },
                 {
-                  property: 'country',
-                  header: { label: 'Country' },
-                  cell: {
-                    formatters: [
-                      (country, { rowData }) => (rowData.country ? rowData.country.name : 'unknown')
-                    ]
-                  },
+                  property: 'percent-shares',
+                  header: { label: 'Shares (%)' },
                   props: {
                       style: {
                       textAlign: 'right',
@@ -79,7 +72,7 @@ class SubsidiariesTable extends PureComponent {
                   }
                 }
               ]}
-              rows={subsidiaries}
+              rows={shareholders}
             />
             <div className="paginator-container">
               <Paginator
@@ -94,8 +87,8 @@ class SubsidiariesTable extends PureComponent {
             </div>
           </Fragment> : <Unknowndata />}
       </div>
-    );
+    )
   }
 }
 
-export default SubsidiariesTable;
+export default ShareholdersTable;
