@@ -28,14 +28,19 @@ class Modal extends PureComponent {
     const { title } = this.props;
 
     return (
-      <div className={`c-custom-modal ${this.state.open ? 'open' : ''}`}>
+      <div className={`c-custom-modal-wrapper ${this.state.open ? 'open' : ''}`}>
         <style jsx>{styles}</style>
-        <button onClick={this.close}>Close</button>
-        <div className="header">
-          <h2>{title}</h2>
-        </div>
-        <div className="content">
-          {this.props.children}
+        <div className="c-custom-modal-overlay"></div>
+        <div className="c-custom-modal">
+          <button className="c-custom-modal-close" onClick={this.close}>Close</button>
+          <div className="c-custom-modal-content">
+            <div className="header">
+              <h2>{title}</h2>
+            </div>
+            <div className="content">
+              {this.props.children}
+            </div>
+          </div>
         </div>
       </div>
     );
