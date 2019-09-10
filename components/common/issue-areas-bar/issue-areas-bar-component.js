@@ -46,7 +46,7 @@ class IssueAreasBar extends PureComponent {
     const { selectedIssueArea } = this.props;
 
     return issueArea.id === selectedIssueArea ?
-      AREA_ISSUE_COLOURS[issueArea.id] : '#fff';
+      AREA_ISSUE_COLOURS[issueArea.id] : 'transparent';
   }
 
   render() {
@@ -72,7 +72,7 @@ class IssueAreasBar extends PureComponent {
                 <Icon
                   name={issueArea.id}
                   className={`${issueArea.id === selectedIssueArea ? 'active' : ''} -x-big`}
-                  style={{ stroke: this.getColor(issueArea), fill: this.getColor(issueArea) }}
+                  style={{ background: this.getColor(issueArea) }}
                 />
               </button>
             </li>

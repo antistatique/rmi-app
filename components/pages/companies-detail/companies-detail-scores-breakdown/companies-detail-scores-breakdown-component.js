@@ -142,7 +142,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <h2 id="indicator-by-indicator-results" className="text-left">
-                  Detailed  results
+                  Detailed results
                 </h2>
               </div>
             </div>
