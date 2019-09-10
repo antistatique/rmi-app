@@ -20,7 +20,7 @@ class Modal extends PureComponent {
     this.setState({ open: nextProps.open });
   }
 
-  close() {
+  close = () => {
     this.setState({ open: false });
   }
 
