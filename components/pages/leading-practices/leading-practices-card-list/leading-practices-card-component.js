@@ -84,7 +84,7 @@ class LeadingPracticesCard extends PureComponent {
           onClose={this.handleClose}
         >
           <div>
-            {LeadingPracticesCard.shortDescription(description)}
+            <p>{description}</p>
           </div>
         </Modal>
       </div>
