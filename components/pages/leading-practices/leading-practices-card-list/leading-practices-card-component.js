@@ -4,6 +4,7 @@ import { Link } from 'routes';
 
 // components
 import Button from 'components/common/button';
+import Modal from 'components/common/custom-modal';
 
 // styles
 import styles from './leading-practices-card-styles.scss';
@@ -29,9 +30,14 @@ class LeadingPracticesCard extends PureComponent {
     return `${description.replace(/^(.{120}[^\s]*).*/, '$1')}...`;
   }
 
+  constructor(props) {
+    super(props);
+
+    this.state = { modalOpen: false };
+  }
+
   handleClick = () => {
-    const { onClick, leadingPractice } = this.props;
-    onClick(leadingPractice);
+    this.setState({ modalOpen: true });
   }
 
   render() {
@@ -68,6 +74,14 @@ class LeadingPracticesCard extends PureComponent {
         >
           Read more
         </Button>
+        <Modal
+          open={this.state.modalOpen}
+          title={title}
+        >
+          <div>
+            {LeadingPracticesCard.shortDescription(description)}
+          </div>
+        </Modal>
       </div>
     );
   }

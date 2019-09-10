@@ -2,11 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // components
-import Modal from 'components/common/modal';
 import Select from 'components/common/select';
 import Paginator from 'components/common/paginator';
 import LeadingPracticesCardList from './leading-practices-card-list';
-import ModalContent from './modal-content';
 
 // styles
 import styles from './leading-practices-styles.scss';
@@ -17,14 +15,11 @@ class LeadingPracticesPage extends PureComponent {
     companies: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     leadingPracticesPagination: PropTypes.object.isRequired,
-    modalOpen: PropTypes.bool.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
     resetPagination: PropTypes.func.isRequired,
     getLeadingPractices: PropTypes.func.isRequired,
     setLeadingPracticesFilters: PropTypes.func.isRequired,
-    resetLeadingPracticesFilters: PropTypes.func.isRequired,
-    toggleModal: PropTypes.func.isRequired,
-    setSelectedLeadingPractice: PropTypes.func.isRequired
+    resetLeadingPracticesFilters: PropTypes.func.isRequired
   }
 
   componentWillUnmount() {
@@ -47,13 +42,8 @@ class LeadingPracticesPage extends PureComponent {
     this.props.setLeadingPracticesFilters({ company: selectedCompany.value });
   }
 
-  closeModal = () => {
-    this.props.toggleModal(false);
-    this.props.setSelectedLeadingPractice(null);
-  }
-
   render() {
-    const { topics, companies, leadingPracticesPagination, filters, modalOpen } = this.props;
+    const { topics, companies, leadingPracticesPagination, filters } = this.props;
     const { size, page, limit } = leadingPracticesPagination;
     const { topic, company } = filters;
 
@@ -124,12 +114,6 @@ class LeadingPracticesPage extends PureComponent {
             </div>
           </div>
         </div>
-        <Modal
-          isOpen={modalOpen}
-          onRequestClose={this.closeModal}
-        >
-          <ModalContent />
-        </Modal>
       </div>
     );
   }

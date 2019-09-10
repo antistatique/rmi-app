@@ -1,52 +1,41 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'routes';
 
 import styles from './custom-modal-styles.scss';
 
 class Modal extends PureComponent {
   static propTypes = {
-    visible: PropTypes.bool.isRequired,
-    content: PropTypes.string.isRequired,
+    open: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
-    links: PropTypes.array.isRequired,
-    resetModal: PropTypes.func.isRequired,
-    toggleModal: PropTypes.func.isRequired
+    children: PropTypes.object.isRequired
   }
 
-  componentWillUnmount() {
-    this.props.resetModal();
+  constructor(props) {
+    super(props);
+
+    this.state = { open: false };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ open: nextProps.open });
+  }
+
+  close() {
+    this.setState({ open: false });
   }
 
   render() {
-    const {
-      visible,
-      content,
-      title,
-      links
-    } = this.props;
+    const { title } = this.props;
 
     return (
-      <div className={`c-custom-modal ${visible ? 'visible' : ''}`}>
+      <div className={`c-custom-modal ${this.state.open ? 'open' : ''}`}>
         <style jsx>{styles}</style>
-        <button onClick={this.props.toggleModal()}>Close</button>
+        <button onClick={this.close}>Close</button>
         <div className="header">
           <h2>{title}</h2>
-          <div className="links">
-            {links.map(link => (
-              <Link
-                route={link.route}
-                params={link.params}
-              >
-                <a className="link">
-                  {link.text}
-                </a>
-              </Link>
-            ))}
-          </div>
         </div>
         <div className="content">
-          {content}
+          {this.props.children}
         </div>
       </div>
     );
