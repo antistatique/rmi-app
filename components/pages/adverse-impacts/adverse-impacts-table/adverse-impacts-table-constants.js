@@ -1,9 +1,22 @@
 import React from 'react';
+import DownloadsLink from './adverse-impacts-download-component';
 
 export const ADVERSE_IMPACTS_TABLE_COLUMNS = [
   {
     property: 'summarized-headline',
-    header: { label: 'Summarized Headline' }
+    header: { label: 'Summarized Headline' },
+    cell: {
+      formatters: [
+        (name, { rowData }) => {
+          return (
+            <DownloadsLink
+              headline={rowData['summarized-headline']}
+              files={rowData['adverse-impact-files']}
+            />
+          );
+        }
+      ]
+    }
   },
   {
     property: 'thematic_areas',

@@ -11,7 +11,7 @@ import AdverseImpacts from 'components/pages/adverse-impacts';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 import { getCompanies } from 'modules/companies/companies-actions';
 import { getMineSites } from 'modules/mine-sites/mine-sites-actions';
-import { getAdverseImpacts } from 'modules/adverse-impacts/adverse-impacts-actions'
+import { getAdverseImpacts } from 'modules/adverse-impacts/adverse-impacts-actions';
 
 class AdverseImpactsPage extends Page {
   static async getInitialProps(context) {
@@ -24,7 +24,7 @@ class AdverseImpactsPage extends Page {
       sort: 'name'
     }));
     await context.store.dispatch(getAdverseImpacts({
-      include: ['companies', 'mine-sites', 'thematic-areas'].join(','),
+      include: ['companies', 'mine-sites', 'thematic-areas', 'adverse-impact-files'].join(','),
       sort: 'summarized_headline'
     }));
 
