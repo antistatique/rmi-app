@@ -28,6 +28,11 @@ class Modal extends PureComponent {
         this.close();
       }
     });
+    document.addEventListener('mousedown', (event) => {
+      if (this.modalRef && !this.modalRef.contains(event.target)) {
+        this.close();
+      }
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -46,7 +51,7 @@ class Modal extends PureComponent {
       <div className={`c-custom-modal-wrapper ${this.state.open ? 'open' : ''}`}>
         <style jsx>{styles}</style>
         <div className="c-custom-modal-overlay"></div>
-        <div className="c-custom-modal">
+        <div ref={(modal) => { this.modalRef = modal; }} className="c-custom-modal">
           <button className="c-custom-modal-close" onClick={this.close}>
             <Icon name="cross" className="-small" />
           </button>
