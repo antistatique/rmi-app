@@ -40,6 +40,10 @@ class LeadingPracticesCard extends PureComponent {
     this.setState({ modalOpen: true });
   }
 
+  handleClose = () => {
+    this.setState({ modalOpen: false });
+  }
+
   render() {
     const { leadingPractice, currentLanguage } = this.props;
     const { title, companies, description } = leadingPractice;
@@ -77,6 +81,7 @@ class LeadingPracticesCard extends PureComponent {
         <Modal
           open={this.state.modalOpen}
           title={title}
+          onClose={this.handleClose}
         >
           <div>
             {LeadingPracticesCard.shortDescription(description)}

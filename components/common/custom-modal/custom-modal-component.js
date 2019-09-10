@@ -7,7 +7,8 @@ class Modal extends PureComponent {
   static propTypes = {
     open: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
-    children: PropTypes.object.isRequired
+    children: PropTypes.object.isRequired,
+    onClose: PropTypes.func.isRequired
   }
 
   constructor(props) {
@@ -22,6 +23,7 @@ class Modal extends PureComponent {
 
   close = () => {
     this.setState({ open: false });
+    this.props.onClose();
   }
 
   render() {
