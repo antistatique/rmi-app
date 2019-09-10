@@ -22,6 +22,14 @@ class Modal extends PureComponent {
     this.state = { open: false };
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        this.close();
+      }
+    });
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ open: nextProps.open });
   }
