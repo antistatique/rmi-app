@@ -1,0 +1,10 @@
+@import 'css/settings';
+
+.c-custom-modal {
+  display: none;
+  width: 50%;
+
+  &.visible {
+    display: block;
+  }
+}
