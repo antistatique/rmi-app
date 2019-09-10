@@ -49,7 +49,7 @@ export const parseMineSitesScores = createSelector(
 export const getBreakdownScores = createSelector(
   [scores],
   (_scores = []) => {
-    const breakdownScores = _scores.filter(score => (score || {}).kind === 'breakdown');
+    const breakdownScores = _scores.filter(score => (score || {}).kind === 'absolute_breakdown');
     const groupedByParent = groupBy(breakdownScores, 'parent-id');
     const scoreOrder = ['Commitment', 'Action', 'Effectiveness'];
 
