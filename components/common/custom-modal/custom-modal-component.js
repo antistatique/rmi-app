@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './custom-modal-styles.scss';
+import Icon from '../icon';
 
 class Modal extends PureComponent {
   static propTypes = {
@@ -34,7 +35,9 @@ class Modal extends PureComponent {
         <style jsx>{styles}</style>
         <div className="c-custom-modal-overlay"></div>
         <div className="c-custom-modal">
-          <button className="c-custom-modal-close" onClick={this.close}>Close</button>
+          <button className="c-custom-modal-close" onClick={this.close}>
+            <Icon name="cross" className="-small" />
+          </button>
           <div className="c-custom-modal-content">
             <div className="header">
               <h2>{title}</h2>
