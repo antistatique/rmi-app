@@ -59,7 +59,7 @@ class Modal extends PureComponent {
             <div className="header">
               <h2>{title}</h2>
               {links.length > 0 && links.map(link => (
-                <h5 className="company">
+                <h5 className="text-featured mt-4 text-size-big">
                   <Link route="companies" params={{ language: link.language, company: link.id }}>
                     <a>{link.name}</a>
                   </Link>
