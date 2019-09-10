@@ -57,6 +57,7 @@ class SubsidiariesTable extends PureComponent {
         {subsidiaries.length ?
           <Fragment>
             <Table
+              className="borderless"
               columns={[
                 {
                   property: 'name',

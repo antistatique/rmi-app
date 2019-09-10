@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -214,6 +214,8 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row between-md">
               <div className="col-xs-12 col-md-5">
                 <ShareholdersTable />
+                <div className="mb-4"></div>
+                <BeneficialOwnersTable />
               </div>
               <div className="col-xs-12 col-md-5">
                 <SubsidiariesTable />
@@ -222,25 +224,22 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
 
             <div className="row">
               <div className="col-xs-12 col-md-5">
-                <BeneficialOwnersTable />
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-xs-12">
                 <h3 id="tax-jurisdictions" className="title">Known Tax Jurisdictions</h3>
                 {knownTaxJurisdictions.length ?
-                  <Gradient className="-gray">
+                  <Fragment>
                     <Table
                       columns={TAX_JURISDICTIONS_COLUMNS}
                       rows={knownTaxJurisdictions}
+                      className="borderless"
                     />
-                  </Gradient> : <Unknowndata asOf={false} />}
+                  </Fragment> : <Unknowndata asOf={false} />}
               </div>
             </div>
             <div className="row">
               <div className="col-xs-12">
-                <h3 className="title -small">Recent involvements in Investor/State investment disputes (since 2014)</h3>
+                <h3 className="title">Investor/State investment disputes
+                  <div className="title -small d-inline ml-1">(involvements since 2014)</div>
+                </h3>
                 {investmentDisputes.length ?
                   <Gradient className="-gray">
                     <Table

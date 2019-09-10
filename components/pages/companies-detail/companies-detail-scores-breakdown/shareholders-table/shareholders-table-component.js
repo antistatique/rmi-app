@@ -55,6 +55,7 @@ class ShareholdersTable extends PureComponent {
         {shareholders.length ?
           <Fragment>
             <Table
+              className="borderless"
               columns={[
                 {
                   property: 'name',

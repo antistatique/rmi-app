@@ -66,31 +66,23 @@ export const parseKnownTaxJurisdictions = createSelector(
   [knownTaxJurisdictions],
   (_knownTaxJurisdictions = []) => {
     const sorted = orderBy(_knownTaxJurisdictions, 'country.name', ['asc']);
-    const numberRows = 6;
-    const totalRows = (sorted.length / numberRows) > parseInt(sorted.length / numberRows, 10) ?
-      parseInt(sorted.length / numberRows, 10) + 1 : parseInt(sorted.length / numberRows, 10);
-    const slides = [];
-    const parsed = [];
 
-    for (let i = 0; i < totalRows; i++) {
-      const limit = ((i * numberRows) + numberRows);
-      const slicedJurisdictions = sorted.slice(i * numberRows, limit);
-      slides.push(slicedJurisdictions);
-    }
+    const rows = [];
+    sorted.forEach((item, index) => {
+      // Skip every two items to build new row with new items.
+      if (index % 2) {
+        return;
+      }
 
-    for (let i = 0; i < slides.length; i++) {
-      const jurisdictions = slides[i];
-      parsed.push({
-        jurisdiction1: jurisdictions[0],
-        jurisdiction2: jurisdictions[1],
-        jurisdiction3: jurisdictions[2],
-        jurisdiction4: jurisdictions[3],
-        jurisdiction5: jurisdictions[4],
-        jurisdiction6: jurisdictions[5]
+      // Generate the first column of the row.
+      rows.push({
+        id: index,
+        country_col1: sorted[index].country.name,
+        country_col2: sorted[index+1] !== undefined ? sorted[index+1].country.name : '',
       });
-    }
+    });
 
-    return parsed;
+    return rows;
   }
 );
 

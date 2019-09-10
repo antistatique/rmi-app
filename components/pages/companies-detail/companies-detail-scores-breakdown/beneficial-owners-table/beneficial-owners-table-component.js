@@ -41,6 +41,7 @@ class BeneficialOwnersTable extends PureComponent {
         {beneficialOwners.length ?
           <Fragment>
             <Table
+              className="borderless"
               columns={[
                 {
                   property: 'name',
