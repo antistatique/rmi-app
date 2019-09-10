@@ -24,3 +24,18 @@
 .text-uppercase  { text-transform: uppercase !important; }
 .text-capitalize { text-transform: capitalize !important; }
 
+// Responsive font-size
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .text#{$infix}-size-smallest   { font-size: $font-size-smallest; }
+    .text#{$infix}-size-small      { font-size: $font-size-small; }
+    .text#{$infix}-size-regular    { font-size: $font-size-regular; }
+    .text#{$infix}-size-big        { font-size: $font-size-big; }
+    .text#{$infix}-size-bigger     { font-size: $font-size-bigger; }
+    .text#{$infix}-size-huge       { font-size: $font-size-huge; }
+    .text#{$infix}-size-giant      { font-size: $font-size-giant; }
+  }
+}

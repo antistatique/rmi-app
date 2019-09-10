@@ -57,9 +57,9 @@ class Modal extends PureComponent {
           </button>
           <div className="c-custom-modal-content">
             <div className="header">
-              <h2>{title}</h2>
+              <h2 className="mb-3">{title}</h2>
               {links.length > 0 && links.map(link => (
-                <h5 className="company">
+                <h5 className="text-featured mt-1 text-size-big">
                   <Link route="companies" params={{ language: link.language, company: link.id }}>
                     <a>{link.name}</a>
                   </Link>
