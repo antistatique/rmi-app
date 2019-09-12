@@ -1,25 +1,24 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
+import LinkModal from './link-modal-component';
 // styles
 import styles from './related-leading-practices-styles.scss';
 
 class RelatedLeadingPractices extends PureComponent {
+  static propTypes = { leadingPractices: PropTypes.array.isRequired }
+
   render() {
-    // Fake data for demo
-    const data = [
-      'Partnership approach to regional socio-economic development',
-      'Prioritising indigenous people in skills development',
-      'Planned process to switch to local suppliers',
-    ];
+    const { leadingPractices } = this.props;
 
     return (
       <div className="related-leading-practices block-section">
         <style jsx>{styles}</style>
         <h5 className="block-section-name">Related leading practices</h5>
         <ul>
-          {data.map((item, index) =>
-            <li key={index}><a href="#">{item}</a></li>
-          )}
+          {leadingPractices.map(leadingPractice => (
+            <LinkModal leadingPractice={leadingPractice} />
+          ))}
         </ul>
       </div>
     );
