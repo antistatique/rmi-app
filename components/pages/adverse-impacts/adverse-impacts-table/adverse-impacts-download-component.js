@@ -5,9 +5,11 @@ import Modal from 'components/common/custom-modal';
 
 class DownloadsLink extends PureComponent {
   static propTypes = {
-    files: PropTypes.array.isRequired,
+    files: PropTypes.array,
     headline: PropTypes.string.isRequired
   }
+
+  static defaultProps = { files: [] }
 
   constructor(props) {
     super(props);
