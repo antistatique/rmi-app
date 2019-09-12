@@ -55,7 +55,10 @@ class CompaniesPage extends Page {
       }));
 
       // gets indicators
-      await context.store.dispatch(getIndicators({ 'page[size]': 1000 }));
+      await context.store.dispatch(getIndicators({
+        include: 'leading-practices',
+        'page[size]': 1000
+      }));
 
       // gets subsidiaries
       await context.store.dispatch(getSubsidiaries({
