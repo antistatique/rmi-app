@@ -8,8 +8,6 @@ import appModule from 'modules/app';
 import routesModule from 'modules/routes';
 import responsiveModule from 'modules/responsive';
 import languageModule from 'modules/language';
-import navigationModule from 'modules/navigation';
-import staticContentModule from 'modules/static-content';
 import companiesModule from 'modules/companies';
 import countriesModule from 'modules/countries';
 import commoditiesModule from 'modules/commodities';
@@ -44,7 +42,6 @@ export default {
   responsive: handleModule(responsiveModule),
   routes: handleModule(routesModule),
   language: handleModule(languageModule),
-  navigation: handleModule(navigationModule),
   companies: handleModule(companiesModule),
   countries: handleModule(countriesModule),
   commodities: handleModule(commoditiesModule),
@@ -61,7 +58,6 @@ export default {
   mineSitesPage: handleModule(MineSitesPageModule),
   resultsOverallPage: handleModule(ResultsOverallPageModule),
   resultsDetailPage: handleModule(ResultsDetailPageModule),
-  staticContent: handleModule(staticContentModule),
   staticPages: handleModule(staticPagesModule),
   map: handleModule(mapModule),
   chart: handleModule(chartModule),

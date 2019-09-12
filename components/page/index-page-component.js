@@ -7,8 +7,6 @@ import { setRoute } from 'modules/routes/routes-actions';
 import { mobileParser } from 'react-responsive-redux';
 import { setMobileDetect } from 'modules/responsive/responsive-actions';
 import { setCurrentLanguage } from 'modules/language/languages-actions';
-import { getResultsTree, getAboutTree, getIndexTree } from 'modules/navigation/navigation-actions';
-import { getIndicators } from 'modules/indicators/indicators-actions';
 
 // helpers
 import { trackPage } from 'helpers/analytics';
@@ -39,18 +37,6 @@ class Page extends PureComponent {
 
       // stores language
       if (language) store.dispatch(setCurrentLanguage(language));
-
-      // retrieve resuls tree to populate navigation
-      if (!isFoundation) {
-        await store.dispatch(getIndicators({ 'filter[kind]': 'issue_areas' }));
-        await store.dispatch(getResultsTree({ sort: 'position' }));
-      }
-
-      // retrieves about and index tree to populate navigation
-      if (isFoundation) {
-        await store.dispatch(getAboutTree({ include: ['about-sections'].join(',') }));
-        await store.dispatch(getIndexTree({ sort: 'position' }));
-      }
 
       return { routes };
     } catch (e) {
