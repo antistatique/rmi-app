@@ -27,8 +27,15 @@ export const ADVERSE_IMPACTS_TABLE_COLUMNS = [
           const topics = rowData['thematic-areas'].map(thematicArea => thematicArea.name);
           return (
             <span>
-              {topics.join(', ')}
+              {topics.map((topic, index) => (
+                <span>
+                  {topic} {topics.length - 1 > index &&
+                  <br />
+                }
+                </span>
+              ))}
             </span>
+              
           );
         }
       ]
