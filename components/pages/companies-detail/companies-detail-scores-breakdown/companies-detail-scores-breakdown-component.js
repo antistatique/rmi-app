@@ -7,6 +7,7 @@ import { measurementColors } from 'constants/graph-colors';
 
 // components
 import StackedBars from 'components/charts/stacked-bars';
+import StackedBarsVertical from 'components/charts/stacked-bars-vertical';
 import Table from 'components/common/table';
 import Summary from 'components/common/summary';
 import Gradient from 'components/common/gradient';
@@ -77,18 +78,14 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <h2 className="summary-print-title">Summary Results</h2>
           {summary && <Summary content={summary} />}
           <div className="page-break" />
-          <section className="section measurement-scores-container">
+          <section className="section measurement-scores-container pb-3">
             <div className="row center-md -no-text-align">
               <div className="col-xs-12">
                 <h3 id="overall-results" className="title mb-3 text-left">Summary results</h3>
               </div>
               {breakdownScores && breakdownScores.length > 0 &&
-              <div className="col-xs-12 col-md-10">
-                <div className="d-flex align-items-center mt-2 mb-3">
-                  <ToggleSwitch onStateChanged={this.handleToggleClick}/>
-                  <span className="ml-2">Compare with 2018 results</span>
-                </div>
-                <div className="stacked-bars-container">
+              <div className="col-xs-12">
+                <div className="stacked-bars-container d-md-none">
                   {breakdownScores.map((breakdownScore, index) => (
                     <StackedBars
                       key={breakdownScore.id}
@@ -97,6 +94,23 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                       className="mb-4"
                     />
                   ))}
+                </div>
+
+                <div className="stacked-bars-vertical-container d-none d-md-flex">
+                  {breakdownScores.map((breakdownScore, index) => (
+                    <StackedBarsVertical
+                      key={breakdownScore.id}
+                      data={breakdownScore}
+                      colors={measurementColors[index]}
+                      className={`mb-2 ${index < (breakdownScores.length-1) ? 'mr-4' : ''}`}
+                      style={{ width: `${100 / breakdownScores.length}%` }}
+                    />
+                  ))}
+                </div>
+
+                <div className="d-flex align-items-center mt-2 mb-3">
+                  <ToggleSwitch onStateChanged={this.handleToggleClick}/>
+                  <span className="ml-2">Compare with 2018 results</span>
                 </div>
               </div>
               }
@@ -107,7 +121,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
         <div className="l-layout">
           <div className="graph-legend">
             <p>
-              The maximum value of 1.000 represents the aggregation of best scores
+              The maximum value of 6.000 represents the aggregation of best scores
               achieved for all indicators in a given thematic area, taking into
               account all companies’ results. As the aggregate best score varies
               from one area to another, these charts cannot be used to compare

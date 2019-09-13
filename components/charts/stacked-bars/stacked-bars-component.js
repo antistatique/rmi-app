@@ -52,7 +52,7 @@ class StackedBars extends PureComponent {
             <Icon
               name={indicatorId.toString()}
               className="-x-big"
-              style={{ stroke: `${AREA_ISSUE_COLOURS[indicatorId]} !important`, fill: `${AREA_ISSUE_COLOURS[indicatorId]} !important` }}
+              style={{ background: `${AREA_ISSUE_COLOURS[indicatorId]} !important`, padding: '5px' }}
             />
           </div>
 
@@ -80,6 +80,7 @@ class StackedBars extends PureComponent {
                 </div>
                 <div className="score">
                   <span className="current-score">{totalScore.toFixed(3)} <span className="total-score"> / { dataScale.toFixed(3) }</span></span>
+                  <span className="ml-2">2020</span>
                 </div>
               </div>
               <div className={`bar-wrapper bar-wrapper-alt ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
@@ -102,6 +103,7 @@ class StackedBars extends PureComponent {
                 <div className="score">
                   <span className="current-score">{totalScore.toFixed(3)} <span
                     className="total-score"> / { dataScale.toFixed(3) }</span></span>
+                  <span className="ml-2">2018</span>
                 </div>
               </div>
             </div>
