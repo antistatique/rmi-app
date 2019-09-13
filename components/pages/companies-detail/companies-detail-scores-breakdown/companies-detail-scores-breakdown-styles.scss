@@ -41,12 +41,17 @@
     padding: 25px 0;
   }
 
+  .stacked-bars-vertical-container,
   .stacked-bars-container {
     @media print {
       :global(.c-stacked-bars) {
         page-break-inside: avoid;
       }
     }
+  }
+
+  .stacked-bars-vertical-container {
+    justify-content: space-between;
   }
 
   .overall-measurement-container {
