@@ -11,7 +11,13 @@ import { AREA_ISSUE_COLOURS } from 'constants/graph-colors';
 // styles
 import styles from './stacked-bars-styles.scss';
 
+/**
+ * Data scale received from the backend.
+ */
+const dataScale = 6;
+
 class StackedBars extends PureComponent {
+
   static propTypes = {
     data: PropTypes.object.isRequired,
     colors: PropTypes.array.isRequired,
@@ -23,7 +29,7 @@ class StackedBars extends PureComponent {
     const { value } = bar;
 
     return {
-      width: `${(value * 100) / 1}%`,
+      width: `${(value * 100) / dataScale}%`,
       backgroundColor: colors[index]
     };
   }
@@ -73,10 +79,10 @@ class StackedBars extends PureComponent {
                   ))}
                 </div>
                 <div className="score">
-                  <span className="current-score">{totalScore.toFixed(3)} <span className="total-score"> / 1.000</span></span>
+                  <span className="current-score">{totalScore.toFixed(3)} <span className="total-score"> / { dataScale.toFixed(3) }</span></span>
                 </div>
               </div>
-              <div className={`bar-wrapper ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
+              <div className={`bar-wrapper bar-wrapper-alt ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
                 <div className="bar">
                   {(children).map((bar, index) => (
                     <Tooltip
@@ -95,7 +101,7 @@ class StackedBars extends PureComponent {
                 </div>
                 <div className="score">
                   <span className="current-score">{totalScore.toFixed(3)} <span
-                    className="total-score"> / 1.000</span></span>
+                    className="total-score"> / { dataScale.toFixed(3) }</span></span>
                 </div>
               </div>
             </div>
