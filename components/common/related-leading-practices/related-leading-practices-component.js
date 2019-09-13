@@ -17,7 +17,7 @@ class RelatedLeadingPractices extends PureComponent {
         <h5 className="block-section-name">Related leading practices</h5>
         <ul>
           {leadingPractices.map(leadingPractice => (
-            <LinkModal leadingPractice={leadingPractice} />
+            <LinkModal key={leadingPractice.id} leadingPractice={leadingPractice} />
           ))}
         </ul>
       </div>

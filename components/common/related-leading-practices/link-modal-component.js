@@ -28,11 +28,11 @@ class LinkModal extends PureComponent {
     return (
       <div>
         <style jsx>{styles}</style>
-        <li key={leadingPractice.id}>
+        <li>
           <a role="button" onClick={this.handleClick} style={{ cursor: 'pointer' }}>{leadingPractice.name}</a>
         </li>
         <Modal open={this.state.open} title={leadingPractice.name} onClose={this.handleClose}>
-          {leadingPractice.description}
+          <p>{leadingPractice.description}</p>
         </Modal>
       </div>
     );
