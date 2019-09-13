@@ -188,7 +188,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
-                <h2 id="indicator-by-indicator-results" className="text-left">
+                <h2 id="tailings" className="text-left">
                   Tailings
                 </h2>
               </div>
