@@ -19,15 +19,20 @@ class CompaniesDetailSidebar extends PureComponent {
       country,
       'secondary-country': secondaryCountry,
       sector,
+      'producing-countries': countries,
+      'company-country-tax-jurisdictions': taxJurisdictions,
       'government-ownership': governmentOwnership,
+      'government-ownership-percent': governmentOwnershipPercent,
       'total-revenue-busd': totalRevenueBusd,
+      'net-income-busd': NetIncomeBusd,
       'number-workers': workers,
       'number-employees': employees,
       'fatality-reports': fatalityReports,
       'revenues-date': revenuesDate,
       'number-workers-date': workersDate,
       'number-employees-date': employeesDate,
-      'extra-languages': extraLanguages
+      'extra-languages': extraLanguages,
+      'listings': stockExchange,
     } = company;
     const { name: countryName } = country || {};
     const { name: secondaryCountryName } = secondaryCountry || {};
@@ -65,60 +70,79 @@ class CompaniesDetailSidebar extends PureComponent {
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
                   {!!countryName &&
                     <div className="definition-item">
-                      <div className="definition-key">Headquarters:</div>
+                      <div className="definition-key">Headquarters</div>
                       <div className="definition-value">{countryName}</div>
                       {!!secondaryCountryName &&
                         <div className="definition-value">{secondaryCountryName}</div>}
                     </div>}
                 </div>
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
-                  {!!sector &&
+                  {!!stockExchange &&
                     <div className="definition-item">
-                      <div className="definition-key">Sector:</div>
-                      <div className="definition-value">{sector}</div>
+                      <div className="definition-key">Stock Exchange Listings</div>
+                      <div className="definition-value">{stockExchange}</div>
                     </div>}
+                </div>
+                <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
+                  <div className="definition-item">
+                    <div className="definition-key">Workforce</div>
+                    <div className="definition-value">
+                      <div>Employees:&nbsp;
+                        {parseInt(employees, 10) ? (+employees).toLocaleString() : employees}
+                        {employees !== null &&
+                          <span>{employeesDate && ` (${employeesDate})`}</span>
+                        }
+                      </div>
+                      <div>
+                      Contract workers:&nbsp;
+                        {parseInt(workers, 10) ? (+workers).toLocaleString() : workers}
+                        {workers !== null &&
+                        <span>{workersDate && ` (${workersDate})`}</span>
+                        }
+                      </div>
+                      <div>
+                      Total: {employees + workers}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
+                  <div className="definition-item">
+                    <div className="definition-key">Geographic Footprint</div>
+                    <div className="definition-value">
+                      <div>Producing countries: {countries.length}</div>
+                      <div>Known tax jurisdictions: {taxJurisdictions.length}</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
+                  {(totalRevenueBusd !== null || NetIncomeBusd) &&
+                  <div className="definition-item">
+                    <div className="definition-key">Revenues (in BUSD)</div>
+                    <div className="definition-value">
+                      <div>
+                        Total Revenue: {totalRevenueBusd.toLocaleString()}
+                        <span>{revenuesDate && ` (${revenuesDate})`}</span>
+                      </div>
+                      <div>
+                        NetIncomeBusd: {NetIncomeBusd.toLocaleString()}
+                        <span>{revenuesDate && ` (${revenuesDate})`}</span>
+                      </div>
+                    </div>
+                  </div>}
+
                 </div>
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
                   {governmentOwnership !== null &&
-                    <div className="definition-item">
-                      <div className="definition-key">Government Ownership:</div>
-                      <div className="definition-value">{governmentOwnership}</div>
-                    </div>}
-                </div>
-                <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
-                  {totalRevenueBusd !== null &&
-                    <div className="definition-item">
-                      <div className="definition-key">Pre-tax Revenues (in BUSD):</div>
-                      <div className="definition-value">
-                        {totalRevenueBusd.toLocaleString()}
-                        <span>{revenuesDate && ` (${revenuesDate})`}</span>
-                      </div>
-                    </div>}
-                </div>
-                <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
-                  {employees !== null &&
-                    <div className="definition-item">
-                      <div className="definition-key">Number of employees:</div>
-                      <div className="definition-value">
-                        {parseInt(employees, 10) ? (+employees).toLocaleString() : employees}
-                        <span>{employeesDate && ` (${employeesDate})`}</span>
-                      </div>
-                    </div>}
-                </div>
-                <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
-                  {workers !== null &&
-                    <div className="definition-item">
-                      <div className="definition-key">Number of workers <br />(employees + contract workers):</div>
-                      <div className="definition-value">
-                        {parseInt(workers, 10) ? (+workers).toLocaleString() : workers}
-                        <span>{workersDate && ` (${workersDate})`}</span>
-                      </div>
-                    </div>}
+                  <div className="definition-item">
+                    <div className="definition-key">State Ownership</div>
+                    <div className="definition-value">{governmentOwnership}: {governmentOwnershipPercent}</div>
+                  </div>}
                 </div>
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
                   {!!(fatalityReports || []).length &&
                     <div className="definition-item">
-                      <div className="definition-key">Company-reported mining worker fatalities:</div>
+                      <div className="definition-key">Fatalities:</div>
                       <ul className="definition-sublist">
                         {fatalityReports.map(fatalityReport => (
                           <li key={fatalityReport.id} className="definition-sublist-item">
