@@ -82,7 +82,7 @@ class StackedBars extends PureComponent {
                   <span className="current-score">{totalScore.toFixed(3)} <span className="total-score"> / { dataScale.toFixed(3) }</span></span>
                 </div>
               </div>
-              <div className={`bar-wrapper ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
+              <div className={`bar-wrapper bar-wrapper-alt ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
                 <div className="bar">
                   {(children).map((bar, index) => (
                     <Tooltip

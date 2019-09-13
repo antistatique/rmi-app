@@ -50,6 +50,10 @@ $bar-height: 15px;
         }
       }
 
+      .bar-wrapper-alt {
+        opacity: 0.3;
+      }
+
       .bar {
         display: inline-flex;
         flex-grow: 1;
