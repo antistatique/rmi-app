@@ -21,7 +21,7 @@ class CompaniesDetailSidebar extends PureComponent {
       sector,
       'producing-countries': countries,
       'company-country-tax-jurisdictions': taxJurisdictions,
-      'government-ownership': governmentOwnership,
+      'government-ownership-country': governmentOwnership,
       'government-ownership-percent': governmentOwnershipPercent,
       'total-revenue-busd': totalRevenueBusd,
       'net-income-busd': NetIncomeBusd,
@@ -136,7 +136,7 @@ class CompaniesDetailSidebar extends PureComponent {
                   {governmentOwnership !== null &&
                   <div className="definition-item">
                     <div className="definition-key">State Ownership</div>
-                    <div className="definition-value">{governmentOwnership}: {governmentOwnershipPercent}</div>
+                    <div className="definition-value">{governmentOwnership.name}: {governmentOwnershipPercent}</div>
                   </div>}
                 </div>
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
