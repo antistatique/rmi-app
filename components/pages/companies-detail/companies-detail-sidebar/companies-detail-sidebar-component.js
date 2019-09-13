@@ -140,7 +140,11 @@ class CompaniesDetailSidebar extends PureComponent {
                   {governmentOwnership !== null &&
                   <div className="definition-item">
                     <div className="definition-key">State Ownership</div>
-                    <div className="definition-value">{governmentOwnership.name}: {governmentOwnershipPercent}</div>
+                    <div className="definition-value">{governmentOwnership.name ? governmentOwnership.name : 'Not reported'}
+                    {governmentOwnershipPercent !== null && governmentOwnershipPercent !== 'NULL' &&
+                      <span>: {governmentOwnershipPercent}%</span>
+                    }
+                    </div>
                   </div>}
                 </div>
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
