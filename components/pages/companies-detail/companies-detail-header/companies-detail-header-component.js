@@ -79,35 +79,31 @@ class CompaniesDetailHeader extends PureComponent {
         <div className="anchor-navigation-container d-none d-md-block">
           <div className="l-layout">
             <div className="row">
-              <div className="col-md-12">
+              <div className="col-xs-12">
                 <Scrollspy items={[
-                    {
-                      'anchor': 'contextual-data',
-                      'label': 'Contextual Data',
-                    },
                     {
                       'anchor': 'overall-results',
                       'label': 'Overall Results',
                     },
                     {
                       'anchor': 'indicator-by-indicator-results',
-                      'label': 'Indicator-by-indicator Results',
-                    },
-                    {
-                      'anchor': 'mine-site-selection',
-                      'label': 'Mine-site selection',
+                      'label': 'Detailed Results',
                     },
                     {
                       'anchor': 'list-of-all-mine-sites',
-                      'label': 'List of all mine sites',
+                      'label': 'Mine-site Results',
                     },
+                  {
+                    'anchor': 'tailings',
+                    'label': 'Tailings',
+                  },
                     {
                       'anchor': 'shareholders-and-subsidiaries',
-                      'label': 'Shareholders and Subsidiaries',
+                      'label': 'Shareholders',
                     },
                     {
                       'anchor': 'tax-jurisdictions',
-                      'label': 'Tax jurisdictions',
+                      'label': 'Tax Jurisdictions',
                     },
                   ]}
                   currentClassName="active"
