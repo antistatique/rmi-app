@@ -89,7 +89,7 @@ class MineSitesDetailSidebar extends PureComponent {
               <div className="definition-item">
                 <div className="definition-key">Company:</div>
                 { companies.map(company => (
-                  <div className="definition-value">
+                  <div key={company.id} className="definition-value">
                     <Link
                       route="companies"
                       params={{
@@ -97,7 +97,7 @@ class MineSitesDetailSidebar extends PureComponent {
                       company: company.id
                     }}
                     >
-                      {company.name || '-'}
+                      <a>{company.name || '-'}</a>
                     </Link>
                   </div>
                 )) }

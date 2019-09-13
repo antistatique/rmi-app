@@ -6,7 +6,7 @@ import styles from '../scroll-spy/scroll-spy-styles.scss';
 
 class ScrollSpy extends PureComponent {
   static propTypes = {
-    items: PropTypes.arrayOf(PropTypes.string).isRequired,
+    items: PropTypes.array.isRequired,
     currentClassName: PropTypes.string.isRequired,
     offset: PropTypes.number
   };
@@ -92,7 +92,8 @@ class ScrollSpy extends PureComponent {
         <style jsx>{styles}</style>
         {items.map(item => (
           <li
-            className={`anchor-nav-item ${ currentTarget === item.anchor ? currentClassName : '' }`}
+            key={item.anchor}
+            className={`anchor-nav-item ${currentTarget === item.anchor ? currentClassName : ''}`}
           >
             <AnchorLink offset="350" href={`#${item.anchor}`}>{item.label}</AnchorLink>
           </li>

@@ -142,12 +142,13 @@ class StackedBarsChart extends PureComponent {
               />}
             {showReferenceLine && yReferenceLines && yReferenceLines.map(line => (
               <ReferenceLine
-              y={line.value}
-              stroke={strokeReferenceLine}
-              strokeDasharray={strokeDasharrayReferenceLine}
-              strokeWidth={strokeWidth}
-              label={line.label}
-            />))}
+                key={line.label}
+                y={line.value}
+                stroke={strokeReferenceLine}
+                strokeDasharray={strokeDasharrayReferenceLine}
+                strokeWidth={strokeWidth}
+                label={line.label}
+              />))}
             <Tooltip
               {...customTooltip && { content: <CustomTooltip /> }}
               isAnimationActive={false}
