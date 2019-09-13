@@ -63,6 +63,16 @@ class StackedBars extends PureComponent {
             <div className="stacked-bars-container">
               <div className="bar-wrapper">
                 <div className="bar">
+                  <Tooltip
+                    placement="bottom"
+                    trigger={['hover']}
+                    overlay={<span>collective best score (2018)</span>}
+                    mouseLeaveDelay={0}
+                  >
+                    {/* @todo use real data to position the bar. */}
+                    <div className="bar-avg" style={{left: '65%'}}></div>
+                  </Tooltip>
+
                   {(children).map((bar, index) => (
                     <Tooltip
                       key={bar.id}
@@ -85,6 +95,16 @@ class StackedBars extends PureComponent {
               </div>
               <div className={`bar-wrapper bar-wrapper-alt ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
                 <div className="bar">
+                  <Tooltip
+                    placement="bottom"
+                    trigger={['hover']}
+                    overlay={<span>collective best score (2018)</span>}
+                    mouseLeaveDelay={0}
+                  >
+                    {/* @todo use real data to position the bar. */}
+                    <div className="bar-avg" style={{left: '25%'}}></div>
+                  </Tooltip>
+
                   {(children).map((bar, index) => (
                     <Tooltip
                       key={bar.id}
