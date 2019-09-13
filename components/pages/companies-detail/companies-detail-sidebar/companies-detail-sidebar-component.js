@@ -89,19 +89,19 @@ class CompaniesDetailSidebar extends PureComponent {
                     <div className="definition-value">
                       <div>Employees:&nbsp;
                         {parseInt(employees, 10) ? (+employees).toLocaleString() : employees}
-                        {employees !== null &&
+                        {employeesDate !== null && employeesDate !== 'NULL' &&
                           <span>{employeesDate && ` (${employeesDate})`}</span>
                         }
                       </div>
                       <div>
                       Contract workers:&nbsp;
                         {parseInt(workers, 10) ? (+workers).toLocaleString() : workers}
-                        {workers !== null &&
+                        {workersDate !== null && workersDate !== 'NULL' &&
                         <span>{workersDate && ` (${workersDate})`}</span>
                         }
                       </div>
                       <div>
-                      Total: {employees + workers}
+                        Total: {(employees !== null && workers !== null && !isNaN(employees) && !isNaN(workers)) ? employees + workers : 'not reported'}
                       </div>
                     </div>
                   </div>
@@ -122,11 +122,15 @@ class CompaniesDetailSidebar extends PureComponent {
                     <div className="definition-value">
                       <div>
                         Total Revenue: {totalRevenueBusd.toLocaleString()}
-                        <span>{revenuesDate && ` (${revenuesDate})`}</span>
+                        {revenuesDate !== null && revenuesDate !== 'NULL' &&
+                          <span>{revenuesDate && ` (${revenuesDate})`}</span>
+                        }
                       </div>
                       <div>
-                        NetIncomeBusd: {NetIncomeBusd.toLocaleString()}
-                        <span>{revenuesDate && ` (${revenuesDate})`}</span>
+                        Net Income: {NetIncomeBusd.toLocaleString()}
+                        {revenuesDate !== null && revenuesDate !== 'NULL' &&
+                          <span>{revenuesDate && ` (${revenuesDate})`}</span>
+                        }
                       </div>
                     </div>
                   </div>}
