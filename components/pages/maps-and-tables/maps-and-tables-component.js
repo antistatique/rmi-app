@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 
 import MapTaxJurisdictions from './map-known-tax-jurisdictions';
 import MapStockExchanges from './map-stock-exchanges';
+import MapTailingStorageFacilities from './map-tailing-storage-facilities';
 
 class MapsAndTables extends PureComponent {
   render() {
@@ -25,6 +26,11 @@ class MapsAndTables extends PureComponent {
           <div className="section">
             <div className="l-layout">
               <MapStockExchanges />
+            </div>
+          </div>
+          <div className="section -dark">
+            <div className="l-layout">
+              <MapTailingStorageFacilities />
             </div>
           </div>
         </div>
