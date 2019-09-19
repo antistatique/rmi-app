@@ -8,16 +8,12 @@ class MapTaxJurisdictionsFilters extends PureComponent {
   static propTypes = {
     companies: PropTypes.array.isRequired,
     selectedCompany: PropTypes.string,
-    setKnownTaxFilters: PropTypes.func.isRequired,
-    resetProducingCountriesFilters: PropTypes.func.isRequired,
-    resetStockExchangesFilters: PropTypes.func.isRequired
+    setKnownTaxFilters: PropTypes.func.isRequired
   }
 
   static defaultProps = { selectedCompany: null }
 
   handleCompany = (selectedCompany) => {
-    this.props.resetProducingCountriesFilters();
-    this.props.resetStockExchangesFilters();
     this.props.setKnownTaxFilters({ company: selectedCompany.value });
   }
 

@@ -7,11 +7,7 @@ import { getTaxJurisdictions } from 'modules/companies/companies-actions';
 
 import MapTaxJurisdicitonsFilters from './map-known-tax-jurisdications-filters-component';
 import { getCompanies } from './map-known-tax-jurisdications-filters-selectors';
-import {
-  setKnownTaxFilters,
-  resetProducingCountriesFilters,
-  resetStockExchangesFilters
-} from '../../maps-and-tables-actions';
+import { setKnownTaxFilters } from '../../maps-and-tables-actions';
 
 class MapTaxJurisdictionsFiltersContainer extends PureComponent {
   static propTypes = {
@@ -46,8 +42,6 @@ export default connect(
   }),
   {
     setKnownTaxFilters,
-    getTaxJurisdictions,
-    resetProducingCountriesFilters,
-    resetStockExchangesFilters
+    getTaxJurisdictions
   }
 )(MapTaxJurisdictionsFiltersContainer);

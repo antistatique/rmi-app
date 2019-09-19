@@ -84,19 +84,7 @@ export const getTaxJurisdictions = createThunkAction('companies/getTaxJurisdicti
   (dispatch, getState) => {
     const { queryParams } = _options;
     const { mapsAndTables } = getState();
-    const companyTaxJurisdictions = mapsAndTables.knownTaxFilters.company;
-    const companyProducingCountries = mapsAndTables.producingCountriesFilters.company;
-    const companyStockExchanges = mapsAndTables.stockExchangesFilters.company;
-
-    let company = null;
-
-    if (companyTaxJurisdictions !== null || companyTaxJurisdictions !== undefined) {
-      company = companyTaxJurisdictions;
-    } else if (companyProducingCountries !== null || companyProducingCountries !== undefined) {
-      company = companyProducingCountries;
-    } else if (companyStockExchanges !== null || companyStockExchanges !== undefined) {
-      company = companyStockExchanges;
-    }
+    const { company } = mapsAndTables.knownTaxFilters;
 
     const options = {
       ...queryParams,
