@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import Map from 'components/common/map';
+import Filters from './map-stock-exchanges-filters';
 import { getCompanyCountryColor } from '../../companies/companies-helpers';
 
 class MapStockExchanges extends PureComponent {
@@ -19,6 +20,11 @@ class MapStockExchanges extends PureComponent {
               setCountryColor={MapStockExchanges.setCountryColor}
               legend={[]}
             />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-3">
+            <Filters />
           </div>
         </div>
       </div>
