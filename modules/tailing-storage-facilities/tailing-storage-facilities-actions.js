@@ -14,7 +14,7 @@ export const getTailingStorageFacilities = createThunkAction('tailingStorageFaci
     const options = {
       ...queryParams,
       'filter[company]': company,
-      'page[size]': 500
+      'page[size]': 1000
     };
 
     return new Promise((resolve, reject) => {
