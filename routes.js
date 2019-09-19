@@ -13,6 +13,7 @@ routes.add('results-thematic', '/:language/results/thematic/:id', 'results-detai
 routes.add('leading-practices', '/:language/leading-practices', 'leading-practices');
 routes.add('library', '/:language/library', 'library');
 routes.add('subsidiaries', '/:language/subsidiaries', 'subsidiaries');
+routes.add('maps-and-tables', '/:language/maps-and-tables', 'maps-and-tables');
 routes.add('static-page', '/:language/:slug', 'static-pages');
 routes.add('index', '/:language', 'index');
 
