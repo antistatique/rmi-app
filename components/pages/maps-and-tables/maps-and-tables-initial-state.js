@@ -1,5 +1,6 @@
 export default {
   producingCountriesFilters: {},
   knownTaxFilters: {},
-  stockExchangesFilters: {}
+  stockExchangesFilters: {},
+  tailingStorageFacilitiesFilters: {}
 };

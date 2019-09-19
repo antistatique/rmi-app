@@ -25,5 +25,13 @@ export default {
   [actions.resetStockExchangesFilters]: state => ({
     ...state,
     stockExchangesFilters: initialState.stockExchangesFilters
+  }),
+  [actions.setTailingStorageFacilitiesFilters]: (state, { payload }) => ({
+    ...state,
+    tailingStorageFacilitiesFilters: { ...payload }
+  }),
+  [actions.resetTailingStorageFacilitiesFilters]: state => ({
+    ...state,
+    tailingStorageFacilitiesFilters: initialState.stockExchangesFilters
   })
 };
