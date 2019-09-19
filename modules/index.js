@@ -24,6 +24,7 @@ import adverseImpactsModule from 'modules/adverse-impacts';
 import shareholdersModule from 'modules/shareholders';
 import beneficialOwnersModule from 'modules/beneficial-owners';
 
+
 // components modules
 import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
 
@@ -35,6 +36,7 @@ import * as MineSitesPageModule from 'components/pages/mine-sites';
 import * as ResultsOverallPageModule from 'components/pages/results-overall';
 import * as ResultsDetailPageModule from 'components/pages/results-detail';
 import * as AdverseImpactsPageModule from 'components/pages/adverse-impacts';
+import * as MapsAndTablesModule from 'components/pages/maps-and-tables';
 
 export default {
   app: handleModule(appModule),
@@ -64,5 +66,6 @@ export default {
   adverseImpacts: handleModule(adverseImpactsModule),
   adverseImpactsPage: handleModule(AdverseImpactsPageModule),
   shareholders: handleModule(shareholdersModule),
-  beneficialOwners: handleModule(beneficialOwnersModule)
+  beneficialOwners: handleModule(beneficialOwnersModule),
+  mapsAndTables: handleModule(MapsAndTablesModule)
 };
