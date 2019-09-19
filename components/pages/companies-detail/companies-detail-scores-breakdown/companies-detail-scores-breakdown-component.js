@@ -233,16 +233,13 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
 
             <div className="row">
-              <div className="col-xs-12 col-md-5">
+              <div className="col-xs-12">
                 <h3 id="tax-jurisdictions" className="title">Known Tax Jurisdictions</h3>
-                {knownTaxJurisdictions.length ?
-                  <Fragment>
-                    <Table
-                      columns={TAX_JURISDICTIONS_COLUMNS}
-                      rows={knownTaxJurisdictions}
-                      className="borderless"
-                    />
-                  </Fragment> : <Unknowndata asOf={false} />}
+                <div className="mt-3 content-columns-2 content-columns-md-4">
+                  {knownTaxJurisdictions.map((knownTaxJurisdiction) => (
+                    <p>{knownTaxJurisdiction.country}</p>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="row">
