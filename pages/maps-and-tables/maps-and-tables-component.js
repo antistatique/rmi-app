@@ -8,6 +8,7 @@ import Page from 'components/page';
 import Layout from 'components/layout';
 
 import { getTaxJurisdictions } from 'modules/companies/companies-actions';
+import { getStockExchanges } from 'modules/stock-exchanges/stock-exchanges-actions';
 import MapsAndTables from 'components/pages/maps-and-tables';
 
 
@@ -16,6 +17,7 @@ class MapsAndTablesPage extends Page {
     const props = await super.getInitialProps(context);
 
     await context.store.dispatch(getTaxJurisdictions({ queryParams: { include: ['country', 'company'].join(',') } }));
+    await context.store.dispatch(getStockExchanges({ queryParams: { include: ['country', 'companies'].join(',') } }));
 
     return { ...props };
   }
