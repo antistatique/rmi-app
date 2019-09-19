@@ -9,6 +9,13 @@ export const getCompanies = createSelector(
     const uniqCompanies = uniqBy(_taxJurisdictions.map(taxJurisdiction => taxJurisdiction), 'company.id');
     const companies = uniqCompanies.map(uniqCompany => uniqCompany.company);
 
-    return companies.map(company => ({ label: company.name, value: company.id }));
+    return companies.map(company => ({ label: company.name, value: company.id }))
+      .sort((current, next) => {
+        const nameCurrent = current.label.toLowerCase();
+        const nameNext = next.label.toLowerCase();
+        if (nameCurrent < nameNext) return -1;
+        if (nameCurrent > nameNext) return 1;
+        return 0;
+      });
   }
 );
