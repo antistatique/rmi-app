@@ -24,6 +24,7 @@ import adverseImpactsModule from 'modules/adverse-impacts';
 import shareholdersModule from 'modules/shareholders';
 import beneficialOwnersModule from 'modules/beneficial-owners';
 import stockExchangesModule from 'modules/stock-exchanges';
+import tailingStorageFacilitiesModule from 'modules/tailing-storage-facilities';
 
 
 // components modules
@@ -69,5 +70,6 @@ export default {
   shareholders: handleModule(shareholdersModule),
   beneficialOwners: handleModule(beneficialOwnersModule),
   mapsAndTables: handleModule(MapsAndTablesModule),
-  stockExchanges: handleModule(stockExchangesModule)
+  stockExchanges: handleModule(stockExchangesModule),
+  tailingStorageFacilities: handleModule(tailingStorageFacilitiesModule)
 };
