@@ -23,6 +23,7 @@ import chartModule from 'modules/chart';
 import adverseImpactsModule from 'modules/adverse-impacts';
 import shareholdersModule from 'modules/shareholders';
 import beneficialOwnersModule from 'modules/beneficial-owners';
+import stockExchangesModule from 'modules/stock-exchanges';
 
 
 // components modules
@@ -67,5 +68,6 @@ export default {
   adverseImpactsPage: handleModule(AdverseImpactsPageModule),
   shareholders: handleModule(shareholdersModule),
   beneficialOwners: handleModule(beneficialOwnersModule),
-  mapsAndTables: handleModule(MapsAndTablesModule)
+  mapsAndTables: handleModule(MapsAndTablesModule),
+  stockExchanges: handleModule(stockExchangesModule)
 };
