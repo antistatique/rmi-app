@@ -57,8 +57,7 @@ $bar-height: 15px;
     .bar {
       position: relative;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      flex-direction: column-reverse;
       height: 35vh;
       background: $color-6;
     }
