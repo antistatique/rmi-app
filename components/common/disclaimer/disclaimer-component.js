@@ -8,7 +8,7 @@ class Disclaimer extends PureComponent {
     return (
       <div className="c-disclaimer">
         <style jsx>{styles}</style>
-        <p className="disclaimer-text">Disclaimer</p>
+        <p className="disclaimer-text text-size-big text-style-normal text-weight-bold mt-4">Disclaimer</p>
         <p className="disclaimer-text">
           The findings, conclusions and interpretations within this 2020 Responsible Mining Index
           (RMI) report do not necessarily represent the views of funders, trustees, and employees
