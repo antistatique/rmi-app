@@ -24,18 +24,26 @@
 .text-uppercase  { text-transform: uppercase !important; }
 .text-capitalize { text-transform: capitalize !important; }
 
+.text-weight-light { font-weight: $font-weight-light !important; }
+.text-weight-regular { font-weight: $font-weight-regular !important; }
+.text-weight-bold { font-weight: $font-weight-bold !important; }
+
+.text-style-italic { font-style: italic !important; }
+.text-style-normal { font-style: normal !important; }
+.text-style-oblique { font-style: oblique !important; }
+
 // Responsive font-size
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .text#{$infix}-size-smallest   { font-size: $font-size-smallest; }
-    .text#{$infix}-size-small      { font-size: $font-size-small; }
-    .text#{$infix}-size-regular    { font-size: $font-size-regular; }
-    .text#{$infix}-size-big        { font-size: $font-size-big; }
-    .text#{$infix}-size-bigger     { font-size: $font-size-bigger; }
-    .text#{$infix}-size-huge       { font-size: $font-size-huge; }
-    .text#{$infix}-size-giant      { font-size: $font-size-giant; }
+    .text#{$infix}-size-smallest   { font-size: $font-size-smallest !important; }
+    .text#{$infix}-size-small      { font-size: $font-size-small !important; }
+    .text#{$infix}-size-regular    { font-size: $font-size-regular !important; }
+    .text#{$infix}-size-big        { font-size: $font-size-big !important; }
+    .text#{$infix}-size-bigger     { font-size: $font-size-bigger !important; }
+    .text#{$infix}-size-huge       { font-size: $font-size-huge !important; }
+    .text#{$infix}-size-giant      { font-size: $font-size-giant !important; }
   }
 }
