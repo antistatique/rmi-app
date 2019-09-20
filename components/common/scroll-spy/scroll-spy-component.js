@@ -95,7 +95,7 @@ class ScrollSpy extends PureComponent {
             key={item.anchor}
             className={`anchor-nav-item ${currentTarget === item.anchor ? currentClassName : ''}`}
           >
-            <AnchorLink offset="350" href={`#${item.anchor}`}>{item.label}</AnchorLink>
+            <AnchorLink offset="250" href={`#${item.anchor}`}>{item.label}</AnchorLink>
           </li>
         ))}
       </ul>
