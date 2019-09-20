@@ -75,16 +75,9 @@ export const parseKnownTaxJurisdictions = createSelector(
 
     const rows = [];
     sorted.forEach((item, index) => {
-      // Skip every two items to build new row with new items.
-      if (index % 2) {
-        return;
-      }
-
-      // Generate the first column of the row.
       rows.push({
         id: index,
-        country_col1: sorted[index].country.name,
-        country_col2: sorted[index+1] !== undefined ? sorted[index+1].country.name : '',
+        country: sorted[index].country.name,
       });
     });
 
