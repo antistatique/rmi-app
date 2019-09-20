@@ -1,17 +1,20 @@
 @import 'css/settings';
 
+:global(.layout-content-mobile) {
+  .c-companies-detail-header {
+    top: 43px;
+  }
+}
+
 .c-companies-detail-header {
   z-index: 3;
   position: fixed;
   top: 100px;
   left: 0;
   width: 100%;
-
   background: $color-3;
   transform: translate(0, -1px);
-
   box-shadow: 0 4px 16px 0 rgba($color-1, .1);
-
 
   .main-section-container {
     padding-top: 20px;
