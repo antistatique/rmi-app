@@ -17,9 +17,13 @@
 
   ul {
     display: flex;
-    //justify-content: space-around;
     width: 100%;
     margin: 0 10px;
+    overflow-x: scroll;
+
+    @media screen and (min-width: 450px) {
+      overflow-x: unset;
+    }
   }
 
   ul > li  {
