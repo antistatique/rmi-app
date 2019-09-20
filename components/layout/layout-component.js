@@ -102,7 +102,7 @@ class Layout extends PureComponent {
           minDeviceWidth={breakpoints.lg}
           values={{ deviceWidth: responsive.fakeWidth }}
         >
-          <div className={`layout-content ${responsive}`} id="main-content">
+          <div className="layout-content" id="main-content">
             {children}
             <GoTopButton />
           </div>
