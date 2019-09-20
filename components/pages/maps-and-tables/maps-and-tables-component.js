@@ -40,7 +40,7 @@ class MapsAndTables extends PureComponent {
               <MapTailingStorageFacilities />
             </div>
           </div>
-          <div className="section">
+          <div className="section -dark">
             <div className="l-layout">
               <TableFatalityReports />
             </div>

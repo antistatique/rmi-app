@@ -23,7 +23,7 @@ class MapTaxJurisdictionsFilters extends PureComponent {
       <Select
         placeholder="Select a company"
         options={companies}
-        theme="light"
+        theme="dark"
         selectedValue={selectedCompany}
         onChange={this.handleCompany}
       />

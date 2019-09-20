@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Table from 'components/common/table';
 import Select from 'components/common/select';
 import Paginator from 'components/common/paginator';
+import Gradient from 'components/common/gradient';
 
 import { FATALITY_REPORTS_TABLE_COLUMNS, TABLE_SIZE_VALUES } from './table-fatality-reports-constants';
 
@@ -45,6 +46,7 @@ class TableFatalityReports extends PureComponent {
           <Table
             columns={FATALITY_REPORTS_TABLE_COLUMNS}
             rows={fatalityReports}
+            className="-theme-2"
           />
         </div>
 
@@ -54,12 +56,12 @@ class TableFatalityReports extends PureComponent {
             options={TABLE_SIZE_VALUES}
             onChange={this.handleSize}
             className="c-select-bordered c-select-tiny"
+            theme="light"
           />
         </div>
 
         <div className="paginator-container">
           <Paginator
-            className="-theme-2"
             options={{
               size,
               page,
