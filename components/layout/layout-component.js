@@ -85,11 +85,28 @@ class Layout extends PureComponent {
           <Header />
         </MediaQuery>
 
+        {/* content mobile */}
+        <MediaQuery
+          minDeviceWidth={breakpoints.sm}
+          maxDeviceWidth={breakpoints.lg - 1}
+          values={{ deviceWidth: responsive.fakeWidth }}
+        >
+          <div className="layout-content layout-content-mobile" id="main-content">
+            {children}
+            <GoTopButton />
+          </div>
+        </MediaQuery>
+
         {/* content */}
-        <div className="layout-content" id="main-content">
-          {children}
-          <GoTopButton />
-        </div>
+        <MediaQuery
+          minDeviceWidth={breakpoints.lg}
+          values={{ deviceWidth: responsive.fakeWidth }}
+        >
+          <div className={`layout-content ${responsive}`} id="main-content">
+            {children}
+            <GoTopButton />
+          </div>
+        </MediaQuery>
 
         {/* footer */}
         {footer && <Footer />}
