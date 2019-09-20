@@ -3,6 +3,8 @@ import React, { PureComponent } from 'react';
 import MapTaxJurisdictions from './map-known-tax-jurisdictions';
 import MapStockExchanges from './map-stock-exchanges';
 import MapTailingStorageFacilities from './map-tailing-storage-facilities';
+import TableFatalityReports from './table-fatality-reports';
+import MapProducingCountries from './map-producing-countries';
 
 class MapsAndTables extends PureComponent {
   render() {
@@ -20,17 +22,27 @@ class MapsAndTables extends PureComponent {
         <div className="page-content">
           <div className="section -dark">
             <div className="l-layout">
-              <MapTaxJurisdictions />
+              <MapProducingCountries />
             </div>
           </div>
           <div className="section">
             <div className="l-layout">
-              <MapStockExchanges />
+              <MapTaxJurisdictions />
             </div>
           </div>
           <div className="section -dark">
             <div className="l-layout">
+              <MapStockExchanges />
+            </div>
+          </div>
+          <div className="section">
+            <div className="l-layout">
               <MapTailingStorageFacilities />
+            </div>
+          </div>
+          <div className="section">
+            <div className="l-layout">
+              <TableFatalityReports />
             </div>
           </div>
         </div>
