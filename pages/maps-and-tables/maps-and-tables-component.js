@@ -10,6 +10,7 @@ import Layout from 'components/layout';
 import { getTaxJurisdictions } from 'modules/companies/companies-actions';
 import { getStockExchanges } from 'modules/stock-exchanges/stock-exchanges-actions';
 import { getTailingStorageFacilities } from 'modules/tailing-storage-facilities/tailing-storage-facilities-actions';
+import { getFatalityReports } from 'modules/fatality-reports/fatality-reports-actions';
 import MapsAndTables from 'components/pages/maps-and-tables';
 
 
@@ -20,6 +21,7 @@ class MapsAndTablesPage extends Page {
     await context.store.dispatch(getTaxJurisdictions({ queryParams: { include: ['country', 'company'].join(',') } }));
     await context.store.dispatch(getStockExchanges({ queryParams: { include: ['country', 'companies'].join(',') } }));
     await context.store.dispatch(getTailingStorageFacilities({ queryParams: { include: ['country', 'company'].join(','), 'page[size]': 1000 } }));
+    await context.store.dispatch(getFatalityReports({ queryParams: { include: 'company' } }));
 
     return { ...props };
   }
