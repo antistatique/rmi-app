@@ -5,19 +5,19 @@ import Map from 'components/common/map';
 import Filters from './map-producing-countries-filters';
 import { getCompanyCountryColor } from '../../companies/companies-helpers';
 
-class MapStockExchanges extends PureComponent {
+class MapProducingCountries extends PureComponent {
   static propTypes = { paths: PropTypes.array.isRequired }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
   render() {
     return (
       <div className="c-map-stock-exchanges">
-        <div className="row">
+        <div className="row center-md">
           <div className="col-12">
             <Map
               paths={this.props.paths}
               center={[40, 10]}
-              setCountryColor={MapStockExchanges.setCountryColor}
+              setCountryColor={MapProducingCountries.setCountryColor}
               legend={[]}
             />
           </div>
@@ -32,4 +32,4 @@ class MapStockExchanges extends PureComponent {
   }
 }
 
-export default MapStockExchanges;
+export default MapProducingCountries;

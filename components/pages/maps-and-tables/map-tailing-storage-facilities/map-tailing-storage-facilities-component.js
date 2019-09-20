@@ -12,7 +12,7 @@ class MapTailingStorageFacilities extends PureComponent {
   render() {
     return (
       <div className="c-map-stock-exchanges">
-        <div className="row">
+        <div className="row center-md">
           <div className="col-12">
             <Map
               paths={this.props.paths}
