@@ -1,8 +1,11 @@
+@import 'css/settings';
+
 .c-fatality-reports-table {
 
   .table-container {
     position: relative;
     margin: 25px 0 0;
+    color: $color-1;
   }
 
   .pagination-filter {

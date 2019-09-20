@@ -1,4 +1,10 @@
 import React, { PureComponent } from 'react';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemTitle,
+  AccordionItemBody
+} from 'react-accessible-accordion';
 
 import MapTaxJurisdictions from './map-known-tax-jurisdictions';
 import MapStockExchanges from './map-stock-exchanges';
@@ -20,30 +26,49 @@ class MapsAndTables extends PureComponent {
           </div>
         </div>
         <div className="page-content">
-          <div className="section -dark">
-            <div className="l-layout">
-              <MapProducingCountries />
-            </div>
-          </div>
-          <div className="section">
-            <div className="l-layout">
-              <MapTaxJurisdictions />
-            </div>
-          </div>
-          <div className="section -dark">
-            <div className="l-layout">
-              <MapStockExchanges />
-            </div>
-          </div>
-          <div className="section">
-            <div className="l-layout">
-              <MapTailingStorageFacilities />
-            </div>
-          </div>
-          <div className="section -dark">
-            <div className="l-layout">
-              <TableFatalityReports />
-            </div>
+          <div className="l-layout">
+            <Accordion accordion={false}>
+              <AccordionItem expanded={false}>
+                <AccordionItemTitle>
+                  <h3 className="accordion-name">Producing Countries</h3>
+                </AccordionItemTitle>
+                <AccordionItemBody>
+                  <MapProducingCountries />
+                </AccordionItemBody>
+              </AccordionItem>
+              <AccordionItem expanded={false}>
+                <AccordionItemTitle>
+                  <h3 className="accordion-name">Known Tax Jurisdictions</h3>
+                </AccordionItemTitle>
+                <AccordionItemBody>
+                  <MapTaxJurisdictions />
+                </AccordionItemBody>
+              </AccordionItem>
+              <AccordionItem expanded={false}>
+                <AccordionItemTitle>
+                  <h3 className="accordion-name">Stock Exchanges</h3>
+                </AccordionItemTitle>
+                <AccordionItemBody>
+                  <MapStockExchanges />
+                </AccordionItemBody>
+              </AccordionItem>
+              <AccordionItem expanded={false}>
+                <AccordionItemTitle>
+                  <h3 className="accordion-name">Tailings Storage Facilities</h3>
+                </AccordionItemTitle>
+                <AccordionItemBody>
+                  <MapTailingStorageFacilities />
+                </AccordionItemBody>
+              </AccordionItem>
+              <AccordionItem expanded={false}>
+                <AccordionItemTitle>
+                  <h3 className="accordion-name">Fatality Reports</h3>
+                </AccordionItemTitle>
+                <AccordionItemBody>
+                  <TableFatalityReports />
+                </AccordionItemBody>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </div>
