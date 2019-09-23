@@ -108,11 +108,12 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                     />
                   ))}
                 </div>
-
-                <div className="d-flex align-items-center mt-2 mb-3">
-                  <ToggleSwitch onStateChanged={this.handleToggleClick}/>
-                  <span className="ml-2">Compare with 2018 results</span>
-                </div>
+                { previousBreakdownScores.length > 0 &&
+                  <div className="d-flex align-items-center mt-2 mb-3">
+                    <ToggleSwitch onStateChanged={this.handleToggleClick}/>
+                    <span className="ml-2">Compare with 2018 results</span>
+                  </div>
+                }
               </div>
               }
             </div>

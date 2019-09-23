@@ -40,7 +40,7 @@ class StackedBarsVertical extends PureComponent {
     let previousTotalScore = 0;
 
     data[0].children.forEach((child) => { currentTotalScore += child.value; });
-    data[1].children.forEach((child) => { previousTotalScore += child.value; });
+    if (data[1] !== undefined) data[1].children.forEach((child) => { previousTotalScore += child.value; });
 
     return (
       <div {...restProps}>
@@ -81,40 +81,42 @@ class StackedBarsVertical extends PureComponent {
                 ))}
               </div>
             </div>
-            <div className={`bar-wrapper bar-wrapper-alt ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
-              <div className="score">
-                <div>2018</div>
-                <div className="current-score text-size-big">{previousTotalScore.toFixed(2)}</div>
-                <span className="total-score">Out of { dataScale.toFixed() }</span>
-              </div>
-              <div className="bar">
+            {data[1] !== undefined &&
+              <div className={`bar-wrapper bar-wrapper-alt ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
+                <div className="score">
+                  <div>2018</div>
+                  <div className="current-score text-size-big">{previousTotalScore.toFixed(2)}</div>
+                  <span className="total-score">Out of { dataScale.toFixed() }</span>
+                </div>
+                <div className="bar">
 
-                <Tooltip
-                  placement="bottom"
-                  trigger={['hover']}
-                  overlay={<span>collective best score (2018)</span>}
-                  mouseLeaveDelay={0}
-                >
-                  {/* @todo use real data to position the bar. */}
-                  <div className="bar-avg" style={{bottom: `${(data[1].collectiveBestScore.value * 100) / dataScale}%`}}></div>
-                </Tooltip>
-
-                {(data[1].children).map((bar, index) => (
                   <Tooltip
-                    key={bar.id}
                     placement="bottom"
                     trigger={['hover']}
-                    overlay={<span>{bar.name}</span>}
+                    overlay={<span>collective best score (2018)</span>}
                     mouseLeaveDelay={0}
                   >
-                    <div
-                      className="bar-node"
-                      style={this.getBarAttributes(bar, index)}
-                    />
+                    {/* @todo use real data to position the bar. */}
+                    <div className="bar-avg" style={{bottom: `${(data[1].collectiveBestScore.value * 100) / dataScale}%`}}></div>
                   </Tooltip>
-                ))}
+
+                  {(data[1].children).map((bar, index) => (
+                    <Tooltip
+                      key={bar.id}
+                      placement="bottom"
+                      trigger={['hover']}
+                      overlay={<span>{bar.name}</span>}
+                      mouseLeaveDelay={0}
+                    >
+                      <div
+                        className="bar-node"
+                        style={this.getBarAttributes(bar, index)}
+                      />
+                    </Tooltip>
+                  ))}
+                </div>
               </div>
-            </div>
+            }
           </div>
 
           <div
