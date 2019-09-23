@@ -50,7 +50,7 @@ class IndexPage extends PureComponent {
 
               <li className="link-item">
                 <Link
-                  route="map-and-tables"
+                  route="maps-and-tables"
                   params={{ language: currentLanguage }}
                 >
                   <a><span className="arrow">⟶</span> Maps & Tables</a>
