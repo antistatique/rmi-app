@@ -23,7 +23,7 @@ class OverallChart extends PureComponent {
         'value': bestPracticeScore,
       }, {
         'label': 'Collective Best Score (2018)',
-        'value': previousBestPracticeScore / 2,
+        'value': previousBestPracticeScore,
       }
     ];
 
