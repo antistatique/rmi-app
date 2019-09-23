@@ -1,12 +1,21 @@
+import {
+  blue,
+  brown,
+  pink,
+  yellow,
+  red,
+  green
+} from 'constants/graph-colors';
+
 export const GRAPHS_PER_ROW = 3;
 
 export const AREA_ISSUES_COLORS = {
-  'a-economic-development': '#0b46dd',
-  'b-business-conduct': '#af8862',
-  'c-lifecycle-management': '#a3196a',
-  'd-community-wellbeing': '#f89d0f',
-  'e-working-conditions': '#de1F0a',
-  'f-environmental-responsibility': '#69a820'
+  'a-economic-development': blue[1],
+  'b-business-conduct': brown[1],
+  'c-lifecycle-management': pink[1],
+  'd-community-wellbeing': yellow[1],
+  'e-working-conditions': red[1],
+  'f-environmental-responsibility': green[1]
 };
 
 export const BARS = [
@@ -17,34 +26,34 @@ export const BARS = [
 
 export const STACKED_BAR_COLOURS = {
   'a-economic-development': {
-    commitment: '#4f80fc',
-    action: '#255dec',
-    effectiveness: '#0b46dd'
+    commitment: blue[0],
+    action: blue[1],
+    effectiveness: blue[2]
   },
   'b-business-conduct': {
-    commitment: '#d0a77f',
-    action: '#c09872',
-    effectiveness: '#af8862'
+    commitment: brown[0],
+    action: brown[1],
+    effectiveness: brown[2]
   },
   'c-lifecycle-management': {
-    commitment: '#ce348e',
-    action: '#b7247a',
-    effectiveness: '#a3196a'
+    commitment: pink[0],
+    action: pink[1],
+    effectiveness: pink[2]
   },
   'd-community-wellbeing': {
-    commitment: '#fdbf5f',
-    action: '#fab03b',
-    effectiveness: '#f89d0f'
+    commitment: yellow[0],
+    action: yellow[1],
+    effectiveness: yellow[2]
   },
   'e-working-conditions': {
-    commitment: '#f85948',
-    action: '#ef3521',
-    effectiveness: '#de1F0a'
+    commitment: red[0],
+    action: red[1],
+    effectiveness: red[2]
   },
   'f-environmental-responsibility': {
-    commitment: '#9ccd63',
-    action: '#83c13A',
-    effectiveness: '#69a820'
+    commitment: green[0],
+    action: green[1],
+    effectiveness: green[2]
   }
 };
 
