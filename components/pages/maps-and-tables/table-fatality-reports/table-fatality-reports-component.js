@@ -61,6 +61,7 @@ class TableFatalityReports extends PureComponent {
 
         <div className="paginator-container">
           <Paginator
+            className="-theme-2"
             options={{
               size,
               page,

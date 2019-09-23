@@ -26,6 +26,7 @@ export const getFatalityReports = createThunkAction('fatalityReports/getFatality
     return new Promise((resolve, reject) => {
       FatalityReportsService.getFatalityReports(options)
         .then((data) => {
+          dispatch(setPaginationSize(data.meta['record-count']));
           const parsedData = new Jsona().deserialize(data);
 
           resolve(parsedData);
