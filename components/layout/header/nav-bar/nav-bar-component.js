@@ -26,8 +26,6 @@ class NavBar extends PureComponent {
     super(props);
 
     this.state = {};
-
-    this.debouncedHandleHoverTab = debounce(this.handleHoverTab, 150);
   }
 
   getTabClass(linkTab) {
@@ -80,8 +78,8 @@ class NavBar extends PureComponent {
       const submenuContent = (
         <ul
           className="submenu"
-          onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
-          onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
+          onMouseEnter={() => this.handleHoverTab(tab.id, true)}
+          onMouseLeave={() => this.handleHoverTab(tab.id, false)}
         >
           {tab.children.map(child => (
             <li
@@ -144,8 +142,8 @@ class NavBar extends PureComponent {
                   >
                     <a
                       className="submenu-literal"
-                      onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
-                      onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
+                      onMouseEnter={() => this.handleHoverTab(tab.id, true)}
+                      onMouseLeave={() => this.handleHoverTab(tab.id, false)}
                     >
                       {tab.label}
                     </a>
@@ -153,8 +151,8 @@ class NavBar extends PureComponent {
                 : (
                   <span
                     className="submenu-literal"
-                    onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
-                    onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
+                    onMouseEnter={() => this.handleHoverTab(tab.id, true)}
+                    onMouseLeave={() => this.handleHoverTab(tab.id, false)}
                   >
                     {tab.label}
                   </span>
