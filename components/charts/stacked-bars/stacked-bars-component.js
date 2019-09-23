@@ -39,8 +39,6 @@ class StackedBars extends PureComponent {
     let currentTotalScore = 0;
     let previousTotalScore = 0;
 
-    console.log(data[1])
-
     data[0].children.forEach((child) => { currentTotalScore += child.value; });
     if (data[1] !== undefined) data[1].children.forEach((child) => { previousTotalScore += child.value; });
 
