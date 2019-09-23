@@ -50,8 +50,9 @@ class StackedBarsVertical extends PureComponent {
           <div className="stacked-bars-vertical-container">
             <div className="bar-wrapper mr-1">
               <div className="score">
-                <div className="text-size-big">2020</div>
-                <span className="current-score">{currentTotalScore.toFixed(2)}<span className="total-score">/{ dataScale.toFixed(2) }</span></span>
+                <div>2020</div>
+                <div className="current-score text-size-big">{currentTotalScore.toFixed(2)}</div>
+                <span className="total-score">Out of { dataScale.toFixed() }</span>
               </div>
               <div className="bar">
                 <Tooltip
@@ -82,9 +83,9 @@ class StackedBarsVertical extends PureComponent {
             </div>
             <div className={`bar-wrapper bar-wrapper-alt ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
               <div className="score">
-                <div className="text-size-big">2018</div>
-                <span className="current-score">{previousTotalScore.toFixed(2)}<span
-                  className="total-score">/{ dataScale.toFixed(2) }</span></span>
+                <div>2018</div>
+                <div className="current-score text-size-big">{previousTotalScore.toFixed(2)}</div>
+                <span className="total-score">Out of { dataScale.toFixed() }</span>
               </div>
               <div className="bar">
 
