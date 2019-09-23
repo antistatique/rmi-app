@@ -136,7 +136,7 @@ export const INDEX_NAVIGATION = [
         label: 'Maps & Tables',
         slug: 'maps-and-tables',
         query: {
-          route: 'resources/maps-and-tables',
+          route: 'maps-and-tables',
           params: {}
         }
       },
