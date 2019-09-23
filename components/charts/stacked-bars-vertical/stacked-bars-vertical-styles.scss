@@ -30,6 +30,7 @@ $bar-height: 15px;
   }
 
   .bar-title {
+    max-width: 80%;
     font-size: $font-size-regular;
   }
 
@@ -85,6 +86,8 @@ $bar-height: 15px;
       margin: 5px 0;
 
       .current-score {
+        margin-top: 5px;
+        margin-bottom: 2px;
         font-weight: $font-weight-bold;
 
         > .total-score {
