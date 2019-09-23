@@ -4,7 +4,8 @@ import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
 import { valueParser, fixedValue } from 'utils/value-parser'
 
-const scores = state => (state.companies.list[0] || {}).scores;
+const companyScores = state => (state.companies.list[0] || {}).scores;
+const scores = state => state.scores.list;
 const selectedMineSites = state => (state.companies.list[0] || {})['selected-mine-sites'];
 const currentLanguage = state => state.language.current;
 const investmentDisputes = state => (state.companies.list[0] || {})['investment-disputes'];
@@ -41,15 +42,16 @@ export const parseMineSitesScores = createSelector(
 
 
 export const getBreakdownScores = createSelector(
-  [scores],
-  (_scores = []) => {
-    const breakdownScores = _scores.filter(score => (score || {}).kind === 'absolute_breakdown');
+  [companyScores, scores],
+  (_companyScores = [], _scores = []) => {
+    const breakdownScores = _companyScores.filter(score => ((score || {}).kind === 'absolute_breakdown') && !score.name.includes('PREVIOUS'));
     const groupedByParent = groupBy(breakdownScores, 'parent-id');
     const scoreOrder = ['Commitment', 'Action', 'Effectiveness'];
 
     return Object.keys(groupedByParent).map((parentId) => {
       const scoreGroup = groupedByParent[parentId];
-      const parentScore = _scores.find(score => score.id === parentId) || {};
+      const parentScore = _companyScores.find(score => score.id === parentId) || {};
+      const collectiveBestScore = _scores.find(score => (score.kind === 'current_best_practice' && score['indicator-id'] === parentScore['indicator-id'] && !score.name.includes('PREVIOUS')));
 
       return ({
         id: parentScore.id,
@@ -57,6 +59,7 @@ export const getBreakdownScores = createSelector(
         indicatorId: parentScore['indicator-id'],
         slug: parentScore.slug,
         value: parentScore.value,
+        collectiveBestScore,
         children: scoreGroup.map(scoreChild => ({
           id: scoreChild.id,
           name: scoreChild.label,
@@ -67,6 +70,36 @@ export const getBreakdownScores = createSelector(
     });
   }
 );
+
+export const getPreviousBreakdownScores = createSelector(
+  [companyScores, scores],
+  (_companyScores = [], _scores = []) => {
+    const breakdownScores = _companyScores.filter(score => ((score || {}).kind === 'absolute_breakdown') && score.name.includes('PREVIOUS'));
+    const groupedByParent = groupBy(breakdownScores, 'parent-id');
+    const scoreOrder = ['Commitment', 'Action', 'Effectiveness'];
+
+    return Object.keys(groupedByParent).map((parentId) => {
+      const scoreGroup = groupedByParent[parentId];
+      const parentScore = _companyScores.find(score => score.id === parentId) || {};
+      const collectiveBestScore = _scores.find(score => (score.kind === 'current_best_practice' && score['indicator-id'] === parentScore['indicator-id'] && score.name.includes('PREVIOUS')));
+
+      return ({
+        id: parentScore.id,
+        name: parentScore.label,
+        indicatorId: parentScore['indicator-id'],
+        slug: parentScore.slug,
+        value: parentScore.value,
+        collectiveBestScore,
+        children: scoreGroup.map(scoreChild => ({
+          id: scoreChild.id,
+          name: scoreChild.label,
+          value: scoreChild.value
+        }))
+          .sort((a, b) => ((scoreOrder.indexOf(a.name) < scoreOrder.indexOf(b.name)) ? -1 : 1))
+      });
+    });
+  }
+)
 
 export const parseKnownTaxJurisdictions = createSelector(
   [knownTaxJurisdictions],

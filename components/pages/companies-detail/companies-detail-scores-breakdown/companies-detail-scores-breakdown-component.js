@@ -37,6 +37,7 @@ import styles from './companies-detail-scores-breakdown-styles.scss';
 class CompaniesDetailScoresBreakDown extends PureComponent {
   static propTypes = {
     breakdownScores: PropTypes.array.isRequired,
+    previousBreakdownScores: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired,
@@ -53,7 +54,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
 
   render() {
     const {
-      company, breakdownScores,
+      company, breakdownScores, previousBreakdownScores,
       shareholders, investmentDisputes, knownTaxJurisdictions,
       responsive, printable
     } = this.props;
@@ -89,7 +90,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                   {breakdownScores.map((breakdownScore, index) => (
                     <StackedBars
                       key={breakdownScore.id}
-                      data={breakdownScore}
+                      data={[breakdownScore, previousBreakdownScores[index]]}
                       colors={measurementColors[index]}
                       className="mb-4"
                     />
@@ -100,7 +101,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                   {breakdownScores.map((breakdownScore, index) => (
                     <StackedBarsVertical
                       key={breakdownScore.id}
-                      data={breakdownScore}
+                      data={[breakdownScore, previousBreakdownScores[index]]}
                       colors={measurementColors[index]}
                       className={`mb-2 ${index < (breakdownScores.length-1) ? 'mr-4' : ''}`}
                       style={{ width: `${100 / breakdownScores.length}%` }}
