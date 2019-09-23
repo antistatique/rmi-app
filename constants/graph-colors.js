@@ -1,12 +1,12 @@
 
-export const blue = ['#86a8fe', '#4f80fc', '#255dec', '#0b46dd'];
-export const brown = ['#edcaa8', '#d0a77f', '#c09872', '#af8862'];
-export const yellow = ['#ffcF85', '#fdbf5f', '#fab03b', '#f89d0f'];
-export const pink = ['#eb61B1', '#ce348e', '#b7247a', '#a3196a'];
-export const red = ['#fa7d6f', '#f85948', '#ef3521', '#de1F0a'];
-export const green = ['#bbdf92', '#9ccd63', '#83c13A', '#69a820'];
+export const blue = ['#70a4d8', '#006eb9', '#003f88'];
+export const brown = ['#cca58d', '#835640', '#543621'];
+export const yellow = ['#fbb26a', '#f5821f', '#c24919'];
+export const pink = ['#c78ebf', '#a3238e', '#670059'];
+export const red = ['#f68d70', '#ee3129', '#940609'];
+export const green = ['#add580', '#72bf44', '#00712d'];
 
-export const overallColors = [red[3], blue[3], yellow[3], green[3], pink[3], brown[3]];
+export const overallColors = [red[1], blue[1], yellow[1], green[1], pink[1], brown[1]];
 export const measurementColors = [blue, brown, pink, yellow, red, green];
 
 export const HOVER_COLOUR = '#000';
@@ -22,34 +22,34 @@ export const AREA_ISSUE_COLOURS = {
 
 export const STACKED_BAR_COLOURS = {
   'a-economic-development': {
-    commitment: '#4f80fc',
-    action: '#255dec',
-    effectiveness: '#0b46dd'
+    commitment: blue[0],
+    action: blue[1],
+    effectiveness: blue[2]
   },
   'b-business-conduct': {
-    commitment: '#d0a77f',
-    action: '#c09872',
-    effectiveness: '#af8862'
+    commitment: brown[0],
+    action: brown[1],
+    effectiveness: brown[2]
   },
   'c-lifecycle-management': {
-    commitment: '#ce348e',
-    action: '#b7247a',
-    effectiveness: '#a3196a'
+    commitment: pink[0],
+    action: pink[1],
+    effectiveness: pink[2]
   },
   'd-community-wellbeing': {
-    commitment: '#fdbf5f',
-    action: '#fab03b',
-    effectiveness: '#f89d0f'
+    commitment: yellow[0],
+    action: yellow[1],
+    effectiveness: yellow[2]
   },
   'e-working-conditions': {
-    commitment: '#f85948',
-    action: '#ef3521',
-    effectiveness: '#de1F0a'
+    commitment: red[0],
+    action: red[1],
+    effectiveness: red[2]
   },
   'f-environmental-responsibility': {
-    commitment: '#9ccd63',
-    action: '#83c13A',
-    effectiveness: '#69a820'
+    commitment: green[0],
+    action: green[1],
+    effectiveness: green[2]
   }
 };
 
