@@ -20,6 +20,7 @@ import { getIndicators } from 'modules/indicators/indicators-actions';
 import { getSubsidiaries } from 'modules/subsidiaries/subsidiaries-actions';
 import { getShareholders } from 'modules/shareholders/shareholders-actions';
 import { getBeneficialOwners } from 'modules/beneficial-owners/beneficial-owners-actions';
+import { getScores } from 'modules/scores/scores-actions';
 
 class CompaniesPage extends Page {
   static propTypes = {
@@ -80,6 +81,9 @@ class CompaniesPage extends Page {
         'filter[company]': context.query.company,
         sort: 'name'
       }));
+
+      // get all scores
+      await context.store.dispatch(getScores({ 'page[size]': 1000 }));
     } else {
       await context.store.dispatch(getCompanies({
         include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'selected-mine-sites'].join(','),

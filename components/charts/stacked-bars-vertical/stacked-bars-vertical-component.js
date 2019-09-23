@@ -19,7 +19,7 @@ const dataScale = 6;
 class StackedBarsVertical extends PureComponent {
 
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.array.isRequired,
     colors: PropTypes.array.isRequired,
     isPrevYearVisible: PropTypes.bool.isRequired
   };
@@ -36,10 +36,11 @@ class StackedBarsVertical extends PureComponent {
 
   render() {
     const { data, isPrevYearVisible, className, ...restProps } = this.props;
-    const { name, indicatorId, children } = data;
-    let totalScore = 0;
+    let currentTotalScore = 0;
+    let previousTotalScore = 0;
 
-    children.forEach((child) => { totalScore += child.value; });
+    data[0].children.forEach((child) => { currentTotalScore += child.value; });
+    data[1].children.forEach((child) => { previousTotalScore += child.value; });
 
     return (
       <div {...restProps}>
@@ -50,7 +51,7 @@ class StackedBarsVertical extends PureComponent {
             <div className="bar-wrapper mr-1">
               <div className="score">
                 <div>2020</div>
-                <div className="current-score text-size-big">{ totalScore.toFixed(2) }</div>
+                <div className="current-score text-size-big">{currentTotalScore.toFixed(2)}</div>
                 <span className="total-score">Out of { dataScale.toFixed() }</span>
               </div>
               <div className="bar">
@@ -61,10 +62,10 @@ class StackedBarsVertical extends PureComponent {
                   mouseLeaveDelay={0}
                 >
                   {/* @todo use real data to position the bar. */}
-                  <div className="bar-avg" style={{top: '55%'}}></div>
+                  <div className="bar-avg" style={{bottom: `${(data[0].collectiveBestScore.value * 100) / dataScale}%`}}></div>
                 </Tooltip>
 
-                {(children).map((bar, index) => (
+                {(data[0].children).map((bar, index) => (
                   <Tooltip
                     key={bar.id}
                     placement="bottom"
@@ -83,7 +84,7 @@ class StackedBarsVertical extends PureComponent {
             <div className={`bar-wrapper bar-wrapper-alt ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
               <div className="score">
                 <div>2018</div>
-                <div className="current-score text-size-big">{ totalScore.toFixed(2) }</div>
+                <div className="current-score text-size-big">{previousTotalScore.toFixed(2)}</div>
                 <span className="total-score">Out of { dataScale.toFixed() }</span>
               </div>
               <div className="bar">
@@ -95,10 +96,10 @@ class StackedBarsVertical extends PureComponent {
                   mouseLeaveDelay={0}
                 >
                   {/* @todo use real data to position the bar. */}
-                  <div className="bar-avg" style={{top: '65%'}}></div>
+                  <div className="bar-avg" style={{bottom: `${(data[1].collectiveBestScore.value * 100) / dataScale}%`}}></div>
                 </Tooltip>
 
-                {(children).map((bar, index) => (
+                {(data[1].children).map((bar, index) => (
                   <Tooltip
                     key={bar.id}
                     placement="bottom"
@@ -120,13 +121,13 @@ class StackedBarsVertical extends PureComponent {
             className="bar-icon"
           >
             <Icon
-              name={indicatorId.toString()}
+              name={data[0].indicatorId.toString()}
               className="-x-big"
-              style={{ background: `${AREA_ISSUE_COLOURS[indicatorId]} !important`, padding: '5px' }}
+              style={{ background: `${AREA_ISSUE_COLOURS[data[0].indicatorId]} !important`, padding: '5px' }}
             />
           </div>
           <div className="bar-header mt-2">
-            <h3 className="bar-title">{name}</h3>
+            <h3 className="bar-title">{data[0].name}</h3>
           </div>
 
         </div>
