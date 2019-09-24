@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Router } from 'routes';
 
 // components
 import Select from 'components/common/select';
@@ -11,16 +12,16 @@ class MineSitesFilters extends PureComponent {
   static propTypes = {
     selectedMineSite: PropTypes.string,
     mineSites: PropTypes.array.isRequired,
-    setFilters: PropTypes.func.isRequired
+    currentLanguage: PropTypes.string.isRequired
   }
 
   static defaultProps = { selectedMineSite: null }
 
   handleMineSite = ({ value }) =>
-    this.props.setFilters({
-      selectedMineSite: value,
-      selectedCompany: null
-    })
+    Router.pushRoute('mine-sites', {
+      mineSite: value,
+      language: this.props.currentLanguage
+    });
 
   render() {
     const { mineSites, selectedMineSite } = this.props;
