@@ -59,7 +59,7 @@ class CompaniesPage extends Page {
 
       // gets indicators
       await context.store.dispatch(getIndicators({
-        include: 'leading-practices',
+        include: ['leading-practices', 'leading-practices.companies'].join(','),
         'page[size]': 1000
       }));
 
