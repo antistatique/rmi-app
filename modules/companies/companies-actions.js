@@ -10,6 +10,7 @@ export const resetCompanies = createAction('companies/resetCompanies');
 export const setCompaniesLoading = createAction('companies/setCompaniesLoading');
 export const setCompaniesScores = createAction('companies/setCompaniesScores');
 export const setCompaniesError = createAction('companies/setCompaniesError');
+export const setTaxJurisdictions = createAction('companies/setTaxJurisdictions');
 
 export const getCompanies = createThunkAction('companies/getCompanies', _options =>
   (dispatch, getState) => {
@@ -79,11 +80,36 @@ export const getCompaniesScores = createThunkAction('companies/getCompaniesScore
         .catch(errors => reject(errors));
     }));
 
+export const getTaxJurisdictions = createThunkAction('companies/getTaxJurisdictions', _options =>
+  (dispatch, getState) => {
+    const { queryParams } = _options;
+    const { mapsAndTables } = getState();
+    const { company } = mapsAndTables.knownTaxFilters;
+
+    const options = {
+      ...queryParams,
+      'filter[company]': company
+    };
+
+    return new Promise((resolve, reject) => {
+      CompaniesService.getTaxJurisdictions(options)
+        .then((data) => {
+          const parsedData = new Jsona().deserialize(data);
+
+          resolve(parsedData);
+          dispatch(setTaxJurisdictions(parsedData));
+        })
+        .catch(errors => reject(errors));
+    });
+  });
+
 
 export default {
   setCompanies,
   setCompaniesError,
   getCompanies,
   getCompany,
-  getCompaniesScores
+  getCompaniesScores,
+  getTaxJurisdictions,
+  setTaxJurisdictions
 };

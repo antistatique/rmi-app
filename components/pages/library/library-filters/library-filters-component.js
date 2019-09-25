@@ -32,21 +32,18 @@ class LibraryFilters extends PureComponent {
     return (
       <div className="c-library-filters">
         <style jsx>{styles}</style>
-        <div className="row middle-md">
-          <div className="col-xs-12">
-            <div className="filters-container">
-              <Search
-                onSearch={this.handleSearch}
-              />
+        <div className="filters-container d-flex flex-column flex-md-row justify-content-md-end">
+          <Search
+            onSearch={this.handleSearch}
+            className="mb-3 mb-md-0 mr-0 mr-md-3"
+          />
 
-              <Select
-                placeholder="Select a Company"
-                options={companies}
-                onChange={this.handleCompany}
-                className="c-select-bordered"
-              />
-            </div>
-          </div>
+          <Select
+            placeholder="Select a Company"
+            options={companies}
+            onChange={this.handleCompany}
+            className="c-select-bordered"
+          />
         </div>
       </div>
     );

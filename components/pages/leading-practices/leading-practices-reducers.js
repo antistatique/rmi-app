@@ -31,7 +31,10 @@ export default {
       ...state,
       leadingPractices: {
         ...state.leadingPractices,
-        filters: payload
+        filters: {
+          ...state.leadingPractices.filters,
+          ...payload
+        }
       }
     }),
   [actions.setLeadingPracticesLoading]: (state, { payload }) => (

@@ -77,3 +77,26 @@ The port may vary according value of `PORT` in your `.env` file, setup during pr
 ```bash
 yarn dev
 ```
+
+## 🚀 Deployment
+
+We use Ansible to provisining the staging and production server and Capistrano to deploy.
+
+```
+# To provisioning or update server
+ansible-playbook --ask-become-pass .ansible/appservers.yml
+```
+
+Deployment:
+
+```
+# First time
+bundle install
+
+# To deploy on staging environement
+bundle exec cap staging deploy
+
+# To deploy on production environement
+bundle exec cap production deploy
+
+```

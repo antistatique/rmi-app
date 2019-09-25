@@ -13,25 +13,16 @@ import styles from './issue-areas-bar-styles.scss';
 class IssueAreasBar extends PureComponent {
   static propTypes = {
     issueAreas: PropTypes.array.isRequired,
-    selectedissueArea: PropTypes.string,
+    selectedIssueArea: PropTypes.string,
     setIssueArea: PropTypes.func.isRequired
-  }
+  };
 
-  static defaultProps = { selectedissueArea: null }
+  static defaultProps = { selectedIssueArea: null }
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      stickyOffset: 0,
-    };
-  }
-
-  getBackground(issueArea) {
-    const { selectedissueArea } = this.props;
-
-    return issueArea.id === selectedissueArea ?
-      AREA_ISSUE_COLOURS[issueArea.id] : 'transparent';
+    this.state = { stickyOffset: 0 };
   }
 
   componentDidMount() {
@@ -51,8 +42,15 @@ class IssueAreasBar extends PureComponent {
     });
   }
 
+  getColor(issueArea) {
+    const { selectedIssueArea } = this.props;
+
+    return issueArea.id === selectedIssueArea ?
+      AREA_ISSUE_COLOURS[issueArea.id] : 'transparent';
+  }
+
   render() {
-    const { issueAreas, setIssueArea } = this.props;
+    const { issueAreas, setIssueArea, selectedIssueArea } = this.props;
 
     return (
       <div className="c-issue-areas-bar align-items-start">
@@ -64,14 +62,17 @@ class IssueAreasBar extends PureComponent {
           }
         >
           {issueAreas.map(issueArea => (
-            <li key={issueArea.id}>
+            <li
+              key={issueArea.id}
+              className={issueArea.id === selectedIssueArea ? 'active' : ''}
+            >
               <button
-                style={{ background: this.getBackground(issueArea) }}
                 onClick={() => setIssueArea(issueArea.id)}
               >
                 <Icon
                   name={issueArea.id}
-                  className="-x-big"
+                  className={`${issueArea.id === selectedIssueArea ? 'active' : ''} -x-big`}
+                  style={{ background: this.getColor(issueArea) }}
                 />
               </button>
             </li>

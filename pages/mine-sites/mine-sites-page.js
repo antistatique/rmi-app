@@ -24,12 +24,12 @@ class MineSitesPage extends Page {
 
     if (context.query.mineSite) {
       // gets mine site info and relationships
-      context.store.dispatch(getMineSite({
+      await context.store.dispatch(getMineSite({
         mineSiteId: context.query.mineSite,
         queryParams: {
-          include: ['company', 'company.country', 'country',
+          include: ['companies', 'companies.country', 'country',
             'documents', 'commodities', 'scores', 'scores.indicator', 'scores.indicator.parent',
-            'document-mine-sites.indicators', 'document-mine-sites.document'].join(',')
+            'document-mine-sites.indicators', 'document-mine-sites.document', 'extra-languages'].join(',')
         }
       }));
 
@@ -43,7 +43,7 @@ class MineSitesPage extends Page {
       }));
     } else {
       await context.store.dispatch(getCompanies({
-        include: ['country', 'selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities'].join(','),
+        include: ['country', 'mine-sites', 'selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities'].join(','),
         sort: 'name'
       }));
 

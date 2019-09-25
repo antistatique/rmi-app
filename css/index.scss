@@ -1,5 +1,6 @@
 @import 'settings';
 @import 'mixins';
+@import 'utilities/breakpoints';
 
 // third-party styles
 @import '../node_modules/react-selectize/dist/index.min';
@@ -20,10 +21,11 @@
 @import 'global';
 
 // utilities
-@import 'utilities/breakpoints';
 @import 'utilities/display';
 @import 'utilities/spacing';
 @import 'utilities/flex';
+@import 'utilities/text';
+@import 'utilities/content_columns';
 
 // components
 @import 'components/accordion';
@@ -31,3 +33,4 @@
 @import 'components/modal';
 @import 'components/progress-bar';
 @import 'components/tooltip';
+@import 'components/input';

@@ -13,12 +13,14 @@ class ScoreComparison extends PureComponent {
     data: PropTypes.object.isRequired,
     config: PropTypes.object.isRequired,
     // phone is the prop to see if the device used is a phone
-    phone: PropTypes.bool.isRequired
+    phone: PropTypes.bool
   }
 
   static getWidth(value) {
     return `${((value * 100) / 6)}%`;
   }
+
+  static defaultProps = { phone: false }
 
   constructor(props) {
     super(props);

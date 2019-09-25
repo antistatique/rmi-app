@@ -31,7 +31,7 @@ class GoTopButton extends PureComponent {
         <style jsx>{styles}</style>
         <div className={'go-top-button ' + (this.state.show ? 'go-top-button-show' : '')}>
           <AnchorLink href="#main-content">
-            <Icon name="arrow-up" className="-big" />
+            <Icon name="arrow-up" className="c-icon" />
           </AnchorLink>
         </div>
       </div>

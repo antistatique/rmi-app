@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Accordion from 'components/common/accordion';
 import ScoreComparison from 'components/common/score-comparison';
+import RelatedLeadingPractices from 'components/common/related-leading-practices';
 
 class ResultsDetailAccordion extends PureComponent {
   static propTypes = {
@@ -48,6 +49,13 @@ class ResultsDetailAccordion extends PureComponent {
                     <div dangerouslySetInnerHTML={{ __html: d.summary }} />
                   </div>}
               </div>
+              { d.leadingPractices.length > 0 &&
+                <div className="row mt-4">
+                  <div className="col-xs-12">
+                    <RelatedLeadingPractices leadingPractices={d.leadingPractices} />
+                  </div>
+                </div>
+              }
             </div>
           </div>
         )));
@@ -80,6 +88,13 @@ class ResultsDetailAccordion extends PureComponent {
                 phone={phone}
               />
             </div>
+            { d.leadingPractices.length > 0 &&
+              <div className="row mt-4">
+                <div className="col-xs-12">
+                  <RelatedLeadingPractices leadingPractices={d.leadingPractices} />
+                </div>
+              </div>
+            }
           </div>
         </div>
       )));

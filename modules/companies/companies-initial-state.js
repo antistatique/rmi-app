@@ -2,7 +2,8 @@ const initialState = {
   list: [],
   loading: false,
   companiesScores: [],
-  error: null
+  error: null,
+  taxJurisdictions: []
 };
 
 export default initialState;

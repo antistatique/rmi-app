@@ -42,7 +42,7 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
         <style jsx>{styles}</style>
         <div className="row">
           <div className="col-xs-12">
-            <h3 className="title">Relative company performance</h3>
+            <h3 className="title text-left">Relative company performance</h3>
           </div>
         </div>
         <div className="charts-container">

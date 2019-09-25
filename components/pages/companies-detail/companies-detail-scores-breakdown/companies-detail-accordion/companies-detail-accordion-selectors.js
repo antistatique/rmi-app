@@ -33,7 +33,8 @@ export const getIssueAreaTree = createSelector(
             max: ind.max,
             avg: ind.avg,
             value: (_scores.find(score => score['indicator-id'] === +ind.id) || {}).value,
-            color: SCORE_COMPARISON_CONFIG[category.slug]
+            color: SCORE_COMPARISON_CONFIG[category.slug],
+            leadingPractices: ind['leading-practices']
           }))
       }))
     };

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // components
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
+import Alert from 'components/common/alert';
 import CompaniesFilters from './companies-filters';
 
 // constants
@@ -73,6 +74,7 @@ class Companies extends PureComponent {
                       setCountryColor={Companies.setCountryColor}
                       legend={MAP_LEGEND}
                       onClickGeography={this.handleClickGeography}
+                      center={[40, 10]}
                     />
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Router, Link } from 'routes';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import Scrollspy from 'components/common/scroll-spy';
 
 // components
 import Icon from 'components/common/icon';
@@ -24,8 +24,6 @@ class CompaniesDetailHeader extends PureComponent {
     const parsedListings = (listings || '').split(' - ')
       .map(list => list.split(':'));
 
-    const styleLink = {display: "inline-block", padding: "0.5em 1em 0.5em 0", fontSize: "0.9em"};
-
     return (
       <div className="c-companies-detail-header">
         <style jsx>{styles}</style>
@@ -35,7 +33,7 @@ class CompaniesDetailHeader extends PureComponent {
             <img className="logo-img" src="/static/logos/RMIndex_vector.svg" alt="RMI logo" />
           </div>
           <div className="row">
-            <div className="col-xs-12 col-sm-6">
+            <div className="col-xs-12 col-sm-5 col-md-6">
               <div className="left-side">
                 <Link
                   route="companies"
@@ -51,7 +49,7 @@ class CompaniesDetailHeader extends PureComponent {
                 </Link>
               </div>
             </div>
-            <div className="col-xs-12 col-sm-6">
+            <div className="col-xs-12 col-sm-7 col-md-6">
               <div className="right-side">
                 <div className="company-listing">
                   {parsedListings.map((list, index) => (
@@ -78,19 +76,38 @@ class CompaniesDetailHeader extends PureComponent {
             </div>
           </div>
         </div>
-        <div className="anchor-navigation-container">
+        <div className="anchor-navigation-container d-none d-md-block">
           <div className="l-layout">
             <div className="row">
-              <div className="col-md-12">
-                <ul className="anchor-navigation">
-                  <li><AnchorLink offset="100" style={styleLink} href="#contextual-data">Contextual Data</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#overall-results">Overall Results</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#indicator-by-indicator-results">Indicator-by-indicator Results</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#mine-site-selection">Mine-site selection</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#list-of-all-mine-sites">List of all mine sites</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#shareholders-and-subsidiaries">Shareholders and Subsidiaries</AnchorLink></li>
-                  <li><AnchorLink offset="100" style={styleLink} href="#tax-jurisdictions">Tax jurisdictions</AnchorLink></li>
-                </ul>
+              <div className="col-xs-12">
+                <Scrollspy items={[
+                    {
+                      'anchor': 'overall-results',
+                      'label': 'Overall Results',
+                    },
+                    {
+                      'anchor': 'indicator-by-indicator-results',
+                      'label': 'Detailed Results',
+                    },
+                    {
+                      'anchor': 'list-of-all-mine-sites',
+                      'label': 'Mine-site Results',
+                    },
+                  {
+                    'anchor': 'tailings',
+                    'label': 'Tailings',
+                  },
+                    {
+                      'anchor': 'shareholders-and-subsidiaries',
+                      'label': 'Shareholders',
+                    },
+                    {
+                      'anchor': 'tax-jurisdictions',
+                      'label': 'Tax Jurisdictions',
+                    },
+                  ]}
+                  currentClassName="active"
+                />
               </div>
             </div>
           </div>
