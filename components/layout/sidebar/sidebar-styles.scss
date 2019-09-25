@@ -14,7 +14,13 @@ $sidebar-gap: 50px;
   overflow-y: auto;
 
   > .sidebar-container {
+    display: flex;
+    flex-direction: column;
     background: $color-2;
+
+    > .l-layout {
+      width: 100%;
+    }
   }
 
   &.-visible {
@@ -61,10 +67,8 @@ $sidebar-gap: 50px;
   }
 
   .language-bar-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
+    margin-top: auto;
 
     @media #{$mq-sm} {
       width: calc(100% - #{$sidebar-gap})
