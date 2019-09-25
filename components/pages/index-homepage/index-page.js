@@ -22,7 +22,7 @@ class IndexPage extends PureComponent {
           {/* splash */}
           <div className="row">
             <div className="splash">
-              <h1 className="title">RMI Report 2018</h1>
+              <h1 className="title">RMI Report 2020</h1>
               <p className="subtitle">An evidence-based assessment of mining company policies
                 and practices<br /> on economic, environmental, social and governance issues.
               </p>
