@@ -48,7 +48,7 @@ class MineSitesDetailAssessmentsTable extends PureComponent {
     return (
       <div className="c-mine-sites-detail-assessments-table">
         <style jsx>{styles}</style>
-        <h3 className="title">Source documents used in scoring</h3>
+        <h3 className="title text-left">Source documents used in scoring</h3>
         {data.length ?
           <div>
             <div className="filters-container">

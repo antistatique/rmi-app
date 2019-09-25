@@ -71,7 +71,7 @@ class ResultsDetail extends PureComponent {
               <div className="row">
                 <div className="col-xs-12 col-md-1">
                   <IssueAreasBar
-                    selectedissueArea={id}
+                    selectedIssueArea={id}
                     setIssueArea={this.handleArea}
                   />
                 </div>
@@ -81,8 +81,8 @@ class ResultsDetail extends PureComponent {
                     <OverallChart />
                     {phone ? <Slider /> : <MeasurementCharts />}
                     <div className="explanation">
-                      <p><span className="aggregation-line" />Current Best Practice: Aggregation of best scores for all indicators in the given thematic area.</p>
-                      <p>The &apos;Current Best Practice&apos; value represents the aggregation of best
+                      <p><span className="aggregation-line" />Collective Best Score: Aggregation of best scores for all indicators in the given thematic area.</p>
+                      <p>The &apos;Collective Best Score&apos; value represents the aggregation of best
                         scores achieved for all indicators in the given thematic area, taking into
                         account all companies&apos; results.<br />
                         The 0.00-6.00 scale is the scoring scale used in the assessment.

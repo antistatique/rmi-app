@@ -41,12 +41,17 @@
     padding: 25px 0;
   }
 
+  .stacked-bars-vertical-container,
   .stacked-bars-container {
     @media print {
       :global(.c-stacked-bars) {
         page-break-inside: avoid;
       }
     }
+  }
+
+  .stacked-bars-vertical-container {
+    justify-content: space-between;
   }
 
   .overall-measurement-container {
@@ -100,17 +105,10 @@
   .accordion-header {
     width: 100%;
     text-align: center;
-    text-transform: uppercase;
     padding: 35px 0px;
-    background: $color-3;
     color: $color-7;
     font-size: $font-size-bigger;
     font-family: $font-family-2;
-
-    @media print {
-      background: $color-7;
-      color: $color-1;
-    }
   }
 
   .table-container {

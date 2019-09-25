@@ -84,6 +84,15 @@ class MineSite extends PureComponent {
             <div className="l-layout">
               <div className="row">
                 <div className="col-xs-12">
+                  <h3 className="text-white mb-4">List of all companies</h3>
+                  <MineSitesFilters />
+                  <CompaniesList
+                    isCompanyPage={false}
+                    onOpenTooltip={this.handleOpenTooltip}
+                    onCloseTooltip={this.handleCloseTooltip}
+                  />
+                </div>
+                <div className="col-xs-12 order-md-first">
                   <div className="map-container">
                     <Map
                       paths={paths}
@@ -95,16 +104,6 @@ class MineSite extends PureComponent {
                       zoom={this.state.zoom !== null ? this.state.zoom : undefined}
                     />
                   </div>
-                </div>
-                
-                <div className="col-xs-12">
-                  <h3 className="text-white mb-4">List of all companies</h3>
-                  <MineSitesFilters />
-                  <CompaniesList
-                    isCompanyPage={false}
-                    onOpenTooltip={this.handleOpenTooltip}
-                    onCloseTooltip={this.handleCloseTooltip}
-                  />
                 </div>
               </div>
             </div>

@@ -9,6 +9,7 @@ const countries = state => state.countries.list;
 const companies = state => state.companies.list;
 const companyId = state => state.routes.query.company;
 const indicators = state => state.indicators.list;
+const currentLanguage = state => state.language.current;
 
 export const getCompany = createSelector(
   [companies, companyId],
@@ -65,13 +66,14 @@ export const getIssueAreas = createSelector(
 );
 
 export const getMarkers = createSelector(
-  getCompany,
-  (_company = {}) =>
+  [getCompany, currentLanguage],
+  (_company = {}, _currentLanguage) =>
     (_company['selected-mine-sites'] || []).map(mineSite => ({
       id: mineSite.id,
       name: mineSite.name,
       country: mineSite.country.name,
-      coordinates: [mineSite['coord-y'], mineSite['coord-x']]
+      coordinates: [mineSite['coord-y'], mineSite['coord-x']],
+      language: _currentLanguage
     }))
 );
 

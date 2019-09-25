@@ -18,6 +18,9 @@ import { getCountriesWithCompanies } from 'components/pages/companies/companies-
 import { getCommodities } from 'modules/commodities/commodities-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 import { getSubsidiaries } from 'modules/subsidiaries/subsidiaries-actions';
+import { getShareholders } from 'modules/shareholders/shareholders-actions';
+import { getBeneficialOwners } from 'modules/beneficial-owners/beneficial-owners-actions';
+import { getScores } from 'modules/scores/scores-actions';
 
 class CompaniesPage extends Page {
   static propTypes = {
@@ -41,7 +44,8 @@ class CompaniesPage extends Page {
           include: ['country', 'secondary-country', 'producing-countries', 'mine-sites', 'mine-sites.country',
             'mine-sites.commodities', 'mine-sites.scores', 'scores', 'shareholders', 'subsidiaries',
             'beneficial-owners', 'company-country-tax-jurisdictions', 'company-country-tax-jurisdictions.country',
-            'investment-disputes', 'fatality-reports', 'selected-mine-sites'
+            'investment-disputes', 'fatality-reports', 'selected-mine-sites', 'extra-languages', 'tailing-storage-facilities',
+            'tailing-storage-facilities.country'
           ].join(','),
           'page[size]': 9999
         }
@@ -54,7 +58,10 @@ class CompaniesPage extends Page {
       }));
 
       // gets indicators
-      await context.store.dispatch(getIndicators({ 'page[size]': 1000 }));
+      await context.store.dispatch(getIndicators({
+        include: 'leading-practices',
+        'page[size]': 1000
+      }));
 
       // gets subsidiaries
       await context.store.dispatch(getSubsidiaries({
@@ -62,6 +69,21 @@ class CompaniesPage extends Page {
         sort: 'name',
         include: 'country'
       }));
+
+      // gets shareholders
+      await context.store.dispatch(getShareholders({
+        'filter[company]': context.query.company,
+        sort: 'name'
+      }));
+
+      // get beneficial owners
+      await context.store.dispatch(getBeneficialOwners({
+        'filter[company]': context.query.company,
+        sort: 'name'
+      }));
+
+      // get all scores
+      await context.store.dispatch(getScores({ 'page[size]': 1000 }));
     } else {
       await context.store.dispatch(getCompanies({
         include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'selected-mine-sites'].join(','),

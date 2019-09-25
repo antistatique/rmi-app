@@ -97,53 +97,11 @@ export const INVESTMENT_DISPUTES_COLUMNS = [
 
 export const TAX_JURISDICTIONS_COLUMNS = [
   {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction1 || {}).country && rowData.jurisdiction1.country.name
-      ]
-    }
+    property: 'country_col1',
   },
   {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction2 || {}).country && rowData.jurisdiction2.country.name
-      ]
-    }
+    property: 'country_col2',
   },
-  {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction3 || {}).country && rowData.jurisdiction3.country.name
-      ]
-    }
-  },
-  {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction4 || {}).country && rowData.jurisdiction4.country.name
-      ]
-    }
-  },
-  {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction5 || {}).country && rowData.jurisdiction5.country.name
-      ]
-    }
-  },
-  {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction6 || {}).country && rowData.jurisdiction6.country.name
-      ]
-    }
-  }
 ];
 
 export default {

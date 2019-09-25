@@ -15,7 +15,7 @@ class Footer extends PureComponent {
               <div className="left-side">
                 <div className="footer-section">
                   <div className="copyright">
-                    <p>Copyright notice</p>
+                    <p className="text-size-big text-style-normal text-weight-bold">Copyright notice</p>
                     <p>
                       All data and written content are licensed
                       under the Creative Commons Attribution-NonCommercial

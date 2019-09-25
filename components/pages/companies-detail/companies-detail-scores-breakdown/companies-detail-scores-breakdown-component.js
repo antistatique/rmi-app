@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -7,21 +7,26 @@ import { measurementColors } from 'constants/graph-colors';
 
 // components
 import StackedBars from 'components/charts/stacked-bars';
+import StackedBarsVertical from 'components/charts/stacked-bars-vertical';
 import Table from 'components/common/table';
 import Summary from 'components/common/summary';
 import Gradient from 'components/common/gradient';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
+import CompaniesDetailTailingsList from './companies-detail-tailings-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import PrintableIssueAreas from './printable-issue-areas';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
 import PrintableMeasurements from './printable-measurements';
 import Slider from './slider';
 import SubsidiariesTable from './subsidiaries-table';
+import ShareholdersTable from './shareholders-table';
+import BeneficialOwnersTable from './beneficial-owners-table';
 import Unknowndata from './unknown-data';
+import ToggleSwitch from 'components/common/toggle-switch';
+import SelectedMineSitesTable from './selected-mine-sites-table';
 
 // constants
 import {
-  MINE_SITE_TABLE_COLUMNS,
   INVESTMENT_DISPUTES_COLUMNS,
   TAX_JURISDICTIONS_COLUMNS
 } from './companies-detail-scores-breakdown-constants';
@@ -31,21 +36,25 @@ import styles from './companies-detail-scores-breakdown-styles.scss';
 
 class CompaniesDetailScoresBreakDown extends PureComponent {
   static propTypes = {
-    mineSites: PropTypes.array.isRequired,
     breakdownScores: PropTypes.array.isRequired,
-    shareholders: PropTypes.array.isRequired,
+    previousBreakdownScores: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired,
     responsive: PropTypes.object.isRequired,
-    printable: PropTypes.bool
-  }
+    printable: PropTypes.bool,
+    setPreviousYearVisibility: PropTypes.func.isRequired
+  };
 
   static defaultProps = { printable: false }
 
+  handleToggleClick = ({ enabled }) => {
+    this.props.setPreviousYearVisibility(enabled);
+  };
+
   render() {
     const {
-      company, breakdownScores, mineSites,
+      company, breakdownScores, previousBreakdownScores,
       shareholders, investmentDisputes, knownTaxJurisdictions,
       responsive, printable
     } = this.props;
@@ -66,26 +75,47 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
       <div className="c-companies-detail-scores-breakdown">
         <style jsx>{styles}</style>
         <div className="l-layout">
-          
+
           <h2 className="summary-print-title">Summary Results</h2>
           {summary && <Summary content={summary} />}
           <div className="page-break" />
-          <section className="section measurement-scores-container">
+          <section className="section measurement-scores-container pb-3">
             <div className="row center-md -no-text-align">
               <div className="col-xs-12">
-                <h3 id="overall-results" className="title center-xs mb-3">Summary results</h3>
+                <h3 id="overall-results" className="title mb-3 text-left">Summary results</h3>
               </div>
-              <div className="col-xs-12 col-md-10">
-                <div className="stacked-bars-container">
+              {breakdownScores && breakdownScores.length > 0 &&
+              <div className="col-xs-12">
+                <div className="stacked-bars-container d-md-none">
                   {breakdownScores.map((breakdownScore, index) => (
                     <StackedBars
                       key={breakdownScore.id}
-                      data={breakdownScore}
+                      data={[breakdownScore, previousBreakdownScores[index]]}
                       colors={measurementColors[index]}
+                      className="mb-4"
                     />
                   ))}
                 </div>
+
+                <div className="stacked-bars-vertical-container d-none d-md-flex">
+                  {breakdownScores.map((breakdownScore, index) => (
+                    <StackedBarsVertical
+                      key={breakdownScore.id}
+                      data={[breakdownScore, previousBreakdownScores[index]]}
+                      colors={measurementColors[index]}
+                      className={`mb-2 ${index < (breakdownScores.length-1) ? 'mr-4' : ''}`}
+                      style={{ width: `${100 / breakdownScores.length}%` }}
+                    />
+                  ))}
+                </div>
+                { previousBreakdownScores.length > 0 &&
+                  <div className="d-flex align-items-center mt-2 mb-3">
+                    <ToggleSwitch onStateChanged={this.handleToggleClick}/>
+                    <span className="ml-2">Compare with 2018 results</span>
+                  </div>
+                }
               </div>
+              }
             </div>
           </section>
         </div>
@@ -93,7 +123,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
         <div className="l-layout">
           <div className="graph-legend">
             <p>
-              The maximum value of 1.000 represents the aggregation of best scores
+              The maximum value of 6.000 represents the aggregation of best scores
               achieved for all indicators in a given thematic area, taking into
               account all companies’ results. As the aggregate best score varies
               from one area to another, these charts cannot be used to compare
@@ -123,12 +153,12 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
         </section>
 
         <div className="page-break" />
-        <div className="accordion-header">
+        <div className="accordion-header bg-darkblue">
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
-                <h2 id="indicator-by-indicator-results">
-                  Indicator-by-indicator results
+                <h2 id="indicator-by-indicator-results" className="text-left">
+                  Detailed results
                 </h2>
               </div>
             </div>
@@ -149,15 +179,12 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row center-md">
               <div className="col-xs-12">
-                <h2 id="mine-site-selection" className="title">Selected Mine sites results</h2>
-                <h3 className="subtitle">Mine sites individually assessed but not included
+                <h2 id="mine-site-selection" className="title text-left">Selected Mine sites results</h2>
+                <h3 className="subtitle text-left">Mine sites individually assessed but not included
                   {!mobile && <br />} in the overall company score
                 </h3>
                 <div className="table-container">
-                  <Table
-                    columns={MINE_SITE_TABLE_COLUMNS}
-                    rows={mineSites}
-                  />
+                  <SelectedMineSitesTable />
                 </div>
               </div>
             </div>
@@ -172,31 +199,35 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
           </div>
         </section>
-        <section className="section -gray miscellaneous-lists">
+        <div className="page-break" />
+        <div className="accordion-header bg-darkblue">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-xs-12">
+                <h2 id="tailings" className="text-left">
+                  Tailings
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section className="section -dark">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-xs-12">
+                <CompaniesDetailTailingsList />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="shareholders-and-subsidiaries" className="section -gray miscellaneous-lists">
           <div className="l-layout">
             <div className="row between-md">
               <div className="col-xs-12 col-md-5">
-                <h3 id="shareholders-and-subsidiaries" className="title">Main Shareholders</h3>
-                {shareholders.length ?
-                  <Table
-                    columns={[
-                      {
-                        property: 'name',
-                        header: { label: `As of: ${shareholdersDate || 'unknown'}` }
-                      },
-                      {
-                        property: 'percent-shares',
-                        header: { label: 'Shares (%)' },
-                        props: {
-                          style: {
-                            textAlign: 'right',
-                            minWidth: 90
-                          }
-                        }
-                      }
-                    ]}
-                    rows={shareholders}
-                  /> : <Unknowndata />}
+                <ShareholdersTable />
+                <div className="mb-4"></div>
+                <BeneficialOwnersTable />
               </div>
               <div className="col-xs-12 col-md-5">
                 <SubsidiariesTable />
@@ -206,18 +237,18 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <h3 id="tax-jurisdictions" className="title">Known Tax Jurisdictions</h3>
-                {knownTaxJurisdictions.length ?
-                  <Gradient className="-gray">
-                    <Table
-                      columns={TAX_JURISDICTIONS_COLUMNS}
-                      rows={knownTaxJurisdictions}
-                    />
-                  </Gradient> : <Unknowndata asOf={false} />}
+                <div className="mt-3 content-columns-2 content-columns-md-4">
+                  {knownTaxJurisdictions.map((knownTaxJurisdiction) => (
+                    <p>{knownTaxJurisdiction.country}</p>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="row">
               <div className="col-xs-12">
-                <h3 className="title -small">Recent involvements in Investor/State investment disputes (since 2014)</h3>
+                <h3 className="title">Investor/State investment disputes
+                  <div className="title -small d-inline ml-1">(involvements since 2014)</div>
+                </h3>
                 {investmentDisputes.length ?
                   <Gradient className="-gray">
                     <Table

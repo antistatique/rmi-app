@@ -87,3 +87,7 @@
     page-break-after: always;
   }
 }
+
+:global(.c-table.borderless tr) {
+  border: none !important;
+}

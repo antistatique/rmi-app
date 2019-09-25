@@ -21,7 +21,8 @@ export const parseIndicators = createSelector(
           min: child.min,
           max: child.max,
           value: ((child.scores || [])[0] || {}).value,
-          color: SCORE_COMPARISON_CONFIG[_issueArea.slug]
+          color: SCORE_COMPARISON_CONFIG[_issueArea.slug],
+          leadingPractices: child['leading-practices']
         }))
     }))
 );
