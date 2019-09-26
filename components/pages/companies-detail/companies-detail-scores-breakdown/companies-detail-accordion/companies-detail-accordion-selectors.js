@@ -6,8 +6,8 @@ import { SCORE_COMPARISON_CONFIG } from 'components/common/score-comparison/scor
 
 const indicators = state => state.indicators.list;
 const currentIssueArea = state => state.companiesDetailPage.issueArea;
-const scores = state => (state.companies.list[0] || {}).scores;
-const company = state => state.companies.list[0]
+const scores = state => (state.companies.currentCompany || {}).scores;
+const company = state => state.companies.currentCompany;
 
 export const getIssueAreaTree = createSelector(
   [indicators, currentIssueArea, scores, company],

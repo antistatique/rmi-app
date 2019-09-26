@@ -5,7 +5,8 @@ const routes = nextRoutes();
 
 // ========================= APP ROUTES =====================
 // // Index routes
-routes.add('companies', '/:language/companies/:company?', 'companies');
+routes.add('companies', '/:language/companies', 'companies');
+routes.add('company', '/:language/companies/:company', 'company');
 routes.add('mine-sites', '/:language/mine-sites/:mineSite?', 'mine-sites');
 routes.add('adverse-impacts', '/:language/adverse-impacts', 'adverse-impacts');
 routes.add('results-overall', '/:language/results/overall', 'results-overall');

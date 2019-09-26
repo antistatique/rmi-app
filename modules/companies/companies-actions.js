@@ -11,6 +11,7 @@ export const setCompaniesLoading = createAction('companies/setCompaniesLoading')
 export const setCompaniesScores = createAction('companies/setCompaniesScores');
 export const setCompaniesError = createAction('companies/setCompaniesError');
 export const setTaxJurisdictions = createAction('companies/setTaxJurisdictions');
+export const setCurrentCompany = createAction('companies/setCurrentCompany');
 
 export const getCompanies = createThunkAction('companies/getCompanies', _options =>
   (dispatch, getState) => {
@@ -59,9 +60,9 @@ export const getCompany = createThunkAction('companies/getCompany', _options =>
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
 
-          resolve([parsedData]);
+          resolve(parsedData);
           dispatch(setCompaniesLoading(false));
-          dispatch(setCompanies([parsedData]));
+          dispatch(setCurrentCompany(parsedData));
         })
         .catch(errors => reject(errors));
     });
@@ -111,5 +112,6 @@ export default {
   getCompany,
   getCompaniesScores,
   getTaxJurisdictions,
-  setTaxJurisdictions
+  setTaxJurisdictions,
+  setCurrentCompany
 };

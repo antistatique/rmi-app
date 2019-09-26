@@ -79,13 +79,13 @@ class CompaniesListItem extends PureComponent {
             onMouseLeave={onMouseLeave}
           >
             <Link
-              route="companies"
+              route="company"
               params={{
                 language: currentLanguage,
                 company: id
               }}
             >
-              <a className={`company-name ${selectedCountry === company.country.id ? 'highlighted' : ''}`}>{name}</a>
+              <a className={`company-name ${(selectedCountry === company.country.id || selectedCountry === company['secondary-country'].id) ? 'highlighted' : ''}`}>{name}</a>
             </Link>
           </div>
         </Fragment>

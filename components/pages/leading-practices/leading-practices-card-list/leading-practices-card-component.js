@@ -70,7 +70,7 @@ class LeadingPracticesCard extends PureComponent {
         {companies.map(company => (
           <h4 key={company.id} className="company">
             <Link
-              route="companies"
+              route="company"
               params={{
                 language: currentLanguage,
                 company: company.id
