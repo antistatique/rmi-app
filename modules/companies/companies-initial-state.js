@@ -3,7 +3,8 @@ const initialState = {
   loading: false,
   companiesScores: [],
   error: null,
-  taxJurisdictions: []
+  taxJurisdictions: [],
+  currentCompany: null
 };
 
 export default initialState;
