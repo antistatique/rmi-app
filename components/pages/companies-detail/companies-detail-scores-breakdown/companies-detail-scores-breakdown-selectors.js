@@ -4,13 +4,13 @@ import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
 import { valueParser, fixedValue } from 'utils/value-parser'
 
-const companyScores = state => (state.companies.list[0] || {}).scores;
+const companyScores = state => (state.companies.currentCompany || {}).scores;
 const scores = state => state.scores.list;
-const selectedMineSites = state => (state.companies.list[0] || {})['selected-mine-sites'];
+const selectedMineSites = state => (state.companies.currentCompany || {})['selected-mine-sites'];
 const currentLanguage = state => state.language.current;
-const investmentDisputes = state => (state.companies.list[0] || {})['investment-disputes'];
+const investmentDisputes = state => (state.companies.currentCompany || {})['investment-disputes'];
 const knownTaxJurisdictions = state =>
-  (state.companies.list[0] || {})['company-country-tax-jurisdictions'];
+  (state.companies.currentCompany || {})['company-country-tax-jurisdictions'];
 
 export const parseInvestmentDisputes = createSelector(
   [investmentDisputes],

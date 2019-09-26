@@ -2,7 +2,7 @@
 import { createSelector } from 'reselect';
 import orderBy from 'lodash/orderBy';
 
-const mineSites = state => (state.companies.list[0] || {})['mine-sites'];
+const mineSites = state => (state.companies.currentCompany || {})['mine-sites'];
 
 export const getAllMineSites = createSelector(
   mineSites,

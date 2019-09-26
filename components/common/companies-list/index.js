@@ -11,7 +11,8 @@ import CompaniesList from './companies-list-component';
 class CompaniesListContainer extends PureComponent {
   static propTypes = {
     filters: PropTypes.object.isRequired,
-    getCompanies: PropTypes.func.isRequired
+    getCompanies: PropTypes.func.isRequired,
+    companies: PropTypes.array.isRequired
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,7 +21,7 @@ class CompaniesListContainer extends PureComponent {
 
     const filtersChanged = !isEqual(filters, nextFilters);
 
-    if (filtersChanged) {
+    if (filtersChanged || nextProps.companies.length === 0) {
       this.props.getCompanies({ include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') });
     }
   }

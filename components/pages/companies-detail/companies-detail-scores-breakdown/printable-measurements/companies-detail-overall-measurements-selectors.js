@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
 
-const company = state => state.companies.list[0] || {};
+const company = state => state.companies.currentCompany || {};
 const companiesScores = state => state.companies.companiesScores;
 
 export const getOverallMeasurementsScores = createSelector(

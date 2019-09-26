@@ -47,8 +47,8 @@ export default connect(
   state => ({
     beneficialOwners: state.beneficialOwners.list,
     pagination: state.beneficialOwners.pagination,
-    company: state.companies.list[0] || {},
-    beneficialOwnersDate: (state.companies.list[0] || {})['beneficial-owners-date']
+    company: state.companies.currentCompany || {},
+    beneficialOwnersDate: (state.companies.currentCompany || {})['beneficial-owners-date']
   }),
   {
     getBeneficialOwners,

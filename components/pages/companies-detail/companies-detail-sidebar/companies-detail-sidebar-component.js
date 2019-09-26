@@ -51,7 +51,7 @@ class CompaniesDetailSidebar extends PureComponent {
                   { extraLanguages.map((extraLanguage, index) => (
                     <span>
                       <Link
-                        route="companies"
+                        route="company"
                         params={{
                           language: extraLanguage['web-code'],
                           company: id

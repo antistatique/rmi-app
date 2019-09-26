@@ -39,7 +39,7 @@ class CompaniesListTooltip extends PureComponent {
           className="-theme-2"
         />
         <Link
-          route="companies"
+          route="company"
           params={{
             language: currentLanguage,
             company: company.id

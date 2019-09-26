@@ -58,8 +58,8 @@ export default connect(
   state => ({
     shareholders: state.shareholders.list,
     pagination: state.shareholders.pagination,
-    shareholdersDate: (state.companies.list[0] || {})['shareholders-date'],
-    company: state.companies.list[0] || {},
+    shareholdersDate: (state.companies.currentCompany || {})['shareholders-date'],
+    company: state.companies.currentCompany || {},
     search: state.shareholders.search
   }),
   {

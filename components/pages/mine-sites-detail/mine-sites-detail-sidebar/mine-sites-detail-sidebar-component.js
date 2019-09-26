@@ -91,7 +91,7 @@ class MineSitesDetailSidebar extends PureComponent {
                 { companies.map(company => (
                   <div key={company.id} className="definition-value">
                     <Link
-                      route="companies"
+                      route="company"
                       params={{
                       language: currentLanguage,
                       company: company.id

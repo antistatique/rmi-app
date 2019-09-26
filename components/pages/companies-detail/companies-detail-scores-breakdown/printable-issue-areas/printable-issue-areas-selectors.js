@@ -5,7 +5,7 @@ import { createSelector } from 'reselect';
 import { SCORE_COMPARISON_CONFIG } from 'components/common/score-comparison/score-comparison-constants';
 
 const indicators = state => state.indicators.list;
-const scores = state => (state.companies.list[0] || {}).scores;
+const scores = state => (state.companies.currentCompany || {}).scores;
 
 export const getIssueAreasList = createSelector(
   [indicators, scores],
