@@ -18,6 +18,7 @@ class MapTailingStorageFacilities extends PureComponent {
               paths={this.props.paths}
               center={[40, 10]}
               markers={this.props.markers}
+              markerType="tailings"
               setCountryColor={MapTailingStorageFacilities.setCountryColor}
               legend={[]}
             />
