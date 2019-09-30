@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 const companies = state => state.companies.list;
 const mineSites = state => state.mineSites.list;
 const indicators = state => state.indicators.list;
+const categories = state => state.categories.list;
 
 export const parseCompanies = createSelector(
   [companies],
@@ -21,8 +22,14 @@ export const parseIndicators = createSelector(
   ))
 );
 
+export const parseCategories = createSelector(
+  [categories],
+  (_categories = []) => _categories.map(category => ({ label: category.name, value: category.id }))
+);
+
 export default {
   parseCompanies,
   parseMineSites,
-  parseIndicators
+  parseIndicators,
+  parseCategories
 };

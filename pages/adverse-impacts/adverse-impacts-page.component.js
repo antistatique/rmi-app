@@ -12,6 +12,7 @@ import { getIndicators } from 'modules/indicators/indicators-actions';
 import { getCompanies } from 'modules/companies/companies-actions';
 import { getMineSites } from 'modules/mine-sites/mine-sites-actions';
 import { getAdverseImpacts } from 'modules/adverse-impacts/adverse-impacts-actions';
+import { getCategories } from 'modules/categories/categories-actions';
 
 class AdverseImpactsPage extends Page {
   static async getInitialProps(context) {
@@ -19,12 +20,16 @@ class AdverseImpactsPage extends Page {
 
     await context.store.dispatch(getCompanies({ sort: 'name' }));
     await context.store.dispatch(getMineSites({ sort: 'name' }));
+    await context.store.dispatch(getCategories({ sort: 'name' }));
     await context.store.dispatch(getIndicators({
       'filter[kind]': ['issue_areas'],
       sort: 'name'
     }));
     await context.store.dispatch(getAdverseImpacts({
-      include: ['companies', 'mine-sites', 'thematic-areas', 'adverse-impact-files'].join(','),
+      include: [
+        'companies', 'mine-sites', 'thematic-areas', 'adverse-impact-files', 'countries',
+        'categories'
+      ].join(','),
       sort: 'summarized_headline'
     }));
 
