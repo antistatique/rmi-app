@@ -8,7 +8,6 @@ class AdverseImpactsFilter extends PureComponent {
   static propTypes = {
     companies: PropTypes.array.isRequired,
     mineSites: PropTypes.array.isRequired,
-    indicators: PropTypes.array.isRequired,
     categories: PropTypes.array.isRequired,
     setFilters: PropTypes.func.isRequired,
     resetFilters: PropTypes.func.isRequired,
@@ -27,17 +26,13 @@ class AdverseImpactsFilter extends PureComponent {
     this.props.setFilters({ mineSite: selectedOption.value });
   }
 
-  handleIndicator = (selectedOption = {}) => {
-    this.props.setFilters({ indicator: selectedOption.value });
-  }
-
   handleCategory = (selectedOption = {}) => {
     this.props.setFilters({ category: selectedOption.value });
   }
 
   render() {
-    const { companies, mineSites, indicators, categories, filters } = this.props;
-    const { company, mineSite, indicator, category } = filters;
+    const { companies, mineSites, categories, filters } = this.props;
+    const { company, mineSite, category } = filters;
 
     return (
       <div className="d-flex flex-column flex-md-row justify-content-md-end">
@@ -55,14 +50,6 @@ class AdverseImpactsFilter extends PureComponent {
           theme="dark"
           selectedValue={mineSite}
           onChange={this.handleMineSite}
-          className="c-select-bordered ml-0 mb-3 mb-md-0 mr-0 mr-md-3"
-        />
-        <Select
-          placeholder="Select a thematic area"
-          options={indicators}
-          theme="dark"
-          selectedValue={indicator}
-          onChange={this.handleIndicator}
           className="c-select-bordered ml-0 mb-3 mb-md-0 mr-0 mr-md-3"
         />
         <Select

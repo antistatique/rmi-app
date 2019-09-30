@@ -21,10 +21,6 @@ class AdverseImpactsPage extends Page {
     await context.store.dispatch(getCompanies({ sort: 'name' }));
     await context.store.dispatch(getMineSites({ sort: 'name' }));
     await context.store.dispatch(getCategories({ sort: 'name' }));
-    await context.store.dispatch(getIndicators({
-      'filter[kind]': ['issue_areas'],
-      sort: 'name'
-    }));
     await context.store.dispatch(getAdverseImpacts({
       include: [
         'companies', 'mine-sites', 'thematic-areas', 'adverse-impact-files', 'countries',
