@@ -157,9 +157,10 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row center-md">
               <div className="col-xs-12">
-                <h2 id="mine-site-selection" className="title text-left">Selected Mine sites results</h2>
-                <h3 className="subtitle text-left">Mine sites individually assessed but not included
-                  {!mobile && <br />} in the overall company score
+                <h2 id="mine-site-selection" className="title text-left">Mine-site Results</h2>
+                <h3 className="subtitle text-left">
+                  Mine sites selected for individual assessment
+                  (but not included in the overall company score)
                 </h3>
                 <div className="table-container">
                   <SelectedMineSitesTable />

@@ -24,6 +24,10 @@
         color: $color-8;
       }
 
+      .smaller-title {
+        font-size: 0.6em;
+      }
+
       @media print {
         color: $color-1 !important;
       }
