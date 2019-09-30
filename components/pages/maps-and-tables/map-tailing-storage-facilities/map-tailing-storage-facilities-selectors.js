@@ -5,6 +5,7 @@ import { paths } from 'components/common/map/map-helpers';
 import { EXCLUDED_COUNTRIES } from 'constants/map';
 
 const tailingStorageFacilities = state => state.tailingStorageFacilities.list;
+const currentLanguage = state => state.language.current;
 
 export const getPaths = createSelector(
   [tailingStorageFacilities],
@@ -29,4 +30,16 @@ export const getPaths = createSelector(
           }
         };
       })
+);
+
+export const getMarkers = createSelector(
+  [tailingStorageFacilities, currentLanguage],
+  (_tailingStorageFacilities = [], _currentLanguage) => 
+    _tailingStorageFacilities.map(tailingStorageFacility => ({
+      id: tailingStorageFacility.id,
+      name: tailingStorageFacility.name,
+      country: tailingStorageFacility.country.name,
+      coordinates: [tailingStorageFacility['coord-y'], tailingStorageFacility['coord-x']],
+      language: _currentLanguage
+    }))
 );

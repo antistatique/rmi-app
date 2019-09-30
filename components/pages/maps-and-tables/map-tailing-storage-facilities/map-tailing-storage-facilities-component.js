@@ -6,7 +6,7 @@ import Filters from './map-tailing-storage-facilities-filters';
 import { getCompanyCountryColor } from '../../companies/companies-helpers';
 
 class MapTailingStorageFacilities extends PureComponent {
-  static propTypes = { paths: PropTypes.array.isRequired }
+  static propTypes = { paths: PropTypes.array.isRequired, markers: PropTypes.array.isRequired }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
   render() {
@@ -17,6 +17,7 @@ class MapTailingStorageFacilities extends PureComponent {
             <Map
               paths={this.props.paths}
               center={[40, 10]}
+              markers={this.props.markers}
               setCountryColor={MapTailingStorageFacilities.setCountryColor}
               legend={[]}
             />
