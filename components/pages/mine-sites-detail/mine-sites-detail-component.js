@@ -8,7 +8,6 @@ import MineSiteSatelliteView from './mine-site-satellite-view';
 import MineSitesDetailBars from './mine-sites-detail-bars';
 import MineSitesDetailAccordion from './mine-sites-detail-accordion';
 import MineSitesDetailAssessmentTable from './mine-sites-detail-assessments-table';
-import MineSitesDetailCountryComparison from './mine-sites-detail-country-comparison';
 
 // styles
 import styles from './mine-sites-detail-styles.scss';
@@ -85,17 +84,6 @@ class MineSitesDetail extends PureComponent {
               <div className="row center-xs">
                 <div className="col-xs-12">
                   <MineSitesDetailAssessmentTable />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Country comparison */}
-          <section className="section -dark">
-            <div className="l-layout">
-              <div className="row">
-                <div className="col-xs-12">
-                  <MineSitesDetailCountryComparison />
                 </div>
               </div>
             </div>
