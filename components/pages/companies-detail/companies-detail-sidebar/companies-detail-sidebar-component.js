@@ -49,7 +49,7 @@ class CompaniesDetailSidebar extends PureComponent {
                 <Alert variant="info">
                   This page is available in&nbsp;
                   { extraLanguages.map((extraLanguage, index) => (
-                    <span>
+                    <span key={index}>
                       <Link
                         route="company"
                         params={{
