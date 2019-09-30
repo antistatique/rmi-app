@@ -237,7 +237,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 <h3 id="tax-jurisdictions" className="title">Known Tax Jurisdictions</h3>
                 <div className="mt-3 content-columns-2 content-columns-md-4">
                   {knownTaxJurisdictions.map((knownTaxJurisdiction) => (
-                    <p>{knownTaxJurisdiction.country}</p>
+                    <p key={knownTaxJurisdiction.id}>{knownTaxJurisdiction.country}</p>
                   ))}
                 </div>
               </div>
