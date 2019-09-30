@@ -32,14 +32,14 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
           <div className="row">
             {data.map(d => (
               <div key={d.id} className={columnClass}>
+                <div className="chart-legend">
+                  <h2 className="title">{OVERALL_CHARTS_TITLES[d.name].title}</h2>
+                </div>
                 <Bars
                   config={CHART_CONFIG}
                   data={d.children}
                   customTooltip
                 />
-                <div className="chart-legend">
-                  <h2 className="title">{OVERALL_CHARTS_TITLES[d.name]}</h2>
-                </div>
               </div>
             ))}
           </div>
