@@ -28,11 +28,6 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
     return (
       <div className="c-companies-detail-overall-measurements">
         <style jsx>{styles}</style>
-        <div className="row">
-          <div className="col-xs-12">
-            <h3 className="title text-left">Relative company performance</h3>
-          </div>
-        </div>
         <div className="charts-container">
           <div className="row">
             {data.map(d => (

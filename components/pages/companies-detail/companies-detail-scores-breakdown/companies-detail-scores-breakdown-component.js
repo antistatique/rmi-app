@@ -118,26 +118,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           </section>
         </div>
 
-        <div className="l-layout">
-          <div className="graph-legend">
-            <p>
-              The maximum value of 6.000 represents the aggregation of best scores
-              achieved for all indicators in a given thematic area, taking into
-              account all companies’ results. As the aggregate best score varies
-              from one area to another, these charts cannot be used to compare
-              company performances across different areas.
-            </p>
-
-            <p>
-              All company results are based on public domain data that have been
-              sourced by RMI analysts or provided by companies. In the case of a
-              few companies, very little information was available. It is important
-              to note that a low score may only reflect a lack of relevant
-              information in the company’s publicly available documentation.
-            </p>
-          </div>
-        </div>
-
         <section className="section overall-measurement-container">
           <div className="l-layout">
             <div className="row">
