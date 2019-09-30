@@ -16,7 +16,7 @@ export const resetPagination = createAction('adverseImpacts/resetPagination');
 export const getAdverseImpacts = createThunkAction('adverseImpacts/getAdverseimpacts', _options =>
   (dispatch, getState) => {
     const { adverseImpactsPage, adverseImpacts } = getState();
-    const { indicator, company, mineSite } = adverseImpactsPage.filters;
+    const { indicator, company, mineSite, category } = adverseImpactsPage.filters;
     const { page, limit } = adverseImpacts.pagination;
 
     const options = {
@@ -24,6 +24,7 @@ export const getAdverseImpacts = createThunkAction('adverseImpacts/getAdverseimp
       'filter[thematic-areas]': indicator,
       'filter[companies]': company,
       'filter[mine-sites]': mineSite,
+      'filter[categories]': category,
       'page[number]': page,
       'page[size]': limit
     };

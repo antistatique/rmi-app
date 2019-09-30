@@ -1,46 +1,8 @@
 import React from 'react';
+import Icon from 'components/common/icon';
 import DownloadsLink from './adverse-impacts-download-component';
 
 export const ADVERSE_IMPACTS_TABLE_COLUMNS = [
-  {
-    property: 'summarized-headline',
-    header: { label: 'Summarized Headline' },
-    cell: {
-      formatters: [
-        (name, { rowData }) => {
-          return (
-            <DownloadsLink
-              headline={rowData['summarized-headline']}
-              files={rowData['adverse-impact-files']}
-            />
-          );
-        }
-      ]
-    }
-  },
-  {
-    property: 'thematic_areas',
-    header: { label: 'Topics' },
-    cell: {
-      formatters: [
-        (name, { rowData }) => {
-          const topics = rowData['thematic-areas'].map(thematicArea => thematicArea.name);
-          return (
-            <span>
-              {topics.map((topic, index) => (
-                <span>
-                  {topic} {topics.length - 1 > index &&
-                  <br />
-                }
-                </span>
-              ))}
-            </span>
-              
-          );
-        }
-      ]
-    }
-  },
   {
     property: 'companies',
     header: { label: 'Companies' },
@@ -58,6 +20,21 @@ export const ADVERSE_IMPACTS_TABLE_COLUMNS = [
     }
   },
   {
+    property: 'summarized-headline',
+    header: { label: 'Summarized Headline' },
+    cell: {
+      formatters: [
+        (name, { rowData }) => {
+          return (
+            <span>
+              {rowData['summarized-headline']}
+            </span>
+          );
+        }
+      ]
+    }
+  },
+  {
     property: 'mine-sites',
     header: { label: 'Mine Sites' },
     cell: {
@@ -68,6 +45,72 @@ export const ADVERSE_IMPACTS_TABLE_COLUMNS = [
             <span>
               {mineSites.join(', ')}
             </span>
+          );
+        }
+      ]
+    }
+  },
+  {
+    property: 'countries',
+    header: { label: 'Countries' },
+    cell: {
+      formatters: [
+        (name, { rowData }) => {
+          const countries = rowData.countries.map(country => country.name);
+          return (
+            <span>
+              {countries.join(', ')}
+            </span>
+          );
+        }
+      ]
+    }
+  },
+  {
+    property: 'thematic_areas',
+    header: { label: 'Thematic areas' },
+    cell: {
+      formatters: [
+        (name, { rowData }) => {
+          const topics = rowData['thematic-areas'].map(thematicArea => thematicArea.id);
+          return (
+            <span>
+              {topics.map(topic => (
+                <Icon name={topic} />
+              ))}
+            </span>
+          );
+        }
+      ]
+    }
+  },
+  {
+    property: 'categories',
+    header: { label: 'Categories' },
+    cell: {
+      formatters: [
+        (name, { rowData }) => {
+          const categories = rowData.categories.map(category => category.name);
+          return (
+            <span>
+              {categories.join(', ')}
+            </span>
+          );
+        }
+      ]
+    }
+  },
+  {
+    property: 'files',
+    header: { label: 'Files' },
+    cell: {
+      formatters: [
+        (name, { rowData }) => {
+          return (
+            <DownloadsLink
+              headline={rowData['summarized-headline']}
+              files={rowData['adverse-impact-files']}
+            />
           );
         }
       ]
