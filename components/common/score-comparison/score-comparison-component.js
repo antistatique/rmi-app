@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Link } from 'routes';
+import Icon from 'components/common/icon';
 
 // utils
 import { fixedValue } from 'utils/value-parser';
@@ -13,7 +15,8 @@ class ScoreComparison extends PureComponent {
     data: PropTypes.object.isRequired,
     config: PropTypes.object.isRequired,
     // phone is the prop to see if the device used is a phone
-    phone: PropTypes.bool
+    phone: PropTypes.bool,
+    currentLanguage: PropTypes.string.isRequired
   }
 
   static getWidth(value) {
@@ -32,8 +35,8 @@ class ScoreComparison extends PureComponent {
   }
 
   render() {
-    const { data, config, phone } = this.props;
-    const { avg, min, max, value } = data;
+    const { data, config, phone, currentLanguage } = this.props;
+    const { avg, min, max, value, companies } = data;
     const { color, hideInnerValue } = config;
     const scoreValueClass = classnames({
       'score-value-string': true,
@@ -84,6 +87,7 @@ class ScoreComparison extends PureComponent {
             onClick={this.handleClickMax}
           >
             <div className={`${(!this.state.maxScoreDisplay && !phone) ? 'legend' : 'legend closed'}`}>
+              <Icon name="info" />
               <span>Max</span>
               <span>{fixedValue(max)}</span>
             </div>
@@ -93,8 +97,19 @@ class ScoreComparison extends PureComponent {
                 <span>{fixedValue(max)}</span>
               </div>
               <div className="content">
-                <span>Company 1</span>
-                <span>Company 2</span>
+                {companies.map(company => (
+                  <span>
+                    <Link
+                      route="company"
+                      params={{
+                        language: currentLanguage,
+                        company: company.id
+                      }}
+                    >
+                      <a>{company.name}</a>
+                    </Link>
+                  </span>
+                ))}
               </div>
             </div>
           </div>

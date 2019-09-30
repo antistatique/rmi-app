@@ -40,7 +40,8 @@ export const getIssueAreaTree = createSelector(
               if (companyFound.length !== 0) {
                 return leadingPractice;
               }
-            })
+            }),
+            companiesMaxScores: ind['companies-max-scores']
           }))
       }))
     };
