@@ -34,7 +34,7 @@ class MineSitesDetailBars extends PureComponent {
   render() {
     const { data, overallScore } = this.props;
 
-      return (
+    return (
       <div className="c-mine-sites-detail-bars">
         <style jsx>{styles}</style>
         <div className="row">
