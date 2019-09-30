@@ -34,14 +34,14 @@ class MineSitesDetailBars extends PureComponent {
   render() {
     const { data, overallScore } = this.props;
 
-    return (
+      return (
       <div className="c-mine-sites-detail-bars">
         <style jsx>{styles}</style>
         <div className="row">
           <div className="col-xs-12">
             <div className="overall-core-score-container">
               <span className="overall-score-title">Mine Site Score</span>
-              <span className="overall-score-value"><span className="current">{fixedValue(overallScore)}</span> / 3.00</span>
+              <span className="overall-score-value"><span className="current">{fixedValue(overallScore)}</span> / 30</span>
             </div>
           </div>
         </div>
