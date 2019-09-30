@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from 'components/common/icon';
+import { AREA_ISSUE_COLOURS } from 'constants/graph-colors';
 import DownloadsLink from './adverse-impacts-download-component';
 
 export const ADVERSE_IMPACTS_TABLE_COLUMNS = [
@@ -72,11 +73,15 @@ export const ADVERSE_IMPACTS_TABLE_COLUMNS = [
     cell: {
       formatters: [
         (name, { rowData }) => {
-          const topics = rowData['thematic-areas'].map(thematicArea => thematicArea.id);
+          const thematicAreas = rowData['thematic-areas'].map(thematicArea => thematicArea.id);
           return (
             <span>
-              {topics.map(topic => (
-                <Icon name={topic} />
+              {thematicAreas.map(thematicArea => (
+                <Icon
+                  key={thematicArea}
+                  name={thematicArea}
+                  style={{ background: `${AREA_ISSUE_COLOURS[thematicArea]} !important`, marginLeft: '2px' }}
+                />
               ))}
             </span>
           );
