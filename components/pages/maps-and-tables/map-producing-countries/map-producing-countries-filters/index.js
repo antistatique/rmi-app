@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 import isEmpty from 'lodash/isEmpty';
 
-import { getCompanies, getCompany } from 'modules/companies/companies-actions';
+import { getCompanies, getCompany, resetCurrentCompany } from 'modules/companies/companies-actions';
 
 import MapProducingCountriesFilters from './map-producing-countries-filters-component';
 import { getUniqCompanies } from './map-producing-countries-filters-selectors';
@@ -15,7 +15,8 @@ class MapProducingCountriesFiltersContainer extends PureComponent {
     companies: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     getCompanies: PropTypes.func.isRequired,
-    getCompany: PropTypes.func.isRequired
+    getCompany: PropTypes.func.isRequired,
+    resetCurrentCompany: PropTypes.func.isRequired
   }
 
   componentWillReceiveProps(nextProps) {
@@ -25,6 +26,7 @@ class MapProducingCountriesFiltersContainer extends PureComponent {
     const filtersChanged = !isEqual(filters, nextFilters);
 
     if (filtersChanged && (filters.company && nextFilters.company === undefined)) {
+      this.props.resetCurrentCompany();
       this.props.getCompanies({ include: 'producing-countries' });
     } else if (filtersChanged && ((!isEmpty(filters) && isEmpty(nextFilters)) || (filters.company === undefined && nextFilters.company !== undefined))) {
       this.props.getCompany({
@@ -50,6 +52,7 @@ export default connect(
   {
     setProducingCountriesFilters,
     getCompanies,
-    getCompany
+    getCompany,
+    resetCurrentCompany
   }
 )(MapProducingCountriesFiltersContainer);

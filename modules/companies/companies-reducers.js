@@ -9,5 +9,6 @@ export default {
   [actions.setCompaniesScores]: (state, { payload }) => ({ ...state, companiesScores: payload }),
   [actions.setCompaniesError]: (state, { payload }) => ({ ...state, error: payload }),
   [actions.setTaxJurisdictions]: (state, { payload }) => ({ ...state, taxJurisdictions: payload }),
-  [actions.setCurrentCompany]: (state, { payload }) => ({ ...state, currentCompany: payload })
+  [actions.setCurrentCompany]: (state, { payload }) => ({ ...state, currentCompany: payload }),
+  [actions.resetCurrentCompany]: state => ({ ...state, currentCompany: initialState.currentCompany })
 };
