@@ -11,6 +11,7 @@ import { getTaxJurisdictions, getCompanies } from 'modules/companies/companies-a
 import { getStockExchanges } from 'modules/stock-exchanges/stock-exchanges-actions';
 import { getTailingStorageFacilities } from 'modules/tailing-storage-facilities/tailing-storage-facilities-actions';
 import { getFatalityReports } from 'modules/fatality-reports/fatality-reports-actions';
+import { getMineSitesPagination } from 'modules/mine-sites/mine-sites-actions';
 import MapsAndTables from 'components/pages/maps-and-tables';
 
 
@@ -23,6 +24,7 @@ class MapsAndTablesPage extends Page {
     await context.store.dispatch(getTailingStorageFacilities({ queryParams: { include: ['country', 'company'].join(','), 'page[size]': 1000 } }));
     await context.store.dispatch(getFatalityReports({ queryParams: { include: 'company' } }));
     await context.store.dispatch(getCompanies({ include: 'producing-countries' }));
+    await context.store.dispatch(getMineSitesPagination({ queryParams: { include: ['country', 'companies'].join(',') } }));
 
     return { ...props };
   }

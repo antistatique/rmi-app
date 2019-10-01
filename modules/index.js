@@ -30,6 +30,7 @@ import fatalityReportsModule from 'modules/fatality-reports';
 
 // components modules
 import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
+import * as TableMineSitesModule from 'components/pages/maps-and-tables/table-mine-sites';
 
 // pages modules
 import * as LeadingPracticesModule from 'components/pages/leading-practices';
@@ -73,5 +74,6 @@ export default {
   mapsAndTables: handleModule(MapsAndTablesModule),
   stockExchanges: handleModule(stockExchangesModule),
   tailingStorageFacilities: handleModule(tailingStorageFacilitiesModule),
-  fatalityReports: handleModule(fatalityReportsModule)
+  fatalityReports: handleModule(fatalityReportsModule),
+  tableMineSites: handleModule(TableMineSitesModule)
 };

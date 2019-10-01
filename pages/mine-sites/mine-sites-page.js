@@ -54,8 +54,10 @@ class MineSitesPage extends Page {
       }));
 
       await context.store.dispatch(getMineSites({
-        sort: 'name',
-        'page[size]': 1000
+        queryParams: {
+          sort: 'name',
+          'page[size]': 1000
+        }
       }));
     }
 

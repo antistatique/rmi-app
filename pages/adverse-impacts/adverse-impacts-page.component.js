@@ -18,7 +18,7 @@ class AdverseImpactsPage extends Page {
     const props = await super.getInitialProps(context);
 
     await context.store.dispatch(getCompanies({ sort: 'name' }));
-    await context.store.dispatch(getMineSites({ sort: 'name' }));
+    await context.store.dispatch(getMineSites({ queryParams: { sort: 'name', 'page[size]': 1000 } }));
     await context.store.dispatch(getIndicators({
       'filter[kind]': ['issue_areas'],
       sort: 'name'
