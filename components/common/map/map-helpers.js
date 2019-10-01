@@ -27,7 +27,7 @@ export const createMarker = (data = {}, markerType, onMouseEnter, onMouseLeave, 
       <circle cx={0} cy={0} r={6} fill="#bf3132" stroke="rgba(0, 0, 0, .5)" strokeWidth={3} />
     }
     {markerType === 'tailings' &&
-      <rect width="12" height="12" fill="grey" stroke="rgba(0, 0, 0, .5)" strokeWidth={3} />
+      <rect width="10" height="10" fill="grey" />
     }
   </Marker>);
 
