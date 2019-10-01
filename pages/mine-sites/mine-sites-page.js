@@ -75,13 +75,20 @@ class MineSitesPage extends Page {
     const customTitle = !mineSiteId ? 'Mine Sites' :
       `${name} - Mine site report`;
 
+    if (this.props.companies.length === 0) {
+      this.props.getCompanies({
+        include: ['country', 'mine-sites', 'selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities'].join(','),
+        sort: 'name'
+      });
+    }
+
     return (
       <Layout
         title={customTitle}
         description="Welcome to RMI | Mine sites"
       >
         {mineSite && allowedMineSite && <MineSiteDetailPageComponent />}
-        {!mineSite && <MineSitePageComponent />}
+        {!mineSite && this.props.companies.length > 0 && <MineSitePageComponent />}
       </Layout>
     );
   }
@@ -92,7 +99,8 @@ export default withRedux(
   state => ({
     currentMineSite: (state.mineSites.list[0] || {}),
     mineSiteError: state.mineSites.error,
-    mineSiteId: state.routes.query.mineSite
+    mineSiteId: state.routes.query.mineSite,
+    companies: state.companies.list
   }),
-  null
+  { getCompanies }
 )(MineSitesPage);
