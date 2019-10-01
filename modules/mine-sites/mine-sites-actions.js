@@ -34,11 +34,14 @@ export const getMineSitesPagination = createThunkAction('mine-sites/getMineSites
     const { tableMineSites } = getState();
     const { queryParams } = _options;
     const { page, limit } = tableMineSites.pagination;
+    const { company, country } = tableMineSites.filters;
 
     const options = {
       ...queryParams,
       'page[number]': page,
-      'page[size]': limit
+      'page[size]': limit,
+      'filter[country]': country,
+      'filter[companies]': company
     };
 
     return new Promise((resolve, reject) => {
