@@ -40,7 +40,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     previousBreakdownScores: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
-    company: PropTypes.array.isRequired,
+    company: PropTypes.object.isRequired,
     responsive: PropTypes.object.isRequired,
     printable: PropTypes.bool,
     setPreviousYearVisibility: PropTypes.func.isRequired
@@ -61,7 +61,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     const {
       'shareholders-date': shareholdersDate,
       summary
-    } = company[0] || {};
+    } = company || {};
 
     const { mobile, phone } = responsive;
 
