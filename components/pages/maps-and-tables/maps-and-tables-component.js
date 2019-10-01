@@ -8,6 +8,7 @@ import MapTailingStorageFacilities from './map-tailing-storage-facilities';
 import TableFatalityReports from './table-fatality-reports';
 import MapProducingCountries from './map-producing-countries';
 import TableMineSites from './table-mine-sites';
+import MapMineSites from './map-mine-sites';
 
 class MapsAndTables extends PureComponent {
   render() {
@@ -42,6 +43,7 @@ class MapsAndTables extends PureComponent {
                   <TableFatalityReports />
                 </div>
                 <div label="Mine Sites">
+                  <MapMineSites />
                   <TableMineSites />
                 </div>
               </MapsAndTablesAccordion>
