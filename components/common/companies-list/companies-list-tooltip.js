@@ -16,16 +16,16 @@ class CompaniesListTooltip extends PureComponent {
   static propTypes = {
     company: PropTypes.object.isRequired,
     currentLanguage: PropTypes.string.isRequired,
-    mineSites: PropTypes.func.isRequired
+    mineSites: PropTypes.array.isRequired,
+    handleClose: PropTypes.func.isRequired
   }
 
   componentWillMount() {
-    const { mineSites, currentLanguage, handleClose } = this.props;
+    const { mineSites, currentLanguage } = this.props;
 
     this.mineSites = mineSites.map(mineSite => ({
       ...mineSite,
-      language: currentLanguage,
-      handleClose: handleClose
+      language: currentLanguage
     }));
   }
 
