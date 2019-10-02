@@ -13,16 +13,12 @@ class MapTaxJurisdictions extends PureComponent {
   render() {
     return (
       <div className="c-map-tax-jurisdictions">
-        <div className="row">
-          <div className="col-12">
-            <Map
-              paths={this.props.paths}
-              center={[40, 10]}
-              setCountryColor={MapTaxJurisdictions.setCountryColor}
-              legend={[]}
-            />
-          </div>
-        </div>
+        <Map
+          paths={this.props.paths}
+          center={[40, 10]}
+          setCountryColor={MapTaxJurisdictions.setCountryColor}
+          legend={[]}
+        />
         <div className="row">
           <div className="col-3">
             <Filters />

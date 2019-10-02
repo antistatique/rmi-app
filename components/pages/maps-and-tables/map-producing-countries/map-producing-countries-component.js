@@ -12,16 +12,12 @@ class MapProducingCountries extends PureComponent {
   render() {
     return (
       <div className="c-map-stock-exchanges">
-        <div className="row">
-          <div className="col-12">
-            <Map
-              paths={this.props.paths}
-              center={[40, 10]}
-              setCountryColor={MapProducingCountries.setCountryColor}
-              legend={[]}
-            />
-          </div>
-        </div>
+        <Map
+          paths={this.props.paths}
+          center={[40, 10]}
+          setCountryColor={MapProducingCountries.setCountryColor}
+          legend={[]}
+        />
         <div className="row">
           <div className="col-12">
             <Filters />

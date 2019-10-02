@@ -14,17 +14,13 @@ class MapMineSites extends PureComponent {
   render() {
     return (
       <div className="c-map-producing-countries">
-        <div className="row justify-content-center">
-          <div className="col-12">
-            <Map
-              paths={this.props.paths}
-              center={[40, 10]}
-              setCountryColor={MapMineSites.setCountryColor}
-              markers={this.props.markers}
-              legend={[]}
-            />
-          </div>
-        </div>
+        <Map
+          paths={this.props.paths}
+          center={[40, 10]}
+          setCountryColor={MapMineSites.setCountryColor}
+          markers={this.props.markers}
+          legend={[]}
+        />
       </div>
     );
   }

@@ -12,18 +12,14 @@ class MapTailingStorageFacilities extends PureComponent {
   render() {
     return (
       <div className="c-map-stock-exchanges">
-        <div className="row">
-          <div className="col-12">
-            <Map
-              paths={this.props.paths}
-              center={[40, 10]}
-              markers={this.props.markers}
-              markerType="tailings"
-              setCountryColor={MapTailingStorageFacilities.setCountryColor}
-              legend={[]}
-            />
-          </div>
-        </div>
+        <Map
+          paths={this.props.paths}
+          center={[40, 10]}
+          markers={this.props.markers}
+          markerType="tailings"
+          setCountryColor={MapTailingStorageFacilities.setCountryColor}
+          legend={[]}
+        />
         <div className="row">
           <div className="col-3">
             <Filters />
