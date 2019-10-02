@@ -14,6 +14,7 @@ export const parseMineSite = createSelector(
       openingYear: _mineSite['opening-year'],
       acquisitionYear: _mineSite['acquisition-year'],
       companies: _mineSite.companies,
+      companyShare: _mineSite['company-share'],
       extraLanguages: _mineSite['extra-languages']
     };
   }

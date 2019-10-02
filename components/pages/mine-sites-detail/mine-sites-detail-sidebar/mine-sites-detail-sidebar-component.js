@@ -20,7 +20,8 @@ class MineSitesDetailSidebar extends PureComponent {
       openingYear,
       acquisitionYear,
       companies,
-      extraLanguages
+      extraLanguages,
+      companyShare
     } = mineSite;
 
     return (
@@ -62,7 +63,7 @@ class MineSitesDetailSidebar extends PureComponent {
                       company: company.id
                     }}
                     >
-                      <a>{company.name || '-'}</a>
+                      <a>{company.name || '-'} : {companyShare}</a>
                     </Link>
                   </div>
                 )) }
