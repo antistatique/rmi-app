@@ -27,5 +27,13 @@ export default {
       limit: payload
     }
   }),
-  [actions.resetPagination]: state => ({ ...state, pagination: initialState.pagination })
+  [actions.resetPagination]: state => ({ ...state, pagination: initialState.pagination }),
+  [actions.setFilters]: (state, { payload }) => ({
+    ...state,
+    filters: {
+      ...state.filters,
+      ...payload
+    }
+  }),
+  [actions.resetFilters]: state => ({ ...state, filters: initialState.filters })
 };
