@@ -118,6 +118,7 @@ class CompaniesListItem extends PureComponent {
           {visibility &&
             <CompaniesListTooltip
               mineSites={mineSites}
+              handleClose={this.handleClose}
               company={this.props.company}
               currentLanguage={currentLanguage}
             />}

@@ -74,6 +74,7 @@
 }
 
 .companies-list-tooltip {
+  position: relative;
   max-width: 385px;
   background: $color-3;
 
@@ -90,4 +91,22 @@
       background-color: $color-5;
     }
   }
+
+  .companies-list-tooltip-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    padding: 0;
+    background: $color-7;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.1);
+    transform: translate(-25%, -50%);
+    z-index: 2;
+    cursor: pointer;
+  }
 }
+
