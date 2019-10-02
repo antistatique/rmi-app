@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Map from 'components/common/map';
 import Filters from './map-producing-countries-filters';
 import { getCompanyCountryColor } from '../../companies/companies-helpers';
-
+ 
 class MapProducingCountries extends PureComponent {
   static propTypes = { paths: PropTypes.array.isRequired }
 
@@ -12,17 +12,17 @@ class MapProducingCountries extends PureComponent {
   render() {
     return (
       <div className="c-map-stock-exchanges">
+        <div className="row">
+          <div className="col-12">
+            <Filters />
+          </div>
+        </div>
         <Map
           paths={this.props.paths}
           center={[40, 10]}
           setCountryColor={MapProducingCountries.setCountryColor}
           legend={[]}
         />
-        <div className="row">
-          <div className="col-12">
-            <Filters />
-          </div>
-        </div>
       </div>
     );
   }

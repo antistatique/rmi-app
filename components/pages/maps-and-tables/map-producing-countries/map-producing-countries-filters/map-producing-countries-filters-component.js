@@ -23,7 +23,7 @@ class MapProducingCountriesFilters extends PureComponent {
       <Select
         placeholder="Select a company"
         options={companies}
-        theme="dark"
+        theme="light"
         selectedValue={selectedCompany}
         onChange={this.handleCompany}
       />

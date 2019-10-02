@@ -12,6 +12,11 @@ class MapTailingStorageFacilities extends PureComponent {
   render() {
     return (
       <div className="c-map-stock-exchanges">
+        <div className="row">
+          <div className="col-3">
+            <Filters />
+          </div>
+        </div>
         <Map
           paths={this.props.paths}
           center={[40, 10]}
@@ -20,11 +25,6 @@ class MapTailingStorageFacilities extends PureComponent {
           setCountryColor={MapTailingStorageFacilities.setCountryColor}
           legend={[]}
         />
-        <div className="row">
-          <div className="col-3">
-            <Filters />
-          </div>
-        </div>
       </div>
     );
   }

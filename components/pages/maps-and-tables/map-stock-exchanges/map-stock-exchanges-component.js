@@ -12,17 +12,17 @@ class MapStockExchanges extends PureComponent {
   render() {
     return (
       <div className="c-map-stock-exchanges">
+        <div className="row">
+          <div className="col-3">
+            <Filters />
+          </div>
+        </div>
         <Map
           paths={this.props.paths}
           center={[40, 10]}
           setCountryColor={MapStockExchanges.setCountryColor}
           legend={[]}
         />
-        <div className="row">
-          <div className="col-3">
-            <Filters />
-          </div>
-        </div>
       </div>
     );
   }
