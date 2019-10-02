@@ -100,14 +100,13 @@ class CompaniesListItem extends PureComponent {
           targetAttachment="bottom center"
           className="companies-list-tooltip-tether"
           key={id}
-          constraints={[{
-            to: 'target',
-            attachment: 'together'
-          }, {
-            to: 'window',
-            attachment: 'target',
-            pin: true
-          }]}
+          constraints={[
+            {
+              to: 'scrollParent',
+              attachment: 'together none',
+              pin: true
+            }
+          ]}
         >
           <div
             className="companies-list-item"

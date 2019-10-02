@@ -23,9 +23,15 @@
       height: 100%;
       margin: 5px 0 0;
       border: 1px solid $color-5;
+      color: transparentize($color-7, 0.1);
 
       &:hover {
         border-color: $color-7;
+      }
+
+      &.tether-enabled {
+        border-color: $color-7;
+        color: $color-7;
       }
 
       > .company-name {
@@ -38,7 +44,7 @@
         padding: 10px;
 
         font-size: $font-size-small;
-        color: $color-7;
+        color: inherit;
         text-align: center;
         cursor: pointer;
       }
@@ -51,11 +57,12 @@
 
     .veil {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 4;
+      top: -0.5em;
+      left: -0.5em;
+      width: calc(100% + 1em);
+      height: calc(100% + 1em);
+      z-index: 2;
+      background: transparentize($color-2, 0.5);
     }
   }
 
@@ -70,7 +77,7 @@
 }
 
 :global(.companies-list-tooltip-tether) {
-  z-index: 5;
+  z-index: 2;
 }
 
 .companies-list-tooltip {
