@@ -52,7 +52,7 @@ class CompaniesListItem extends PureComponent {
     const { id } = company;
 
     trackLink(`/companies/${id}`, 'Clicks on company detail ', () => {
-      Router.pushRoute('companies', { company: id });
+      Router.pushRoute('company', { company: id, language: this.props.currentLanguage });
     });
   }
 
