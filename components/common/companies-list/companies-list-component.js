@@ -110,7 +110,7 @@ class CompaniesList extends PureComponent {
             {companies.map(company => (
               <div
                 key={company.id}
-                className="col-xs-3 col-md-1"
+                className="col-xs-4 col-sm-3 col-md-3"
               >
                 <CompaniesListItem
                   company={company}
