@@ -6,6 +6,7 @@ import { initStore } from 'store';
 
 // actions
 import { getSubsidiaries } from 'modules/subsidiaries/subsidiaries-actions';
+import { getCompanies } from 'modules/companies/companies-actions';
 
 // components
 import Page from 'components/page';
@@ -21,6 +22,8 @@ class SubsidiariesPage extends Page {
       include: ['company', 'country'].join(','),
       sort: 'name'
     }));
+
+    await context.store.dispatch(getCompanies({ sort: 'name' }));
 
     return { ...props };
   }

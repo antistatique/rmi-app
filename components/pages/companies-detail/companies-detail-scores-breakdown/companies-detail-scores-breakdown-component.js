@@ -40,7 +40,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     previousBreakdownScores: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
-    company: PropTypes.array.isRequired,
+    company: PropTypes.object.isRequired,
     responsive: PropTypes.object.isRequired,
     printable: PropTypes.bool,
     setPreviousYearVisibility: PropTypes.func.isRequired
@@ -61,7 +61,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     const {
       'shareholders-date': shareholdersDate,
       summary
-    } = company[0] || {};
+    } = company || {};
 
     const { mobile, phone } = responsive;
 
@@ -75,14 +75,12 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
       <div className="c-companies-detail-scores-breakdown">
         <style jsx>{styles}</style>
         <div className="l-layout">
-
-          <h2 className="summary-print-title">Summary Results</h2>
-          {summary && <Summary content={summary} />}
+          {summary && <Summary title="Summary of Results" content={summary} />}
           <div className="page-break" />
           <section className="section measurement-scores-container pb-3">
             <div className="row center-md -no-text-align">
               <div className="col-xs-12">
-                <h3 id="overall-results" className="title mb-3 text-left">Summary results</h3>
+                <h3 id="overall-results" className="title mb-3 text-left">Overall results</h3>
               </div>
               {breakdownScores && breakdownScores.length > 0 &&
               <div className="col-xs-12">
@@ -118,26 +116,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               }
             </div>
           </section>
-        </div>
-
-        <div className="l-layout">
-          <div className="graph-legend">
-            <p>
-              The maximum value of 6.000 represents the aggregation of best scores
-              achieved for all indicators in a given thematic area, taking into
-              account all companies’ results. As the aggregate best score varies
-              from one area to another, these charts cannot be used to compare
-              company performances across different areas.
-            </p>
-
-            <p>
-              All company results are based on public domain data that have been
-              sourced by RMI analysts or provided by companies. In the case of a
-              few companies, very little information was available. It is important
-              to note that a low score may only reflect a lack of relevant
-              information in the company’s publicly available documentation.
-            </p>
-          </div>
         </div>
 
         <section className="section overall-measurement-container">
@@ -179,9 +157,10 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row center-md">
               <div className="col-xs-12">
-                <h2 id="mine-site-selection" className="title text-left">Selected Mine sites results</h2>
-                <h3 className="subtitle text-left">Mine sites individually assessed but not included
-                  {!mobile && <br />} in the overall company score
+                <h2 id="mine-site-selection" className="title text-left">Mine-site Results</h2>
+                <h3 className="subtitle text-left">
+                  Mine sites selected for individual assessment
+                  (but not included in the overall company score)
                 </h3>
                 <div className="table-container">
                   <SelectedMineSitesTable />
@@ -239,7 +218,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 <h3 id="tax-jurisdictions" className="title">Known Tax Jurisdictions</h3>
                 <div className="mt-3 content-columns-2 content-columns-md-4">
                   {knownTaxJurisdictions.map((knownTaxJurisdiction) => (
-                    <p>{knownTaxJurisdiction.country}</p>
+                    <p key={knownTaxJurisdiction.id}>{knownTaxJurisdiction.country}</p>
                   ))}
                 </div>
               </div>

@@ -2,7 +2,7 @@ export const CHART_CONFIG = {
   height: 375,
   barSize: 85,
   setBarFill: () => '#bf3132',
-  domain: [0, 6],
+  domain: [0, 3],
   // xAxis
   xAxisKey: 'label',
   xAxisHeight: 85,

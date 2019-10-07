@@ -17,7 +17,7 @@ export default connect(
     mineSites: parseMineSitesScores(state),
     investmentDisputes: parseInvestmentDisputes(state),
     knownTaxJurisdictions: parseKnownTaxJurisdictions(state),
-    company: state.companies.list,
+    company: state.companies.currentCompany,
     responsive: state.responsive,
     printable: state.app.printable
   }),

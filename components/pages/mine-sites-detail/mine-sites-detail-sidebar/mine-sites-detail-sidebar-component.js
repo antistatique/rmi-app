@@ -20,7 +20,9 @@ class MineSitesDetailSidebar extends PureComponent {
       openingYear,
       acquisitionYear,
       companies,
-      extraLanguages
+      extraLanguages,
+      companyShare,
+      fatalityReports
     } = mineSite;
 
     return (
@@ -48,11 +50,51 @@ class MineSitesDetailSidebar extends PureComponent {
           </div>
         }
         <div className="definitions-container">
+          {/* TODO: Company's share: */}
+          <div className="row">
+            <div className="col-xs-12">
+              <div className="definition-item">
+                <div className="definition-key">Company's share:</div>
+                { companies.map(company => (
+                  <div key={company.id} className="definition-value">
+                    <Link
+                      route="company"
+                      params={{
+                      language: currentLanguage,
+                      company: company.id
+                    }}
+                    >
+                      <a>{company.name || '-'} : {companyShare}</a>
+                    </Link>
+                  </div>
+                )) }
+              </div>
+            </div>
+          </div>
+
+          {/* TODO: Fatalities (company-reported): */}
           <div className="row">
             <div className="col-xs-6">
               <div className="definition-item">
-                <div className="definition-key">Aliases:</div>
-                <div className="definition-value">{aliases || '-'}</div>
+                <div className="definition-key">Fatalities (company-reported):</div>
+                <div className="definition-value">
+                  {fatalityReports.map(fatalityReport => (
+                    <span>
+                      {fatalityReport.year} | Employees : {fatalityReport.employees}<br />
+                      Workers : {fatalityReport.workers}<br />
+                      Contractors : {fatalityReport.contractors}<br />
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-xs-6">
+              <div className="definition-item">
+                <div className="definition-key">Products:</div>
+                <div className="definition-value">{products || '-'}</div>
               </div>
             </div>
             <div className="col-xs-6">
@@ -62,14 +104,7 @@ class MineSitesDetailSidebar extends PureComponent {
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-xs-6">
-              <div className="definition-item">
-                <div className="definition-key">Products:</div>
-                <div className="definition-value">{products || '-'}</div>
-              </div>
-            </div>
-          </div>
+
           <div className="row">
             <div className="col-xs-6">
               <div className="definition-item">
@@ -87,20 +122,8 @@ class MineSitesDetailSidebar extends PureComponent {
           <div className="row">
             <div className="col-xs-6">
               <div className="definition-item">
-                <div className="definition-key">Company:</div>
-                { companies.map(company => (
-                  <div key={company.id} className="definition-value">
-                    <Link
-                      route="company"
-                      params={{
-                      language: currentLanguage,
-                      company: company.id
-                    }}
-                    >
-                      <a>{company.name || '-'}</a>
-                    </Link>
-                  </div>
-                )) }
+                <div className="definition-key">Aliases:</div>
+                <div className="definition-value">{aliases || '-'}</div>
               </div>
             </div>
           </div>

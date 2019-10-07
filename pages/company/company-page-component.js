@@ -16,6 +16,7 @@ import { getSubsidiaries } from 'modules/subsidiaries/subsidiaries-actions';
 import { getShareholders } from 'modules/shareholders/shareholders-actions';
 import { getBeneficialOwners } from 'modules/beneficial-owners/beneficial-owners-actions';
 import { getScores } from 'modules/scores/scores-actions';
+import { getCountries } from 'modules/countries/countries-actions';
 
 class CompanyPage extends Page {
   static propTypes = { company: PropTypes.object }
@@ -71,6 +72,13 @@ class CompanyPage extends Page {
 
     // get all scores
     await context.store.dispatch(getScores({ 'page[size]': 1000 }));
+
+    await context.store.dispatch(getCountries({
+      include: ['producing-companies', 'companies', 'secondary-companies'].join(','),
+      sort: 'name',
+      'fields[countries]': ['name', 'code', 'producing-companies', 'companies', 'secondary-companies'].join(','),
+      'page[size]': 1000
+    }));
 
     return { ...props };
   }

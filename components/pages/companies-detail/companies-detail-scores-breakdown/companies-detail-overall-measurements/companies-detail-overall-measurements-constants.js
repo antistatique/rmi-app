@@ -3,14 +3,14 @@ export const CHART_CONFIG = {
   xAxis: false,
   xAxisHeight: 5,
   YAxisHide: false,
-  domain: [0, 3],
+  domain: [0, 6],
   setBarFill: item => (item.currentCompany ? '#272626' : '#9c9aa2')
 };
 
 export const OVERALL_CHARTS_TITLES = {
-  'Overall commitment': 'Commitment (11 indicators)',
-  'Overall action': 'Action (41 indicators)',
-  'Overall effectiveness': 'Effectiveness (21 indicators)'
+  'Overall commitment': { title: 'Commitment', subtitle: '(11 indicators)' },
+  'Overall action': { title: 'Action', subtitle: '(41 indicators)' },
+  'Overall effectiveness': { title: 'Effectiveness', subtitle: '(21 indicators)' }
 };
 
 export default {
