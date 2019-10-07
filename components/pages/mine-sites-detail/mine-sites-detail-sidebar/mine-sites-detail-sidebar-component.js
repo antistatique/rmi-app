@@ -21,7 +21,8 @@ class MineSitesDetailSidebar extends PureComponent {
       acquisitionYear,
       companies,
       extraLanguages,
-      companyShare
+      companyShare,
+      fatalityReports
     } = mineSite;
 
     return (
@@ -76,7 +77,15 @@ class MineSitesDetailSidebar extends PureComponent {
             <div className="col-xs-6">
               <div className="definition-item">
                 <div className="definition-key">Fatalities (company-reported):</div>
-                <div className="definition-value">@TODO</div>
+                <div className="definition-value">
+                  {fatalityReports.map(fatalityReport => (
+                    <span>
+                      {fatalityReport.year} | Employees : {fatalityReport.employees}<br />
+                      Workers : {fatalityReport.workers}<br />
+                      Contractors : {fatalityReport.contractors}<br />
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
