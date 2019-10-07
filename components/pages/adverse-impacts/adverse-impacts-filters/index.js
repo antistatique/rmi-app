@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 import { getAdverseImpacts } from 'modules/adverse-impacts/adverse-impacts-actions'
 
-import { parseCompanies, parseMineSites, parseIndicators } from './adverse-impacts-filters-selectors';
+import { parseCompanies, parseMineSites, parseCategories } from './adverse-impacts-filters-selectors';
 import { setFilters, resetFilters } from '../adverse-impacts-actions';
 
 import AdverseImpactsFilters from './adverse-impacts-filters-component';
@@ -23,7 +23,7 @@ class AdverseImpactsFiltersContainer extends PureComponent {
 
     if (filtersChanged) {
       this.props.getAdverseImpacts({
-        include: ['companies', 'mine-sites', 'thematic-areas'].join(','),
+        include: ['companies', 'mine-sites', 'thematic-areas', 'adverse-impact-files', 'countries', 'categories'].join(','),
         sort: 'summarized_headline'
       });
     }
@@ -40,7 +40,7 @@ export default connect(
   state => ({
     companies: parseCompanies(state),
     mineSites: parseMineSites(state),
-    indicators: parseIndicators(state),
+    categories: parseCategories(state),
     responsive: state.responsive,
     filters: state.adverseImpactsPage.filters
   }),
