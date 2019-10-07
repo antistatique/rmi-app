@@ -1,8 +1,8 @@
 export default {
-  list: [],
+  filters: {},
   pagination: {
     page: 1,
     size: 0,
-    limit: 50
+    limit: 15
   }
 };

@@ -51,20 +51,16 @@ export const FATALITY_REPORTS_TABLE_COLUMNS = [
 
 export const TABLE_SIZE_VALUES = [
   {
-    label: '5',
-    value: 5
+    label: '50',
+    value: 50
   },
   {
-    label: '10',
-    value: 10
+    label: '100',
+    value: 100
   },
   {
-    label: '15',
-    value: 15
-  },
-  {
-    label: '20',
-    value: 20
+    label: '200',
+    value: 200
   }
 ];
 

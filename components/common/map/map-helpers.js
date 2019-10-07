@@ -14,7 +14,7 @@ export const paths = feature(
   topojson.objects[Object.keys(topojson.objects)[0]]
 ).features;
 
-export const createMarker = (data = {}, onMouseEnter, onMouseLeave, onClick) => (
+export const createMarker = (data = {}, markerType, onMouseEnter, onMouseLeave, onClick) => (
   <Marker
     key={data.id}
     marker={data}
@@ -23,7 +23,12 @@ export const createMarker = (data = {}, onMouseEnter, onMouseLeave, onClick) => 
     onClick={() => onClick(data.coordinates, data.id, data.language)}
     style={MARKER_STYLES}
   >
-    <circle cx={0} cy={0} r={6} fill="#bf3132" stroke="rgba(0, 0, 0, .5)" strokeWidth={3} />
+    {markerType === 'mineSites' &&
+      <circle cx={0} cy={0} r={6} fill="#bf3132" stroke="rgba(0, 0, 0, .5)" strokeWidth={3} />
+    }
+    {markerType === 'tailings' &&
+      <rect width="6" height="6" fill="#8e8e8e" transform="rotate(-45 0 0)" />
+    }
   </Marker>);
 
 export default {

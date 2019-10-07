@@ -12,6 +12,7 @@ export const setCompaniesScores = createAction('companies/setCompaniesScores');
 export const setCompaniesError = createAction('companies/setCompaniesError');
 export const setTaxJurisdictions = createAction('companies/setTaxJurisdictions');
 export const setCurrentCompany = createAction('companies/setCurrentCompany');
+export const resetCurrentCompany = createAction('companies/resetCurrentCompany');
 
 export const getCompanies = createThunkAction('companies/getCompanies', _options =>
   (dispatch, getState) => {

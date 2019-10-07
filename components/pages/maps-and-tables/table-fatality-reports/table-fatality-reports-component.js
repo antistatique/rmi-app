@@ -46,6 +46,7 @@ class TableFatalityReports extends PureComponent {
           <Table
             columns={FATALITY_REPORTS_TABLE_COLUMNS}
             rows={fatalityReports}
+            className="-theme-2"
           />
         </div>
 
@@ -55,7 +56,7 @@ class TableFatalityReports extends PureComponent {
             options={TABLE_SIZE_VALUES}
             onChange={this.handleSize}
             className="c-select-bordered c-select-tiny"
-            theme="dark"
+            theme="light"
           />
         </div>
 

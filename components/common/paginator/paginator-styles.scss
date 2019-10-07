@@ -74,14 +74,14 @@
 
       > li {
         &.rc-pagination-item {
-          color: $color-1;
+          color: $color-7;
         }
 
         &.rc-pagination-prev {
 
           > .rc-pagination-item-link {
             &:before {
-              @include triangle(5px, $color-1, 'left');
+              @include triangle(5px, $color-7, 'left');
             }
           }
         }
@@ -89,7 +89,7 @@
         &.rc-pagination-next {
           > .rc-pagination-item-link {
             &:before {
-              @include triangle(5px, $color-1, 'right');
+              @include triangle(5px, $color-7, 'right');
             }
           }
         }

@@ -28,14 +28,16 @@ class Map extends PureComponent {
     onClickGeography: PropTypes.func,
     zoom: PropTypes.number,
     center: PropTypes.array,
-    setSelectedCountry: PropTypes.func.isRequired
+    setSelectedCountry: PropTypes.func.isRequired,
+    markerType: PropTypes.string
   }
 
   static defaultProps = {
     markers: [],
     onClickGeography: () => {},
     zoom: 1,
-    center: [40, 0]
+    center: [40, 0],
+    markerType: 'mineSites'
   }
 
   constructor(props) {
@@ -119,7 +121,7 @@ class Map extends PureComponent {
 
   renderMarkers() {
     return this.props.markers.map(marker =>
-      createMarker(marker, this.handleMoveMarker, this.handleLeave, this.handleOnClickMarker));
+      createMarker(marker, this.props.markerType, this.handleMoveMarker, this.handleLeave, this.handleOnClickMarker));
   }
 
   render() {
@@ -146,6 +148,7 @@ class Map extends PureComponent {
         </div>
         <ComposableMap
           projection="winkel3"
+          style={{ width: "100%", height: "100%" }}
           {...mobile && { height: 250 }}
           defs={
             <PatternLines
