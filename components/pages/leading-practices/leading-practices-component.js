@@ -11,8 +11,8 @@ import styles from './leading-practices-styles.scss';
 
 class LeadingPracticesPage extends PureComponent {
   static propTypes = {
-    topics: PropTypes.array.isRequired,
     companies: PropTypes.array.isRequired,
+    indicators: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     leadingPracticesPagination: PropTypes.object.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
@@ -32,9 +32,9 @@ class LeadingPracticesPage extends PureComponent {
     this.props.getLeadingPractices({ include: ['companies'].join(',') });
   }
 
-  handleTopic = (selectedTopic) => {
+  handleIndicator = (selectedIndicator) => {
     this.props.setPaginationPage(1);
-    this.props.setLeadingPracticesFilters({ topic: selectedTopic.value });
+    this.props.setLeadingPracticesFilters({ indicator: selectedIndicator.value });
   }
 
   handleCompany = (selectedCompany) => {
@@ -43,9 +43,9 @@ class LeadingPracticesPage extends PureComponent {
   }
 
   render() {
-    const { topics, companies, leadingPracticesPagination, filters } = this.props;
+    const { companies, indicators, leadingPracticesPagination, filters } = this.props;
     const { size, page, limit } = leadingPracticesPagination;
-    const { topic, company } = filters;
+    const { indicator, company } = filters;
 
     return (
       <div className="c-leading-practices-page">
@@ -74,15 +74,15 @@ class LeadingPracticesPage extends PureComponent {
         <div className="section -dark">
           <div className="l-layout">
             <div className="leading-practices-container">
-              <div className="row end-sm">
-                <div className="col-xs-12 col-sm-4">
+              <div className="row">
+                <div className="col-xs-12 col-sm-8">
                   <div className="filters-container">
                     <Select
-                      onChange={this.handleTopic}
-                      options={topics}
-                      placeholder="Select a topic"
+                      onChange={this.handleIndicator}
+                      options={indicators}
+                      placeholder="Select an indicator"
                       theme="light"
-                      selectedValue={topic}
+                      selectedValue={indicator}
                       className="-underline"
                     />
                   </div>

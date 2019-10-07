@@ -26,6 +26,7 @@ import beneficialOwnersModule from 'modules/beneficial-owners';
 import stockExchangesModule from 'modules/stock-exchanges';
 import tailingStorageFacilitiesModule from 'modules/tailing-storage-facilities';
 import fatalityReportsModule from 'modules/fatality-reports';
+import categoriesModule from 'modules/categories';
 
 
 // components modules
@@ -75,5 +76,6 @@ export default {
   stockExchanges: handleModule(stockExchangesModule),
   tailingStorageFacilities: handleModule(tailingStorageFacilitiesModule),
   fatalityReports: handleModule(fatalityReportsModule),
-  tableMineSites: handleModule(TableMineSitesModule)
+  tableMineSites: handleModule(TableMineSitesModule),
+  categories: handleModule(categoriesModule)
 };
