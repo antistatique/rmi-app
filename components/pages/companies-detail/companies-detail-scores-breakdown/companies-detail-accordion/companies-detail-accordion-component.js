@@ -40,7 +40,8 @@ class CompaniesDetailAccordion extends PureComponent {
                 data={{
                   avg: d.avg,
                   max: d.max,
-                  value: d.value
+                  value: d.value,
+                  companies: d.companiesMaxScores
                 }}
                 config={{ color: d.color }}
               />
