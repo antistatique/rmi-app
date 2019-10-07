@@ -13,7 +13,7 @@ class MineSiteFatalityReportsTable extends PureComponent {
     return (
       <div className="c-mine-site-fatality-reports-table">
         <style jsx>{styles}</style>
-        <h3 className="title text-left">Source documents used in scoring</h3>
+        <h3 className="title text-left">Fatality reports</h3>
         <div className="table-container">
           <Table
             columns={MINE_SITE_FATALITY_REPORTS_COLUMNS}
