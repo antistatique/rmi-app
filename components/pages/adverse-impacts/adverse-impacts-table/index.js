@@ -21,7 +21,7 @@ class AdverseImpactsTableContainer extends PureComponent {
 
     if (paginationChanged) {
       this.props.getAdverseImpacts({
-        include: ['companies', 'mine-sites', 'thematic-areas'].join(','),
+        include: ['companies', 'mine-sites', 'thematic-areas', 'adverse-impact-files', 'countries', 'categories'].join(','),
         sort: 'summarized_headline'
       });
     }

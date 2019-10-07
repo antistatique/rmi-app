@@ -4,6 +4,7 @@ import { Link } from 'routes';
 
 // components
 import Table from 'components/common/table';
+import Icon from '../icon';
 
 // constants
 import { TOOLTIP_TABLE_COLUMNS } from './companies-list-constants';
@@ -15,7 +16,8 @@ class CompaniesListTooltip extends PureComponent {
   static propTypes = {
     company: PropTypes.object.isRequired,
     currentLanguage: PropTypes.string.isRequired,
-    mineSites: PropTypes.array.isRequired
+    mineSites: PropTypes.array.isRequired,
+    handleClose: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -28,11 +30,14 @@ class CompaniesListTooltip extends PureComponent {
   }
 
   render() {
-    const { company, currentLanguage } = this.props;
+    const { company, currentLanguage, handleClose } = this.props;
 
     return (
       <div className="companies-list-tooltip">
         <style jsx>{styles}</style>
+        <button className="companies-list-tooltip-close" onClick={handleClose}>
+          <Icon name="cross" className="-small" />
+        </button>
         <Table
           columns={TOOLTIP_TABLE_COLUMNS}
           rows={this.mineSites}
