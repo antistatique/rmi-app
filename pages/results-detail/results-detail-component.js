@@ -18,7 +18,7 @@ class ResultsDetailPage extends Page {
 
     await context.store.dispatch(getIssueAreas({
       'filter[kind]': 'issue_areas',
-      include: ['children', 'scores', 'scores.company', 'children.children', 'children.children.scores', 'children.children.leading-practices'].join(','),
+      include: ['children', 'scores', 'scores.company', 'children.children', 'children.children.scores', 'children.children.leading-practices', 'children.children.companies-max-scores'].join(','),
       'page[size]': 1000
     }));
 
