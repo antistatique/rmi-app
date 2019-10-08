@@ -17,11 +17,11 @@ export const ALLMINE_SITE_TABLE_COLUMNS = [
     }
   },
   {
-    property: 'company-mine-sites',
+    property: 'companiesShare',
     header: { label: 'Company\'s share (%)' },
     cell: {
       formatters: [
-        companyMineSite => companyMineSite[0]['company-share']
+        companiesShare => companiesShare.map(companyShare => companyShare['company-share'])
       ]
     }
   },
@@ -59,11 +59,11 @@ export const CLOSED_MINE_SITES_TABLE_COLUMNS = [
     }
   },
   {
-    property: 'company-mine-sites',
+    property: 'companiesShare',
     header: { label: 'Company\'s share (%)' },
     cell: {
       formatters: [
-        companyMineSite => companyMineSite[0]['company-share']
+        companiesShare => companiesShare.map(companyShare => companyShare['company-share'])
       ]
     }
   },
