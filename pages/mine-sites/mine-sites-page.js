@@ -29,7 +29,8 @@ class MineSitesPage extends Page {
         queryParams: {
           include: ['companies', 'companies.country', 'country', 'mine-site-fatality-reports',
             'documents', 'commodities', 'scores', 'scores.indicator', 'scores.indicator.parent',
-            'document-mine-sites.indicators', 'document-mine-sites.document', 'extra-languages'].join(',')
+            'document-mine-sites.indicators', 'document-mine-sites.document', 'extra-languages',
+            'company-mine-sites'].join(',')
         }
       }));
 
