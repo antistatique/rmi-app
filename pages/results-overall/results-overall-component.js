@@ -11,6 +11,7 @@ import ResultsOverall from 'components/pages/results-overall';
 
 // actions
 import { getScores } from 'components/pages/results-overall/results-overall-actions';
+import { getIndicators } from 'modules/indicators/indicators-actions';
 
 class ResultsOverallPage extends Page {
   static async getInitialProps(context) {
@@ -50,6 +51,8 @@ class ResultsOverallPage extends Page {
       'filter[kind]': 'overall_indicator',
       'page[size]': 1000
     }));
+
+    await context.store.dispatch(getIndicators({ 'page[size]': 500 }));
 
     return { ...props };
   }

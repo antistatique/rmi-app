@@ -20,15 +20,14 @@ export const parseIssueAreas = createSelector(
       }
     }];
 
-    const issueAreasOptions = _issueAreas.map(issueArea => ({
-      id: issueArea.id,
-      label: issueArea.label,
-      value: issueArea.slug,
+    const issueAreasOptions = _issueAreas.filter(issueArea => issueArea.kind === 'issue_areas').map(filteredIssueArea => ({
+      id: filteredIssueArea.id,
+      label: filteredIssueArea.label,
+      value: filteredIssueArea.slug,
       query: {
-        route: 'results',
+        route: 'results-thematic',
         params: {
-          section: 'thematic',
-          id: issueArea.id,
+          id: filteredIssueArea.id,
           language: _currentLanguage
         }
       }
