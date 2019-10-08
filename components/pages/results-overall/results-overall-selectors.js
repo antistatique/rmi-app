@@ -12,11 +12,8 @@ export const parseIssueAreas = createSelector(
       label: 'Overall',
       value: 'overall',
       query: {
-        route: 'results',
-        params: {
-          section: 'overall',
-          language: _currentLanguage
-        }
+        route: 'results-overall',
+        params: { language: _currentLanguage }
       }
     }];
 
