@@ -59,7 +59,7 @@ class CompaniesDetailMineSitesList extends PureComponent {
         {!!closedMineSites.length &&
           <div className="table closed-mine-sites-table">
             <h3 className="table-title -big">
-              Know closed mine sites<br/>
+              Known closed mine sites<br/>
               <span className="smaller-title">(controlled assets under care & maintenance, closure or post-closure management)</span>
             </h3>
             <Gradient className="-dark" >
