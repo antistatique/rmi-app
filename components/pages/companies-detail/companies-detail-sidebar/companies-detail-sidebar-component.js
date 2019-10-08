@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'routes';
+import groupBy from 'lodash/groupBy';
 
 // components
 import Spinner from 'components/common/spinner';
@@ -34,6 +35,7 @@ class CompaniesDetailSidebar extends PureComponent {
       'extra-languages': extraLanguages,
       'listings': stockExchange,
     } = company;
+    const groupedFatalityReports = groupBy(fatalityReports, 'year');
     const { name: countryName } = country || {};
     const { name: secondaryCountryName } = secondaryCountry || {};
 
@@ -152,11 +154,13 @@ class CompaniesDetailSidebar extends PureComponent {
                     <div className="definition-item">
                       <div className="definition-key">Fatalities:</div>
                       <ul className="definition-sublist">
-                        {fatalityReports.map(fatalityReport => (
-                          <li key={fatalityReport.id} className="definition-sublist-item">
-                            <span>{fatalityReport.year} | </span>
+                        {Object.entries(groupedFatalityReports).map(([key, value]) => (
+                          <li className="definition-sublist-item">
+                            <span>{key} | </span>
                             <div className="definition-sublist-item-container">
-                              <span>{fatalityReport.category}: {fatalityReport.value}</span>
+                              {value.map(fatalityReport => (
+                                <span>{fatalityReport.category}: {fatalityReport.value}</span>
+                              ))}
                             </div>
                           </li>
                         ))}
