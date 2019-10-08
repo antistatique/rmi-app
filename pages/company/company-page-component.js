@@ -30,7 +30,7 @@ class CompanyPage extends Page {
       companyId: context.query.company,
       queryParams: {
         include: ['country', 'secondary-country', 'producing-countries', 'mine-sites', 'mine-sites.country',
-          'mine-sites.commodities', 'mine-sites.scores', 'scores', 'shareholders', 'subsidiaries',
+          'mine-sites.commodities', 'mine-sites.scores', 'mine-sites.company-mine-sites', 'scores', 'shareholders', 'subsidiaries',
           'beneficial-owners', 'company-country-tax-jurisdictions', 'company-country-tax-jurisdictions.country',
           'investment-disputes', 'fatality-reports', 'selected-mine-sites', 'extra-languages', 'tailing-storage-facilities',
           'tailing-storage-facilities.country', 'government-ownership-country'

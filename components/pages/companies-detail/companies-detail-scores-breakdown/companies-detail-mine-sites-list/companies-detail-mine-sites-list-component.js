@@ -38,6 +38,8 @@ class CompaniesDetailMineSitesList extends PureComponent {
       hasJointVentureExcluded
     } = this.props;
 
+    console.log(allMineSites)
+
     return (
       <div className="c-companies-detail-mine-sites-list">
         <style jsx>{styles}</style>
