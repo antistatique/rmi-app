@@ -2,56 +2,32 @@
 
 .c-companies-list {
   height: 100%;
+  
 
   .content {
     position: relative;
-    height: 100%;
-    margin: -10px 0 0;
-
-    .row.-equal-height div[class*=col] {
-      margin-top: 10px;
-
-      padding-left: 5px;
-      padding-right: 5px;
-    }
+    columns: 2;
+    margin-bottom: 1em;
 
     .companies-list-item {
-      display: flex;
-      flex: 1;
-      justify-content: space-around;
-      align-items: center;
-      height: 100%;
-      margin: 5px 0 0;
-      border: 1px solid $color-5;
+      display: block;
+      margin-bottom: 0.5em;
+      font-size: 1.1rem;
       color: transparentize($color-7, 0.1);
 
+      &.tether-enabled,
       &:hover {
-        border-color: $color-7;
-      }
-
-      &.tether-enabled {
-        border-color: $color-7;
         color: $color-7;
       }
 
       > .company-name {
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        padding: 10px;
-
-        font-size: $font-size-small;
         color: inherit;
-        text-align: center;
+        text-decoration: underline;
         cursor: pointer;
       }
 
       > .highlighted {
-        border-color: $color-7;
-        background-color: transparentize($color-7, 0.7);
+        color: $color-8;
       }
     }
 

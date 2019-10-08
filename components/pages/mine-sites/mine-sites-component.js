@@ -87,20 +87,21 @@ class MineSite extends PureComponent {
           <div className="section -dark">
             <div className="l-layout">
               <div className="row">
-                <div className="col-md-4">
+                <div className="col-xs-12 col-md-4">
                   <MediaQuery
                     maxDeviceWidth={breakpoints.md - 1}
                     values={{ deviceWidth: responsive.fakeWidth }}
                   >
                     <MineSitesFilters />
                   </MediaQuery>
+                  <h4 class="title text-white mb-3">List of all mine sites</h4>
                   <CompaniesList
                     isCompanyPage={false}
                     onOpenTooltip={this.handleOpenTooltip}
                     onCloseTooltip={this.handleCloseTooltip}
                   />
                 </div>
-                <div className="col-md-8">
+                <div className="col-xs-12 col-md-8">
                   <MediaQuery
                     minDeviceWidth={breakpoints.md}
                     values={{ deviceWidth: responsive.fakeWidth }}

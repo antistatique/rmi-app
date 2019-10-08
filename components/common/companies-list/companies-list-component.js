@@ -46,22 +46,20 @@ class CompaniesList extends PureComponent {
     return (
       <Fragment key={key} >
         <style jsx>{styles}</style>
-        <div className="row -equal-height">
-          {companies.map(_company => (
-            <div key={_company.id} className="col-xs-12 col-md-4">
-              <CompaniesListItem
-                key={_company.id}
-                company={_company}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-                isCompanyPage={isCompanyPage}
-                currentLanguage={currentLanguage}
-                onOpenTooltip={onOpenTooltip}
-                onCloseTooltip={onCloseTooltip}
-              />
-            </div>
-          ))}
-        </div>
+        {companies.map(_company => (
+          <div key={_company.id} className="col-xs-12 col-md-4">
+            <CompaniesListItem
+              key={_company.id}
+              company={_company}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              isCompanyPage={isCompanyPage}
+              currentLanguage={currentLanguage}
+              onOpenTooltip={onOpenTooltip}
+              onCloseTooltip={onCloseTooltip}
+            />
+          </div>
+        ))}
       </Fragment>
     );
   }
@@ -105,26 +103,18 @@ class CompaniesList extends PureComponent {
             <div className="not-found">
               <span>No companies found under this criteria</span>
             </div>}
-
-          <div className="row -equal-height">
             {companies.map(company => (
-              <div
-                key={company.id}
-                className="col-xs-4 col-sm-3 col-md-3"
-              >
-                <CompaniesListItem
-                  company={company}
-                  currentLanguage={currentLanguage}
-                  onMouseEnter={onMouseEnter}
-                  onMouseLeave={onMouseLeave}
-                  isCompanyPage={isCompanyPage}
-                  onOpenTooltip={onOpenTooltip}
-                  onCloseTooltip={onCloseTooltip}
-                  selectedCountry={selectedCountry}
-                />
-              </div>
+              <CompaniesListItem
+                company={company}
+                currentLanguage={currentLanguage}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+                isCompanyPage={isCompanyPage}
+                onOpenTooltip={onOpenTooltip}
+                onCloseTooltip={onCloseTooltip}
+                selectedCountry={selectedCountry}
+              />
             ))}
-          </div>
         </div>
       </div>
     );
