@@ -3,7 +3,7 @@ import { MAP_COLORS } from './mine-sites-constants';
 export const mineSiteFilter = (mineSite, filters) => {
   const { selectedCompany, selectedMineSite } = filters;
 
-  const filterCompany = selectedCompany ? mineSite['company-id'] === selectedCompany : true;
+  const filterCompany = selectedCompany ? parseInt(mineSite.companies[0].id, 10) === selectedCompany : true;
   const filterMineSite = selectedMineSite ? mineSite.id === selectedMineSite : true;
 
   return filterCompany && filterMineSite;
