@@ -16,6 +16,10 @@ $bar-height: 40px;
       page-break-inside: avoid;
       border: 1px dashed $color-1;
     }
+
+    &.max-opened {
+      z-index: 2;
+    }
   }
 
   > .score-bar > .score-value {

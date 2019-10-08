@@ -46,7 +46,7 @@ class ScoreComparison extends PureComponent {
     return (
       <div className="c-score-comparison">
         <style jsx>{styles}</style>
-        <div className="score-bar">
+        <div className={`score-bar ${this.state.maxScoreDisplay ? 'max-opened' : ''}`}>
           <div
             className="score-value"
             style={{
