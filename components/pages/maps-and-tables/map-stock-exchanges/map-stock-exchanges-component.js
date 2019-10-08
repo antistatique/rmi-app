@@ -16,17 +16,19 @@ class MapStockExchanges extends PureComponent {
   render() {
     return (
       <div className="c-map-stock-exchanges">
-        <Map
-          paths={this.props.paths}
-          center={[40, 10]}
-          setCountryColor={MapStockExchanges.setCountryColor}
-          legend={[]}
-        />
-        <div className="row">
-          <div className="col-12">
+        <div className="row mb-4">
+          <div class="col-xs-12 col-md-4">
             <CompaniesList
               onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
               onMouseLeave={() => { this.props.resetSelectedCompany(); }}
+            />
+          </div>
+          <div className="col-xs-12 col-md-8">
+            <Map
+              paths={this.props.paths}
+              center={[40, 10]}
+              setCountryColor={MapStockExchanges.setCountryColor}
+              legend={[]}
             />
           </div>
         </div>
