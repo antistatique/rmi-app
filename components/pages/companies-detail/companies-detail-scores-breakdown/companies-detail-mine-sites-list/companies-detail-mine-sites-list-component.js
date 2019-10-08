@@ -43,7 +43,7 @@ class CompaniesDetailMineSitesList extends PureComponent {
         <style jsx>{styles}</style>
         {!!allMineSites.length &&
           <div className="table all-mine-sites-table">
-            <h3 id="list-of-all-mine-sites" className="table-title -big">Operational mine sites</h3>
+            <h3 className="table-title -big">Operational mine sites</h3>
             <Gradient className="-dark" >
               <Table
                 columns={ALLMINE_SITE_TABLE_COLUMNS}

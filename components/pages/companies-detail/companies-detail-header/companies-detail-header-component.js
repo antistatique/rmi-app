@@ -90,7 +90,7 @@ class CompaniesDetailHeader extends PureComponent {
                       'label': 'Detailed Results',
                     },
                     {
-                      'anchor': 'list-of-all-mine-sites',
+                      'anchor': 'mine-site-selection',
                       'label': 'Mine-site Results',
                     },
                   {
