@@ -51,15 +51,6 @@ class CompaniesDetailHeader extends PureComponent {
             </div>
             <div className="col-xs-12 col-sm-7 col-md-6">
               <div className="right-side">
-                <div className="company-listing">
-                  {parsedListings.map((list, index) => (
-                    <div key={`${list[0]}-${index + 1}`} className="company-listing-item">
-                      <span className="company-listing-item-key">{list[0]}:</span>
-                      <span className="company-listing-item-value">{list[1]}</span>
-                    </div>
-                  ))}
-                </div>
-
                 <div className="pdf-print">
                   <button
                     className="print-btn"
