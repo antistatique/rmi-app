@@ -33,7 +33,7 @@ class CompaniesDetailHeader extends PureComponent {
             <img className="logo-img" src="/static/logos/RMIndex_vector.svg" alt="RMI logo" />
           </div>
           <div className="row">
-            <div className="col-xs-12 col-sm-5 col-md-6">
+            <div className="col-xs-8 col-sm-5 col-md-6">
               <div className="left-side">
                 <Link
                   route="companies"
@@ -49,7 +49,7 @@ class CompaniesDetailHeader extends PureComponent {
                 </Link>
               </div>
             </div>
-            <div className="col-xs-12 col-sm-7 col-md-6">
+            <div className="col-xs-4 col-sm-7 col-md-6">
               <div className="right-side">
                 <div className="pdf-print">
                   <button
