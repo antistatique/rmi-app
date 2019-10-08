@@ -22,6 +22,7 @@ class IssueAreasBar extends PureComponent {
   constructor(props) {
     super(props);
 
+    this.elementToScrollTo = null;
     this.state = { stickyOffset: 0 };
   }
 
@@ -37,9 +38,21 @@ class IssueAreasBar extends PureComponent {
     stickyOffset += companyHeader ? companyHeader.offsetHeight : 0;
     stickyOffset += siteHeader ? siteHeader.offsetHeight : 0;
 
+    this.headOfBar = document.querySelector('#indicator-by-indicator-results');
+
     this.setState({
       stickyOffset: stickyOffset,
     });
+  }
+
+  setIssueAreaJump = (id) => {
+    const top = (this.headOfBar.getBoundingClientRect().top + window.pageYOffset) - 250;
+
+    window.scrollTo({
+      top, // scroll so that the element is at the top of the view
+      behavior: 'smooth' // smooth scroll
+    });
+    this.props.setIssueArea(id);
   }
 
   getColor(issueArea) {
@@ -50,7 +63,7 @@ class IssueAreasBar extends PureComponent {
   }
 
   render() {
-    const { issueAreas, setIssueArea, selectedIssueArea } = this.props;
+    const { issueAreas, selectedIssueArea } = this.props;
 
     return (
       <div className="c-issue-areas-bar align-items-start">
@@ -67,7 +80,7 @@ class IssueAreasBar extends PureComponent {
               className={issueArea.id === selectedIssueArea ? 'active' : ''}
             >
               <button
-                onClick={() => setIssueArea(issueArea.id)}
+                onClick={() => this.setIssueAreaJump(issueArea.id)}
               >
                 <Icon
                   name={issueArea.id}
