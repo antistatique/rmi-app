@@ -72,20 +72,22 @@ class MineSitesDetailSidebar extends PureComponent {
             </div>
           </div>
 
-          {/* TODO: Fatalities (company-reported): */}
           <div className="row">
             <div className="col-xs-6">
               <div className="definition-item">
                 <div className="definition-key">Fatalities (company-reported):</div>
-                <div className="definition-value">
+                <ul className="definition-sublist">
                   {fatalityReports.map(fatalityReport => (
-                    <span>
-                      {fatalityReport.year} | Employees : {fatalityReport.employees}<br />
-                      Workers : {fatalityReport.workers}<br />
-                      Contractors : {fatalityReport.contractors}<br />
-                    </span>
+                    <li key={fatalityReport.id} className="definition-sublist-item">
+                      <span>{fatalityReport.year} | </span>
+                      <div className="definition-sublist-item-container">
+                        <span>Employees : {fatalityReport.employees}</span>
+                        <span>Workers : {fatalityReport.workers}</span>
+                        <span>Contractors : {fatalityReport.contractors}</span>
+                      </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
           </div>
