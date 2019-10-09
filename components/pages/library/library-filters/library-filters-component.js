@@ -11,6 +11,7 @@ import styles from './library-filters-styles.scss';
 class LibraryFilters extends PureComponent {
   static propTypes = {
     companies: PropTypes.array.isRequired,
+    filters: PropTypes.object.isRequired,
     setSearch: PropTypes.func.isRequired,
     setFilters: PropTypes.func.isRequired,
     setPaginationPage: PropTypes.func.isRequired
@@ -27,7 +28,8 @@ class LibraryFilters extends PureComponent {
   }
 
   render() {
-    const { companies } = this.props;
+    const { companies, filters } = this.props;
+    const { company } = filters;
 
     return (
       <div className="c-library-filters">
@@ -42,6 +44,7 @@ class LibraryFilters extends PureComponent {
             placeholder="Select a Company"
             options={companies}
             onChange={this.handleCompany}
+            selectedValue={company}
             className="c-select-bordered"
           />
         </div>
