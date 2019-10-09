@@ -44,11 +44,11 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
           <div className="row">
             {data.map(d => (
               <div key={d.id} className={columnClass}>
-                <div className="chart-legend">
+                <div className="chart-legend mb-4">
                   <h2 className="title">
                     {OVERALL_CHARTS_TITLES[d.name].title}<br/>
-                    <span className="">{OVERALL_CHARTS_TITLES[d.name].subtitle}</span>
                   </h2>
+                  <span className="text-size-regular">{OVERALL_CHARTS_TITLES[d.name].subtitle}</span>
                 </div>
                 <Bars
                   config={this.chartConfig}
