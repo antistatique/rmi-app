@@ -76,11 +76,11 @@ export const ADVERSE_IMPACTS_TABLE_COLUMNS = [
           const thematicAreas = rowData['thematic-areas'].map(thematicArea => thematicArea.id);
           return (
             <span>
-              {thematicAreas.map(thematicArea => (
+              {thematicAreas.length > 0 && thematicAreas.map(thematicArea => (
                 <Icon
                   key={thematicArea}
                   name={thematicArea}
-                  style={{ background: `${AREA_ISSUE_COLOURS[thematicArea]} !important`, marginLeft: '2px' }}
+                  style={{ backgroundColor: `${AREA_ISSUE_COLOURS[thematicArea]}`, marginLeft: '2px' }}
                 />
               ))}
             </span>
