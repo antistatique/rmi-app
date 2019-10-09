@@ -69,7 +69,7 @@ class Companies extends PureComponent {
               <div className="row">
                 <div className="col-xs-12 col-md-4">
                   <CompaniesFilters className="-no-tablet" />
-                  <h4 class="title text-white mb-3">List of all companies</h4>
+                  <h4 className="title text-white mb-3">List of all companies</h4>
                   <CompaniesList
                     onMouseEnter={({ id }) => { setSelectedCompany(id); }}
                     onMouseLeave={() => { resetSelectedCompany(); }}

@@ -105,6 +105,7 @@ class CompaniesList extends PureComponent {
             </div>}
             {companies.map(company => (
               <CompaniesListItem
+                key={company.id}
                 company={company}
                 currentLanguage={currentLanguage}
                 onMouseEnter={onMouseEnter}
