@@ -22,7 +22,7 @@ class IssueAreasBar extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.elementToScrollTo = null;
+    this.headOfBar = null;
     this.state = { stickyOffset: 0 };
   }
 

@@ -65,7 +65,7 @@ class ResultsDetail extends PureComponent {
           </div>
         </div>
 
-        <div className="page-content">
+        <div id="indicator-by-indicator-results" className="page-content">
           <section className="section -dark">
             <div className="l-layout">
               <div className="row">
