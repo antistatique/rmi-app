@@ -22,6 +22,9 @@
     margin-right: -50vw;
     padding: 40px 30px;
     background-image: url('/static/images/homepage_background.jpg');
+    background-image: image-set(
+                        url('/static/images/homepage_background.jpg') 1x, 
+                        url('/static/images/homepage_background@2x.jpg') 2x);
     background-size: cover;
     background-position: 50% 75%;
     background-repeat: no-repeat;
