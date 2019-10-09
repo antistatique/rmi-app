@@ -22,8 +22,46 @@
   }
 
   .anchor-navigation-container {
-    padding: 10px 0;
+    padding: 10px 0 0;
     background: white;
+
+    .l-layout {
+      position: relative;
+      padding: 0;
+
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 4em;
+        height: 100%;
+        left: -2em;
+        top: 0;
+        background: linear-gradient(to right, transparentize(white, 0), transparentize(white, 1));
+        z-index: 10;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 4em;
+        height: 100%;
+        right: -2em;
+        top: 0;
+        background: linear-gradient(to left, transparentize(white, 0), transparentize(white, 1));
+        z-index: 10;
+      }
+    }
+
+    .scroll-container {
+      overflow-x: scroll;
+      margin-left: -2em;
+      margin-right: -2em;
+      padding-left: 2.5em;
+      padding-right: 2.5em;
+      padding-bottom: 1em;
+    }
   }
 
   .left-side,

@@ -67,7 +67,7 @@ class CompaniesDetailSidebar extends PureComponent {
               </div>
             </div>
             }
-            <div className="definitions-container">
+            <div className="definitions-container" id="summary">
               <div className="row mb-3">
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
                   {!!countryName &&

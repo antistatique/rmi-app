@@ -37,7 +37,7 @@ class BeneficialOwnersTable extends PureComponent {
     return (
       <div className="c-beneficial-owners-table">
         <style jsx>{styles}</style>
-        <h3 className="title">Known Beneficial Owners</h3>
+        <h3 id="known-beneficial-owners" className="title">Known Beneficial Owners</h3>
         {beneficialOwners.length ?
           <Fragment>
             <Table

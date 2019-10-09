@@ -69,33 +69,57 @@ class CompaniesDetailHeader extends PureComponent {
         </div>
         <div className="anchor-navigation-container d-none d-md-block">
           <div className="l-layout">
-            <div className="row">
+            <div className="row scroll-container">
               <div className="col-xs-12">
                 <Scrollspy items={[
+                    {
+                      'anchor': 'summary',
+                      'label': 'Summary',
+                    },
                     {
                       'anchor': 'overall-results',
                       'label': 'Overall Results',
                     },
                     {
-                      'anchor': 'indicator-by-indicator-results',
+                      'anchor': 'detailed-results',
                       'label': 'Detailed Results',
                     },
                     {
-                      'anchor': 'mine-site-selection',
+                      'anchor': 'mine-site-results',
                       'label': 'Mine-site Results',
                     },
-                  {
-                    'anchor': 'tailings',
-                    'label': 'Tailings',
-                  },
                     {
-                      'anchor': 'shareholders-and-subsidiaries',
-                      'label': 'Shareholders',
+                      'anchor': 'operational-mine-sites',
+                      'label': 'Operational mine sites',
                     },
                     {
-                      'anchor': 'tax-jurisdictions',
-                      'label': 'Tax Jurisdictions',
+                      'anchor': 'known-closed-mine-sites',
+                      'label': 'Known closed mine sites',
                     },
+                    {
+                      'anchor': 'tailings',
+                      'label': 'Tailings',
+                    },
+                    {
+                      'anchor': 'known-shareholders',
+                      'label': 'Known Shareholders',
+                    },
+                    {
+                      'anchor': 'known-subsidiaries',
+                      'label': 'Known Subsidiaries',
+                    },
+                    {
+                      'anchor': 'known-beneficial-owners',
+                      'label': 'Known Beneficial Owners',
+                    },
+                    {
+                      'anchor': 'known-tax-jurisdictions',
+                      'label': 'Known Tax Jurisdictions',
+                    },
+                    {
+                      'anchor': 'investorstate-investment-disputes',
+                      'label': 'Investor/State investment disputes',
+                    }
                   ]}
                   currentClassName="active"
                 />

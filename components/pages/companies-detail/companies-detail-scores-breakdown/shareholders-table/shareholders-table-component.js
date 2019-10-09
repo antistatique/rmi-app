@@ -45,7 +45,7 @@ class ShareholdersTable extends PureComponent {
     return (
       <div className="c-shareholders-table">
         <style jsx>{styles}</style>
-        <h3 className="title">Known Shareholders</h3>
+        <h3 id="known-shareholders" className="title">Known Shareholders</h3>
         <div className="filters-container">
           <Search
             onSearch={this.handleSearch}

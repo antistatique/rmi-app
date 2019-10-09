@@ -135,7 +135,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
-                <h2 id="indicator-by-indicator-results" className="text-left">
+                <h2 id="detailed-results" className="text-left">
                   Detailed results
                 </h2>
               </div>
@@ -157,7 +157,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row center-md">
               <div className="col-xs-12">
-                <h2 id="mine-site-selection" className="title text-left mb-1">Mine-site Results</h2>
+                <h2 id="mine-site-results" className="title text-left mb-1">Mine-site Results</h2>
                 <h5 className="mb-5 text-left">
                   Mine sites selected for individual assessment
                   (but not included in the overall company score)
@@ -215,7 +215,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
 
             <div className="row">
               <div className="col-xs-12">
-                <h3 id="tax-jurisdictions" className="title">Known Tax Jurisdictions</h3>
+                <h3 id="known-tax-jurisdictions" className="title">Known Tax Jurisdictions</h3>
                 <div className="mt-3 content-columns-2 content-columns-md-4">
                   {knownTaxJurisdictions.map((knownTaxJurisdiction) => (
                     <p key={knownTaxJurisdiction.id}>{knownTaxJurisdiction.country}</p>
@@ -225,7 +225,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
             <div className="row">
               <div className="col-xs-12">
-                <h3 className="title">Investor/State investment disputes
+                <h3 id="investorstate-investment-disputes" className="title">Investor/State investment disputes
                   <div className="title -small d-inline ml-1">(involvements since 2014)</div>
                 </h3>
                 {investmentDisputes.length ?
