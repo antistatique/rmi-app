@@ -98,7 +98,7 @@ class ScoreComparison extends PureComponent {
               </div>
               <div className="content">
                 {companies.map(company => (
-                  <span>
+                  <span key={company.id}>
                     <Link
                       route="company"
                       params={{
