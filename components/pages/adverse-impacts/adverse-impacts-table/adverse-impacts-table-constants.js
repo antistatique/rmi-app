@@ -80,6 +80,7 @@ export const ADVERSE_IMPACTS_TABLE_COLUMNS = [
                 <Icon
                   key={thematicArea}
                   name={thematicArea}
+                  className="-medium"
                   style={{ backgroundColor: `${AREA_ISSUE_COLOURS[thematicArea]}`, marginLeft: '2px' }}
                 />
               ))}
