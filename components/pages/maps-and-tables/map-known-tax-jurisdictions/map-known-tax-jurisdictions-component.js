@@ -17,7 +17,7 @@ class MapTaxJurisdictions extends PureComponent {
     return (
       <div className="c-map-tax-jurisdictions">
         <div className="row mb-4">
-          <div class="col-xs-12 col-md-4">
+          <div className="col-xs-12 col-md-4">
             <CompaniesList
               onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
               onMouseLeave={() => { this.props.resetSelectedCompany(); }}

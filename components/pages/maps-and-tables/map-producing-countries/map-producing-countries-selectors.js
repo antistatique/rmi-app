@@ -29,7 +29,7 @@ export const getPaths = createSelector(
             properties: {
               ...geography.properties,
               id: index,
-              isClickable: false,
+              isClickable: !(Object.keys(country).length === 0 && country.constructor === Object),
               isSelected: false,
               isHighlighted: false,
               countryId: country.id,
@@ -67,7 +67,7 @@ export const getPaths = createSelector(
           properties: {
             ...geography.properties,
             id: index,
-            isClickable: false,
+            isClickable: !(Object.keys(country).length === 0 && country.constructor === Object),
             isSelected: false,
             isHighlighted: hihglightedCountries.includes(country.code),
             countryId: country.id,

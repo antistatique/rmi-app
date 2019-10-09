@@ -17,7 +17,7 @@ class MapStockExchanges extends PureComponent {
     return (
       <div className="c-map-stock-exchanges">
         <div className="row mb-4">
-          <div class="col-xs-12 col-md-4">
+          <div className="col-xs-12 col-md-4">
             <CompaniesList
               onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
               onMouseLeave={() => { this.props.resetSelectedCompany(); }}
