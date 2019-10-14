@@ -3,6 +3,7 @@ import uniqBy from 'lodash/uniqBy';
 
 const companies = state => state.companies.list;
 const currentCompany = state => state.companies.currentCompany;
+const countries = state => state.countries.list;
 
 export const getUniqCompanies = createSelector(
   [companies, currentCompany],
@@ -18,4 +19,9 @@ export const getUniqCompanies = createSelector(
         return 0;
       });
   }
+);
+
+export const getCountries = createSelector(
+  [countries],
+  (_countries = []) => _countries.map(country => ({ label: country.name, value: country.id }))
 );
