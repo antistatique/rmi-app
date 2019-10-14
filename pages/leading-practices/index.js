@@ -13,6 +13,7 @@ import LeadingPracticesPageComponent from 'components/pages/leading-practices';
 import { getLeadingPractices } from 'components/pages/leading-practices/leading-practices-actions';
 import { getCompanies } from 'modules/companies/companies-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
+import { getTopics } from 'modules/topics/topics-actions';
 
 class LeadingPracticesPage extends Page {
   static async getInitialProps(context) {
@@ -22,6 +23,7 @@ class LeadingPracticesPage extends Page {
 
     await context.store.dispatch(getCompanies({ sort: 'name' }));
     await context.store.dispatch(getIndicators({}));
+    await context.store.dispatch(getTopics({}));
 
     return { ...props };
   }
