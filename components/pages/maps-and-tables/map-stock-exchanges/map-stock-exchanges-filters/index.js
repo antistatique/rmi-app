@@ -6,7 +6,7 @@ import isEqual from 'lodash/isEqual';
 import { getStockExchanges } from 'modules/stock-exchanges/stock-exchanges-actions';
 
 import MapStockExchangesFilters from './map-stock-exchanges-filters-component';
-import { getCompanies } from './map-stock-exchanges-filters-selectors';
+import { getCompanies, getCountries } from './map-stock-exchanges-filters-selectors';
 import { setStockExchangesFilters } from '../../maps-and-tables-actions';
 
 class MapStockExchangesFiltersContainer extends PureComponent {
@@ -37,8 +37,10 @@ class MapStockExchangesFiltersContainer extends PureComponent {
 export default connect(
   state => ({
     companies: getCompanies(state),
+    countries: getCountries(state),
     filters: state.mapsAndTables.stockExchangesFilters,
-    selectedCompany: state.mapsAndTables.stockExchangesFilters.company
+    selectedCompany: state.mapsAndTables.stockExchangesFilters.company,
+    selectedCountry: state.mapsAndTables.stockExchangesFilters.country
   }),
   {
     setStockExchangesFilters,

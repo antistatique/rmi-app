@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import uniqBy from 'lodash/uniqBy';
 
 const stockExchanges = state => state.stockExchanges.list;
+const countries = state => state.countries.list;
 
 export const getCompanies = createSelector(
   stockExchanges,
@@ -26,4 +27,9 @@ export const getCompanies = createSelector(
         return 0;
       });
   }
+);
+
+export const getCountries = createSelector(
+  countries,
+  (_countries = []) => _countries.map(country => ({ label: country.name, value: country.id }))
 );
