@@ -38,7 +38,7 @@ class IssueAreasBar extends PureComponent {
     stickyOffset += companyHeader ? companyHeader.offsetHeight : 0;
     stickyOffset += siteHeader ? siteHeader.offsetHeight : 0;
 
-    this.headOfBar = document.querySelector('#indicator-by-indicator-results');
+    this.headOfBar = document.querySelector('#detailed-results') || document.querySelector('#indicator-by-indicator-results');
 
     this.setState({
       stickyOffset: stickyOffset,
