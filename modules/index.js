@@ -27,6 +27,7 @@ import stockExchangesModule from 'modules/stock-exchanges';
 import tailingStorageFacilitiesModule from 'modules/tailing-storage-facilities';
 import fatalityReportsModule from 'modules/fatality-reports';
 import categoriesModule from 'modules/categories';
+import topicsModule from 'modules/topics';
 
 
 // components modules
@@ -77,5 +78,6 @@ export default {
   tailingStorageFacilities: handleModule(tailingStorageFacilitiesModule),
   fatalityReports: handleModule(fatalityReportsModule),
   tableMineSites: handleModule(TableMineSitesModule),
-  categories: handleModule(categoriesModule)
+  categories: handleModule(categoriesModule),
+  topics: handleModule(topicsModule)
 };
