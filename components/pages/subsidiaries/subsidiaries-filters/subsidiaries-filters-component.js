@@ -32,19 +32,19 @@ class SubsidiariesFilters extends PureComponent {
     return (
       <div className="c-subsidiaries-filters">
         <style jsx>{styles}</style>
-        <div className="d-flex justify-content-md-end">
-          <div className="filters-container">
-            <Select
-              placeholder="Select a company"
-              options={this.props.companies}
-              theme="dark"
-              onChange={this.handleCompanyFilter}
-              selectedValue={this.props.selectedCompany}
-            />
-            <Search
-              onSearch={this.handleSearch}
-            />
-          </div>
+        <div className="filters-container d-flex flex-column flex-md-row justify-content-md-end">
+          <Search
+            onSearch={this.handleSearch}
+            className="mb-3 mb-md-0 mr-0 mr-md-3"
+          />
+          <Select
+            placeholder="Select a company"
+            options={this.props.companies}
+            theme="dark"
+            onChange={this.handleCompanyFilter}
+            selectedValue={this.props.selectedCompany}
+            className="c-select-bordered"
+          />
         </div>
       </div>
     );
