@@ -2,8 +2,9 @@ import { createSelector } from 'reselect';
 import uniqBy from 'lodash/uniqBy';
 
 const taxJurisdictions = state => state.companies.taxJurisdictions;
+const countries = state => state.countries.list;
 
-export const getCompanies = createSelector(
+export const parseCompanies = createSelector(
   taxJurisdictions,
   (_taxJurisdictions = []) => {
     const uniqCompanies = uniqBy(_taxJurisdictions.map(taxJurisdiction => taxJurisdiction), 'company.id');
@@ -18,4 +19,9 @@ export const getCompanies = createSelector(
         return 0;
       });
   }
+);
+
+export const getCountries = createSelector(
+  countries,
+  (_countries = []) => _countries.map(country => ({ label: country.name, value: country.id }))
 );

@@ -4,7 +4,10 @@ import initialState from './maps-and-tables-initial-state';
 export default {
   [actions.setProducingCountriesFilters]: (state, { payload }) => ({
     ...state,
-    producingCountriesFilters: { ...payload }
+    producingCountriesFilters: {
+      ...state.producingCountriesFilters,
+      ...payload
+    }
   }),
   [actions.resetProducingCountriesFilters]: state => ({
     ...state,
@@ -12,7 +15,10 @@ export default {
   }),
   [actions.setKnownTaxFilters]: (state, { payload }) => ({
     ...state,
-    knownTaxFilters: { ...payload }
+    knownTaxFilters: {
+      ...state.knownTaxFilters,
+      ...payload
+    }
   }),
   [actions.resetKnownTaxFilters]: state => ({
     ...state,
@@ -20,7 +26,10 @@ export default {
   }),
   [actions.setStockExchangesFilters]: (state, { payload }) => ({
     ...state,
-    stockExchangesFilters: { ...payload }
+    stockExchangesFilters: {
+      ...state.stockExchangesFilters,
+      ...payload
+    }
   }),
   [actions.resetStockExchangesFilters]: state => ({
     ...state,
@@ -28,7 +37,10 @@ export default {
   }),
   [actions.setTailingStorageFacilitiesFilters]: (state, { payload }) => ({
     ...state,
-    tailingStorageFacilitiesFilters: { ...payload }
+    tailingStorageFacilitiesFilters: {
+      ...state.tailingStorageFacilitiesFilters,
+      ...payload
+    }
   }),
   [actions.resetTailingStorageFacilitiesFilters]: state => ({
     ...state,

@@ -21,7 +21,8 @@ class CompaniesList extends PureComponent {
     onMouseLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
     onCloseTooltip: PropTypes.func,
-    selectedCountry: PropTypes.string
+    selectedCountry: PropTypes.string,
+    companiesFromProps: PropTypes.array
   }
 
   static defaultProps = {
@@ -30,7 +31,8 @@ class CompaniesList extends PureComponent {
     onMouseLeave: () => {},
     onOpenTooltip: null,
     onCloseTooltip: null,
-    selectedCountry: null
+    selectedCountry: null,
+    companiesFromProps: null
   };
 
   renderCompaniesRow(companies, key) {
@@ -46,7 +48,21 @@ class CompaniesList extends PureComponent {
     return (
       <Fragment key={key} >
         <style jsx>{styles}</style>
-        {companies.map(_company => (
+        {this.props.companiesFromProps && this.props.companiesFromProps.map(company => (
+          <div key={company.id} className="col-xs-12 col-md-4">
+            <CompaniesListItem
+              key={company.id}
+              company={company}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              isCompanyPage={isCompanyPage}
+              currentLanguage={currentLanguage}
+              onOpenTooltip={onOpenTooltip}
+              onCloseTooltip={onCloseTooltip}
+            />
+          </div>
+        ))}
+        {!this.props.companiesFromProps && companies.map(_company => (
           <div key={_company.id} className="col-xs-12 col-md-4">
             <CompaniesListItem
               key={_company.id}
@@ -89,7 +105,8 @@ class CompaniesList extends PureComponent {
       onMouseLeave,
       onOpenTooltip,
       onCloseTooltip,
-      selectedCountry
+      selectedCountry,
+      companiesFromProps
     } = this.props;
     // const companies = this.renderCompanies();
 
@@ -99,23 +116,37 @@ class CompaniesList extends PureComponent {
         <div className="content">
           {loading && <Spinner />}
 
-          {!companies.length &&
+          {companiesFromProps && companiesFromProps.map(company => (
+            <CompaniesListItem
+              key={company.id}
+              company={company}
+              currentLanguage={currentLanguage}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              isCompanyPage={isCompanyPage}
+              onOpenTooltip={onOpenTooltip}
+              onCloseTooltip={onCloseTooltip}
+              selectedCountry={selectedCountry}
+            />
+          ))}
+
+          {!companiesFromProps && !companies.length &&
             <div className="not-found">
               <span>No companies found under this criteria</span>
             </div>}
-            {companies.map(company => (
-              <CompaniesListItem
-                key={company.id}
-                company={company}
-                currentLanguage={currentLanguage}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-                isCompanyPage={isCompanyPage}
-                onOpenTooltip={onOpenTooltip}
-                onCloseTooltip={onCloseTooltip}
-                selectedCountry={selectedCountry}
-              />
-            ))}
+          {!companiesFromProps && companies.map(company => (
+            <CompaniesListItem
+              key={company.id}
+              company={company}
+              currentLanguage={currentLanguage}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              isCompanyPage={isCompanyPage}
+              onOpenTooltip={onOpenTooltip}
+              onCloseTooltip={onCloseTooltip}
+              selectedCountry={selectedCountry}
+            />
+          ))}
         </div>
       </div>
     );

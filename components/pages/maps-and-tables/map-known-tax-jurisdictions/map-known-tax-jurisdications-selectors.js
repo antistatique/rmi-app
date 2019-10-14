@@ -39,7 +39,7 @@ export const getPaths = createSelector(
           properties: {
             ...geography.properties,
             id: index,
-            isClickable: false,
+            isClickable: !(Object.keys(country).length === 0 && country.constructor === Object),
             isSelected: false,
             isHighlighted: country.country ? hihglightedCountries.includes(country.country.code) : false,
             countryId: country.country ? country.country.id : 1,
