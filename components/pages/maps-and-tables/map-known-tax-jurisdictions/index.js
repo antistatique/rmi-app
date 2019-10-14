@@ -8,6 +8,7 @@ export default connect(
   state => ({
     paths: getPaths(state),
     selectedCountry: state.mapsAndTables.knownTaxFilters.country,
+    selectedCompany: state.mapsAndTables.knownTaxFilters.company,
     companies: state.companies.list
   }),
   {
