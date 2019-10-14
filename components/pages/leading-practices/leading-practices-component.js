@@ -13,6 +13,7 @@ class LeadingPracticesPage extends PureComponent {
   static propTypes = {
     companies: PropTypes.array.isRequired,
     indicators: PropTypes.array.isRequired,
+    topics: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     leadingPracticesPagination: PropTypes.object.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
@@ -42,10 +43,15 @@ class LeadingPracticesPage extends PureComponent {
     this.props.setLeadingPracticesFilters({ company: selectedCompany.value });
   }
 
+  handleTopic = (selectedTopic) => {
+    this.props.setPaginationPage(1);
+    this.props.setLeadingPracticesFilters({ topic: selectedTopic.value });
+  }
+
   render() {
-    const { companies, indicators, leadingPracticesPagination, filters } = this.props;
+    const { companies, indicators, leadingPracticesPagination, filters, topics } = this.props;
     const { size, page, limit } = leadingPracticesPagination;
-    const { indicator, company } = filters;
+    const { indicator, company, topic } = filters;
 
     return (
       <div className="c-leading-practices-page">
@@ -75,7 +81,7 @@ class LeadingPracticesPage extends PureComponent {
           <div className="l-layout">
             <div className="leading-practices-container">
               <div className="row">
-                <div className="col-xs-12 col-sm-8">
+                <div className="col-xs-12 col-sm-4">
                   <div className="filters-container">
                     <Select
                       onChange={this.handleIndicator}
@@ -83,6 +89,18 @@ class LeadingPracticesPage extends PureComponent {
                       placeholder="Select an indicator"
                       theme="light"
                       selectedValue={indicator}
+                      className="-underline"
+                    />
+                  </div>
+                </div>
+                <div className="col-xs-12 col-sm-4">
+                  <div className="filters-container">
+                    <Select
+                      onChange={this.handleTopic}
+                      options={topics}
+                      placeholder="Select a topic"
+                      theme="light"
+                      selectedValue={topic}
                       className="-underline"
                     />
                   </div>
