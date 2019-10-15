@@ -21,7 +21,7 @@ $close-font-size: $font-size-regular * 1.5 !default;
   padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
   border: $alert-border-width solid transparentize($color-1, 0.8);
-  background: transparent;
+  background: white;
 
   :global(a) {
     text-decoration: underline;
