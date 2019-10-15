@@ -72,7 +72,7 @@ class CompaniesDetailMineSitesList extends PureComponent {
           </div>}
         {!!assetsSoldAfterMay.length &&
           <div className="table assets-sold-after-may-table">
-            <h3 className="table-title">Assets sold during the assessment period</h3>
+            <h3 className="table-title -big">Assets sold during the assessment period</h3>
             <Gradient className="-dark" >
               <Table
                 columns={ASSETS_SOLD_AFTER_MAY_TABLE_COLUMNS}
