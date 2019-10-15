@@ -11,10 +11,8 @@
 
   .splash {
     position: relative;
-    width: 100vw;
-    height: 30vh;
-    min-height: 200px;
-    max-height: 350px;
+    width: 100%;
+    height: 300px;
     left: 50%;
     right: 50%;
     margin-top: 60px;
@@ -46,20 +44,19 @@
       margin-top: 25px;
     }
 
+    @media #{$mq-sm} {
+      height: 400px;
+    }
+
     @media #{$mq-md} {
-      height: 40vh;
       padding: 80px 60px;
-      max-height: 500px;
       width: 100%;
       left: unset;
       right: unset;
       margin-top: unset;
       margin-left: unset;
       margin-right: unset;
-    }
-
-    @media #{$mq-lg} {
-      height: 60vh;
+      height: 500px;
     }
   }
 
