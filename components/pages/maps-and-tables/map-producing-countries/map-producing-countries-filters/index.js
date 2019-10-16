@@ -7,7 +7,7 @@ import isEmpty from 'lodash/isEmpty';
 import { getCompanies, getCompany, resetCurrentCompany } from 'modules/companies/companies-actions';
 
 import MapProducingCountriesFilters from './map-producing-countries-filters-component';
-import { getUniqCompanies } from './map-producing-countries-filters-selectors';
+import { getUniqCompanies, getCountries } from './map-producing-countries-filters-selectors';
 import { setProducingCountriesFilters } from '../../maps-and-tables-actions';
 
 class MapProducingCountriesFiltersContainer extends PureComponent {
@@ -27,7 +27,7 @@ class MapProducingCountriesFiltersContainer extends PureComponent {
 
     if (filtersChanged && (filters.company && nextFilters.company === undefined)) {
       this.props.resetCurrentCompany();
-      this.props.getCompanies({ include: 'producing-countries' });
+      this.props.getCompanies({ include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'selected-mine-sites', 'producing-countries'].join(',') });
     } else if (filtersChanged && ((!isEmpty(filters) && isEmpty(nextFilters)) || (filters.company === undefined && nextFilters.company !== undefined))) {
       this.props.getCompany({
         companyId: nextFilters.company,
@@ -46,8 +46,10 @@ class MapProducingCountriesFiltersContainer extends PureComponent {
 export default connect(
   state => ({
     companies: getUniqCompanies(state),
+    countries: getCountries(state),
     filters: state.mapsAndTables.producingCountriesFilters,
-    selectedCompany: state.mapsAndTables.producingCountriesFilters.company
+    selectedCompany: state.mapsAndTables.producingCountriesFilters.company,
+    selectedCountry: state.mapsAndTables.producingCountriesFilters.country
   }),
   {
     setProducingCountriesFilters,

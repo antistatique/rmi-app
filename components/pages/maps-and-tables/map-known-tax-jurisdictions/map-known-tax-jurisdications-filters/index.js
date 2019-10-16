@@ -6,7 +6,7 @@ import isEqual from 'lodash/isEqual';
 import { getTaxJurisdictions } from 'modules/companies/companies-actions';
 
 import MapTaxJurisdicitonsFilters from './map-known-tax-jurisdications-filters-component';
-import { getCompanies } from './map-known-tax-jurisdications-filters-selectors';
+import { parseCompanies, getCountries } from './map-known-tax-jurisdications-filters-selectors';
 import { setKnownTaxFilters } from '../../maps-and-tables-actions';
 
 class MapTaxJurisdictionsFiltersContainer extends PureComponent {
@@ -36,9 +36,11 @@ class MapTaxJurisdictionsFiltersContainer extends PureComponent {
 
 export default connect(
   state => ({
-    companies: getCompanies(state),
+    companies: parseCompanies(state),
+    countries: getCountries(state),
     filters: state.mapsAndTables.knownTaxFilters,
-    selectedCompany: state.mapsAndTables.knownTaxFilters.company
+    selectedCompany: state.mapsAndTables.knownTaxFilters.company,
+    selectedCountry: state.mapsAndTables.knownTaxFilters.country
   }),
   {
     setKnownTaxFilters,

@@ -8,6 +8,8 @@ import { EXCLUDED_COUNTRIES } from 'constants/map';
 const companies = state => state.companies.list;
 const currentCompany = state => state.companies.currentCompany;
 const selectedCompany = state => state.companiesPage.selectedCompany;
+const filteredSelectedCompany = state => state.mapsAndTables.producingCountriesFilters.company;
+const selectedCountry = state => state.mapsAndTables.producingCountriesFilters.country;
 
 export const getSelectedCompany = createSelector(
   [companies, selectedCompany],
@@ -15,21 +17,26 @@ export const getSelectedCompany = createSelector(
 );
 
 export const getPaths = createSelector(
-  [companies, currentCompany, getSelectedCompany],
-  (_companies = [], _currentCompany, _company = {}) => {
+  [companies, currentCompany, getSelectedCompany, filteredSelectedCompany, selectedCountry],
+  (_companies = [], _currentCompany, _company = {}, _selectedCompany, _selectedCountry) => {
     if (_currentCompany) {
       return paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
         .map((geography, index) => {
           const countries = _currentCompany['producing-countries'];
           const iso = geography.properties.ISO_A3;
-          const country = countries.find(currentCountry => currentCountry.code === iso) || {};
+          let country = {};
+          if (_selectedCountry) {
+            country = countries.find(currentCountry => currentCountry.code === iso && currentCountry.id === _selectedCountry) || {};
+          } else {
+            country = countries.find(currentCountry => currentCountry.code === iso) || {};
+          }
 
           return {
             ...geography,
             properties: {
               ...geography.properties,
               id: index,
-              isClickable: false,
+              isClickable: !(Object.keys(country).length === 0 && country.constructor === Object),
               isSelected: false,
               isHighlighted: false,
               countryId: country.id,
@@ -49,7 +56,12 @@ export const getPaths = createSelector(
         }));
         const uniqCountries = uniqBy(finalCountries, 'id');
         const iso = geography.properties.ISO_A3;
-        const country = uniqCountries.find(uniqCountry => uniqCountry.code === iso) || {};
+        let country = {};
+        if (_selectedCountry) {
+          country = uniqCountries.find(uniqCountry => uniqCountry.code === iso && uniqCountry.id === _selectedCountry) || {};
+        } else {
+          country = uniqCountries.find(uniqCountry => uniqCountry.code === iso) || {};
+        }
 
         const {
           country: companyCountry,
@@ -67,7 +79,7 @@ export const getPaths = createSelector(
           properties: {
             ...geography.properties,
             id: index,
-            isClickable: false,
+            isClickable: !(Object.keys(country).length === 0 && country.constructor === Object),
             isSelected: false,
             isHighlighted: hihglightedCountries.includes(country.code),
             countryId: country.id,

@@ -8,6 +8,8 @@ import { EXCLUDED_COUNTRIES } from 'constants/map';
 const taxJurisdictions = state => state.companies.taxJurisdictions;
 const companies = state => state.companies.list;
 const selectedCompany = state => state.companiesPage.selectedCompany;
+const filterSelectedCompany = state => state.mapsAndTables.knownTaxFilters.company;
+const selectedCountry = state => state.mapsAndTables.knownTaxFilters.country;
 
 export const getSelectedCompany = createSelector(
   [companies, selectedCompany],
@@ -15,13 +17,20 @@ export const getSelectedCompany = createSelector(
 );
 
 export const getPaths = createSelector(
-  [taxJurisdictions, getSelectedCompany],
-  (_taxJurisdictions = [], _company = {}) =>
+  [taxJurisdictions, getSelectedCompany, filterSelectedCompany, selectedCountry],
+  (_taxJurisdictions = [], _company = {}, _selectedCompany, _selectedCountry) =>
     paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
       .map((geography, index) => {
         const selectedTaxJurisdictions = uniqBy(_taxJurisdictions, 'country.id');
         const iso = geography.properties.ISO_A3;
-        const country = selectedTaxJurisdictions.find(taxJurisdiction => taxJurisdiction.country.code === iso) || {};
+        let country = {};
+        if (_selectedCountry) {
+          country = selectedTaxJurisdictions.filter(taxJurisdiction => taxJurisdiction.country.id === _selectedCountry).find(taxJurisdiction => taxJurisdiction.country.code === iso) || {};
+        } else if (_selectedCompany) {
+          country = selectedTaxJurisdictions.find(taxJurisdiction => taxJurisdiction.country.code === iso && taxJurisdiction.company.id === _selectedCompany) || {};
+        } else {
+          country = selectedTaxJurisdictions.find(taxJurisdiction => taxJurisdiction.country.code === iso) || {};
+        }
 
         const {
           country: companyCountry,
@@ -39,7 +48,7 @@ export const getPaths = createSelector(
           properties: {
             ...geography.properties,
             id: index,
-            isClickable: false,
+            isClickable: !(Object.keys(country).length === 0 && country.constructor === Object),
             isSelected: false,
             isHighlighted: country.country ? hihglightedCountries.includes(country.country.code) : false,
             countryId: country.country ? country.country.id : 1,
