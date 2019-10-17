@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Router, Link } from 'routes';
+import { Link } from 'routes';
 import Scrollspy from 'components/common/scroll-spy';
 
 // components
@@ -20,9 +20,7 @@ class CompaniesDetailHeader extends PureComponent {
 
   render() {
     const { company, currentLanguage } = this.props;
-    const { name, listings } = company;
-    const parsedListings = (listings || '').split(' - ')
-      .map(list => list.split(':'));
+    const { id, name, 'extra-languages': extraLanguages } = company;
 
     return (
       <div className="c-companies-detail-header">
@@ -51,6 +49,24 @@ class CompaniesDetailHeader extends PureComponent {
             </div>
             <div className="col-xs-4 col-sm-7 col-md-6">
               <div className="right-side">
+                { extraLanguages.length !== 0 &&
+                  <div className="extra-languages">
+                    This page is available in&nbsp;
+                    { extraLanguages.map((extraLanguage, index) => (
+                      <span key={index}>
+                        <Link
+                          route="company"
+                          params={{
+                            language: extraLanguage['web-code'],
+                            company: id
+                          }}
+                        >
+                          <a>{extraLanguage.name} {extraLanguages.length - 1 === index ? '' : '&'} </a>
+                        </Link>
+                      </span>
+                    ))}
+                  </div>
+                }
                 <div className="pdf-print">
                   <button
                     className="print-btn"
