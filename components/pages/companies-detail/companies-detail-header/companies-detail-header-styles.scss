@@ -95,6 +95,18 @@
     display: flex;
     justify-content: flex-end;
 
+    > .extra-languages {
+      flex-grow: 1;
+      font-size: $font-size-small;
+      color: $color-7;
+      padding: 0 1.5em;
+
+      a {
+        color: inherit;
+        font-weight: $font-weight-bold;
+      }
+    }
+
     > .pdf-print {
       display: flex;
       align-items: center;

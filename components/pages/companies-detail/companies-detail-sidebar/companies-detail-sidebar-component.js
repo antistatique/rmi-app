@@ -1,11 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'routes';
 import groupBy from 'lodash/groupBy';
 
 // components
 import Spinner from 'components/common/spinner';
-import Alert from 'components/common/alert';
 
 // styles
 import styles from './companies-detail-sidebar-styles.scss';
@@ -16,10 +14,8 @@ class CompaniesDetailSidebar extends PureComponent {
   render() {
     const { company } = this.props;
     const {
-      id,
       country,
       'secondary-country': secondaryCountry,
-      sector,
       'producing-countries': countries,
       'company-country-tax-jurisdictions': taxJurisdictions,
       'government-ownership-country': governmentOwnership,
@@ -32,7 +28,6 @@ class CompaniesDetailSidebar extends PureComponent {
       'revenues-date': revenuesDate,
       'number-workers-date': workersDate,
       'number-employees-date': employeesDate,
-      'extra-languages': extraLanguages,
       'listings': stockExchange,
     } = company;
     const groupedFatalityReports = groupBy(fatalityReports, 'year');
@@ -45,28 +40,6 @@ class CompaniesDetailSidebar extends PureComponent {
         {!Object.keys(company).length && <Spinner />}
         {Object.keys(company).length &&
           <div className="l-layout">
-            { extraLanguages.length !== 0 &&
-            <div className="row">
-              <div className="col-xs-12">
-                <Alert variant="info">
-                  This page is available in&nbsp;
-                  { extraLanguages.map((extraLanguage, index) => (
-                    <span key={index}>
-                      <Link
-                        route="company"
-                        params={{
-                          language: extraLanguage['web-code'],
-                          company: id
-                        }}
-                      >
-                        <a>{extraLanguage.name} {extraLanguages.length - 1 === index ? '' : '&'} </a>
-                      </Link>
-                    </span>
-                  ))}
-                </Alert>
-              </div>
-            </div>
-            }
             <div className="definitions-container" id="summary">
               <div className="row mb-3">
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
