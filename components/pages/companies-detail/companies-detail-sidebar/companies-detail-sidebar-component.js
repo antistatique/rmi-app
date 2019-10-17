@@ -82,7 +82,7 @@ class CompaniesDetailSidebar extends PureComponent {
                   {!!stockExchange &&
                     <div className="definition-item">
                       <div className="definition-key">Stock Exchange Listings</div>
-                      <div className="definition-value">{stockExchange}</div>
+                      <div className="definition-value" dangerouslySetInnerHTML={{'__html': stockExchange.replace(/: /g, ':&nbsp;') }}></div>
                     </div>}
                 </div>
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
