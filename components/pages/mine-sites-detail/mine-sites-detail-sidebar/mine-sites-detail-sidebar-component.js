@@ -2,8 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'routes';
 
-import Alert from 'components/common/alert';
-
 class MineSitesDetailSidebar extends PureComponent {
   static propTypes = {
     mineSite: PropTypes.object.isRequired,
@@ -13,41 +11,17 @@ class MineSitesDetailSidebar extends PureComponent {
   render() {
     const { currentLanguage, mineSite } = this.props;
     const {
-      id,
       aliases,
       miningType,
       products,
       openingYear,
       acquisitionYear,
-      extraLanguages,
       fatalityReports,
       companiesShare
     } = mineSite;
 
     return (
       <div className="c-detail-sidebar">
-        {extraLanguages.length !== 0 &&
-          <div className="row">
-            <div className="col-xs-12">
-              <Alert variant="info">
-                This page is available in&nbsp;
-                { extraLanguages.map((extraLanguage, index) => (
-                  <span>
-                    <Link
-                      route="mine-sites"
-                      params={{
-                        language: extraLanguage['web-code'],
-                        mineSite: id
-                      }}
-                    >
-                      <a>{extraLanguage.name} {extraLanguages.length - 1 === index ? '' : '&'} </a>
-                    </Link>
-                  </span>
-                ))}
-              </Alert>
-            </div>
-          </div>
-        }
         <div className="definitions-container">
           {/* TODO: Company's share: */}
           <div className="row">
