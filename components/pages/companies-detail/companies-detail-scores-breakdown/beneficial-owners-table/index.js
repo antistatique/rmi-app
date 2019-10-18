@@ -10,6 +10,8 @@ import {
   resetPagination
 } from 'modules/beneficial-owners/beneficial-owners-actions';
 
+import { getSortedBeneficialOwners } from './beneficial-owners-table-selectors';
+
 import BeneficialOwnersTable from './beneficial-owners-table-component';
 
 class BeneficialOwnerseTableContainer extends PureComponent {
@@ -45,7 +47,7 @@ class BeneficialOwnerseTableContainer extends PureComponent {
 
 export default connect(
   state => ({
-    beneficialOwners: state.beneficialOwners.list,
+    beneficialOwners: getSortedBeneficialOwners(state),
     pagination: state.beneficialOwners.pagination,
     company: state.companies.currentCompany || {},
     beneficialOwnersDate: (state.companies.currentCompany || {})['beneficial-owners-date']
