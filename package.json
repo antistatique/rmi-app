@@ -71,6 +71,7 @@
     "styled-jsx-css-loader": "^0.3.0",
     "styled-jsx-plugin-postcss": "^0.1.2",
     "styled-jsx-plugin-sass": "0.2.2",
+    "table-resolver": "^4.1.1",
     "topojson-client": "3.0.0",
     "webpack": "^3.1.0",
     "wsdm-tooltip": "0.1.2"
