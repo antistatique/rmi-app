@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
-import { getCompanyCountryColor } from '../../companies/companies-helpers';
+import { getCountryColor } from './map-stock-exchanges-helpers';
 import Filters from './map-stock-exchanges-filters';
 
 class MapStockExchanges extends PureComponent {
@@ -18,7 +18,7 @@ class MapStockExchanges extends PureComponent {
 
   static defaultProps = { selectedCountry: null, selectedCompany: null }
 
-  static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
+  static setCountryColor = geographyProperties => getCountryColor(geographyProperties);
   render() {
     return (
       <div className="c-map-stock-exchanges">
