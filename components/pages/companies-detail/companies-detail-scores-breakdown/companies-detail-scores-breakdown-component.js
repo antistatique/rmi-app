@@ -122,6 +122,9 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
+                <h3 className="title mb-3 text-left">Results per measurement areas</h3>
+              </div>
+              <div className="col-xs-12">
                 {!printable && phone && <Slider />}
                 {printable && <PrintableMeasurements />}
                 {!printable && !phone && <CompaniesDetailOverallMeasurements />}
