@@ -5,7 +5,8 @@
 
   > :global(thead) {
     :global(th) {
-      padding: 15px;
+      padding-top: 15px;
+      padding-bottom: 15px;
       text-align: left;
       vertical-align: middle;
       font-weight: $font-weight-light;
