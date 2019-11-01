@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
 import Filters from './map-known-tax-jurisdications-filters';
-import { getCompanyCountryColor } from '../../companies/companies-helpers';
+import { getCountryColor } from './map-known-tax-jurisdictions-helpers';
 
 class MapTaxJurisdictions extends PureComponent {
   static propTypes = {
@@ -18,7 +18,7 @@ class MapTaxJurisdictions extends PureComponent {
 
   static defaultProps = { selectedCountry: null, selectedCompany: null }
 
-  static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
+  static setCountryColor = geographyProperties => getCountryColor(geographyProperties);
   render() {
     return (
       <div className="c-map-tax-jurisdictions">
