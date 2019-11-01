@@ -56,11 +56,6 @@ class MineSitesDetailAssessmentsTable extends PureComponent {
                 onSearch={this.handleSearch}
                 placeholder="Search for a document..."
               />
-              <Select
-                placeholder="Select quantity"
-                options={TABLE_SIZE_VALUES}
-                onChange={this.handleSize}
-              />
             </div>
             <Table
               columns={ASSESSMENTS_TABLE_COLUMNS}
