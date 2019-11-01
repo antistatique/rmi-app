@@ -30,7 +30,7 @@ class MapsAndTables extends PureComponent {
                 <div label="Producing Countries">
                   <MapProducingCountries />
                 </div>
-                <div label="Known Tax Jurisdictions">
+                <div label="Tax Jurisdictions (known)">
                   <MapTaxJurisdictions />
                 </div>
                 <div label="Stock Exchanges">

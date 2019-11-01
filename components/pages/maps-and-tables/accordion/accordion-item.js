@@ -21,7 +21,7 @@ class MapsAndTablesAccordionItem extends PureComponent {
 
     return (
       <div style={{ borderBottom: '1px solid white' }}>
-        <div onClick={onClick} style={{ cursor: 'pointer', fontSize: '20px', marginBottom: '60px', marginTop: '60px' }}>
+        <div onClick={onClick} style={{ cursor: 'pointer', fontSize: '24px', marginBottom: '60px', marginTop: '60px' }}>
           <span style={{ color: 'white' }}>{label}</span>
           <div style={{ float: 'right', color: 'white' }}>
             {!isOpen && <span>&#9660;</span>}
