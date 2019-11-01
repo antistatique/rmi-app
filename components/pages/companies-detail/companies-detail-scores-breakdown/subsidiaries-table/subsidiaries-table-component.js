@@ -47,7 +47,7 @@ class SubsidiariesTable extends PureComponent {
     return (
       <div className="c-subsidiaries-table">
         <style jsx>{styles}</style>
-        <h3 id="known-subsidiaries" className="title">Known Subsidiaries</h3>
+        <h3 id="known-subsidiaries" className="title">Subsidiaries (known)</h3>
         <div className="filters-container">
           <Search
             onSearch={this.handleSearch}

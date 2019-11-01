@@ -136,7 +136,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <h2 id="detailed-results" className="text-left">
-                  Detailed results
+                  Results per indicator
                 </h2>
               </div>
             </div>
@@ -184,7 +184,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <h2 id="tailings" className="text-left">
-                  Tailings
+                  Tailings (known)
                 </h2>
               </div>
             </div>
@@ -215,7 +215,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
 
             <div className="row">
               <div className="col-xs-12">
-                <h3 id="known-tax-jurisdictions" className="title">Known Tax Jurisdictions</h3>
+                <h3 id="known-tax-jurisdictions" className="title">Tax Jurisdictions (known)</h3>
                 <div className="mt-3 content-columns-2 content-columns-md-4">
                   {knownTaxJurisdictions.map((knownTaxJurisdiction) => (
                     <p key={knownTaxJurisdiction.id}>{knownTaxJurisdiction.country}</p>
@@ -225,7 +225,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
             <div className="row">
               <div className="col-xs-12">
-                <h3 id="investorstate-investment-disputes" className="title">Investor/State investment disputes
+                <h3 id="investorstate-investment-disputes" className="title">Investor / State Disputes
                   <div className="title -small d-inline ml-1">(involvements since 2014)</div>
                 </h3>
                 {investmentDisputes.length ?

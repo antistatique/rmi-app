@@ -98,7 +98,7 @@ class CompaniesDetailHeader extends PureComponent {
                     },
                     {
                       'anchor': 'detailed-results',
-                      'label': 'Detailed Results',
+                      'label': 'Results per indicator',
                     },
                     {
                       'anchor': 'mine-site-results',
@@ -110,31 +110,31 @@ class CompaniesDetailHeader extends PureComponent {
                     },
                     {
                       'anchor': 'known-closed-mine-sites',
-                      'label': 'Known closed mine sites',
+                      'label': 'Closed mine sites (known)',
                     },
                     {
                       'anchor': 'tailings',
-                      'label': 'Tailings',
+                      'label': 'Tailings (known)',
                     },
                     {
                       'anchor': 'known-shareholders',
-                      'label': 'Known Shareholders',
+                      'label': 'Shareholders (known)',
                     },
                     {
                       'anchor': 'known-subsidiaries',
-                      'label': 'Known Subsidiaries',
+                      'label': 'Subsidiaries (known)',
                     },
                     {
                       'anchor': 'known-beneficial-owners',
-                      'label': 'Known Beneficial Owners',
+                      'label': 'Beneficial Owners (known)',
                     },
                     {
                       'anchor': 'known-tax-jurisdictions',
-                      'label': 'Known Tax Jurisdictions',
+                      'label': 'Tax Jurisdictions (known)',
                     },
                     {
                       'anchor': 'investorstate-investment-disputes',
-                      'label': 'Investor/State investment disputes',
+                      'label': 'Investor / State Disputes',
                     }
                   ]}
                   currentClassName="active"
