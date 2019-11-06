@@ -36,8 +36,13 @@ export const MINE_SITES_TABLE_COLUMNS = [
     }
   },
   {
-    property: 'company-share',
-    header: { label: 'Company Share' }
+    property: 'companiesShare',
+    header: { label: 'Company\'s share (%)' },
+    cell: {
+      formatters: [
+        companiesShare => companiesShare.map(companyShare => companyShare['company-share'])
+      ]
+    }
   },
   {
     property: 'mining-type',

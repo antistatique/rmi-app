@@ -10,7 +10,7 @@ import initialState from './table-mine-sites-initial-state';
 import * as reducers from './table-mine-sites-reducers';
 
 import { setPaginationPage, setPaginationLimit, resetPagination, setFilters, resetFilters } from './table-mine-sites-actions'
-import { getCompanies, parseCountries } from './table-mine-sites-selectors';
+import { getCompanies, parseCountries, getMineSites } from './table-mine-sites-selectors';
 import TableMineSitesComponent from './table-mine-sites-component';
 
 export { actions, reducers, initialState };
@@ -43,7 +43,7 @@ class TableMineSitesContainer extends PureComponent {
 
 export default connect(
   state => ({
-    mineSites: state.mineSites.list,
+    mineSites: getMineSites(state),
     pagination: state.tableMineSites.pagination,
     filters: state.tableMineSites.filters,
     selectedCompany: state.tableMineSites.filters.company,

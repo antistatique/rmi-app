@@ -33,3 +33,16 @@ export const parseCountries = createSelector(
   [countries],
   (_countries = []) => _countries.map(country => ({ label: country.name, value: country.id }))
 );
+
+export const getMineSites = createSelector(
+  [mineSites],
+  (_mineSites = []) => {
+    _mineSites.map((mineSite, index) => {
+      const companiesIds = mineSite.companies.map(company => parseInt(company.id, 10));
+      const companiesShare = mineSite['company-mine-sites'].filter(companyMineSite => companiesIds.includes(companyMineSite['company-id']));
+      _mineSites[index].companiesShare = companiesShare;
+    });
+
+    return _mineSites;
+  }
+);
