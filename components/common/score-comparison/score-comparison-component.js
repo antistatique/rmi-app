@@ -86,14 +86,13 @@ class ScoreComparison extends PureComponent {
             style={{ left: `calc(${ScoreComparison.getWidth(max)} + 1px)` }}
             onClick={this.handleClickMax}
           >
-            <div className={`${(!this.state.maxScoreDisplay && !phone) ? 'legend' : 'legend closed'}`}>
-              <Icon name="info" />
-              <span>Max</span>
+            <div className={`${(!this.state.maxScoreDisplay && !phone) ? 'legend legend-max' : 'legend legend-max closed'}`}>
+              <span>&#9660; Max</span>
               <span>{fixedValue(max)}</span>
             </div>
             <div className={`${(this.state.maxScoreDisplay || phone) ? 'legend-popup opened' : 'legend-popup'}`}>
               <div className="header">
-                <span>Max</span>
+                <span>&#9650; Max</span>
                 <span>{fixedValue(max)}</span>
               </div>
               <div className="content">

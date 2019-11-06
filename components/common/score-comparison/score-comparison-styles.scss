@@ -69,6 +69,11 @@ $bar-height: 40px;
       padding: 0 0 0 10px;
       transition: opacity 1s;
       opacity: 1;
+      text-align: right;
+
+      &.legend-max {
+        width: 70px;
+      }
 
       &.closed {
         display: block;
