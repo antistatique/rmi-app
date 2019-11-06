@@ -12,7 +12,6 @@ import Companies from 'components/pages/companies';
 // actions
 import { getCompanies } from 'modules/companies/companies-actions';
 import { getCountries } from 'modules/countries/countries-actions';
-import { getCountriesWithCompanies } from 'components/pages/companies/companies-filters/companies-filters-actions';
 import { getCommodities } from 'modules/commodities/commodities-actions';
 
 class CompaniesPage extends Page {
@@ -22,7 +21,7 @@ class CompaniesPage extends Page {
     const state = context.store.getState();
 
     await context.store.dispatch(getCompanies({
-      include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'selected-mine-sites'].join(','),
+      include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'selected-mine-sites', 'producing-countries'].join(','),
       sort: 'name'
     }));
 
@@ -30,13 +29,6 @@ class CompaniesPage extends Page {
       'fields[commodities]': ['name'].join(','),
       'filter[used]': true,
       sort: 'name'
-    }));
-
-    // populates country filter
-    await context.store.dispatch(getCountriesWithCompanies({
-      'fields[countries]': ['name', 'code'].join(','),
-      'page[size]': 1000,
-      'filter[hasCompanies]': true
     }));
 
 

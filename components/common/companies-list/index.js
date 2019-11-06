@@ -21,8 +21,8 @@ class CompaniesListContainer extends PureComponent {
 
     const filtersChanged = !isEqual(filters, nextFilters);
 
-    if (filtersChanged || nextProps.companies.length === 0) {
-      this.props.getCompanies({ include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') });
+    if (filtersChanged || (nextProps.companies.length === 0 && filters.country === undefined)) {
+      this.props.getCompanies({ include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'producing-countries'].join(',') });
     }
   }
 
