@@ -18,7 +18,7 @@
     margin-top: 60px;
     margin-left: -50vw;
     margin-right: -50vw;
-    padding: 40px 30px;
+    padding: 100px 30px 40px;
     background-image: url('/static/images/homepage_background.jpg');
     background-image: image-set(
                         url('/static/images/homepage_background.jpg') 1x, 
@@ -49,7 +49,7 @@
     }
 
     @media #{$mq-md} {
-      padding: 80px 60px;
+      padding: 110px 60px 80px;
       width: 100%;
       left: unset;
       right: unset;
