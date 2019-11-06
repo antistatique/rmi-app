@@ -6,7 +6,6 @@ import { animateScroll as scroll, scroller } from 'react-scroll';
 class ScrollSpy extends PureComponent {
   static propTypes = {
     items: PropTypes.array.isRequired,
-    currentClassName: PropTypes.string.isRequired,
     offset: PropTypes.number
   };
 
@@ -105,6 +104,7 @@ class ScrollSpy extends PureComponent {
         selectedValue={currentTarget}
         onChange={this.handleChange}
         className=""
+        hideResetButton
       />
     );
   }
