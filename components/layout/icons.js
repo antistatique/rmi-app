@@ -4,6 +4,10 @@ class Icons extends PureComponent {
   render() {
     return (
       <svg aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
+        <symbol id="icon-small-flag" viewBox="0 0 100 100">
+          <title>small-flag</title>
+          <path fill="#FFFFFF" stroke="none" d=" M 67.95 5 Q 64 15.2 45.75 15.5 36.8416015625 15.648828125 31.3 18.15 26.11328125 20.497265625 23.45 25.7 21.890234375 21.96015625 18.7 22.4 15.5173828125 22.84375 14.75 25.1 13.970703125 27.4009765625 15.3 29.55 L 45.45 92.05 Q 46.95 96.25 51.55 94.45 55.5 92.35 53.65 88.5 L 40.3 60.65 Q 44.55 50.8 62.8 50.5 80.75 50.2 85 40 L 67.95 5 Z" />
+        </symbol>
         {/* go back large arrow */}
         <symbol id="icon-large-arrow" viewBox="0 0 106 32">
           <title>arrow</title>
