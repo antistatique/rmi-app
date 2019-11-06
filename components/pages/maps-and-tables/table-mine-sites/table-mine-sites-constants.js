@@ -62,6 +62,21 @@ export const MINE_SITES_TABLE_COLUMNS = [
         }
       ]
     }
+  },
+  {
+    property: 'commodities',
+    header: { label: 'Products' },
+    cell: {
+      formatters: [
+        (name, { rowData }) => {
+          const products = rowData.commodities.map(commodity => commodity.name);
+
+          return (
+            <span>{products.join(', ')}</span>
+          );
+        }
+      ]
+    }
   }
 ];
 
