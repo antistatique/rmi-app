@@ -84,21 +84,9 @@ class LeadingPracticesPage extends PureComponent {
                 <div className="col-xs-12 col-sm-4">
                   <div className="filters-container">
                     <Select
-                      onChange={this.handleIndicator}
-                      options={indicators}
-                      placeholder="Select an indicator"
-                      theme="light"
-                      selectedValue={indicator}
-                      className="-underline"
-                    />
-                  </div>
-                </div>
-                <div className="col-xs-12 col-sm-4">
-                  <div className="filters-container">
-                    <Select
                       onChange={this.handleTopic}
                       options={topics}
-                      placeholder="Select a topic"
+                      placeholder="Select a Topic"
                       theme="light"
                       selectedValue={topic}
                       className="-underline"
@@ -110,7 +98,7 @@ class LeadingPracticesPage extends PureComponent {
                     <Select
                       onChange={this.handleCompany}
                       options={companies}
-                      placeholder="Select a company"
+                      placeholder="Select a Company"
                       theme="light"
                       selectedValue={company}
                       className="-underline"
