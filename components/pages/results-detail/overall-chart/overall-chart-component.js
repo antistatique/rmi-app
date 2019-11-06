@@ -21,9 +21,11 @@ class OverallChart extends PureComponent {
       {
         'label': 'Collective Best Score (2020)',
         'value': bestPracticeScore,
+        'strokeReferenceLine': '#c4122c'
       }, {
         'label': 'Collective Best Score (2018)',
         'value': previousBestPracticeScore,
+        'strokeReferenceLine': '#9c9d9e'
       }
     ];
 

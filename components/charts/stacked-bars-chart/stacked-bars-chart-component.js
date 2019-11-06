@@ -144,7 +144,7 @@ class StackedBarsChart extends PureComponent {
               <ReferenceLine
                 key={line.label}
                 y={line.value}
-                stroke={strokeReferenceLine}
+                stroke={line.strokeReferenceLine ? line.strokeReferenceLine : strokeReferenceLine}
                 strokeDasharray={strokeDasharrayReferenceLine}
                 strokeWidth={strokeWidth}
                 label={line.label}
