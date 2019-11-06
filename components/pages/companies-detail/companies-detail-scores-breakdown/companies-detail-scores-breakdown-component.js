@@ -101,14 +101,14 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                       key={breakdownScore.id}
                       data={[breakdownScore, previousBreakdownScores[index]]}
                       colors={measurementColors[index]}
-                      className={`mb-2 ${index < (breakdownScores.length-1) ? 'mr-4' : ''}`}
+                      className={`mb-2 ${index < (breakdownScores.length - 1) ? 'mr-4' : ''}`}
                       style={{ width: `${100 / breakdownScores.length}%` }}
                     />
                   ))}
                 </div>
                 { previousBreakdownScores.length > 0 &&
                   <div className="d-flex align-items-center mt-2 mb-3">
-                    <ToggleSwitch onStateChanged={this.handleToggleClick}/>
+                    <ToggleSwitch onStateChanged={this.handleToggleClick} />
                     <span className="ml-2">Compare with 2018 results</span>
                   </div>
                 }
@@ -208,7 +208,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row between-md">
               <div className="col-xs-12 col-md-5">
                 <ShareholdersTable />
-                <div className="mb-4"></div>
+                <div className="mb-4" />
                 <BeneficialOwnersTable />
               </div>
               <div className="col-xs-12 col-md-5">
@@ -220,7 +220,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               <div className="col-xs-12">
                 <h3 id="known-tax-jurisdictions" className="title">Tax Jurisdictions (known)</h3>
                 <div className="mt-3 content-columns-2 content-columns-md-4">
-                  {knownTaxJurisdictions.map((knownTaxJurisdiction) => (
+                  {knownTaxJurisdictions.map(knownTaxJurisdiction => (
                     <p key={knownTaxJurisdiction.id}>{knownTaxJurisdiction.country}</p>
                   ))}
                 </div>
@@ -228,7 +228,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
             <div className="row">
               <div className="col-xs-12">
-                <h3 id="investorstate-investment-disputes" className="title">Investor / State Disputes
+                <h3 className="title">Investor / State Disputes
                   <div className="title -small d-inline ml-1">(involvements since 2014)</div>
                 </h3>
                 {investmentDisputes.length ?

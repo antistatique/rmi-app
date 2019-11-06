@@ -85,56 +85,41 @@ class CompaniesDetailHeader extends PureComponent {
         </div>
         <div className="anchor-navigation-container d-none d-md-block">
           <div className="l-layout">
-            <div className="row scroll-container">
-              <div className="col-xs-12">
-                <Scrollspy items={[
+            <div className="row">
+              <div className="col-xs-6">
+                <Scrollspy
+                  items={[
                     {
-                      'anchor': 'summary',
-                      'label': 'Summary',
+                      anchor: 'overall-results',
+                      label: 'Overall Results'
                     },
                     {
-                      'anchor': 'overall-results',
-                      'label': 'Overall Results',
+                      anchor: 'detailed-results',
+                      label: 'Detailed results'
                     },
                     {
-                      'anchor': 'detailed-results',
-                      'label': 'Results per indicator',
+                      anchor: 'mine-site-results',
+                      label: 'Mine-site Results'
                     },
                     {
-                      'anchor': 'mine-site-results',
-                      'label': 'Mine-site Results',
+                      anchor: 'operational-mine-sites',
+                      label: 'Mine-sites'
                     },
                     {
-                      'anchor': 'operational-mine-sites',
-                      'label': 'Operational mine sites',
+                      anchor: 'tailings',
+                      label: 'Tailings'
                     },
                     {
-                      'anchor': 'known-closed-mine-sites',
-                      'label': 'Closed mine sites (known)',
+                      anchor: 'known-shareholders',
+                      label: 'Shareholders & Subsidiaries'
                     },
                     {
-                      'anchor': 'tailings',
-                      'label': 'Tailings (known)',
+                      anchor: 'known-beneficial-owners',
+                      label: 'Beneficial Owners'
                     },
                     {
-                      'anchor': 'known-shareholders',
-                      'label': 'Shareholders (known)',
-                    },
-                    {
-                      'anchor': 'known-subsidiaries',
-                      'label': 'Subsidiaries (known)',
-                    },
-                    {
-                      'anchor': 'known-beneficial-owners',
-                      'label': 'Beneficial Owners (known)',
-                    },
-                    {
-                      'anchor': 'known-tax-jurisdictions',
-                      'label': 'Tax Jurisdictions (known)',
-                    },
-                    {
-                      'anchor': 'investorstate-investment-disputes',
-                      'label': 'Investor / State Disputes',
+                      anchor: 'known-tax-jurisdictions',
+                      label: 'Tax Jurisdictions'
                     }
                   ]}
                   currentClassName="active"
