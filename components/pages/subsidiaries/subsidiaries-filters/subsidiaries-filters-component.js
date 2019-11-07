@@ -13,11 +13,16 @@ class SubsidiariesFilters extends PureComponent {
     setSearch: PropTypes.func.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
     setFilters: PropTypes.func.isRequired,
+    resetFilters: PropTypes.func.isRequired,
     companies: PropTypes.array.isRequired,
     selectedCompany: PropTypes.string
   }
 
   static defaultProps = { selectedCompany: null }
+
+  componentWillUnmount() {
+    this.props.resetFilters();
+  }
 
   handleSearch = (value) => {
     this.props.setPaginationPage(1);

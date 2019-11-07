@@ -29,6 +29,10 @@ class SubsidiariesPage extends Page {
   }
 
   render() {
+    if (this.props.companies.length === 0) {
+      this.props.getCompanies({ sort: 'name' });
+    }
+
     return (
       <Layout
         title="Subsidiaries"
@@ -42,6 +46,6 @@ class SubsidiariesPage extends Page {
 
 export default withRedux(
   initStore,
-  () => ({}),
-  {}
+  state => ({ companies: state.companies.list }),
+  { getCompanies }
 )(SubsidiariesPage);
