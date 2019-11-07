@@ -35,7 +35,10 @@ class MineSitesPage extends Page {
       }));
 
       // gets indicators
-      await context.store.dispatch(getIndicators({ 'page[size]': 1000 }));
+      await context.store.dispatch(getIndicators({
+        include: 'companies-max-scores',
+        'page[size]': 1000
+      }));
 
       // gets documents
       await context.store.dispatch(getDocumentMineSites({

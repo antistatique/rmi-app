@@ -1,5 +1,7 @@
 
 import { createSelector } from 'reselect';
+import groupBy from 'lodash/groupBy';
+import uniqBy from 'lodash/uniqBy';
 
 const indicators = state => state.indicators.list;
 const scores = state => (state.mineSites.list[0] || {}).scores;
@@ -7,26 +9,31 @@ const scores = state => (state.mineSites.list[0] || {}).scores;
 export const getMineSiteIndicatorsTree = createSelector(
   [indicators, scores],
   (_indicators, _scores) => {
-    // MS.0X Lorem ipsum...
-    // change this for kind !
-    const parentMineSiteIndicators = _indicators.filter(indicator => indicator.code.includes('MS.') && indicator.level === 1);
+    const msScores = _scores.filter(score => score.name.includes('MS.'));
+    const groupByName = groupBy(msScores, 'name');
 
-    return parentMineSiteIndicators.map(parentIndicator => ({
-      id: parentIndicator.id,
-      name: parentIndicator.name,
-      // MS.0X.X Lorem ipsum...
-      children: _indicators.filter(indicator =>
-        indicator['parent-id'] === +parentIndicator.id)
-        .map(ind => ({
-          id: ind.id,
-          name: ind.name,
-          slug: ind.slug,
-          min: ind.min,
-          max: ind.max,
-          avg: ind.avg,
-          value: (_scores.find(score => score['indicator-id'] === +ind.id) || {}).value
-        }))
-    }));
+    return Object.keys(groupByName).map((scoreGroup) => {
+      const scoreArray = groupByName[scoreGroup];
+      const uniqScoreArray = uniqBy(scoreArray, 'indicator-id');
+
+      return {
+        name: scoreGroup,
+        children: uniqScoreArray.map((score) => {
+          const indicator = _indicators.find(ind => parseInt(ind.id, 10) === score['indicator-id']);
+
+          return {
+            id: score.id,
+            name: indicator.name,
+            slug: indicator.slug,
+            min: indicator.min,
+            max: indicator.max,
+            avg: indicator.avg,
+            value: score.value,
+            companiesMaxScores: indicator['companies-max-scores']
+          };
+        })
+      };
+    });
   }
 );
 
