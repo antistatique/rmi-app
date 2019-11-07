@@ -50,7 +50,7 @@ class CompaniesFilters extends PureComponent {
       <div className={componentClass}>
         <style jsx>{styles}</style>
         <Select
-          placeholder="Select a home country"
+          placeholder="Select a producing country"
           options={countries}
           theme="light"
           className={filtersClass}
