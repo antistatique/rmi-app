@@ -28,7 +28,7 @@ class CompaniesDetailSidebar extends PureComponent {
       'revenues-date': revenuesDate,
       'number-workers-date': workersDate,
       'number-employees-date': employeesDate,
-      'listings': stockExchange,
+      listings: stockExchange
     } = company;
     const groupedFatalityReports = groupBy(fatalityReports, 'year');
     const { name: countryName } = country || {};
@@ -40,7 +40,7 @@ class CompaniesDetailSidebar extends PureComponent {
         {!Object.keys(company).length && <Spinner />}
         {Object.keys(company).length &&
           <div className="l-layout">
-            <div className="definitions-container" id="summary">
+            <div className="definitions-container">
               <div className="row mb-3">
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
                   {!!countryName &&
@@ -55,7 +55,7 @@ class CompaniesDetailSidebar extends PureComponent {
                   {!!stockExchange &&
                     <div className="definition-item">
                       <div className="definition-key">Stock Exchange Listings</div>
-                      <div className="definition-value" dangerouslySetInnerHTML={{'__html': stockExchange.replace(/: /g, ':&nbsp;') }}></div>
+                      <div className="definition-value" dangerouslySetInnerHTML={{ __html: stockExchange.replace(/: /g, ':&nbsp;') }} />
                     </div>}
                 </div>
                 <div className="col-xs-6 col-sm-4 col-md-3 mb-3">
@@ -116,7 +116,7 @@ class CompaniesDetailSidebar extends PureComponent {
                   <div className="definition-item">
                     <div className="definition-key">State Ownership</div>
                     <div className="definition-value">{governmentOwnership.name ? governmentOwnership.name : 'Not reported'}
-                    {governmentOwnershipPercent !== null && governmentOwnershipPercent !== 'NULL' &&
+                      {governmentOwnershipPercent !== null && governmentOwnershipPercent !== 'NULL' &&
                       <span>: {governmentOwnershipPercent}%</span>
                     }
                     </div>

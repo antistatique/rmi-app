@@ -1,13 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-
-import styles from '../scroll-spy/scroll-spy-styles.scss';
+import Select from 'components/common/select';
+import { animateScroll as scroll, scroller } from 'react-scroll';
 
 class ScrollSpy extends PureComponent {
   static propTypes = {
     items: PropTypes.array.isRequired,
-    currentClassName: PropTypes.string.isRequired,
     offset: PropTypes.number
   };
 
@@ -50,19 +48,29 @@ class ScrollSpy extends PureComponent {
   }
 
   handleSpy() {
-    const targets = this.props.items.map((item) => {
-      return document.getElementById(item.anchor);
-    });
+    const targets = this.props.items.map(item => document.getElementById(item.anchor));
 
     targets.forEach((el) => {
       const isInView = this.isInView(el);
-
 
       if (isInView) {
         // hasInViewAlready = true
         this.setState({ currentTarget: el.getAttribute('id') });
       }
     });
+  }
+
+  handleChange = ({ value }) => {
+    if (value == null) {
+      scroll.scrollToTop();
+    } else {
+      scroller.scrollTo(value, {
+        duration: 800,
+        delay: 0,
+        smooth: 'easeInOutQuart',
+        offset: -250
+      });
+    }
   }
 
   isInView(el) {
@@ -84,21 +92,20 @@ class ScrollSpy extends PureComponent {
   }
 
   render() {
-    const { items, currentClassName } = this.props;
+    const { items } = this.props;
     const { currentTarget } = this.state;
 
+    const selectItems = items.map(item => ({ label: item.label, value: item.anchor }));
+
     return (
-      <ul className="anchor-navigation d-flex justify-content-between">
-        <style jsx>{styles}</style>
-        {items.map(item => (
-          <li
-            key={item.anchor}
-            className={`anchor-nav-item ${currentTarget === item.anchor ? currentClassName : ''}`}
-          >
-            <AnchorLink offset="250" href={`#${item.anchor}`}>{item.label}</AnchorLink>
-          </li>
-        ))}
-      </ul>
+      <Select
+        placeholder="Quick access"
+        options={selectItems}
+        selectedValue={currentTarget}
+        onChange={this.handleChange}
+        className=""
+        hideResetButton
+      />
     );
   }
 }

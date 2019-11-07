@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { animateScroll as scroll } from 'react-scroll';
 
 import Icon from 'components/common/icon';
 
@@ -17,6 +17,10 @@ class GoTopButton extends PureComponent {
     window.onscroll = () => (this.shouldShow());
   }
 
+  handleClick = () => {
+    scroll.scrollToTop();
+  }
+
   shouldShow() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
       this.setState({ show: true });
@@ -29,10 +33,10 @@ class GoTopButton extends PureComponent {
     return (
       <div className="c-go-top-button">
         <style jsx>{styles}</style>
-        <div className={'go-top-button ' + (this.state.show ? 'go-top-button-show' : '')}>
-          <AnchorLink href="#main-content">
+        <div className={`go-top-button ${this.state.show ? 'go-top-button-show' : ''}`}>
+          <a onClick={this.handleClick} onKeyDown={this.handleClick} role="button" tabIndex="0">
             <Icon name="arrow-up" className="c-icon" />
-          </AnchorLink>
+          </a>
         </div>
       </div>
     );
