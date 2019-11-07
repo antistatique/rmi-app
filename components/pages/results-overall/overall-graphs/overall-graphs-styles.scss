@@ -38,6 +38,10 @@
     > .icon-background {
       display: inline-flex;
 
+      :hover {
+        cursor: pointer;
+      }
+
       > :global(.c-icon) {
         fill: $color-7;
       }
