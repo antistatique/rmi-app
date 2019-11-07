@@ -137,6 +137,13 @@ class IndexPage extends PureComponent {
               </div>
             </div>
           </section>
+          <div className="splash-credits">
+            <div className="l-layout">
+              <div className="col-xs-12">
+                <span className="credits">Photograph: Dean Hutton/Bloomberg/Getty Images</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
