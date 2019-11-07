@@ -83,10 +83,10 @@ class CompaniesDetailHeader extends PureComponent {
             </div>
           </div>
         </div>
-        <div className="anchor-navigation-container d-none d-md-block">
+        <div className="anchor-navigation-container">
           <div className="l-layout">
             <div className="row">
-              <div className="col-xs-6">
+              <div className="col-6">
                 <Scrollspy
                   items={[
                     {
