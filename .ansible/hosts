@@ -1,0 +1,12 @@
+83.166.150.185 ansible_port=54698 ansible_user=antistatique ansible_python_interpreter=/usr/bin/python3
+83.166.150.184 ansible_port=54698 ansible_user=antistatique ansible_python_interpreter=/usr/bin/python3
+
+[appservers]
+83.166.150.185
+83.166.150.184
+
+[production]
+83.166.150.185
+
+[staging]
+83.166.150.184

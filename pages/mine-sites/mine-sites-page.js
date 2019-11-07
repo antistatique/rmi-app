@@ -24,12 +24,13 @@ class MineSitesPage extends Page {
 
     if (context.query.mineSite) {
       // gets mine site info and relationships
-      context.store.dispatch(getMineSite({
+      await context.store.dispatch(getMineSite({
         mineSiteId: context.query.mineSite,
         queryParams: {
-          include: ['company', 'company.country', 'country',
+          include: ['companies', 'companies.country', 'country', 'mine-site-fatality-reports',
             'documents', 'commodities', 'scores', 'scores.indicator', 'scores.indicator.parent',
-            'document-mine-sites.indicators', 'document-mine-sites.document'].join(',')
+            'document-mine-sites.indicators', 'document-mine-sites.document', 'extra-languages',
+            'company-mine-sites'].join(',')
         }
       }));
 
@@ -43,7 +44,7 @@ class MineSitesPage extends Page {
       }));
     } else {
       await context.store.dispatch(getCompanies({
-        include: ['selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities'].join(','),
+        include: ['country', 'mine-sites', 'selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities', 'selected-mine-sites.companies'].join(','),
         sort: 'name'
       }));
 
@@ -54,8 +55,10 @@ class MineSitesPage extends Page {
       }));
 
       await context.store.dispatch(getMineSites({
-        sort: 'name',
-        'page[size]': 1000
+        queryParams: {
+          sort: 'name',
+          'page[size]': 1000
+        }
       }));
     }
 
@@ -75,13 +78,20 @@ class MineSitesPage extends Page {
     const customTitle = !mineSiteId ? 'Mine Sites' :
       `${name} - Mine site report`;
 
+    if (this.props.companies.length === 0) {
+      this.props.getCompanies({
+        include: ['country', 'mine-sites', 'selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities'].join(','),
+        sort: 'name'
+      });
+    }
+
     return (
       <Layout
         title={customTitle}
         description="Welcome to RMI | Mine sites"
       >
         {mineSite && allowedMineSite && <MineSiteDetailPageComponent />}
-        {!mineSite && <MineSitePageComponent />}
+        {!mineSite && this.props.companies.length > 0 && <MineSitePageComponent />}
       </Layout>
     );
   }
@@ -92,7 +102,8 @@ export default withRedux(
   state => ({
     currentMineSite: (state.mineSites.list[0] || {}),
     mineSiteError: state.mineSites.error,
-    mineSiteId: state.routes.query.mineSite
+    mineSiteId: state.routes.query.mineSite,
+    companies: state.companies.list
   }),
-  null
+  { getCompanies }
 )(MineSitesPage);

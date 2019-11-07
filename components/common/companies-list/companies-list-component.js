@@ -20,7 +20,9 @@ class CompaniesList extends PureComponent {
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
-    onCloseTooltip: PropTypes.func
+    onCloseTooltip: PropTypes.func,
+    selectedCountry: PropTypes.string,
+    companiesFromProps: PropTypes.array
   }
 
   static defaultProps = {
@@ -28,7 +30,9 @@ class CompaniesList extends PureComponent {
     onMouseEnter: () => {},
     onMouseLeave: () => {},
     onOpenTooltip: null,
-    onCloseTooltip: null
+    onCloseTooltip: null,
+    selectedCountry: null,
+    companiesFromProps: null
   };
 
   renderCompaniesRow(companies, key) {
@@ -44,22 +48,34 @@ class CompaniesList extends PureComponent {
     return (
       <Fragment key={key} >
         <style jsx>{styles}</style>
-        <div className="row -equal-height">
-          {companies.map(_company => (
-            <div key={_company.id} className="col-xs-12 col-md-4">
-              <CompaniesListItem
-                key={_company.id}
-                company={_company}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-                isCompanyPage={isCompanyPage}
-                currentLanguage={currentLanguage}
-                onOpenTooltip={onOpenTooltip}
-                onCloseTooltip={onCloseTooltip}
-              />
-            </div>
-          ))}
-        </div>
+        {this.props.companiesFromProps && this.props.companiesFromProps.map(company => (
+          <div key={company.id} className="col-xs-12 col-md-4">
+            <CompaniesListItem
+              key={company.id}
+              company={company}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              isCompanyPage={isCompanyPage}
+              currentLanguage={currentLanguage}
+              onOpenTooltip={onOpenTooltip}
+              onCloseTooltip={onCloseTooltip}
+            />
+          </div>
+        ))}
+        {!this.props.companiesFromProps && companies.map(_company => (
+          <div key={_company.id} className="col-xs-12 col-md-4">
+            <CompaniesListItem
+              key={_company.id}
+              company={_company}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              isCompanyPage={isCompanyPage}
+              currentLanguage={currentLanguage}
+              onOpenTooltip={onOpenTooltip}
+              onCloseTooltip={onCloseTooltip}
+            />
+          </div>
+        ))}
       </Fragment>
     );
   }
@@ -88,7 +104,9 @@ class CompaniesList extends PureComponent {
       onMouseEnter,
       onMouseLeave,
       onOpenTooltip,
-      onCloseTooltip
+      onCloseTooltip,
+      selectedCountry,
+      companiesFromProps
     } = this.props;
     // const companies = this.renderCompanies();
 
@@ -98,29 +116,37 @@ class CompaniesList extends PureComponent {
         <div className="content">
           {loading && <Spinner />}
 
-          {!companies.length &&
+          {companiesFromProps && companiesFromProps.map(company => (
+            <CompaniesListItem
+              key={company.id}
+              company={company}
+              currentLanguage={currentLanguage}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              isCompanyPage={isCompanyPage}
+              onOpenTooltip={onOpenTooltip}
+              onCloseTooltip={onCloseTooltip}
+              selectedCountry={selectedCountry}
+            />
+          ))}
+
+          {!companiesFromProps && !companies.length &&
             <div className="not-found">
               <span>No companies found under this criteria</span>
             </div>}
-
-          <div className="row -equal-height">
-            {companies.map(company => (
-              <div
-                key={company.id}
-                className="col-xs-6 col-sm-4"
-              >
-                <CompaniesListItem
-                  company={company}
-                  currentLanguage={currentLanguage}
-                  onMouseEnter={onMouseEnter}
-                  onMouseLeave={onMouseLeave}
-                  isCompanyPage={isCompanyPage}
-                  onOpenTooltip={onOpenTooltip}
-                  onCloseTooltip={onCloseTooltip}
-                />
-              </div>
-            ))}
-          </div>
+          {!companiesFromProps && companies.map(company => (
+            <CompaniesListItem
+              key={company.id}
+              company={company}
+              currentLanguage={currentLanguage}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              isCompanyPage={isCompanyPage}
+              onOpenTooltip={onOpenTooltip}
+              onCloseTooltip={onCloseTooltip}
+              selectedCountry={selectedCountry}
+            />
+          ))}
         </div>
       </div>
     );

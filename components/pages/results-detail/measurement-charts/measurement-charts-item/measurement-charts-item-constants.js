@@ -12,18 +12,19 @@ export const CHART_CONFIG = {
   // reference line config
   showReferenceLine: true,
   yReferenceLine: 0,
+  yReferenceLines: [],
   strokeReferenceLine: 'red',
   strokeDasharrayReferenceLine: '3 5',
   labelReferenceLine: 'Current Best Practice'
 };
 
 export const MEASUREMENT_AREAS_COLOURS = {
-  'a-economic-development': blue.slice(1),
-  'b-business-conduct': brown.slice(1),
-  'c-lifecycle-management': pink.slice(1),
-  'd-community-wellbeing': yellow.slice(1),
-  'e-working-conditions': red.slice(1),
-  'f-environmental-responsibility': green.slice(1)
+  'a-economic-development': blue,
+  'b-business-conduct': brown,
+  'c-lifecycle-management': pink,
+  'd-community-wellbeing': yellow,
+  'e-working-conditions': red,
+  'f-environmental-responsibility': green
 };
 
 export default {

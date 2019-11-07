@@ -1,11 +1,28 @@
 @import 'css/settings';
 
+:global(.layout-content-mobile) {
+  .c-index-page .splash {
+    margin-top: unset;
+  }
+}
+
 .c-index-page {
+  background: $color-2;
 
   .splash {
-    padding: 55px 0;
-
+    position: relative;
+    width: 100%;
+    height: 300px;
+    left: 50%;
+    right: 50%;
+    margin-top: 60px;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 100px 30px 40px;
     background-image: url('/static/images/homepage_background.jpg');
+    background-image: image-set(
+                        url('/static/images/homepage_background.jpg') 1x, 
+                        url('/static/images/homepage_background@2x.jpg') 2x);
     background-size: cover;
     background-position: 50% 75%;
     background-repeat: no-repeat;
@@ -27,36 +44,76 @@
       margin-top: 25px;
     }
 
-    @media #{$mq-md} {
-      padding: 150px 0;
+    @media #{$mq-sm} {
+      height: 400px;
     }
 
-    @media #{$mq-lg} {
-      padding: 250px 0;
+    @media #{$mq-md} {
+      padding: 110px 60px 80px;
+      width: 100%;
+      left: unset;
+      right: unset;
+      margin-top: unset;
+      margin-left: unset;
+      margin-right: unset;
+      height: 500px;
     }
   }
 
-  .download-summary {
-    padding: 50px 0;
+  .quick-access {
+    position: relative;
+    margin-top: -30px;
+    width: 100%;
+    padding: 25px;
     background: $color-2;
+    border-radius: 20px;
+    font-size: $font-size-big;
+    color: $color-7;
 
-    border-bottom: 1px solid rgba($color-7, .2);
+    @media #{$mq-sm} {
+      margin-top: -120px;
+      width: 35%;
+      left: 20px;
+    }
 
-    .download-button-container {
-      display: flex;
-      flex-direction: column;
 
-      @media #{$mq-md} {
-        flex-direction: row;
-        justify-content: center;
+    @media #{$mq-md} {
+      margin-top: -140px;
+      width: 25%;
+      left: 60px;
+    }
+
+    @media #{$mq-lg} {
+      margin-top: -160px;
+    }
+
+    .title {
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    ul > li {
+      margin-bottom: $gutter-width / 2;
+      padding-bottom: $gutter-width / 2;
+      border-bottom: 1px solid $color-4;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        transition: margin ease-in-out 100ms;
+
+        &:hover {
+          margin-left: 10px;
+        }
       }
     }
   }
 
   .intro {
-
     .text-section {
-
       &:first-child {
         margin: 0 0 20px;
       }

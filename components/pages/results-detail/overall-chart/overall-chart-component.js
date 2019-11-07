@@ -15,11 +15,23 @@ class OverallChart extends PureComponent {
 
   componentWillMount() {
     const { data, config } = this.props;
-    const { bestPracticeScore } = data;
+    const { bestPracticeScore, previousBestPracticeScore } = data;
+
+    const referenceLines = [
+      {
+        'label': 'Collective Best Score (2020)',
+        'value': bestPracticeScore,
+        'strokeReferenceLine': '#c4122c'
+      }, {
+        'label': 'Collective Best Score (2018)',
+        'value': previousBestPracticeScore,
+        'strokeReferenceLine': '#9c9d9e'
+      }
+    ];
 
     this.chartConfig = {
       ...config,
-      yReferenceLine: bestPracticeScore
+      yReferenceLines: referenceLines
     };
   }
 
@@ -28,12 +40,22 @@ class OverallChart extends PureComponent {
       data: nextData,
       config: nextConfig
     } = nextProps;
-    const { bestPracticeScore } = nextData;
+    const { bestPracticeScore, previousBestPracticeScore } = nextData;
+
+    const referenceLines = [
+      {
+        'label': 'Collective Best Score (2020)',
+        'value': bestPracticeScore,
+      }, {
+        'label': 'Collective Best Score (2018)',
+        'value': previousBestPracticeScore / 2
+      }
+    ];
 
     this.chartConfig = {
       ...this.chartConfig,
       ...nextConfig,
-      yReferenceLine: bestPracticeScore
+      yReferenceLines: referenceLines
     };
   }
 

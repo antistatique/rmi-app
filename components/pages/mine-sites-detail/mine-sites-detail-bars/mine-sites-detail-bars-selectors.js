@@ -12,12 +12,19 @@ export const getOverallScore = createSelector(
 
 export const getScores = createSelector(
   [scores],
-  (_scores = []) => sortBy(_scores.filter(score => score.kind == 'indicator_mine_site'), score => score.indicator.code).map(score => ({
-    id: score.id,
-    name: (score.indicator || {}).code,
-    label:( (score.indicator || {}).parent || {}).label,
-    value: score.value
-  }))
+  (_scores = []) => {
+    return sortBy(_scores.filter(score => score.kind === 'indicator_mine_site'), score => score.indicator.code).map((score) => {
+      const label = (score.indicator || {}).name.split(' ');
+      label.shift();
+      const labelFinal = label.join(' ');
+      return {
+        id: score.id,
+        name: (score.indicator || {}).code,
+        label: labelFinal,
+        value: score.value
+      };
+    });
+  }
 );
 
 export default {

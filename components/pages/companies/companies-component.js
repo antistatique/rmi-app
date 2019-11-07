@@ -66,14 +66,15 @@ class Companies extends PureComponent {
           <div className="section -dark">
             <div className="l-layout">
               <div className="row">
-                <div className="col-xs-12 col-md-3">
+                <div className="col-xs-12 col-md-4">
                   <CompaniesFilters className="-no-tablet" />
+                  <h4 className="title text-white mb-3">List of all companies</h4>
                   <CompaniesList
                     onMouseEnter={({ id }) => { setSelectedCompany(id); }}
                     onMouseLeave={() => { resetSelectedCompany(); }}
                   />
                 </div>
-                <div className="col-xs-12 col-md-9">
+                <div className="col-xs-12 col-md-8">
                   <CompaniesFilters className="-no-mobile" />
                   <div className="map-container">
                     <Map
@@ -81,6 +82,7 @@ class Companies extends PureComponent {
                       setCountryColor={Companies.setCountryColor}
                       legend={MAP_LEGEND}
                       onClickGeography={this.handleClickGeography}
+                      center={[40, 10]}
                     />
                   </div>
                 </div>

@@ -1,8 +1,6 @@
 @import 'css/settings';
 
 .c-select {
-  max-width: 85%;
-
   &.-underline {
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -13,6 +11,19 @@
 
     &.light {
       border-bottom-color: $color-7;
+    }
+  }
+
+  &-bordered {
+    border: 1px solid $color-5;
+    padding: 2px 5px;
+  }
+
+  &-tiny {
+    width: 100px;
+
+    .react-selectize {
+      min-width: auto !important;
     }
   }
 

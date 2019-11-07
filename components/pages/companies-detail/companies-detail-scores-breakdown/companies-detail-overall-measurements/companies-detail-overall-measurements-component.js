@@ -40,29 +40,24 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
     return (
       <div className="c-companies-detail-overall-measurements">
         <style jsx>{styles}</style>
-        <div className="row">
-          <div className="col-xs-12">
-            <h3 className="title">Relative company performance</h3>
-          </div>
-        </div>
         <div className="charts-container">
           <div className="row">
             {data.map(d => (
               <div key={d.id} className={columnClass}>
+                <div className="chart-legend mb-4">
+                  <h2 className="title">
+                    {OVERALL_CHARTS_TITLES[d.name].title}<br/>
+                  </h2>
+                  <span className="text-size-regular">{OVERALL_CHARTS_TITLES[d.name].subtitle}</span>
+                </div>
                 <Bars
                   config={this.chartConfig}
                   data={d.children}
                   customTooltip
                 />
-                <div className="chart-legend">
-                  <h2 className="title">{OVERALL_CHARTS_TITLES[d.name]}</h2>
-                </div>
               </div>
             ))}
           </div>
-        </div>
-        <div className="overall-legend">
-          1.000 = aggregation of best scores for all indicators of this measurement area.
         </div>
       </div>
     );

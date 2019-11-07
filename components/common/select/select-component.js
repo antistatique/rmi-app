@@ -25,6 +25,7 @@ class SelectComponent extends PureComponent {
       PropTypes.string, PropTypes.number
     ]),
     multiple: PropTypes.bool,
+    hideResetButton: PropTypes.bool,
     theme: PropTypes.oneOf([
       'light', 'dark'
     ])
@@ -35,7 +36,8 @@ class SelectComponent extends PureComponent {
     selectedValue: null,
     placeholder: 'Select...',
     multiple: false,
-    theme: 'dark'
+    theme: 'dark',
+    hideResetButton: false
   }
 
   constructor(props) {
@@ -53,7 +55,7 @@ class SelectComponent extends PureComponent {
   }
 
   render() {
-    const { options, className, placeholder, theme, multiple, selectedValue } = this.props;
+    const { options, className, placeholder, theme, multiple, selectedValue, hideResetButton } = this.props;
     const { search } = this.state;
 
     const selectClass = classnames({
@@ -76,6 +78,7 @@ class SelectComponent extends PureComponent {
           search={search}
           value={selectedOption}
           onSearchChange={this.handleSearch}
+          hideResetButton={hideResetButton}
         />}
 
         {multiple &&

@@ -5,6 +5,7 @@ import Accordion from 'components/common/accordion';
 // components
 import ScoreComparison from 'components/common/score-comparison';
 import IssueAreasBar from 'components/common/issue-areas-bar';
+import RelatedLeadingPractices from 'components/common/related-leading-practices';
 
 // styles
 import styles from './companies-detail-accordion-styles.scss';
@@ -39,12 +40,21 @@ class CompaniesDetailAccordion extends PureComponent {
                 data={{
                   avg: d.avg,
                   max: d.max,
-                  value: d.value
+                  value: d.value,
+                  companies: d.companiesMaxScores
                 }}
                 config={{ color: d.color }}
               />
             </div>
           </div>
+          { d.leadingPractices.length > 0 &&
+            <div className="row mt-4">
+              <div className="col-xs-12 col-md-8">
+                <RelatedLeadingPractices leadingPractices={d.leadingPractices} />
+              </div>
+            </div>
+          }
+          
         </div>
       )));
   }
@@ -58,7 +68,7 @@ class CompaniesDetailAccordion extends PureComponent {
         <div className="row">
           <div className="col-xs-12 col-md-1">
             <IssueAreasBar
-              selectedissueArea={selectedIssueArea}
+              selectedIssueArea={selectedIssueArea}
               setIssueArea={setIssueArea}
             />
           </div>

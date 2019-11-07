@@ -10,7 +10,10 @@ import { parseCompanies } from './library-filters-selectors';
 import LibraryFilters from './library-filters-component';
 
 export default connect(
-  state => ({ companies: parseCompanies(state) }),
+  state => ({
+    companies: parseCompanies(state),
+    filters: state.documents.filters
+  }),
   {
     setSearch,
     setFilters,

@@ -28,9 +28,13 @@ export const getUpdatedPaths = createSelector(
           properties: {
             ...geography.properties,
             id: index,
+            isClickable: !!((country.companies || []).length ||
+              (country.secondaryCompanies || []).length ||
+              (country.producingCompanies || []).length),
             isHome: !!((country.companies || []).length ||
               (country.secondaryCompanies || []).length),
-            isProducing: !!((country.producingCompanies || []).length)
+            isProducing: !!((country.producingCompanies || []).length),
+            countryId: country.id
           }
         };
       })

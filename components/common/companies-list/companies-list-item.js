@@ -20,14 +20,16 @@ class CompaniesListItem extends PureComponent {
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
-    onCloseTooltip: PropTypes.func
+    onCloseTooltip: PropTypes.func,
+    selectedCountry: PropTypes.string
   }
 
   static defaultProps = {
     onMouseEnter: () => {},
     onMouseLeave: () => {},
     onOpenTooltip: null,
-    onCloseTooltip: null
+    onCloseTooltip: null,
+    selectedCountry: null
   }
 
   constructor(props) {
@@ -50,7 +52,7 @@ class CompaniesListItem extends PureComponent {
     const { id } = company;
 
     trackLink(`/companies/${id}`, 'Clicks on company detail ', () => {
-      Router.pushRoute('companies', { company: id });
+      Router.pushRoute('company', { company: id, language: this.props.currentLanguage });
     });
   }
 
@@ -62,7 +64,7 @@ class CompaniesListItem extends PureComponent {
   }
 
   render() {
-    const { isCompanyPage, currentLanguage, company, onMouseEnter, onMouseLeave } = this.props;
+    const { isCompanyPage, currentLanguage, company, onMouseEnter, onMouseLeave, selectedCountry } = this.props;
     const { name, id, 'selected-mine-sites': mineSites } = company;
     const { visibility } = this.state;
 
@@ -77,13 +79,13 @@ class CompaniesListItem extends PureComponent {
             onMouseLeave={onMouseLeave}
           >
             <Link
-              route="companies"
+              route="company"
               params={{
                 language: currentLanguage,
                 company: id
               }}
             >
-              <a className="company-name">{name}</a>
+              <a className={`company-name ${(selectedCountry === company.country.id || selectedCountry === company['secondary-country'].id) ? 'highlighted' : ''}`}>{name}</a>
             </Link>
           </div>
         </Fragment>
@@ -98,24 +100,24 @@ class CompaniesListItem extends PureComponent {
           targetAttachment="bottom center"
           className="companies-list-tooltip-tether"
           key={id}
-          constraints={[{
-            to: 'target',
-            attachment: 'together'
-          }, {
-            to: 'window',
-            attachment: 'target',
-            pin: true
-          }]}
+          constraints={[
+            {
+              to: 'scrollParent',
+              attachment: 'together none',
+              pin: true
+            }
+          ]}
         >
           <div
             className="companies-list-item"
             onClick={this.handleToggle}
           >
-            <span className="company-name">{name}</span>
+            <span className={`company-name ${selectedCountry === company.country.id ? 'highlighted' : ''}`}>{name}</span>
           </div>
           {visibility &&
             <CompaniesListTooltip
               mineSites={mineSites}
+              handleClose={this.handleClose}
               company={this.props.company}
               currentLanguage={currentLanguage}
             />}

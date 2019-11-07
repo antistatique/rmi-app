@@ -20,14 +20,14 @@
       }
     }
 
+    > .definition-key {
+      font-weight: $font-weight-bold;
+    }
+
     > .definition-value {
       margin: 5px 0 0;
-      font-weight: $font-weight-bold;
+      font-weight: $font-weight-light;
       line-height: 1.2;
-
-      > span {
-        font-weight: $font-weight-light;
-      }
     }
 
     @media print {
@@ -45,7 +45,7 @@
 
     > .definition-sublist-item {
       color: $color-7;
-      font-weight: $font-weight-bold;
+      font-weight: $font-weight-light;
 
       &:not(:first-child) {
         margin: 15px 0 0;

@@ -7,6 +7,7 @@ import debounce from 'lodash/debounce';
 
 // styles
 import styles from './nav-bar-styles.scss';
+import Icon from '../../../common/icon';
 
 class NavBar extends PureComponent {
   static propTypes = {
@@ -25,8 +26,6 @@ class NavBar extends PureComponent {
     super(props);
 
     this.state = {};
-
-    this.debouncedHandleHoverTab = debounce(this.handleHoverTab, 150);
   }
 
   getTabClass(linkTab) {
@@ -56,13 +55,22 @@ class NavBar extends PureComponent {
       if (!tab.children) {
         return (
           <Fragment key={tab.id}>
-            <li className={this.getTabClass(tab)}>
-              <Link
-                route={tab.query.route}
-                params={tab.query.params}
-              >
-                <a>{tab.label}</a>
-              </Link>
+            <li className={`d-flex align-items-center ${this.getTabClass(tab)}`}>
+              {tab.externalUrl ? (
+                  <a href={tab.externalUrl} target="_blank">{tab.label}</a>
+                ) : (
+                  <Link
+                    route={tab.query.route}
+                    params={tab.query.params}
+                  >
+                    <a>{tab.label}</a>
+                  </Link>
+                )
+              }
+
+              {tab.icon &&
+                < Icon name={tab.icon} className="ml-1" />
+              }
             </li>
           </Fragment>);
       }
@@ -70,8 +78,8 @@ class NavBar extends PureComponent {
       const submenuContent = (
         <ul
           className="submenu"
-          onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
-          onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
+          onMouseEnter={() => this.handleHoverTab(tab.id, true)}
+          onMouseLeave={() => this.handleHoverTab(tab.id, false)}
         >
           {tab.children.map(child => (
             <li
@@ -134,8 +142,8 @@ class NavBar extends PureComponent {
                   >
                     <a
                       className="submenu-literal"
-                      onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
-                      onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
+                      onMouseEnter={() => this.handleHoverTab(tab.id, true)}
+                      onMouseLeave={() => this.handleHoverTab(tab.id, false)}
                     >
                       {tab.label}
                     </a>
@@ -143,8 +151,8 @@ class NavBar extends PureComponent {
                 : (
                   <span
                     className="submenu-literal"
-                    onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
-                    onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
+                    onMouseEnter={() => this.handleHoverTab(tab.id, true)}
+                    onMouseLeave={() => this.handleHoverTab(tab.id, false)}
                   >
                     {tab.label}
                   </span>
@@ -164,20 +172,8 @@ class NavBar extends PureComponent {
   }
 
   render() {
-    const { routes, currentLanguage } = this.props;
-    const { root } = routes;
-
-    const logo = root === 'index' ?
-      'RMI_Index_Color' : 'RMI_Foundation_Color';
-
-    const navBarClass = classnames({
-      'c-nav-bar': true,
-      '-theme-1': root === 'index',
-      '-theme-2': root !== 'index'
-    });
-
     return (
-      <nav className={navBarClass}>
+      <nav className="c-nav-bar">
         <style jsx global>{styles}</style>
         {this.renderTabs()}
       </nav>

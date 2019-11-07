@@ -13,12 +13,14 @@ class Table extends PureComponent {
     columns: PropTypes.array.isRequired,
     rows: PropTypes.array.isRequired,
     rowKey: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    headerRows: PropTypes.object
   }
 
   static defaultProps = {
     rowKey: 'id',
-    className: null
+    className: null,
+    headerRows: null
   }
 
   constructor(props) {
@@ -32,7 +34,7 @@ class Table extends PureComponent {
   }
 
   render() {
-    const { columns, rows, rowKey, className } = this.props;
+    const { columns, rows, rowKey, className, headerRows } = this.props;
 
     const tableClasses = classnames({
       'c-table': true,
@@ -47,7 +49,8 @@ class Table extends PureComponent {
           columns={columns}
           className={tableClasses}
         >
-          <Header />
+          {headerRows && <Header headerRows={headerRows} />}
+          {!headerRows && <Header />}
           <Body rows={rows} rowKey={rowKey} />
         </Provider>
       </div>

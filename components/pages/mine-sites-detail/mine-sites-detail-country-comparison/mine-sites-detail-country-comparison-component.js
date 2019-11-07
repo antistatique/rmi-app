@@ -62,8 +62,11 @@ class MineSitesDetailCountryComparison extends PureComponent {
           </tbody>
         </table>
         <Link
-          route="sources"
-          params={{ language: currentLanguage }}
+          route="static-page"
+          params={{
+            language: currentLanguage,
+            slug: 'sources'
+          }}
         >
           <a className="sources-link">See list of sources</a>
         </Link>

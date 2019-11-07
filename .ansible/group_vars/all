@@ -1,0 +1,3 @@
+deploy_to: /data/docker-data/2020.responsibleminingindex.org/front
+deploy_user: antistatique
+deploy_group: antistatique

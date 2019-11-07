@@ -1,6 +1,8 @@
 @import 'css/settings';
 
 .c-disclaimer {
+  columns: 2;
+  
   > .disclaimer-text {
     font-size: 12px;
     font-style: italic;

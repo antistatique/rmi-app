@@ -8,23 +8,19 @@
       display: flex;
       margin: 0 0 25px;
 
-      @media #{$mq-sm} {
-        justify-content: flex-end;
-      }
-
       :global(.c-select) {
         width: 100%;
         max-width: none;
 
         @media #{$mq-md} {
-          width: auto;
+          width: 100%;
           min-width: 340px;
         }
 
         :global(.react-selectize-placeholder),
         :global(.value-wrapper) {
           font-size: $font-size-bigger;
-          color: $color-8;
+          color: $color-7;
         }
       }
     }

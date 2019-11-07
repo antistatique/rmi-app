@@ -6,30 +6,13 @@ import compact from 'lodash/compact';
 import { EXCLUDED_COUNTRIES } from 'constants/map';
 
 const countries = state => state.countries.list;
-const companies = state => state.companies.list;
-const companyId = state => state.routes.query.company;
 const indicators = state => state.indicators.list;
-
-export const getCompany = createSelector(
-  [companies, companyId],
-  (_companies, _companyId) => _companies.find(comp => comp.id === _companyId) || {}
-);
+const currentLanguage = state => state.language.current;
+const company = state => state.companies.currentCompany;
 
 export const getUpdatedPaths = createSelector(
-  [countries, getCompany],
+  [countries, company],
   (_countries = [], _company = {}) => {
-    // if the company is not found yet or countries are not loaded,
-    // return the map without any country filled
-    if (!_countries.length && !Object.keys(_company).length) {
-      return paths.map((geography, index) => ({
-        ...geography,
-        properties: {
-          ...geography.properties,
-          id: index
-        }
-      }));
-    }
-
     return paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
       .map((geography, index) => {
         const {
@@ -65,13 +48,14 @@ export const getIssueAreas = createSelector(
 );
 
 export const getMarkers = createSelector(
-  getCompany,
-  (_company = {}) =>
+  [company, currentLanguage],
+  (_company = {}, _currentLanguage) =>
     (_company['selected-mine-sites'] || []).map(mineSite => ({
       id: mineSite.id,
       name: mineSite.name,
       country: mineSite.country.name,
-      coordinates: [mineSite['coord-y'], mineSite['coord-x']]
+      coordinates: [mineSite['coord-y'], mineSite['coord-x']],
+      language: _currentLanguage
     }))
 );
 

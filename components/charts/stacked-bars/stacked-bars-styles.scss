@@ -1,9 +1,10 @@
 @import 'css/settings';
 
-$bar-height: 15px;
+$bar-height: 25px;
 
 .c-stacked-bars {
   display: flex;
+  align-items: flex-start;
 
   &:not(:first-child) {
     margin: 30px 0 0;
@@ -35,9 +36,26 @@ $bar-height: 15px;
     > .stacked-bars-container {
       display: flex;
       margin: 10px 0 0;
+      flex-direction: column;
       justify-content: space-between;
 
+      .bar-wrapper {
+        display: flex;
+        width: 100%;
+        transition: opacity 0.50s linear;
+        opacity: 1;
+
+        &.bar-wrapper-hidden {
+          opacity: 0;
+        }
+      }
+
+      .bar-wrapper-alt {
+        opacity: 0.3;
+      }
+
       .bar {
+        position: relative;
         display: inline-flex;
         flex-grow: 1;
         height: $bar-height;
@@ -52,6 +70,15 @@ $bar-height: 15px;
         &:not(:first-child) {
           border-left: 1px solid $color-6;
         }
+      }
+
+      .bar-avg {
+        position: absolute;
+        height: 100%;
+        width: 3px;
+        background-image: linear-gradient(0, $color-8, transparent 75%, $color-8 75%, transparent 100%);
+        background-size: 10px 4px;
+        border: none;
       }
 
       .score {

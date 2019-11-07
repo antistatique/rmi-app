@@ -1,24 +1,11 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'routes';
+import Disclaimer from 'components/common/disclaimer';
 
 // styles
 import styles from './footer-styles.scss';
 
 class Footer extends PureComponent {
-  static propTypes = {
-    root: PropTypes.string.isRequired,
-    currentLanguage: PropTypes.string.isRequired
-  }
-
   render() {
-    const { root, currentLanguage } = this.props;
-
-    const isFoundation = root !== 'index';
-
-    const logo = isFoundation ?
-      'RMF-logo-WHITE' : 'RMI_Index_WHITE';
-
     return (
       <footer className="c-footer">
         <style jsx>{styles}</style>
@@ -27,115 +14,39 @@ class Footer extends PureComponent {
             <div className="col-xs-12 col-sm-6">
               <div className="left-side">
                 <div className="footer-section">
-                  <Link
-                    route={root}
-                    params={{ language: currentLanguage }}
-                  >
-                    <a href="">
-                      <img src={'/static/logos/RMI_Index_WHITE.svg'} alt="Responsible Mining Index" />
-                    </a>
-                  </Link>
-                </div>
-                {isFoundation &&
-                  <div className="footer-section">
-                    <span>&copy; 2018 - Responsible Mining FOUNDATION</span>
-                  </div>}
-                {!isFoundation &&
-                  <div className="footer-section">
-                    <ul className="footer-nav-links-list">
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="subsidiaries"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Search by subsidiary</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="library"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Document Library</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="downloads"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Downloads</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="scoring-framework"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Scoring Framework</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="methodology"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Methodology</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="corrigenda"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Corrigenda</a>
-                        </Link>
-                      </li>
-
-                    </ul>
-                    <Link
-                      /*route="foundation"*/
-                      params={{ language: currentLanguage }}
+                  <div className="copyright">
+                    <p className="text-size-big text-style-normal text-weight-bold">Copyright notice</p>
+                    <p>
+                      All data and written content are licensed
+                      under the Creative Commons Attribution-NonCommercial
+                      4.0 International License (CC BY-NC 4.0).
+                    </p>
+                    <a
+                      href="https://creativecommons.org/licenses/by-nc/4.0/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="license"
                     >
-                      <a href="https://responsibleminingfoundation.org"
-                        target="_blank" className="foundation-link" >Responsible Mining FOUNDATION</a>
-                    </Link>
-                  </div>}
-                {!isFoundation &&
-                  <div className="footer-section">
-                    <div className="copyright">
-                      <p>Copyright notice</p>
-                      <p>
-                        All data and written content are licensed
-                        under the Creative Commons Attribution-NonCommercial
-                        4.0 International License (CC BY-NC 4.0).
-                      </p>
-                      <a
-                        href="https://creativecommons.org/licenses/by-nc/4.0/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="license"
-                      >
-                        <img
-                          className="license-img"
-                          src="/static/images/cc-by-nc_icon.png"
-                          alt="Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)"
-                        />
-                      </a>
-                      <p>
-                        Users are free to share and adapt the material but must give
-                        appropriate credit, provide a link to the license
-                        and indicate if changes were made. The licensed
-                        material may not be used for commercial purposes,
-                        or in a discriminating, degrading or distorting way.
-                        When cited, attribute to: "Responsible Mining Index
-                        2018 (RMI), Responsible Mining Foundation (RMF)."
-                        Images, photographs, and video content depicted on
-                        RMI and RMF websites are excluded from this license,
-                        except where noted.
-                      </p>
-                    </div>
-                  </div>}
+                      <img
+                        className="license-img"
+                        src="/static/images/cc-by-nc_icon.png"
+                        alt="Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)"
+                      />
+                    </a>
+                    <p>
+                      Users are free to share and adapt the material but must give
+                      appropriate credit, provide a link to the license
+                      and indicate if changes were made. The licensed
+                      material may not be used for commercial purposes,
+                      or in a discriminating, degrading or distorting way.
+                      When cited, attribute to: "Responsible Mining Index
+                      2020 (RMI), Responsible Mining Foundation (RMF)."
+                      Images, photographs, and video content depicted on
+                      RMI and RMF websites are excluded from this license,
+                      except where noted.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
@@ -181,6 +92,11 @@ class Footer extends PureComponent {
                   </form>
                 </div>
               </div>
+            </div>
+          </div>
+          <div>
+            <div className="copyright">
+              <Disclaimer />
             </div>
           </div>
         </div>

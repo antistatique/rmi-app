@@ -4,6 +4,7 @@ import { Link } from 'routes';
 
 // components
 import Button from 'components/common/button';
+import Modal from 'components/common/custom-modal';
 
 // styles
 import styles from './leading-practices-card-styles.scss';
@@ -29,14 +30,36 @@ class LeadingPracticesCard extends PureComponent {
     return `${description.replace(/^(.{120}[^\s]*).*/, '$1')}...`;
   }
 
+  constructor(props) {
+    super(props);
+
+    this.state = { modalOpen: false };
+  }
+
   handleClick = () => {
-    const { onClick, leadingPractice } = this.props;
-    onClick(leadingPractice);
+    this.setState({ modalOpen: true });
+  }
+
+  buildLinks = () => {
+    const companies = this.props.leadingPractice.companies.map((company) => {
+      return {
+        name: company.name,
+        id: company.id,
+        language: this.props.currentLanguage
+      };
+    });
+
+    return companies;
+  }
+
+  handleClose = () => {
+    this.setState({ modalOpen: false });
   }
 
   render() {
     const { leadingPractice, currentLanguage } = this.props;
     const { title, companies, description } = leadingPractice;
+    const links = this.buildLinks();
 
     return (
       <div
@@ -47,7 +70,7 @@ class LeadingPracticesCard extends PureComponent {
         {companies.map(company => (
           <h4 key={company.id} className="company">
             <Link
-              route="companies"
+              route="company"
               params={{
                 language: currentLanguage,
                 company: company.id
@@ -68,6 +91,16 @@ class LeadingPracticesCard extends PureComponent {
         >
           Read more
         </Button>
+        <Modal
+          open={this.state.modalOpen}
+          title={title}
+          onClose={this.handleClose}
+          links={links}
+        >
+          <div>
+            <p>{description}</p>
+          </div>
+        </Modal>
       </div>
     );
   }

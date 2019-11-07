@@ -43,7 +43,7 @@ class CompaniesDetailMineSitesList extends PureComponent {
         <style jsx>{styles}</style>
         {!!allMineSites.length &&
           <div className="table all-mine-sites-table">
-            <h3 className="table-title -big -red">List of all mine sites</h3>
+            <h3 id="operational-mine-sites" className="table-title -big">Operational mine sites</h3>
             <Gradient className="-dark" >
               <Table
                 columns={ALLMINE_SITE_TABLE_COLUMNS}
@@ -58,9 +58,9 @@ class CompaniesDetailMineSitesList extends PureComponent {
           </div>}
         {!!closedMineSites.length &&
           <div className="table closed-mine-sites-table">
-            <h3 className="table-title">
-              Closed mine sites (controlled assets under care & maintenance,
-              closure or post-closure management)
+            <h3 className="table-title -big">
+              Closed mine sites (known)<br />
+              <span className="smaller-title">(controlled assets under care & maintenance, closure or post-closure management)</span>
             </h3>
             <Gradient className="-dark" >
               <Table
@@ -72,7 +72,7 @@ class CompaniesDetailMineSitesList extends PureComponent {
           </div>}
         {!!assetsSoldAfterMay.length &&
           <div className="table assets-sold-after-may-table">
-            <h3 className="table-title">Assets sold during the assessment period</h3>
+            <h3 className="table-title -big">Assets sold during the assessment period</h3>
             <Gradient className="-dark" >
               <Table
                 columns={ASSETS_SOLD_AFTER_MAY_TABLE_COLUMNS}

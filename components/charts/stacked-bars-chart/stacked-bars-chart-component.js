@@ -6,6 +6,7 @@ import {
   ResponsiveContainer,
   BarChart,
   Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -51,6 +52,7 @@ class StackedBarsChart extends PureComponent {
 
   render() {
     const { data, bars } = this.props;
+
     const {
       // general chart config
       width,
@@ -77,6 +79,7 @@ class StackedBarsChart extends PureComponent {
       // reference line config
       showReferenceLine,
       yReferenceLine,
+      yReferenceLines,
       strokeReferenceLine,
       strokeDasharrayReferenceLine,
       strokeWidth,
@@ -120,9 +123,16 @@ class StackedBarsChart extends PureComponent {
                 onMouseOver={barOnMouseOver}
                 stackId="stack"
                 fill={this.handleBarFill(bar)}
-              />
+              >
+                {data.map(item => (
+                  <Cell
+                    key={item.name}
+                    fill={this.handleBarFill({ ...bar, ...item })}
+                  />
+                ))}
+              </Bar>
             ))}
-            {showReferenceLine &&
+            {showReferenceLine && yReferenceLine &&
               <ReferenceLine
                 y={yReferenceLine}
                 stroke={strokeReferenceLine}
@@ -130,6 +140,15 @@ class StackedBarsChart extends PureComponent {
                 strokeWidth={strokeWidth}
                 label={labelReferenceLine}
               />}
+            {showReferenceLine && yReferenceLines && yReferenceLines.map(line => (
+              <ReferenceLine
+                key={line.label}
+                y={line.value}
+                stroke={line.strokeReferenceLine ? line.strokeReferenceLine : strokeReferenceLine}
+                strokeDasharray={strokeDasharrayReferenceLine}
+                strokeWidth={strokeWidth}
+                label={line.label}
+              />))}
             <Tooltip
               {...customTooltip && { content: <CustomTooltip /> }}
               isAnimationActive={false}

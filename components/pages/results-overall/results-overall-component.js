@@ -5,7 +5,6 @@ import { Router } from 'routes';
 // components
 import Select from 'components/common/select';
 import OverallGraph from './overall-graphs';
-import TopCompanies from './top-companies';
 
 class ResultsOverall extends PureComponent {
   static propTypes = { issueAreas: PropTypes.array.isRequired }
@@ -51,11 +50,6 @@ class ResultsOverall extends PureComponent {
               <div className="row">
                 <div className="col-xs-12">
                   <OverallGraph />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-xs-12">
-                  <TopCompanies />
                 </div>
               </div>
             </div>

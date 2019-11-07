@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Router, Link } from 'routes';
+import { Link } from 'routes';
+import Scrollspy from 'components/common/scroll-spy';
 
 // components
 import Icon from 'components/common/icon';
@@ -19,20 +20,18 @@ class CompaniesDetailHeader extends PureComponent {
 
   render() {
     const { company, currentLanguage } = this.props;
-    const { name, listings } = company;
-    const parsedListings = (listings || '').split(' - ')
-      .map(list => list.split(':'));
+    const { id, name, 'extra-languages': extraLanguages } = company;
 
     return (
       <div className="c-companies-detail-header">
         <style jsx>{styles}</style>
-        <div className="l-layout">
+        <div className="l-layout main-section-container">
           <div className="print-logo">
             <h2 className="print-page-title">Company report</h2>
             <img className="logo-img" src="/static/logos/RMIndex_vector.svg" alt="RMI logo" />
           </div>
           <div className="row">
-            <div className="col-xs-12 col-sm-6">
+            <div className="col-xs-8 col-sm-5 col-md-6">
               <div className="left-side">
                 <Link
                   route="companies"
@@ -48,17 +47,26 @@ class CompaniesDetailHeader extends PureComponent {
                 </Link>
               </div>
             </div>
-            <div className="col-xs-12 col-sm-6">
+            <div className="col-xs-4 col-sm-7 col-md-6">
               <div className="right-side">
-                <div className="company-listing">
-                  {parsedListings.map((list, index) => (
-                    <div key={`${list[0]}-${index + 1}`} className="company-listing-item">
-                      <span className="company-listing-item-key">{list[0]}:</span>
-                      <span className="company-listing-item-value">{list[1]}</span>
-                    </div>
-                  ))}
-                </div>
-
+                { extraLanguages.length !== 0 &&
+                  <div className="extra-languages">
+                    This page is available in&nbsp;
+                    { extraLanguages.map((extraLanguage, index) => (
+                      <span key={index}>
+                        <Link
+                          route="company"
+                          params={{
+                            language: extraLanguage['web-code'],
+                            company: id
+                          }}
+                        >
+                          <a style={{ fontStyle: 'italic' }}>{extraLanguage.name} {extraLanguages.length - 1 === index ? '' : '&'} </a>
+                        </Link>
+                      </span>
+                    ))}
+                  </div>
+                }
                 <div className="pdf-print">
                   <button
                     className="print-btn"
@@ -71,6 +79,51 @@ class CompaniesDetailHeader extends PureComponent {
                     Print Report
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="anchor-navigation-container">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-6">
+                <Scrollspy
+                  items={[
+                    {
+                      anchor: 'overall-results',
+                      label: 'Overall Results'
+                    },
+                    {
+                      anchor: 'detailed-results',
+                      label: 'Detailed results'
+                    },
+                    {
+                      anchor: 'mine-site-results',
+                      label: 'Mine-site Results'
+                    },
+                    {
+                      anchor: 'operational-mine-sites',
+                      label: 'Mine-sites'
+                    },
+                    {
+                      anchor: 'tailings',
+                      label: 'Tailings'
+                    },
+                    {
+                      anchor: 'known-shareholders',
+                      label: 'Shareholders & Subsidiaries'
+                    },
+                    {
+                      anchor: 'known-beneficial-owners',
+                      label: 'Beneficial Owners'
+                    },
+                    {
+                      anchor: 'known-tax-jurisdictions',
+                      label: 'Tax Jurisdictions'
+                    }
+                  ]}
+                  currentClassName="active"
+                />
               </div>
             </div>
           </div>

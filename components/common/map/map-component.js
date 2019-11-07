@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Router } from 'routes';
 import { ComposableMap, ZoomableGroup, Geographies, Geography, Markers } from 'react-simple-maps';
 import { PatternLines } from '@vx/pattern';
 import tooltip from 'wsdm-tooltip';
-import debounce from 'lodash/debounce';
 
 // components
 import Icon from 'components/common/icon';
@@ -25,25 +25,25 @@ class Map extends PureComponent {
     setCountryColor: PropTypes.func.isRequired,
     legend: PropTypes.array.isRequired,
     responsive: PropTypes.object.isRequired,
-    onClickGeography: PropTypes.func
+    onClickGeography: PropTypes.func,
+    zoom: PropTypes.number,
+    center: PropTypes.array,
+    setSelectedCountry: PropTypes.func.isRequired,
+    markerType: PropTypes.string
   }
 
   static defaultProps = {
     markers: [],
-    onClickGeography: () => {}
+    onClickGeography: () => {},
+    zoom: 1,
+    center: [40, 0],
+    markerType: 'mineSites'
   }
 
   constructor(props) {
     super(props);
 
-    const { zoom, center } = MAP_DEFAULT_OPTIONS;
-
-    this.state = {
-      zoom,
-      center
-    };
-
-    this.debouncedHandleMovedEnd = debounce(this.handleMoveEnd, 300);
+    this.state = {};
   }
 
   componentDidMount() {
@@ -53,6 +53,27 @@ class Map extends PureComponent {
 
   componentWillUnmount() { this.tip.hide(); }
 
+  handleOnClickGeography(...args) {
+    this.setState({
+      zoom: null,
+      center: null
+    });
+    return this.props.onClickGeography(...args, ComposableMap.defaultProps);
+  }
+
+  handleOnClickMarker = (coordinates, mineSiteId, language) => {
+    if (this.state.zoom === MAP_DEFAULT_OPTIONS.maxZoom) {
+      Router.pushRoute('mine-sites', {
+        mineSite: mineSiteId,
+        language
+      });
+    }
+    this.setState({
+      zoom: MAP_DEFAULT_OPTIONS.maxZoom,
+      center: coordinates
+    });
+  }
+
   handleMove = (geography, evt) => {
     const x = evt.clientX;
     const y = evt.clientY + window.pageYOffset;
@@ -61,49 +82,55 @@ class Map extends PureComponent {
 
     if (!isClickable && !isProducing) return;
 
+    this.props.setSelectedCountry(geography.properties.countryId);
     this.tip.show(`<div>${geography.properties.NAME}</div>`);
     this.tip.position({ pageX: x, pageY: y });
   }
 
   handleMoveMarker = (marker, evt) => {
-    const x = evt.clientX;
-    const y = evt.clientY + window.pageYOffset;
+    if (this.state.zoom && this.state.zoom === MAP_DEFAULT_OPTIONS.maxZoom) {
+      const x = evt.clientX;
+      const y = evt.clientY + window.pageYOffset;
 
-    const markerStyles = 'text-align:center;font-size:18px;';
+      const markerStyles = 'text-align:center;font-size:18px;';
 
-    this.tip.show(`<div style=${markerStyles}>
-      ${marker.name}
-      <p className="country-name">[${marker.country}]</p>
-    </div>`);
-    this.tip.position({ pageX: x, pageY: y });
+      this.tip.show(`<div style=${markerStyles}>
+        ${marker.name}
+        <p className="country-name">[${marker.country}]</p>
+      </div>`);
+      this.tip.position({ pageX: x, pageY: y });
+    }
   }
 
-  handleLeave = () => { this.tip.hide(); }
+  handleLeave = () => {
+    this.tip.hide();
+    this.props.setSelectedCountry(null);
+  }
 
-  handleZoomIn = () => { this.setState({ zoom: this.state.zoom + 1 }); }
+  handleZoomIn = () => { this.setState({ zoom: this.state.zoom ? this.state.zoom + 1 : 2 }); }
 
   handleResetZoom = () => {
     const { zoom, center } = MAP_DEFAULT_OPTIONS;
-    this.setState({ zoom, center });
+    this.setState({
+      zoom,
+      center
+    });
   }
 
-  handleZoomOut = () => { this.setState({ zoom: this.state.zoom - 1 }); }
-
-  handleMoveEnd = (center) => { this.setState({ center }); };
+  handleZoomOut = () => { this.setState({ zoom: this.state.zoom ? this.state.zoom - 1 : 1 }); }
 
   renderMarkers() {
     return this.props.markers.map(marker =>
-      createMarker(marker, this.handleMoveMarker, this.handleLeave));
+      createMarker(marker, this.props.markerType, this.handleMoveMarker, this.handleLeave, this.handleOnClickMarker));
   }
 
   render() {
-    const { paths, legend, setCountryColor, onClickGeography, responsive } = this.props;
+    const { paths, legend, setCountryColor, responsive } = this.props;
     const { minZoom, maxZoom } = MAP_DEFAULT_OPTIONS;
     const { mobile } = responsive;
-    const { zoom, center } = this.state;
     const markers = this.renderMarkers();
-    const isZoomInDisabled = zoom === maxZoom;
-    const isZoomOutDisabled = zoom === minZoom;
+    const isZoomInDisabled = this.state.zoom ? false : this.state.zoom > maxZoom;
+    const isZoomOutDisabled = this.state.zoom ? this.state.zoom <= minZoom : true;
 
     return (
       <div className="c-map">
@@ -121,6 +148,7 @@ class Map extends PureComponent {
         </div>
         <ComposableMap
           projection="winkel3"
+          style={{ width: "100%", height: "100%" }}
           {...mobile && { height: 250 }}
           defs={
             <PatternLines
@@ -135,9 +163,8 @@ class Map extends PureComponent {
           }
         >
           <ZoomableGroup
-            center={center}
-            zoom={zoom}
-            onMoveEnd={this.debouncedHandleMovedEnd}
+            center={this.state.center ? this.state.center : this.props.center}
+            zoom={this.state.zoom ? this.state.zoom : this.props.zoom}
           >
             <Geographies geography={paths} disableOptimization>
               {(geographies, projection) => geographies.map(geography => (
@@ -145,7 +172,7 @@ class Map extends PureComponent {
                   key={geography.properties.id}
                   geography={geography}
                   projection={projection}
-                  onClick={geography.properties.isClickable ? onClickGeography : undefined}
+                  onClick={geography.properties.isClickable ? this.handleOnClickGeography.bind(this) : undefined}
                   onMouseMove={this.handleMove}
                   onMouseLeave={this.handleLeave}
                   style={{
