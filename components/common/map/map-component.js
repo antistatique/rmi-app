@@ -155,8 +155,8 @@ class Map extends PureComponent {
               id="lines"
               height={8}
               width={8}
-              stroke="#4ec1c2"
-              background="#4a5972"
+              stroke="#6eaac1"
+              background="#c78ebf"
               strokeWidth={2}
               orientation={['diagonal']}
             />
