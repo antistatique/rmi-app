@@ -20,10 +20,12 @@ class OverallChart extends PureComponent {
     const referenceLines = [
       {
         'label': 'Collective Best Score (2020)',
+        'strokeLabel': '#c4122c',
         'value': bestPracticeScore,
         'strokeReferenceLine': '#c4122c'
       }, {
         'label': 'Collective Best Score (2018)',
+        'strokeLabel': '#9c9d9e',
         'value': previousBestPracticeScore,
         'strokeReferenceLine': '#9c9d9e'
       }
@@ -45,10 +47,14 @@ class OverallChart extends PureComponent {
     const referenceLines = [
       {
         'label': 'Collective Best Score (2020)',
+        'strokeLabel': '#c4122c',
         'value': bestPracticeScore,
+        'strokeReferenceLine': '#c4122c'
       }, {
         'label': 'Collective Best Score (2018)',
-        'value': previousBestPracticeScore / 2
+        'strokeLabel': '#9c9d9e',
+        'value': previousBestPracticeScore,
+        'strokeReferenceLine': '#9c9d9e'
       }
     ];
 
