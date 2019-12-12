@@ -9,11 +9,10 @@ export const getStockExchanges = createThunkAction('stockExchanges/getStockExcha
   (dispatch, getState) => {
     const { queryParams } = _options;
     const { mapsAndTables } = getState();
-    const { company, country } = mapsAndTables.stockExchangesFilters;
+    const { country } = mapsAndTables.stockExchangesFilters;
 
     const options = {
       ...queryParams,
-      'filter[companies]': company,
       'filter[country]': country
     };
 
