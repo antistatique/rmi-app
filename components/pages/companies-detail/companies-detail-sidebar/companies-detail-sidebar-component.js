@@ -136,19 +136,13 @@ class CompaniesDetailSidebar extends PureComponent {
   }
 
   renderFatalities(year, originalReports) {
-    // ensure all categories are here and display the 'Not reported' value if not present
+    // Ensure all fatalities categories are here
+    // and set the value to NULL to display the 'Not reported' if not present.
     const expectedCategories = ['Employees', 'Contract workers', 'Others'];
-
     const fatalityReports = [];
     for (let i in expectedCategories) {
       const category = expectedCategories[i];
-      let report = null;
-      for (let i in originalReports) {
-        if (originalReports[i].category == category) {
-          report = originalReports[i];
-          break;
-        }
-      }
+      const report = find(originalReports, (r) => r.category == category);
 
       if (report) {
         fatalityReports.push(report);
