@@ -6,12 +6,14 @@ import { EXCLUDED_COUNTRIES } from 'constants/map';
 
 const companies = state => state.companies.list;
 const stockExchanges = state => state.stockExchanges.list;
-const selectedCompany = state => state.companiesPage.selectedCompany;
+const selectedCompany = state => state.mapsAndTables.stockExchangesFilters.company;
 const countries = state => state.countries.list;
 
 export const getSelectedCompany = createSelector(
   [companies, selectedCompany],
-  (_companies, _selectedCompany) => _companies.find(company => company.id === _selectedCompany)
+  (_companies, _selectedCompany) => {
+    return _companies.find(company => company.id === _selectedCompany)
+  }
 );
 
 export const getCompanies = createSelector(

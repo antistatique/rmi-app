@@ -125,6 +125,8 @@ class CompaniesListItem extends PureComponent {
           <div
             className="companies-list-item"
             onClick={onClick ? () => onClick(company) : this.handleToggle}
+            onMouseEnter={() => onMouseEnter(company)}
+            onMouseLeave={onMouseLeave}
           >
             <span className={`company-name ${this.handleCountryHighlight() || selectedCompany === id ? 'highlighted' : ''}`}>{name}</span>
           </div>

@@ -54,8 +54,8 @@ class MapStockExchanges extends PureComponent {
             { (this.props.selectedCountry && !this.props.selectedCompany) &&
               <CompaniesList
                 companiesFromProps={this.props.companies.filter(company => this.filterCompany(company))}
-                onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
-                onMouseLeave={() => { this.props.resetSelectedCompany(); }}
+                onMouseEnter={({ id }) => { this.props.setStockExchangesFilters({ company: id }); }}
+                onMouseLeave={() => { this.props.setStockExchangesFilters({ company: undefined }); }}
                 onClick={({ id }) => { this.onClickCompany(id); }}
                 selectedCompany={this.props.selectedCompany}
                 countrySource="stock-exchanges"
@@ -64,8 +64,8 @@ class MapStockExchanges extends PureComponent {
             }
             { (this.props.selectedCompany && !this.props.selectedCountry) &&
               <CompaniesList
-                onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
-                onMouseLeave={() => { this.props.resetSelectedCompany(); }}
+                onMouseEnter={({ id }) => { this.props.setStockExchangesFilters({ company: id }); }}
+                onMouseLeave={() => { this.props.setStockExchangesFilters({ company: undefined }); }}
                 onClick={({ id }) => { this.onClickCompany(id); }}
                 selectedCompany={this.props.selectedCompany}
                 isCompanyPage={false}
@@ -75,8 +75,8 @@ class MapStockExchanges extends PureComponent {
             { (this.props.selectedCountry && this.props.selectedCompany) &&
               <CompaniesList
                 companiesFromProps={this.props.companies.filter(company => this.filterCompany(company))}
-                onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
-                onMouseLeave={() => { this.props.resetSelectedCompany(); }}
+                onMouseEnter={({ id }) => { this.props.setStockExchangesFilters({ company: id }); }}
+                onMouseLeave={() => { this.props.setStockExchangesFilters({ company: undefined }); }}
                 onClick={({ id }) => { this.onClickCompany(id); }}
                 selectedCompany={this.props.selectedCompany}
                 isCompanyPage={false}
@@ -85,8 +85,8 @@ class MapStockExchanges extends PureComponent {
             }
             { (!this.props.selectedCountry && !this.props.selectedCompany) &&
               <CompaniesList
-                onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
-                onMouseLeave={() => { this.props.resetSelectedCompany(); }}
+                onMouseEnter={({ id }) => { this.props.setStockExchangesFilters({ company: id }); }}
+                onMouseLeave={() => { this.props.setStockExchangesFilters({ company: undefined }); }}
                 onClick={({ id }) => { this.onClickCompany(id); }}
                 selectedCompany={this.props.selectedCompany}
                 isCompanyPage={false}
