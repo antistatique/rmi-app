@@ -111,7 +111,11 @@ class CompaniesDetailHeader extends PureComponent {
                     },
                     {
                       anchor: 'known-shareholders',
-                      label: 'Shareholders & Subsidiaries'
+                      label: 'Shareholders'
+                    },
+                    {
+                      anchor: 'known-shareholders',
+                      label: 'Subsidiaries'
                     },
                     {
                       anchor: 'known-beneficial-owners',
