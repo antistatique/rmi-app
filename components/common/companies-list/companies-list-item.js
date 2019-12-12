@@ -21,7 +21,10 @@ class CompaniesListItem extends PureComponent {
     onMouseLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
     onCloseTooltip: PropTypes.func,
-    selectedCountry: PropTypes.string
+    onClick: PropTypes.func,
+    selectedCountry: PropTypes.string,
+    selectedCompany: PropTypes.string,
+    countrySource: PropTypes.string
   }
 
   static defaultProps = {
@@ -29,7 +32,10 @@ class CompaniesListItem extends PureComponent {
     onMouseLeave: () => {},
     onOpenTooltip: null,
     onCloseTooltip: null,
-    selectedCountry: null
+    selectedCountry: null,
+    selectedCompany: null,
+    countrySource: null,
+    onClick: null
   }
 
   constructor(props) {
@@ -63,8 +69,16 @@ class CompaniesListItem extends PureComponent {
     if (onCloseTooltip) onCloseTooltip(company);
   }
 
+  handleCountryHighlight = () => {
+    if (!this.props.countrySource) {
+      return this.props.selectedCountry === this.props.company.country.id;
+    }
+    const countries = this.props.company[this.props.countrySource].map(countrySource => countrySource.country.id);
+    return countries.includes(this.props.selectedCountry);
+  }
+
   render() {
-    const { isCompanyPage, currentLanguage, company, onMouseEnter, onMouseLeave, selectedCountry } = this.props;
+    const { isCompanyPage, currentLanguage, company, onMouseEnter, onMouseLeave, selectedCountry, selectedCompany, onClick } = this.props;
     const { name, id, 'selected-mine-sites': mineSites } = company;
     const { visibility } = this.state;
 
@@ -110,9 +124,9 @@ class CompaniesListItem extends PureComponent {
         >
           <div
             className="companies-list-item"
-            onClick={this.handleToggle}
+            onClick={onClick ? () => onClick(company) : this.handleToggle}
           >
-            <span className={`company-name ${selectedCountry === company.country.id ? 'highlighted' : ''}`}>{name}</span>
+            <span className={`company-name ${this.handleCountryHighlight() || selectedCompany === id ? 'highlighted' : ''}`}>{name}</span>
           </div>
           {visibility &&
             <CompaniesListTooltip

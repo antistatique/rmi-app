@@ -26,6 +26,7 @@ class Map extends PureComponent {
     legend: PropTypes.array.isRequired,
     responsive: PropTypes.object.isRequired,
     onClickGeography: PropTypes.func,
+    onClick: PropTypes.func,
     zoom: PropTypes.number,
     center: PropTypes.array,
     setSelectedCountry: PropTypes.func.isRequired,
@@ -35,6 +36,7 @@ class Map extends PureComponent {
   static defaultProps = {
     markers: [],
     onClickGeography: () => {},
+    onClick: null,
     zoom: 1,
     center: [40, 0],
     markerType: 'mineSites'
@@ -54,6 +56,9 @@ class Map extends PureComponent {
   componentWillUnmount() { this.tip.hide(); }
 
   handleOnClickGeography(...args) {
+    if (this.props.onClick) {
+      return this.props.onClick(...args, ComposableMap.defaultProps);
+    }
     this.setState({
       zoom: null,
       center: null
