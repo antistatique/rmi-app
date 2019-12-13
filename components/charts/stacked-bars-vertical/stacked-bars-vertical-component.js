@@ -52,7 +52,7 @@ class StackedBarsVertical extends PureComponent {
               <div className="score">
                 <div>2020</div>
                 <div className="current-score text-size-big">{currentTotalScore.toFixed(2)}</div>
-                <span className="total-score">Out of { dataScale.toFixed() }</span>
+                <span className="total-score">score / { dataScale.toFixed() }</span>
               </div>
               <div className="bar">
                 <Tooltip
@@ -86,7 +86,7 @@ class StackedBarsVertical extends PureComponent {
                 <div className="score">
                   <div>2018</div>
                   <div className="current-score text-size-big">{previousTotalScore.toFixed(2)}</div>
-                  <span className="total-score">Out of { dataScale.toFixed() }</span>
+                  <span className="total-score">score / { dataScale.toFixed() }</span>
                 </div>
                 <div className="bar">
 
