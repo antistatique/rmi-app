@@ -22,7 +22,7 @@ export const TAILINGS_TABLE_COLUMNS = [
   },
   {
     property: 'impact-based-hazard-category',
-    header: { label: 'Impact-based hazard category' }
+    header: { label: 'Impact-based hazard category\n (company-reported)' }
   }
 ];
 
