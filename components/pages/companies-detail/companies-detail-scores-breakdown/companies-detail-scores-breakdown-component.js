@@ -229,7 +229,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <h3 className="title">Investor / State Disputes
-                  <div className="title -small d-inline ml-1">(involvements since 2014)</div>
+                  <div className="title -small d-inline ml-1">(since 2014)</div>
                 </h3>
                 {investmentDisputes.length ?
                   <Gradient className="-gray">
