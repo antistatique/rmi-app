@@ -6,6 +6,7 @@ import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
 import Filters from './map-known-tax-jurisdications-filters';
 import { getCountryColor } from './map-known-tax-jurisdictions-helpers';
+import { MAP_LEGEND } from './map-known-tax-jurisdictions-constants'; 
 
 class MapTaxJurisdictions extends PureComponent {
   static propTypes = {
@@ -118,7 +119,7 @@ class MapTaxJurisdictions extends PureComponent {
               paths={this.props.paths}
               center={[40, 10]}
               setCountryColor={MapTaxJurisdictions.setCountryColor}
-              legend={[]}
+              legend={MAP_LEGEND}
               onClick={this.onClickCountry}
             />
           </div>

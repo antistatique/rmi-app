@@ -1,5 +1,5 @@
 export const MAP_COLORS = {
-  color1: '#789880',
+  color1: '#6eaac1',
   color2: '#c78ebf',
   color3: 'url(#lines)',
   highlight: '#bf3132',
@@ -8,7 +8,7 @@ export const MAP_COLORS = {
 
 export const MAP_LEGEND = [
   {
-    label: 'Countries where companies hold taxes jurisdictions',
+    label: 'Producing countries, where companies have mining operations',
     color: MAP_COLORS.color1
   }
 ];

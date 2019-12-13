@@ -5,6 +5,7 @@ import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
 import { getCompanyCountryColor } from '../../companies/companies-helpers';
 import Filters from './map-producing-countries-filters';
+import { MAP_LEGEND } from './map-producing-countries-constants';
  
 class MapProducingCountries extends PureComponent {
   static propTypes = {
@@ -104,7 +105,7 @@ class MapProducingCountries extends PureComponent {
               paths={this.props.paths}
               center={[40, 10]}
               setCountryColor={MapProducingCountries.setCountryColor}
-              legend={[]}
+              legend={MAP_LEGEND}
               onClick={this.onClickCountry}
             />
           </div>

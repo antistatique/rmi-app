@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
+import { MAP_LEGEND } from './map-stock-exchanges-constants';
 import { getCountryColor } from './map-stock-exchanges-helpers';
 import Filters from './map-stock-exchanges-filters';
 
@@ -104,7 +105,7 @@ class MapStockExchanges extends PureComponent {
               paths={this.props.paths}
               center={[40, 10]}
               setCountryColor={MapStockExchanges.setCountryColor}
-              legend={[]}
+              legend={MAP_LEGEND}
               onClick={this.onClickCountry}
             />
           </div>
