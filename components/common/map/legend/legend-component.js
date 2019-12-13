@@ -18,7 +18,8 @@ class MapLegend extends PureComponent {
   static getItemColorClass({ type }) {
     return classnames({
       'legend-item-color': true,
-      '-circle': type === 'circle'
+      '-circle': type === 'circle',
+      '-square': type === 'square'
     });
   }
 

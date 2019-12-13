@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Map from 'components/common/map';
 import Filters from './map-tailing-storage-facilities-filters';
 import { getCompanyCountryColor } from '../../companies/companies-helpers';
+import { MAP_LEGEND } from './map-tailing-storage-facilities-constants';
 
 class MapTailingStorageFacilities extends PureComponent {
   static propTypes = { paths: PropTypes.array.isRequired, markers: PropTypes.array.isRequired }
@@ -23,7 +24,7 @@ class MapTailingStorageFacilities extends PureComponent {
           markers={this.props.markers}
           markerType="tailings"
           setCountryColor={MapTailingStorageFacilities.setCountryColor}
-          legend={[]}
+          legend={MAP_LEGEND}
         />
       </div>
     );

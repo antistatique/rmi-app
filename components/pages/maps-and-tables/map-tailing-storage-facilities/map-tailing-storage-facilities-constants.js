@@ -1,5 +1,5 @@
 export const MAP_COLORS = {
-  color1: '#ca9d5d',
+  color1: '#6eaac1',
   color2: '#c78ebf',
   color3: 'url(#lines)',
   highlight: '#bf3132',
@@ -8,8 +8,13 @@ export const MAP_COLORS = {
 
 export const MAP_LEGEND = [
   {
-    label: 'Countries where companies are listed on a stock exchange',
+    label: 'Countries where companies have Tailings Storage Facilities',
     color: MAP_COLORS.color1
+  },
+  {
+    label: 'Tailings Storage Facilities',
+    color: '#8e8e8e',
+    type: 'square'
   }
 ];
 
