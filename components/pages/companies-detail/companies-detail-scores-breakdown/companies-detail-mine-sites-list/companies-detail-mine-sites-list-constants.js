@@ -8,7 +8,7 @@ export const ALLMINE_SITE_TABLE_COLUMNS = [
     property: 'name',
     header: {
       label: 'Mine Site Name',
-      props: { style: { ...defaultCellPaddingStyle, paddingLeft: 0 } }
+      props: { style: { ...defaultCellPaddingStyle, paddingLeft: 0, fontWeight: 'bold' } }
     },
     cell: { props: { style: { ...defaultCellPaddingStyle, paddingLeft: '0' } } }
   },
@@ -16,7 +16,7 @@ export const ALLMINE_SITE_TABLE_COLUMNS = [
     property: 'aliases',
     header: {
       label: 'Aliases',
-      props: { style: { ...defaultCellPaddingStyle, width: '250px' } }
+      props: { style: { ...defaultCellPaddingStyle, width: '250px', fontWeight: 'bold' } }
     },
     cell: { props: { style: { ...defaultCellPaddingStyle } } }
   },
@@ -24,7 +24,7 @@ export const ALLMINE_SITE_TABLE_COLUMNS = [
     property: 'country',
     header: {
       label: 'Country',
-      props: { style: { ...defaultCellPaddingStyle } }
+      props: { style: { ...defaultCellPaddingStyle, fontWeight: 'bold' } }
     },
     cell: {
       formatters: [
@@ -37,7 +37,7 @@ export const ALLMINE_SITE_TABLE_COLUMNS = [
     property: 'companiesShare',
     header: {
       label: 'Company\'s share (%)',
-      props: { style: { ...defaultCellPaddingStyle, width: '165px' } }
+      props: { style: { ...defaultCellPaddingStyle, width: '165px', fontWeight: 'bold' } }
     },
     cell: {
       formatters: [
@@ -53,7 +53,8 @@ export const ALLMINE_SITE_TABLE_COLUMNS = [
       props: {
         style: {
           ...defaultCellPaddingStyle,
-          width: '100px'
+          width: '100px',
+          fontWeight: 'bold'
         }
       }
     },
@@ -66,7 +67,7 @@ export const ALLMINE_SITE_TABLE_COLUMNS = [
   },
   {
     property: 'mining-type',
-    header: { label: 'Mining types', props: { style: { ...defaultCellPaddingStyle, paddingRight: 0 } } },
+    header: { label: 'Mining types', props: { style: { ...defaultCellPaddingStyle, paddingRight: 0, fontWeight: 'bold' } } },
     cell: { props: { style: { ...defaultCellPaddingStyle, paddingRight: 0 } } }
   }
 ];
@@ -80,7 +81,15 @@ export const CLOSED_MINE_SITES_TABLE_COLUMNS = [
   ALLMINE_SITE_TABLE_COLUMNS[5], // mining-type
   {
     property: 'year-of-closure',
-    header: { label: 'Year of closure' }
+    header: {
+      label: 'Year of closure',
+      props: {
+        style: {
+          width: '120px',
+          fontWeight: 'bold'
+        }
+      }
+    }
   }
 ];
 
