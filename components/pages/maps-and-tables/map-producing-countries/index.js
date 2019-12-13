@@ -1,18 +1,16 @@
 import { connect } from 'react-redux';
 
-import { getPaths } from './map-producing-countries-selectors';
-import { setSelectedCompany, resetSelectedCompany } from '../../companies/companies-actions';
+import { getPaths, getCountries, getCompanies } from './map-producing-countries-selectors';
 import MapProducingCountries from './map-producing-countries-component';
+import { setProducingCountriesFilters } from '../maps-and-tables-actions';
 
 export default connect(
   state => ({
     paths: getPaths(state),
-    companies: state.companies.list,
+    companies: getCompanies(state),
+    countries: getCountries(state),
     selectedCountry: state.mapsAndTables.producingCountriesFilters.country,
     selectedCompany: state.mapsAndTables.producingCountriesFilters.company
   }),
-  {
-    setSelectedCompany,
-    resetSelectedCompany
-  }
+  { setProducingCountriesFilters }
 )(MapProducingCountries);

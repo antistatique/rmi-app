@@ -6,18 +6,11 @@ import StockExchangesService from 'services/stock-exchanges';
 export const setStockExchanges = createAction('stockExchanges/setStockExchanges');
 
 export const getStockExchanges = createThunkAction('stockExchanges/getStockExchanges', _options =>
-  (dispatch, getState) => {
+  (dispatch) => {
     const { queryParams } = _options;
-    const { mapsAndTables } = getState();
-    const { country } = mapsAndTables.stockExchangesFilters;
-
-    const options = {
-      ...queryParams,
-      'filter[country]': country
-    };
 
     return new Promise((resolve, reject) => {
-      StockExchangesService.getStockExchanges(options)
+      StockExchangesService.getStockExchanges(queryParams)
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
 

@@ -17,8 +17,10 @@ class CompaniesList extends PureComponent {
     loading: PropTypes.bool.isRequired,
     isCompanyPage: PropTypes.bool,
     currentLanguage: PropTypes.string.isRequired,
+    taxJurisdictions: PropTypes.array,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
+    onMouseListLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
     onCloseTooltip: PropTypes.func,
     onClick: PropTypes.func,
@@ -32,6 +34,8 @@ class CompaniesList extends PureComponent {
     isCompanyPage: true,
     onMouseEnter: () => {},
     onMouseLeave: () => {},
+    onMouseListLeave: () => {},
+    taxJurisdictions: null,
     onOpenTooltip: null,
     onCloseTooltip: null,
     selectedCountry: null,
@@ -49,6 +53,8 @@ class CompaniesList extends PureComponent {
       currentLanguage,
       onMouseEnter,
       onMouseLeave,
+      taxJurisdictions,
+      onMouseListLeave,
       onOpenTooltip,
       onCloseTooltip,
       selectedCountry,
@@ -59,7 +65,7 @@ class CompaniesList extends PureComponent {
     } = this.props;
 
     return (
-      <div className="c-companies-list">
+      <div className="c-companies-list" onMouseLeave={onMouseListLeave}>
         <style jsx>{styles}</style>
         <div className="content">
           {loading && <Spinner />}
@@ -78,6 +84,7 @@ class CompaniesList extends PureComponent {
               selectedCountry={selectedCountry}
               selectedCompany={selectedCompany}
               countrySource={countrySource}
+              taxJurisdictions={taxJurisdictions}
             />
           ))}
 
@@ -99,6 +106,7 @@ class CompaniesList extends PureComponent {
               selectedCountry={selectedCountry}
               selectedCompany={selectedCompany}
               countrySource={countrySource}
+              taxJurisdictions={taxJurisdictions}
             />
           ))}
         </div>
