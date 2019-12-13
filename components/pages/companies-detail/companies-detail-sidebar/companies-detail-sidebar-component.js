@@ -140,8 +140,7 @@ class CompaniesDetailSidebar extends PureComponent {
     // and set the value to NULL to display the 'Not reported' if not present.
     const expectedCategories = ['Employees', 'Contract workers', 'Others'];
     const fatalityReports = [];
-    for (let i in expectedCategories) {
-      const category = expectedCategories[i];
+    expectedCategories.forEach((category) => {
       const report = find(originalReports, (r) => r.category == category);
 
       if (report) {
@@ -152,7 +151,7 @@ class CompaniesDetailSidebar extends PureComponent {
           value: null // 'Not reported'
         });
       }
-    }
+    });
 
     const onlyWorkerFatalities = fatalityReports.filter((report) => report.category != 'Others');
     const otherFatalities = fatalityReports.filter((report) => report.category == 'Others');
