@@ -55,16 +55,6 @@ class StackedBarsVertical extends PureComponent {
                 <span className="total-score">score / { dataScale.toFixed() }</span>
               </div>
               <div className="bar">
-                <Tooltip
-                  placement="bottom"
-                  trigger={['hover']}
-                  overlay={<span>collective best score (2020)</span>}
-                  mouseLeaveDelay={0}
-                >
-                  {/* @todo use real data to position the bar. */}
-                  <div className="bar-avg" style={{bottom: `${(data[0].collectiveBestScore.value * 100) / dataScale}%`}}></div>
-                </Tooltip>
-
                 {(data[0].children).map((bar, index) => (
                   <Tooltip
                     key={bar.id}
@@ -89,17 +79,6 @@ class StackedBarsVertical extends PureComponent {
                   <span className="total-score">score / { dataScale.toFixed() }</span>
                 </div>
                 <div className="bar">
-
-                  <Tooltip
-                    placement="bottom"
-                    trigger={['hover']}
-                    overlay={<span>collective best score (2018)</span>}
-                    mouseLeaveDelay={0}
-                  >
-                    {/* @todo use real data to position the bar. */}
-                    <div className="bar-avg" style={{bottom: `${(data[1].collectiveBestScore.value * 100) / dataScale}%`}}></div>
-                  </Tooltip>
-
                   {(data[1].children).map((bar, index) => (
                     <Tooltip
                       key={bar.id}
