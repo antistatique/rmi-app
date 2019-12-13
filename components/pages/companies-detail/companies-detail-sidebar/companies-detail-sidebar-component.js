@@ -141,7 +141,7 @@ class CompaniesDetailSidebar extends PureComponent {
     const expectedCategories = ['Employees', 'Contract workers', 'Others'];
     const fatalityReports = [];
     expectedCategories.forEach((category) => {
-      const report = find(originalReports, (r) => r.category == category);
+      const report = find(originalReports, (r) => r.category === category);
 
       if (report) {
         fatalityReports.push(report);
@@ -153,12 +153,12 @@ class CompaniesDetailSidebar extends PureComponent {
       }
     });
 
-    const onlyWorkerFatalities = fatalityReports.filter((report) => report.category != 'Others');
-    const otherFatalities = fatalityReports.filter((report) => report.category == 'Others');
+    const onlyWorkerFatalities = fatalityReports.filter((report) => report.category !== 'Others');
+    const otherFatalities = fatalityReports.filter((report) => report.category === 'Others');
 
     // when 'Employees' or 'Contract workers' are not specified,
     // the total workers fatality is regrouped under a category 'Workers'.
-    const specifiedWorkersFatality = find(originalReports, (r) => r.category = 'Workers');
+    const specifiedWorkersFatality = find(originalReports, (r) => r.category === 'Workers');
     const totalWorkerFatalities = specifiedWorkersFatality ? specifiedWorkersFatality.value : onlyWorkerFatalities.reduce((acc, report) => acc + report.value, 0);
     const otherFatality = otherFatalities.length > 0 ? otherFatalities[0] : null;
 
