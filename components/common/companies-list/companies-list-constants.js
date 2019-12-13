@@ -41,7 +41,7 @@ export const TOOLTIP_TABLE_COLUMNS = [
   {
     property: 'country',
     header: {
-      label: 'Mine countries',
+      label: 'Country',
       props: {
         style: {
           backgroundColor: '#000',
@@ -55,7 +55,7 @@ export const TOOLTIP_TABLE_COLUMNS = [
   {
     property: 'commodities',
     header: {
-      label: 'Commodities',
+      label: 'Products',
       props: {
         style: {
           backgroundColor: '#000',
