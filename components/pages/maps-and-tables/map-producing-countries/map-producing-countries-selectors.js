@@ -1,89 +1,70 @@
 import { createSelector } from 'reselect';
 import uniqBy from 'lodash/uniqBy';
 import { paths } from 'components/common/map/map-helpers';
-import compact from 'lodash/compact';
 
 import { EXCLUDED_COUNTRIES } from 'constants/map';
 
 const companies = state => state.companies.list;
-const currentCompany = state => state.companies.currentCompany;
-const selectedCompany = state => state.companiesPage.selectedCompany;
-const filteredSelectedCompany = state => state.mapsAndTables.producingCountriesFilters.company;
+const selectedCompany = state => state.mapsAndTables.producingCountriesFilters.company;
 const selectedCountry = state => state.mapsAndTables.producingCountriesFilters.country;
+const countries = state => state.countries.list;
 
 export const getSelectedCompany = createSelector(
   [companies, selectedCompany],
   (_companies, _selectedCompany) => _companies.find(company => company.id === _selectedCompany)
 );
 
-export const getPaths = createSelector(
-  [companies, currentCompany, getSelectedCompany, filteredSelectedCompany, selectedCountry],
-  (_companies = [], _currentCompany, _company = {}, _selectedCompany, _selectedCountry) => {
-    if (_currentCompany) {
-      return paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
-        .map((geography, index) => {
-          const countries = _currentCompany['producing-countries'];
-          const iso = geography.properties.ISO_A3;
-          let country = {};
-          if (_selectedCountry) {
-            country = countries.find(currentCountry => currentCountry.code === iso && currentCountry.id === _selectedCountry) || {};
-          } else {
-            country = countries.find(currentCountry => currentCountry.code === iso) || {};
-          }
+export const getSelectedCountry = createSelector(
+  [countries, selectedCountry],
+  (_countries, _selectedCountry) => _countries.find(country => country.id === _selectedCountry)
+);
 
-          return {
-            ...geography,
-            properties: {
-              ...geography.properties,
-              id: index,
-              isClickable: !(Object.keys(country).length === 0 && country.constructor === Object),
-              isSelected: false,
-              isHighlighted: false,
-              countryId: country.id,
-              isHome: !(Object.keys(country).length === 0 && country.constructor === Object),
-              isProducing: false
-            }
-          };
-      });
-    }
+export const getCompanies = createSelector(
+  (companies),
+  (_companies = []) => _companies.filter(company => company['producing-countries'].length > 0)
+);
+
+export const getCountries = createSelector(
+  [countries, companies],
+  (_countries = [], _companies = []) => {
+    const filteredCompanies = _companies.filter(company => company['producing-countries'].length > 0);
+    const tempProducingCountries = filteredCompanies.map(company => company['producing-countries']);
+    const tempCountries = uniqBy(tempProducingCountries, 'id')[0];
+    const producingCountries = tempCountries.map(country => country.id);
+    return _countries.filter(country => producingCountries.includes(country.id));
+  }
+);
+
+export const getPaths = createSelector(
+  [companies, getSelectedCompany, getSelectedCountry],
+  (_companies = [], _selectedCompany, _selectedCountry) => {
     return paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
       .map((geography, index) => {
-        const filteredCompanies = _companies.filter(company => company['producing-countries'] !== {});
-        const countries = filteredCompanies.map(company => company['producing-countries']);
-        const finalCountries = [];
-        countries.map(country => country.map((producingCountry) => {
-          finalCountries.push(producingCountry);
-        }));
-        const uniqCountries = uniqBy(finalCountries, 'id');
+        const filteredCompanies = _companies.filter(company => company['producing-countries'].length > 0);
+        const producingCountries = filteredCompanies.map(company => company['producing-countries']);
+        const tempCountries = uniqBy(producingCountries, 'id')[0];
         const iso = geography.properties.ISO_A3;
-        let country = {};
-        if (_selectedCountry) {
-          country = uniqCountries.find(uniqCountry => uniqCountry.code === iso && uniqCountry.id === _selectedCountry) || {};
-        } else {
-          country = uniqCountries.find(uniqCountry => uniqCountry.code === iso) || {};
+        const country = tempCountries.find(tempCountry => tempCountry.code === iso);
+        let isHighlighted = undefined;
+
+        if (_selectedCompany && _selectedCompany['producing-countries'].length > 0) {
+          isHighlighted = _selectedCompany['producing-countries'].find(producingCountry => producingCountry.code === iso);
         }
 
-        const {
-          country: companyCountry,
-          'secondary-country': companySecondaryCountry
-        } = _company;
-
-        // the countries we will hightlight when the user hovers a company
-        const hihglightedCountries = compact([
-          (companyCountry || {}).code,
-          (companySecondaryCountry || {}).code
-        ]);
+        if (!isHighlighted && _selectedCountry) {
+          isHighlighted = _selectedCountry.code === iso;
+        }
 
         return {
           ...geography,
           properties: {
             ...geography.properties,
             id: index,
-            isClickable: !(Object.keys(country).length === 0 && country.constructor === Object),
+            isClickable: country !== undefined,
             isSelected: false,
-            isHighlighted: hihglightedCountries.includes(country.code),
-            countryId: country.id,
-            isHome: !(Object.keys(country).length === 0 && country.constructor === Object),
+            isHighlighted: isHighlighted !== undefined && isHighlighted !== false,
+            countryId: country !== undefined ? country.id : undefined,
+            isHome: country !== undefined,
             isProducing: false
           }
         };

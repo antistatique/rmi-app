@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
+import { MAP_LEGEND } from './map-stock-exchanges-constants';
 import { getCountryColor } from './map-stock-exchanges-helpers';
 import Filters from './map-stock-exchanges-filters';
 
@@ -13,8 +14,6 @@ class MapStockExchanges extends PureComponent {
     countries: PropTypes.array.isRequired,
     selectedCompany: PropTypes.string,
     selectedCountry: PropTypes.string,
-    resetSelectedCompany: PropTypes.func.isRequired,
-    setSelectedCompany: PropTypes.func.isRequired,
     setStockExchangesFilters: PropTypes.func.isRequired
   }
 
@@ -54,8 +53,9 @@ class MapStockExchanges extends PureComponent {
             { (this.props.selectedCountry && !this.props.selectedCompany) &&
               <CompaniesList
                 companiesFromProps={this.props.companies.filter(company => this.filterCompany(company))}
-                onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
-                onMouseLeave={() => { this.props.resetSelectedCompany(); }}
+                onMouseEnter={({ id }) => { this.props.setStockExchangesFilters({ company: id }); }}
+                onMouseLeave={(company) => { this.props.setStockExchangesFilters({ company: company ? company.id : undefined }); }}
+                onMouseListLeave={() => { this.props.setStockExchangesFilters({ company: undefined }); }}
                 onClick={({ id }) => { this.onClickCompany(id); }}
                 selectedCompany={this.props.selectedCompany}
                 countrySource="stock-exchanges"
@@ -64,8 +64,10 @@ class MapStockExchanges extends PureComponent {
             }
             { (this.props.selectedCompany && !this.props.selectedCountry) &&
               <CompaniesList
-                onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
-                onMouseLeave={() => { this.props.resetSelectedCompany(); }}
+                companiesFromProps={this.props.companies}
+                onMouseEnter={({ id }) => { this.props.setStockExchangesFilters({ company: id }); }}
+                onMouseLeave={(company) => { this.props.setStockExchangesFilters({ company: company ? company.id : undefined }); }}
+                onMouseListLeave={() => { this.props.setStockExchangesFilters({ company: undefined }); }}
                 onClick={({ id }) => { this.onClickCompany(id); }}
                 selectedCompany={this.props.selectedCompany}
                 isCompanyPage={false}
@@ -75,8 +77,9 @@ class MapStockExchanges extends PureComponent {
             { (this.props.selectedCountry && this.props.selectedCompany) &&
               <CompaniesList
                 companiesFromProps={this.props.companies.filter(company => this.filterCompany(company))}
-                onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
-                onMouseLeave={() => { this.props.resetSelectedCompany(); }}
+                onMouseEnter={({ id }) => { this.props.setStockExchangesFilters({ company: id }); }}
+                onMouseLeave={(company) => { this.props.setStockExchangesFilters({ company: company ? company.id : undefined }); }}
+                onMouseListLeave={() => { this.props.setStockExchangesFilters({ company: undefined }); }}
                 onClick={({ id }) => { this.onClickCompany(id); }}
                 selectedCompany={this.props.selectedCompany}
                 isCompanyPage={false}
@@ -85,8 +88,10 @@ class MapStockExchanges extends PureComponent {
             }
             { (!this.props.selectedCountry && !this.props.selectedCompany) &&
               <CompaniesList
-                onMouseEnter={({ id }) => { this.props.setSelectedCompany(id); }}
-                onMouseLeave={() => { this.props.resetSelectedCompany(); }}
+                companiesFromProps={this.props.companies}
+                onMouseEnter={({ id }) => { this.props.setStockExchangesFilters({ company: id }); }}
+                onMouseLeave={(company) => { this.props.setStockExchangesFilters({ company: company ? company.id : undefined }); }}
+                onMouseListLeave={() => { this.props.setStockExchangesFilters({ company: undefined }); }}
                 onClick={({ id }) => { this.onClickCompany(id); }}
                 selectedCompany={this.props.selectedCompany}
                 isCompanyPage={false}
@@ -100,7 +105,7 @@ class MapStockExchanges extends PureComponent {
               paths={this.props.paths}
               center={[40, 10]}
               setCountryColor={MapStockExchanges.setCountryColor}
-              legend={[]}
+              legend={MAP_LEGEND}
               onClick={this.onClickCountry}
             />
           </div>

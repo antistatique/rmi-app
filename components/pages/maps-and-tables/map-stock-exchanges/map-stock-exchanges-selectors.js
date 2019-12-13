@@ -6,12 +6,20 @@ import { EXCLUDED_COUNTRIES } from 'constants/map';
 
 const companies = state => state.companies.list;
 const stockExchanges = state => state.stockExchanges.list;
-const selectedCompany = state => state.companiesPage.selectedCompany;
+const selectedCompany = state => state.mapsAndTables.stockExchangesFilters.company;
+const selectedCountry = state => state.mapsAndTables.stockExchangesFilters.country;
 const countries = state => state.countries.list;
 
 export const getSelectedCompany = createSelector(
   [companies, selectedCompany],
-  (_companies, _selectedCompany) => _companies.find(company => company.id === _selectedCompany)
+  (_companies, _selectedCompany) => {
+    return _companies.find(company => company.id === _selectedCompany);
+  }
+);
+
+export const getSelectedCountry = createSelector(
+  [countries, selectedCountry],
+  (_countries, _selectedCountry) => _countries.find(country => country.id === _selectedCountry)
 );
 
 export const getCompanies = createSelector(
@@ -29,17 +37,21 @@ export const getCountries = createSelector(
 );
 
 export const getPaths = createSelector(
-  [stockExchanges, getSelectedCompany],
-  (_stockExchanges = [], _company = {}) =>
+  [stockExchanges, getSelectedCompany, getSelectedCountry],
+  (_stockExchanges = [], _company = {}, _country) =>
     paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
       .map((geography, index) => {
         const selectedStockExchanges = uniqBy(_stockExchanges, 'country.id');
         const iso = geography.properties.ISO_A3;
         const country = selectedStockExchanges.find(stockExchange => stockExchange.country.code === iso);
-        let isHighlighted = false;
+        let isHighlighted = undefined;
 
         if (_company['stock-exchanges'] && _company['stock-exchanges'].length > 0) {
           isHighlighted = _company['stock-exchanges'].find(stockExchange => stockExchange.country.code === iso);
+        }
+
+        if (!isHighlighted && _country) { 
+          isHighlighted = _country.code === iso;
         }
 
         return {
@@ -49,7 +61,7 @@ export const getPaths = createSelector(
             id: index,
             isClickable: country !== undefined,
             isSelected: false,
-            isHighlighted: isHighlighted !== false && isHighlighted !== undefined ? isHighlighted.country.code === iso : false,
+            isHighlighted: isHighlighted !== undefined && isHighlighted !== false,
             countryId: country !== undefined ? country.country.id : undefined,
             isHome: country !== undefined,
             isProducing: false

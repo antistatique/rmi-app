@@ -8,7 +8,7 @@ export const MAP_COLORS = {
 
 export const MAP_LEGEND = [
   {
-    label: 'Home countries, where companies are headquartered',
+    label: 'Countries where companies hold stock exchanges',
     color: MAP_COLORS.color1
   }
 ];

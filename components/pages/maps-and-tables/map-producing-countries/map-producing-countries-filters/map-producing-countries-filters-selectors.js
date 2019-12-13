@@ -1,27 +1,17 @@
 import { createSelector } from 'reselect';
 import uniqBy from 'lodash/uniqBy';
 
-const companies = state => state.companies.list;
-const currentCompany = state => state.companies.currentCompany;
 const countries = state => state.countries.list;
-
-export const getUniqCompanies = createSelector(
-  [companies, currentCompany],
-  (_companies = [], _currentCompany) => {
-    if (_currentCompany) return [{ label: _currentCompany.name, value: _currentCompany.id }];
-    const uniqCompanies = uniqBy(_companies, 'id');
-    return uniqCompanies.map(company => ({ label: company.name, value: company.id }))
-      .sort((current, next) => {
-        const nameCurrent = current.label.toLowerCase();
-        const nameNext = next.label.toLowerCase();
-        if (nameCurrent < nameNext) return -1;
-        if (nameCurrent > nameNext) return 1;
-        return 0;
-      });
-  }
-);
+const companies = state => state.companies.list;
 
 export const getCountries = createSelector(
-  [countries],
-  (_countries = []) => _countries.map(country => ({ label: country.name, value: country.id }))
+  [countries, companies],
+  (_countries = [], _companies = []) => {
+    const filteredCompanies = _companies.filter(company => company['producing-countries'].length > 0);
+    const tempProducingCountries = filteredCompanies.map(company => company['producing-countries']);
+    const tempCountries = uniqBy(tempProducingCountries, 'id')[0];
+    const producingCountries = tempCountries.map(country => country.id);
+    const filteredCountries = _countries.filter(country => producingCountries.includes(country.id));
+    return filteredCountries.map(country => ({ label: country.name, value: country.id }));
+  }
 );
