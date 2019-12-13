@@ -53,7 +53,7 @@ class CompaniesDetailMineSitesList extends PureComponent {
             </Gradient>
             {hasJointVentureExcluded &&
               <div className="mine-site-list-disclaimer">
-                *Joint-Venture not under direct control of the company and not included in RMI assessment
+                *not included in RMI assessment
               </div>}
           </div>}
         {!!closedMineSites.length &&
