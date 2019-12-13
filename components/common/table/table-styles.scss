@@ -69,6 +69,10 @@
   &.-theme-2 {
     color: $color-7;
 
+    :global(th) {
+      background-color: #121B2F;
+    }
+
     :global(> tbody) {
       :global(> tr) {
         &:not(:last-child) {
