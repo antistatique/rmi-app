@@ -35,15 +35,6 @@ export const INDEX_NAVIGATION = [
           route: 'leading-practices',
           params: {}
         }
-      },
-      {
-        id: '9-4',
-        label: 'Adverse Impacts',
-        slug: 'adverse-impacts',
-        query: {
-          route: 'adverse-impacts',
-          params: {}
-        }
       }
     ]
   },
