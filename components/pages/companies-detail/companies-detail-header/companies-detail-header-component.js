@@ -51,7 +51,7 @@ class CompaniesDetailHeader extends PureComponent {
               <div className="right-side">
                 { extraLanguages.length !== 0 &&
                   <div className="extra-languages">
-                    This page is available in&nbsp;
+                    This page is also available in&nbsp;
                     { extraLanguages.map((extraLanguage, index) => (
                       <span key={index}>
                         <Link

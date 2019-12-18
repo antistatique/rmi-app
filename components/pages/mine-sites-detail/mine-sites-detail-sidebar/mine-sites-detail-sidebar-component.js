@@ -27,7 +27,7 @@ class MineSitesDetailSidebar extends PureComponent {
           <div className="row">
             <div className="col-xs-12">
               <div className="definition-item">
-                <div className="definition-key">Companies' shares:</div>
+                <div className="definition-key">Company share:</div>
                 { companiesShare.map(company => (
                   <div key={company.id} className="definition-value">
                     <Link
