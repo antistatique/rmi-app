@@ -42,7 +42,7 @@ class AdverseImpactsFilter extends PureComponent {
           theme="dark"
           selectedValue={company}
           onChange={this.handleCompany}
-          className="c-select-bordered ml-0 mb-3 mb-md-0 mr-0 mr-md-3"
+          className="ml-0 mb-3 mb-md-0 mr-0 mr-md-3"
         />
         <Select
           placeholder="Select a mine-site"
@@ -50,7 +50,7 @@ class AdverseImpactsFilter extends PureComponent {
           theme="dark"
           selectedValue={mineSite}
           onChange={this.handleMineSite}
-          className="c-select-bordered ml-0 mb-3 mb-md-0 mr-0 mr-md-3"
+          className="ml-0 mb-3 mb-md-0 mr-0 mr-md-3"
         />
         <Select
           placeholder="Select a category"
@@ -58,7 +58,7 @@ class AdverseImpactsFilter extends PureComponent {
           theme="dark"
           selectedValue={category}
           onChange={this.handleCategory}
-          className="c-select-bordered ml-0 mb-3 mb-md-0 mr-0"
+          className="ml-0 mb-3 mb-md-0 mr-0"
         />
       </div>
     );
