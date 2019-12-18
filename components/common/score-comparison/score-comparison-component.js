@@ -81,7 +81,7 @@ class ScoreComparison extends PureComponent {
             </div>
           }
 
-          <div
+          {companies && <div
             className="score-max"
             style={{ left: `calc(${ScoreComparison.getWidth(max)} + 1px)` }}
             onClick={this.handleClickMax}
@@ -111,7 +111,7 @@ class ScoreComparison extends PureComponent {
                 ))}
               </div>
             </div>
-          </div>
+          </div>}
         </div>
       </div>
     );
