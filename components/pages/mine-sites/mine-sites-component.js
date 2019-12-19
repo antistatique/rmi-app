@@ -94,7 +94,7 @@ class MineSite extends PureComponent {
                   >
                     <MineSitesFilters />
                   </MediaQuery>
-                  <h4 class="title text-white mb-3">List of all companies</h4>
+                  <h4 className="title text-white mb-3">List of all companies</h4>
                   <CompaniesList
                     isCompanyPage={false}
                     onOpenTooltip={this.handleOpenTooltip}
