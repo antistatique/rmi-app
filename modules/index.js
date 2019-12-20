@@ -32,7 +32,6 @@ import topicsModule from 'modules/topics';
 
 // components modules
 import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
-import * as TableMineSitesModule from 'components/pages/maps-and-tables/table-mine-sites';
 
 // pages modules
 import * as LeadingPracticesModule from 'components/pages/leading-practices';
@@ -77,7 +76,6 @@ export default {
   stockExchanges: handleModule(stockExchangesModule),
   tailingStorageFacilities: handleModule(tailingStorageFacilitiesModule),
   fatalityReports: handleModule(fatalityReportsModule),
-  tableMineSites: handleModule(TableMineSitesModule),
   categories: handleModule(categoriesModule),
   topics: handleModule(topicsModule)
 };

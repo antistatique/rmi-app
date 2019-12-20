@@ -15,7 +15,7 @@ class RelatedLeadingPractices extends PureComponent {
     return (
       <div className="related-leading-practices block-section">
         <style jsx>{styles}</style>
-        <h5 className="block-section-name"><Icon name="small-flag" className="-medium" style={{ marginRight: '3px' }} />Related Leading Practices</h5>
+        <h5 className="block-section-name"><Icon name="small-flag" className="-medium" style={{ marginRight: '3px', marginTop: '3px' }} />Related Leading Practices</h5>
         <ul>
           {leadingPractices.map(leadingPractice => (
             <LinkModal key={leadingPractice.id} leadingPractice={leadingPractice} />

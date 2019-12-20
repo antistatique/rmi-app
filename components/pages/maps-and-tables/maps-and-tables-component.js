@@ -5,10 +5,7 @@ import MapsAndTablesAccordion from './accordion';
 import MapTaxJurisdictions from './map-known-tax-jurisdictions';
 import MapStockExchanges from './map-stock-exchanges';
 import MapTailingStorageFacilities from './map-tailing-storage-facilities';
-import TableFatalityReports from './table-fatality-reports';
 import MapProducingCountries from './map-producing-countries';
-import TableMineSites from './table-mine-sites';
-import MapMineSites from './map-mine-sites';
 
 class MapsAndTables extends PureComponent {
   render() {
@@ -40,11 +37,10 @@ class MapsAndTables extends PureComponent {
                   <MapTailingStorageFacilities />
                 </div>
                 <div label="Fatality Reports">
-                  <TableFatalityReports />
+                  <p>Download link goes here</p>
                 </div>
                 <div label="Mine Sites">
-                  <MapMineSites />
-                  <TableMineSites />
+                  <p>Download link goes here</p>
                 </div>
               </MapsAndTablesAccordion>
             </div>
