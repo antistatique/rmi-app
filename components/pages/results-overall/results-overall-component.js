@@ -27,7 +27,6 @@ class ResultsOverall extends PureComponent {
                   onChange={this.handleAreaSelection}
                   options={issueAreas}
                   placeholder="Overall"
-                  className="-underline"
                 />
               </div>
               <div className="col-xs-12 col-sm-8 col-md-6">

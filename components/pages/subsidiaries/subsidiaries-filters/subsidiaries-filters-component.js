@@ -48,7 +48,6 @@ class SubsidiariesFilters extends PureComponent {
             theme="dark"
             onChange={this.handleCompanyFilter}
             selectedValue={this.props.selectedCompany}
-            className="c-select-bordered"
           />
         </div>
       </div>
