@@ -2,12 +2,16 @@
 
 .c-disclaimer {
   columns: 2;
-  
+
   > .disclaimer-text {
     font-size: 12px;
     font-style: italic;
     font-weight: $font-weight-light;
     line-height: 1.5;
+
+    & + .disclaimer-text {
+      margin: 7px 0 0;
+    }
 
     a {
       font-style: italic;
