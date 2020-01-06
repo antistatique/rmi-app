@@ -71,14 +71,6 @@ class IndexPage extends PureComponent {
                   <a><span className="arrow">⟶</span> Leading Practices</a>
                 </Link>
               </li>
-              <li className="link-item">
-                <Link
-                  route="adverse-impacts"
-                  params={{ language: currentLanguage }}
-                >
-                  <a><span className="arrow">⟶</span> Severe Adverse Impacts</a>
-                </Link>
-              </li>
             </ul>
           </div>
           <section className="section -dark intro pt-4">
