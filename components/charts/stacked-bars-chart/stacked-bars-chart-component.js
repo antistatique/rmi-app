@@ -147,7 +147,7 @@ class StackedBarsChart extends PureComponent {
                 stroke={line.strokeReferenceLine ? line.strokeReferenceLine : strokeReferenceLine}
                 strokeDasharray={strokeDasharrayReferenceLine}
                 strokeWidth={strokeWidth}
-                label={{ value: line.label, fill: line.strokeLabel, position: index === 0 ? yReferenceLines[0].value > yReferenceLines[1].value ? 'top' : 'bottom' : yReferenceLines[1].value > yReferenceLines[0].value ? 'top' : 'bottom' }}
+                label={{ value: line.label, fill: line.strokeLabel, position: 'top' }}
               />))}
             <Tooltip
               {...customTooltip && { content: <CustomTooltip /> }}
