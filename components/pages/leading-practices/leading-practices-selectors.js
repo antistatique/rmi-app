@@ -12,8 +12,20 @@ export const parseIndicators = createSelector(
 );
 
 export const parseCompanies = createSelector(
-  [companies],
-  (_companies = []) => _companies.map(company => ({ label: company.name, value: company.id }))
+  [companies, leadingPractices],
+  (_companies = [], _leadingPractices = []) => {
+    let companyIds = [];
+    _leadingPractices.forEach((leading) => {
+      leading.companies.map((company) => {
+        companyIds = [
+          ...companyIds,
+          company.id
+        ];
+      });
+    });
+    const finalCompanies = _companies.filter(company => companyIds.includes(company.id));
+    return finalCompanies.map(company => ({ label: company.name, value: company.id }));
+  }
 );
 
 export const parseTopics = createSelector(
