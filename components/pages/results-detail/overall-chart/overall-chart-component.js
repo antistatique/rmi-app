@@ -15,7 +15,7 @@ class OverallChart extends PureComponent {
 
   componentWillMount() {
     const { data, config } = this.props;
-    const { bestPracticeScore } = data;
+    const { bestPracticeScore, averageScore } = data;
 
     const referenceLines = [
       {
@@ -23,6 +23,12 @@ class OverallChart extends PureComponent {
         'strokeLabel': '#c4122c',
         'value': bestPracticeScore,
         'strokeReferenceLine': '#c4122c'
+      },
+      {
+        'label': 'Average Score',
+        'strokeLabel': '#9c9d9e',
+        'value': averageScore,
+        'strokeReferenceLine': '#9c9d9e'
       }
     ];
 
@@ -45,6 +51,12 @@ class OverallChart extends PureComponent {
         'strokeLabel': '#c4122c',
         'value': bestPracticeScore,
         'strokeReferenceLine': '#c4122c'
+      },
+      {
+        'label': 'Average Score',
+        'strokeLabel': '#9c9d9e',
+        'value': averageScore,
+        'strokeReferenceLine': '#9c9d9e'
       }
     ];
 
