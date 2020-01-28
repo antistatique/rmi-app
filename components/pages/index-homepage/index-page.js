@@ -20,59 +20,67 @@ class IndexPage extends PureComponent {
         <style jsx>{styles}</style>
         <div className="l-layout">
           {/* splash */}
-          <div className="row">
-            <div className="splash">
+          <div className="row hero-container">
+            <img
+              className="hero-cover"
+              srcSet="/static/images/homepage_background.jpg 1x,
+                      /static/images/homepage_background@2x.jpg 2x"
+              src="/static/images/homepage_background.jpg"
+              alt=""
+            />
+            <div className="title-container">
               <h1 className="title">RMI Report 2020</h1>
               <p className="subtitle">An evidence-based assessment of mining company policies
-                and practices<br /> on economic, environmental, social and governance issues.
+                and practices on economic, environmental, social and governance issues.
               </p>
             </div>
-          </div>
-          <div className="splash-credits">
-            <div className="l-layout">
-              <div className="col-xs-12">
-                <span className="credits">Photograph: Dean Hutton/Bloomberg/Getty Images</span>
+            <div className="hero-credits">
+              <div className="l-layout">
+                <div className="col-xs-12">
+                  <span className="credits">Photograph: Dean Hutton/Bloomberg/Getty Images</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="quick-access">
-            <div className="title">Quick access</div>
-            <ul className="links-items">
-              <li className="link-item">
-                <Link
-                  route="companies"
-                  params={{ language: currentLanguage }}
-                >
-                  <a><span className="arrow">⟶</span> Company Results</a>
-                </Link>
-              </li>
-              <li className="link-item">
-                <Link
-                  route="mine-sites"
-                  params={{ language: currentLanguage }}
-                >
-                  <a><span className="arrow">⟶</span> Mine-site Results</a>
-                </Link>
-              </li>
+            <div className="quick-access">
+              <div className="title">Quick access</div>
+              <ul className="links-items">
+                <li className="link-item">
+                  <Link
+                    route="companies"
+                    params={{ language: currentLanguage }}
+                  >
+                    <a><span className="arrow">⟶</span> Company Results</a>
+                  </Link>
+                </li>
+                <li className="link-item">
+                  <Link
+                    route="mine-sites"
+                    params={{ language: currentLanguage }}
+                  >
+                    <a><span className="arrow">⟶</span> Mine-site Results</a>
+                  </Link>
+                </li>
 
-              <li className="link-item">
-                <Link
-                  route="maps-and-tables"
-                  params={{ language: currentLanguage }}
-                >
-                  <a><span className="arrow">⟶</span> Maps & Tables</a>
-                </Link>
-              </li>
-              <li className="link-item">
-                <Link
-                  route="leading-practices"
-                  params={{ language: currentLanguage }}
-                >
-                  <a><span className="arrow">⟶</span> Leading Practices</a>
-                </Link>
-              </li>
-            </ul>
+                <li className="link-item">
+                  <Link
+                    route="maps-and-tables"
+                    params={{ language: currentLanguage }}
+                  >
+                    <a><span className="arrow">⟶</span> Maps & Tables</a>
+                  </Link>
+                </li>
+                <li className="link-item">
+                  <Link
+                    route="leading-practices"
+                    params={{ language: currentLanguage }}
+                  >
+                    <a><span className="arrow">⟶</span> Leading Practices</a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
+
           <section className="section -dark intro pt-4">
             <div className="l-layout">
               <div className="row">
