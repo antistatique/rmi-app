@@ -19,25 +19,23 @@ class IndexPage extends PureComponent {
         <div className="l-layout pb-3">
           {/* splash */}
           <div className="hero-container mb-5">
-            <img
-              className="hero-cover"
-              srcSet="/static/images/homepage_background.jpg 1x,
-                      /static/images/homepage_background@2x.jpg 2x"
-              src="/static/images/homepage_background.jpg"
-              alt=""
-            />
+            <div className="image-container">
+              <img
+                className="hero-cover"
+                srcSet="/static/images/homepage_background.jpg 1x,
+                        /static/images/homepage_background@2x.jpg 2x"
+                src="/static/images/homepage_background.jpg"
+                alt=""
+              />
+              <p className="hero-credits">
+                Photograph: Dean Hutton/Bloomberg/Getty Images
+              </p>
+            </div>
             <div className="title-container">
               <h1 className="title">RMI Report 2020</h1>
               <p className="subtitle">An evidence-based assessment of mining company policies
                 and practices on economic, environmental, social and governance issues.
               </p>
-            </div>
-            <div className="hero-credits">
-              <div className="l-layout">
-                <div className="col-xs-12">
-                  <span className="credits">Photograph: Dean Hutton/Bloomberg/Getty Images</span>
-                </div>
-              </div>
             </div>
             <div className="quick-access">
               <div className="title">Quick access</div>

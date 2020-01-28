@@ -20,6 +20,29 @@
     height: auto;
   }
 
+  .image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .hero-credits {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: block;
+      font-size: $font-size-smallest;
+      font-style: italic;
+      color: $color-7;
+      margin-right: 0.5em;
+
+      @media #{$mq-md} {
+        transform: rotate(-90deg) translate(100%, -100%);
+        transform-origin: 100% 50%;
+        margin-right: 0em;
+      }
+    }
+  }
+
   .title-container {
     background: $color-3;
     width: 100%;
@@ -140,20 +163,6 @@
           }
         }
       }
-    }
-  }
-
-  .hero-credits {
-    padding: 20px 0 10px;
-    background: $color-2;
-    display: block;
-    width: 100%;
-    text-align: right;
-
-    .credits {
-      font-size: $font-size-smallest;
-      font-style: italic;
-      color: $color-7;
     }
   }
 
