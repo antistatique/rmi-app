@@ -169,4 +169,17 @@
       margin: 0;
     }
   }
+
+  .bordered-section {
+    padding: 0 1rem 1rem;
+    border: 1px solid $color-3;
+    color: $color-6;
+
+    .bordered-section-title {
+      margin: 0 -1rem 1rem;
+      padding: 1rem;
+      font-size: 1.5rem;
+      background: $color-3;
+    }
+  }
 }
