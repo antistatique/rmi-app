@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'routes';
 
+import CompaniesList from 'components/common/companies-list';
+import OverallGraph from '../results-overall/overall-graphs';
+
 // styles
 import styles from './index-page-styles.scss';
 
@@ -79,12 +82,12 @@ class IndexPage extends PureComponent {
 
           <section className="section bordered-section mb-5">
             <h2 className="bordered-section-title">Overall Company Results</h2>
-            <p>Industry network arrive model. Action reason little pick want throw season. Body other statement doctor worry worry. Divers haut fixer loi sang ordre rapporter. Oublier secret joue image guère visite paupière. Personnage clef branche un faveur.</p>
+            <OverallGraph />
           </section>
 
           <section className="section bordered-section mb-5">
             <h2 className="bordered-section-title">Company Reports</h2>
-            <p>Industry network arrive model. Action reason little pick want throw season. Body other statement doctor worry worry.</p>
+            <CompaniesList />
           </section>
         </div>
       </div>
