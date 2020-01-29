@@ -45,7 +45,7 @@ class IndexPage extends PureComponent {
                     route="companies"
                     params={{ language: currentLanguage }}
                   >
-                    <a><span className="arrow">⟶</span> Company Results</a>
+                    <a><span className="arrow">⟶</span> Company Reports</a>
                   </Link>
                 </li>
                 <li className="link-item">
@@ -53,7 +53,7 @@ class IndexPage extends PureComponent {
                     route="mine-sites"
                     params={{ language: currentLanguage }}
                   >
-                    <a><span className="arrow">⟶</span> Mine-site Results</a>
+                    <a><span className="arrow">⟶</span> Mine-site Reports</a>
                   </Link>
                 </li>
 
