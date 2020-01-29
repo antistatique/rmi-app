@@ -33,7 +33,15 @@ class CompaniesDetailAccordion extends PureComponent {
           <style jsx>{styles}</style>
           <div className="row center-sm between-md -no-text-align">
             <div className="col-xs-12 col-md-8">
-              <h4 className="block-title">{d.name}</h4>
+              <div className="row">
+                <div className="col-xs-4 col-md-3">
+                  <h4 className="block-title mb-3">{d.name.split(' ')[0]}</h4>
+                  <span>{d.measurementArea}</span>
+                </div>
+                <div className="col-xs-8 col-md-9">
+                  <p className="block-title">{d.name}</p>
+                </div>
+              </div>
             </div>
             <div className="col-xs-12 col-sm-6 col-md-3">
               <ScoreComparison
@@ -54,7 +62,7 @@ class CompaniesDetailAccordion extends PureComponent {
               </div>
             </div>
           }
-          
+
         </div>
       )));
   }
