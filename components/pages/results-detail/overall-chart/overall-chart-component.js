@@ -7,6 +7,9 @@ import StackedBars from 'components/charts/stacked-bars-chart';
 // constants
 import { BARS } from './overall-chart-constants';
 
+// styles
+import styles from './overall-chart-styles.scss';
+
 class OverallChart extends PureComponent {
   static propTypes = {
     data: PropTypes.object.isRequired,
@@ -73,11 +76,14 @@ class OverallChart extends PureComponent {
 
     return (
       <div className="c-overall-chart">
+        <style jsx>{styles}</style>
         <StackedBars
           data={scores}
           config={this.chartConfig}
           bars={BARS}
         />
+        <p><span className="aggregation-line collective" />Average of the best scores achieved collectively by all companies for each one of the indicators under the thematic area</p>
+        <p><span className="aggregation-line average" />Average of the scores achieved by each one of the companies under this thematic area</p>
       </div>
     );
   }
