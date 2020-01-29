@@ -42,6 +42,9 @@ class MapsAndTables extends PureComponent {
                 <div label="Mine Sites">
                   <p>Download link goes here</p>
                 </div>
+                <div label="Shareholders">
+                  <p>Download link goes here</p>
+                </div>
               </MapsAndTablesAccordion>
             </div>
           </div>
