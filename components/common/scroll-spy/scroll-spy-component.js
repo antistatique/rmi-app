@@ -68,7 +68,7 @@ class ScrollSpy extends PureComponent {
         duration: 800,
         delay: 0,
         smooth: 'easeInOutQuart',
-        offset: -250
+        offset: -this.props.offset
       });
     }
   }
@@ -82,13 +82,14 @@ class ScrollSpy extends PureComponent {
     const { scrollTop } = this.getScrollDimension();
 
     const rect = el.getBoundingClientRect();
-    const winH = window.innerHeight;
 
-    const scrollBottom = scrollTop + winH;
-    const elTop = rect.top + scrollTop + offset;
+    // The magic +1 is only there to ensure the scrollspy
+    // has enough boundaries when the quick navigation
+    // is scrolling to the element
+    const elTop = (rect.top + scrollTop) - (offset + 1);
     const elBottom = elTop + el.offsetHeight;
 
-    return (elTop < scrollBottom) && (elBottom > scrollTop);
+    return (elTop <= scrollTop) && (elBottom > scrollTop);
   }
 
   render() {

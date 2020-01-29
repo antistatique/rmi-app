@@ -49,7 +49,7 @@ class NavBar extends PureComponent {
   }
 
   renderTabs() {
-    const { tabs } = this.props;
+    const { tabs, currentLanguage } = this.props;
 
     const tabElements = tabs.map((tab) => {
       if (!tab.children) {
@@ -105,7 +105,10 @@ class NavBar extends PureComponent {
                     >
                       <Link
                         route={c.query.route}
-                        params={c.query.params}
+                        params={{
+                          ...c.query.params,
+                          language: currentLanguage
+                        }}
                       >
                         <a>{c.label}</a>
                       </Link>

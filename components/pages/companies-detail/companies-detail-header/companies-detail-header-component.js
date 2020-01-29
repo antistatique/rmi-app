@@ -88,6 +88,7 @@ class CompaniesDetailHeader extends PureComponent {
             <div className="row">
               <div className="col-6">
                 <Scrollspy
+                  offset={250}
                   items={[
                     {
                       anchor: 'overall-results',
