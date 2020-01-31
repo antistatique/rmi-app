@@ -39,7 +39,7 @@ class CompaniesDetailAccordion extends PureComponent {
                   <span>{d.measurementArea}</span>
                 </div>
                 <div className="col-xs-8 col-md-9">
-                  <p className="block-title">{d.name}</p>
+                  <p className="block-title">{d.label}</p>
                 </div>
               </div>
             </div>

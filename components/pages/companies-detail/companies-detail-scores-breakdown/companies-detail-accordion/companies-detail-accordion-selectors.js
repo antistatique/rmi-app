@@ -29,6 +29,7 @@ export const getIssueAreaTree = createSelector(
           .map(ind => ({
             id: ind.id,
             name: ind.name,
+            label: ind.label,
             slug: ind.slug,
             min: ind.min,
             max: ind.max,

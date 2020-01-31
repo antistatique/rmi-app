@@ -17,10 +17,12 @@ export const parseIndicators = createSelector(
           .map(child => ({
             id: child.id,
             name: child.name,
+            label: child.label,
             summary: (child || {}).summary,
             avg: child.avg,
             min: child.min,
             max: child.max,
+            measurementArea: child['measurement-area']['measurement-area'],
             value: ((child.scores || [])[0] || {}).value,
             color: SCORE_COMPARISON_CONFIG[_issueArea.slug],
             leadingPractices: child['leading-practices'],
