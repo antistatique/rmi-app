@@ -74,6 +74,7 @@ class CompaniesDetail extends PureComponent {
           </div>
           <CompaniesDetailScoresBreakDown />
         </div>
+        {this.props.printable && <Disclaimer />}
       </div>
     );
   }
