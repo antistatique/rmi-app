@@ -11,8 +11,14 @@ class Subsidiaries extends PureComponent {
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
-              <div className="col-xs-12 col-md-5">
+              <div className="col-md-6">
                 <h2 className="title">Company subsidiaries</h2>
+              </div>
+              <div className="col-md-6">
+                <p>
+                  This searchable database contains all the known subsidiaries of the 38 companies assessed in the RMI Report 2020. It includes over 3,000 entities, showing their country of registration and controlling company.
+                  It is possible to search for a specific text in the titles and to filter by company, using the fields below.
+                </p>
               </div>
             </div>
           </div>
