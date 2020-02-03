@@ -7,6 +7,8 @@ import { MAP_LEGEND } from './map-stock-exchanges-constants';
 import { getCountryColor } from './map-stock-exchanges-helpers';
 import Filters from './map-stock-exchanges-filters';
 
+import styles from '../maps-and-tables-styles.scss';
+
 class MapStockExchanges extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
@@ -48,6 +50,7 @@ class MapStockExchanges extends PureComponent {
   render() {
     return (
       <div className="c-map-stock-exchanges">
+        <style jsx>{styles}</style>
         <div className="row mb-4">
           <div className="col-xs-12 col-md-4">
             { (this.props.selectedCountry && !this.props.selectedCompany) &&
@@ -109,6 +112,9 @@ class MapStockExchanges extends PureComponent {
               onClick={this.onClickCountry}
             />
           </div>
+        </div>
+        <div className="row mb-4 text-white">
+          <a className="downloadable-links" href="/static/files/RMI_Report_2020_Stock_Exchanges.xlsx" download>Summary file</a>
         </div>
       </div>
     );

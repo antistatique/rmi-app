@@ -6,7 +6,9 @@ import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
 import Filters from './map-known-tax-jurisdications-filters';
 import { getCountryColor } from './map-known-tax-jurisdictions-helpers';
-import { MAP_LEGEND } from './map-known-tax-jurisdictions-constants'; 
+import { MAP_LEGEND } from './map-known-tax-jurisdictions-constants';
+
+import styles from '../maps-and-tables-styles.scss';
 
 class MapTaxJurisdictions extends PureComponent {
   static propTypes = {
@@ -61,6 +63,7 @@ class MapTaxJurisdictions extends PureComponent {
   render() {
     return (
       <div className="c-map-tax-jurisdictions">
+        <style jsx>{styles}</style>
         <div className="row mb-4">
           <div className="col-xs-12 col-md-4">
             { (this.props.selectedCountry && !this.props.selectedCompany) &&
@@ -123,6 +126,9 @@ class MapTaxJurisdictions extends PureComponent {
               onClick={this.onClickCountry}
             />
           </div>
+        </div>
+        <div className="row mb-4 text-white">
+          <a className="downloadable-links" href="/static/files/RMI_Report_2020_Tax_Jurisdictions.xlsx" download>Summary file</a>
         </div>
       </div>
     );

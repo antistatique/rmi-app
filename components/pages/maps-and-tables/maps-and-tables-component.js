@@ -4,13 +4,15 @@ import MapsAndTablesAccordion from './accordion';
 
 import MapTaxJurisdictions from './map-known-tax-jurisdictions';
 import MapStockExchanges from './map-stock-exchanges';
-import MapTailingStorageFacilities from './map-tailing-storage-facilities';
 import MapProducingCountries from './map-producing-countries';
+
+import styles from './maps-and-tables-styles.scss';
 
 class MapsAndTables extends PureComponent {
   render() {
     return (
       <div className="c-map-and-tables">
+        <style jsx>{styles}</style>
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
@@ -34,16 +36,24 @@ class MapsAndTables extends PureComponent {
                   <MapStockExchanges />
                 </div>
                 <div label="Tailings Storage Facilities">
-                  <MapTailingStorageFacilities />
+                  <div className="row mb-4 text-white">
+                    <a className="downloadable-links" href="/static/files/RMI_Report_2020_Tailing_Storage_Facilities.xlsx" download>Summary file</a>
+                  </div>
                 </div>
                 <div label="Fatality Reports">
-                  <p>Download link goes here</p>
+                  <div className="row mb-4 text-white">
+                    <a className="downloadable-links" href="/static/files/RMI_Report_2020_Company_Fatalities.xlsx" download>Summary file</a>
+                  </div>
                 </div>
                 <div label="Mine Sites">
-                  <p>Download link goes here</p>
+                  <div className="row mb-4 text-white">
+                    <a className="downloadable-links" href="/static/files/RMI_Report_2020_Mines_Sites.xlsx" download>Summary file</a>
+                  </div>
                 </div>
                 <div label="Shareholders">
-                  <p>Download link goes here</p>
+                  <div className="row mb-4 text-white">
+                    <a className="downloadable-links" href="/static/files/RMI_Report_2020-All_Shareholders_20191031.xlsx" download>Summary file</a>
+                  </div>
                 </div>
               </MapsAndTablesAccordion>
             </div>
