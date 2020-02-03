@@ -95,7 +95,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '9-3',
-        label: 'Company reports',
+        label: 'Company Reports',
         slug: 'company-reports',
         query: {
           route: 'companies',
@@ -133,7 +133,7 @@ export const INDEX_NAVIGATION = [
     children: [
       {
         id: '10-1',
-        label: 'Document library',
+        label: 'Document Library',
         slug: 'document-library',
         query: {
           route: 'library',
@@ -142,7 +142,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-2',
-        label: 'Company subsidiaries',
+        label: 'Company Subsidiaries',
         slug: 'company-subsidiaries',
         query: {
           route: 'subsidiaries',
@@ -160,7 +160,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-4',
-        label: 'Summary reports',
+        label: 'Summary Reports',
         slug: 'summary-reports',
         query: {
           route: 'static-page',
@@ -169,7 +169,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-5',
-        label: 'Additional translations',
+        label: 'Additional Translations',
         slug: 'additional-translations',
         query: {
           route: 'static-page',
@@ -178,7 +178,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-6',
-        label: 'Raw data',
+        label: 'Raw Data',
         slug: 'raw-data',
         query: {
           route: 'static-page',
@@ -187,7 +187,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-7',
-        label: 'Scoring framework',
+        label: 'Scoring Framework',
         slug: 'scoring-framework',
         query: {
           route: 'static-page',
