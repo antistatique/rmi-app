@@ -31,7 +31,7 @@ class IndexPage extends PureComponent {
                 alt=""
               />
               <p className="hero-credits">
-                Photograph: Dean Hutton/Bloomberg/Getty Images
+                © JATAM KALTIM (all rights reserved)
               </p>
             </div>
             <div className="title-container">
