@@ -57,7 +57,7 @@ class CompaniesDetail extends PureComponent {
         <div className="page-content">
           <div className="companies-detail-intro" id="contextual-data">
             <CompanyDetailHeader />
-            <div className="companies-detail-preview">
+            <div className="companies-detail-preview" id="overall-results">
               <CompaniesDetailSidebar />
               <div className="l-layout">
                 <div className="map-container my-4">

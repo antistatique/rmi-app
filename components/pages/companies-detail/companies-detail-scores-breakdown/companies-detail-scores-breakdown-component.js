@@ -81,7 +81,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <section className="section measurement-scores-container pb-3">
             <div className="row center-md -no-text-align">
               <div className="col-xs-12">
-                <h3 id="overall-results" className="title mb-3 text-left">Overall results</h3>
+                <h3 className="title mb-3 text-left">Overall results</h3>
               </div>
               {breakdownScores && breakdownScores.length > 0 &&
               <div className="col-xs-12">
