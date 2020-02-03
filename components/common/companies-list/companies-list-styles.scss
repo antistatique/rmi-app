@@ -2,7 +2,22 @@
 
 .c-companies-list {
   height: 100%;
-  
+
+  &.five-columns .content{
+    columns: 2;
+
+    @media #{$mq-sm} {
+      columns: 3;
+    }
+
+    @media #{$mq-md} {
+      columns: 5;
+    }
+
+    .companies-list-item {
+      padding: 0.25em 0;
+    }
+  }
 
   .content {
     position: relative;
@@ -11,7 +26,7 @@
 
     .companies-list-item {
       display: block;
-      margin-bottom: 0.5em;
+      margin-bottom: .5em;
       font-size: 1.1rem;
       color: transparentize($color-7, 0.1);
 
