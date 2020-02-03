@@ -33,11 +33,9 @@ class GoTopButton extends PureComponent {
     return (
       <div className="c-go-top-button">
         <style jsx>{styles}</style>
-        <div className={`go-top-button ${this.state.show ? 'go-top-button-show' : ''}`}>
-          <a onClick={this.handleClick} onKeyDown={this.handleClick} role="button" tabIndex="0">
-            <Icon name="arrow-up" className="c-icon" />
-          </a>
-        </div>
+        <a className={`go-top-button ${this.state.show ? 'go-top-button-show' : ''}`} onClick={this.handleClick} onKeyDown={this.handleClick} role="button" tabIndex="0">
+          <Icon name="arrow-up" className="c-icon" />
+        </a>
       </div>
     );
   }
