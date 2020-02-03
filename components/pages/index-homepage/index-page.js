@@ -87,7 +87,7 @@ class IndexPage extends PureComponent {
 
           <section className="section bordered-section mb-5">
             <h2 className="bordered-section-title">Company Reports</h2>
-            <CompaniesList />
+            <CompaniesList isFiveColumns />
           </section>
         </div>
       </div>
