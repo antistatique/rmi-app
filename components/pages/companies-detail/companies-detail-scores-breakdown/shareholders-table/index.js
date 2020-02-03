@@ -13,6 +13,8 @@ import {
   resetSearch
 } from 'modules/shareholders/shareholders-actions';
 
+import { getSortedShareholders } from './shareholders-table-selectors';
+
 import ShareholdersTable from './shareholders-table-component';
 
 class ShareholdersTableContainer extends PureComponent {
@@ -56,7 +58,7 @@ class ShareholdersTableContainer extends PureComponent {
 
 export default connect(
   state => ({
-    shareholders: state.shareholders.list,
+    shareholders: getSortedShareholders(state),
     pagination: state.shareholders.pagination,
     shareholdersDate: (state.companies.currentCompany || {})['shareholders-date'],
     company: state.companies.currentCompany || {},

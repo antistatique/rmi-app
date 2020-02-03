@@ -13,8 +13,10 @@
   }
 
   .definition-sublist {
+    list-style: disc inside;
     > .definition-sublist-item {
       color: $color-1;
+      margin-top: 0;
     }
   }
 }

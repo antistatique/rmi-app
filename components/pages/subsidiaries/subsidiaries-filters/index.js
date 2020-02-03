@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 // actions
-import { setSearch, setPaginationPage, setFilters } from 'modules/subsidiaries/subsidiaries-actions';
+import { setSearch, setPaginationPage, setFilters, resetFilters } from 'modules/subsidiaries/subsidiaries-actions';
 
 // component
 import SubsidiariesFilters from './subsidiaries-filters-component';
@@ -14,6 +14,7 @@ export default connect(
   {
     setSearch,
     setPaginationPage,
-    setFilters
+    setFilters,
+    resetFilters
   }
 )(SubsidiariesFilters);

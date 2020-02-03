@@ -20,10 +20,8 @@ class Library extends PureComponent {
               </div>
               <div className="col-xs-12 col-md-7">
                 <p>
-                  This searchable document library includes approximately 2,000 source documents,
-                  which have been used in the assessment of the 30 companies and 127 mine sites.
-                  This library contains documents from mid-2015 to mid-2017, the assessment
-                  period covered in the RMI 2018 research.
+                  This searchable document library includes approximately 3,800 source documents, which have been reviewed during the assessment of the 38 companies and 180 selected mine sites. This library contains documents up to mid-2019, the assessment period of the RMI Report 2020.
+                  It is possible to search for a specific text in the titles and to filter by company, using the fields below.
                 </p>
               </div>
             </div>

@@ -1,11 +1,11 @@
 export const TAILINGS_TABLE_COLUMNS = [
   {
     property: 'name',
-    header: { label: 'Name' }
+    header: { label: 'Name', props: { style: { fontWeight: 'bold' } } }
   },
   {
     property: 'country',
-    header: { label: 'Country' },
+    header: { label: 'Country', props: { style: { fontWeight: 'bold' } } },
     cell: {
       formatters: [
         country => (country || {}).name
@@ -14,15 +14,15 @@ export const TAILINGS_TABLE_COLUMNS = [
   },
   {
     property: 'status',
-    header: { label: 'Status' }
+    header: { label: 'Status', props: { style: { fontWeight: 'bold' } } }
   },
   {
     property: 'construction-method',
-    header: { label: 'Construction Method' }
+    header: { label: 'Construction Method', props: { style: { fontWeight: 'bold' } } }
   },
   {
     property: 'impact-based-hazard-category',
-    header: { label: 'Impact-based hazard category' }
+    header: { label: 'Impact-based hazard category\n (company-reported)', props: { style: { fontWeight: 'bold' } } }
   }
 ];
 

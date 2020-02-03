@@ -89,7 +89,6 @@ class LeadingPracticesPage extends PureComponent {
                       placeholder="Select a Topic"
                       theme="light"
                       selectedValue={topic}
-                      className="-underline"
                     />
                   </div>
                 </div>
@@ -101,7 +100,6 @@ class LeadingPracticesPage extends PureComponent {
                       placeholder="Select a Company"
                       theme="light"
                       selectedValue={company}
-                      className="-underline"
                     />
                   </div>
                 </div>

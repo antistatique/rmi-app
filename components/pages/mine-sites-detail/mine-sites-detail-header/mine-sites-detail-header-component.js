@@ -64,7 +64,7 @@ class MineSitesDetailHeader extends PureComponent {
                           mineSite: id
                         }}
                       >
-                        <a>{extraLanguage.name} {extraLanguages.length - 1 === index ? '' : '&'} </a>
+                        <a style={{ fontStyle: 'italic' }}>{extraLanguage.name} {extraLanguages.length - 1 === index ? '' : '&'} </a>
                       </Link>
                     </span>
                   ))}

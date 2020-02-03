@@ -7,7 +7,7 @@ class Disclaimer extends PureComponent {
   render() {
     return (
       <div>
-        <p className="text-size-big text-style-normal text-weight-bold mt-4 mb-2">Disclaimer</p>
+        <p className="text-size-big text-style-normal text-weight-bold mt-2">Disclaimer</p>
         <div className="c-disclaimer">
           <style jsx>{styles}</style>
           <p className="disclaimer-text">

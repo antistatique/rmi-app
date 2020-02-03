@@ -1,5 +1,6 @@
 
 import { createSelector } from 'reselect';
+import groupBy from 'lodash/groupBy';
 
 const mineSite = state => state.mineSites.list[0] || {};
 
@@ -17,6 +18,8 @@ export const parseMineSite = createSelector(
       });
     });
 
+    const fatalityReports = groupBy(_mineSite['mine-site-fatality-reports'], 'year');
+
     return {
       id: _mineSite.id,
       aliases: _mineSite.aliases,
@@ -27,7 +30,7 @@ export const parseMineSite = createSelector(
       companies: _mineSite.companies,
       companyShare: _mineSite['company-share'],
       extraLanguages: _mineSite['extra-languages'],
-      fatalityReports: _mineSite['mine-site-fatality-reports'],
+      fatalityReports,
       companiesShare
     };
   }

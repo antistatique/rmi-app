@@ -1,18 +1,18 @@
 export const INDEX_NAVIGATION = [
   {
     id: 9,
-    label: 'Findings',
-    slug: 'findings',
+    label: 'Results & Reports',
+    slug: 'results-and-reports',
     query: {
-      route: 'findings',
+      route: 'results-and-reports',
       params: {}
     },
     noLink: true,
     children: [
       {
         id: '9-1',
-        label: 'Key Findings',
-        slug: 'key-findings',
+        label: 'Findings',
+        slug: 'findings',
         query: {
           route: 'static-page',
           params: { slug: 'key-findings' }
@@ -20,28 +20,94 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '9-2',
-        label: 'Observations',
-        slug: 'observations',
+        label: 'Results',
+        slug: 'results',
         query: {
-          route: 'static-page',
-          params: { slug: 'observations' }
-        }
+          route: 'results',
+          params: {}
+        },
+        noLink: true,
+        children: [
+          {
+            id: '9-2-1',
+            label: 'Economic Development',
+            slug: 'economic-development',
+            query: {
+              route: 'results-thematic',
+              params: { id: 315 }
+            }
+          },
+          {
+            id: '9-2-2',
+            label: 'Business Conduct',
+            slug: 'business-conduct',
+            query: {
+              route: 'results-thematic',
+              params: { id: 316 }
+            }
+          },
+          {
+            id: '9-2-3',
+            label: 'Lifecycle Management',
+            slug: 'lifecycle-management',
+            query: {
+              route: 'results-thematic',
+              params: { id: 317 }
+            }
+          },
+          {
+            id: '9-2-4',
+            label: 'Community Wellbeing',
+            slug: 'community-wellbeing',
+            query: {
+              route: 'results-thematic',
+              params: { id: 318 }
+            }
+          },
+          {
+            id: '9-2-5',
+            label: 'Working Conditions',
+            slug: 'working-conditions',
+            query: {
+              route: 'results-thematic',
+              params: { id: 319 }
+            }
+          },
+          {
+            id: '9-2-6',
+            label: 'Environmental Integrity',
+            slug: 'environmental-integrity',
+            query: {
+              route: 'results-thematic',
+              params: { id: 320 }
+            }
+          },
+          {
+            id: '9-2-7',
+            label: 'Mine-site Results',
+            slug: 'mine-sites-results',
+            query: {
+              route: 'static-page',
+              params: { slug: 'mine-sites-results' }
+            }
+          }
+        ]
       },
       {
         id: '9-3',
-        label: 'Leading Practices',
-        slug: 'leading-practices',
+        label: 'Company Reports',
+        slug: 'company-reports',
         query: {
-          route: 'leading-practices',
+          route: 'companies',
           params: {}
         }
       },
       {
         id: '9-4',
-        label: 'Adverse Impacts',
-        slug: 'adverse-impacts',
+        label: 'Mine-site Reports',
+        slug: 'mine-site-reports',
         query: {
-          route: 'adverse-impacts',
+          route: 'mine-sites',
           params: {}
         }
       }
@@ -49,57 +115,9 @@ export const INDEX_NAVIGATION = [
   },
   {
     id: 1,
-    label: 'Results',
+    label: 'Leading Practices',
     query: {
-      route: 'results',
-      params: {}
-    },
-    noLink: true,
-    children: [
-      {
-        id: '1-1',
-        label: 'Overall results',
-        slug: 'results-overall',
-        query: {
-          route: 'results-overall',
-          params: {}
-        }
-      },
-      {
-        id: '1-2',
-        label: 'Overall Mine-site Results',
-        slug: 'mine-site-summary',
-        query: {
-          route: 'static-page',
-          params: { slug: 'mine-site-summary' }
-        }
-      },
-      {
-        id: '1-3',
-        label: 'What RMI measures',
-        slug: 'what-rmi-measures',
-        query: {
-          route: 'static-page',
-          params: { slug: 'what-rmi-measures' }
-        }
-      }
-    ]
-  },
-  {
-    id: 3,
-    label: 'Companies',
-    slug: 'companies',
-    query: {
-      route: 'companies',
-      params: {}
-    }
-  },
-  {
-    id: 4,
-    label: 'Mine Sites',
-    slug: 'mine-sites',
-    query: {
-      route: 'mine-sites',
+      route: 'leading-practices',
       params: {}
     }
   },
@@ -115,7 +133,7 @@ export const INDEX_NAVIGATION = [
     children: [
       {
         id: '10-1',
-        label: 'Document library',
+        label: 'Document Library',
         slug: 'document-library',
         query: {
           route: 'library',
@@ -124,7 +142,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-2',
-        label: 'Company subsidiaries',
+        label: 'Company Subsidiaries',
         slug: 'company-subsidiaries',
         query: {
           route: 'subsidiaries',
@@ -142,7 +160,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-4',
-        label: 'Summary reports',
+        label: 'Summary Reports',
         slug: 'summary-reports',
         query: {
           route: 'static-page',
@@ -151,7 +169,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-5',
-        label: 'Additional translations',
+        label: 'Additional Translations',
         slug: 'additional-translations',
         query: {
           route: 'static-page',
@@ -160,7 +178,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-6',
-        label: 'Raw data',
+        label: 'Raw Data',
         slug: 'raw-data',
         query: {
           route: 'static-page',
@@ -169,7 +187,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-7',
-        label: 'Scoring framework',
+        label: 'Scoring Framework',
         slug: 'scoring-framework',
         query: {
           route: 'static-page',

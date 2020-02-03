@@ -29,10 +29,12 @@ export const getIssueAreaTree = createSelector(
           .map(ind => ({
             id: ind.id,
             name: ind.name,
+            label: ind.label,
             slug: ind.slug,
             min: ind.min,
             max: ind.max,
             avg: ind.avg,
+            measurementArea: ind['measurement-area']['measurement-area'],
             value: (_scores.find(score => score['indicator-id'] === +ind.id) || {}).value,
             color: SCORE_COMPARISON_CONFIG[category.slug],
             leadingPractices: ind['leading-practices'].filter((leadingPractice) => {

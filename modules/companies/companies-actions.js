@@ -83,18 +83,10 @@ export const getCompaniesScores = createThunkAction('companies/getCompaniesScore
     }));
 
 export const getTaxJurisdictions = createThunkAction('companies/getTaxJurisdictions', _options =>
-  (dispatch, getState) => {
+  (dispatch) => {
     const { queryParams } = _options;
-    const { mapsAndTables } = getState();
-    const { company } = mapsAndTables.knownTaxFilters;
-
-    const options = {
-      ...queryParams,
-      'filter[company]': company
-    };
-
     return new Promise((resolve, reject) => {
-      CompaniesService.getTaxJurisdictions(options)
+      CompaniesService.getTaxJurisdictions(queryParams)
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
 

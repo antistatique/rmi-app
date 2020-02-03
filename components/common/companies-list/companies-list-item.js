@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Router, Link } from 'routes';
 import Tether from 'react-tether';
+import uniqBy from 'lodash/uniqBy';
 
 // helpers
 import { trackEvent, trackLink } from 'helpers/analytics';
@@ -17,19 +18,27 @@ class CompaniesListItem extends PureComponent {
     company: PropTypes.object.isRequired,
     isCompanyPage: PropTypes.bool.isRequired,
     currentLanguage: PropTypes.string.isRequired,
+    taxJurisdictions: PropTypes.array,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
     onCloseTooltip: PropTypes.func,
-    selectedCountry: PropTypes.string
+    onClick: PropTypes.func,
+    selectedCountry: PropTypes.string,
+    selectedCompany: PropTypes.string,
+    countrySource: PropTypes.string
   }
 
   static defaultProps = {
     onMouseEnter: () => {},
     onMouseLeave: () => {},
+    taxJurisdictions: null,
     onOpenTooltip: null,
     onCloseTooltip: null,
-    selectedCountry: null
+    selectedCountry: null,
+    selectedCompany: null,
+    countrySource: null,
+    onClick: null
   }
 
   constructor(props) {
@@ -63,8 +72,30 @@ class CompaniesListItem extends PureComponent {
     if (onCloseTooltip) onCloseTooltip(company);
   }
 
+  handleCountryHighlight = () => {
+    if (this.props.taxJurisdictions) {
+      const foundCompany = this.props.taxJurisdictions.filter(tax => tax.company.id === this.props.company.id);
+      if (!foundCompany) {
+        return false;
+      }
+      const selectedTaxJurisdictions = uniqBy(foundCompany, 'country.id');
+      const countriesTax = selectedTaxJurisdictions.map(tax => tax.country.id);
+      return countriesTax.includes(this.props.selectedCountry);
+    }
+    if (!this.props.countrySource) {
+      return this.props.selectedCountry === this.props.company.country.id;
+    }
+    const countries = this.props.company[this.props.countrySource].map((countrySource) => {
+      if (countrySource.country) {
+        return countrySource.country.id;
+      }
+      return countrySource.id;
+    });
+    return countries.includes(this.props.selectedCountry);
+  }
+
   render() {
-    const { isCompanyPage, currentLanguage, company, onMouseEnter, onMouseLeave, selectedCountry } = this.props;
+    const { isCompanyPage, currentLanguage, company, onMouseEnter, onMouseLeave, selectedCountry, selectedCompany, onClick } = this.props;
     const { name, id, 'selected-mine-sites': mineSites } = company;
     const { visibility } = this.state;
 
@@ -110,9 +141,11 @@ class CompaniesListItem extends PureComponent {
         >
           <div
             className="companies-list-item"
-            onClick={this.handleToggle}
+            onClick={onClick ? () => onClick(company) : this.handleToggle}
+            onMouseEnter={() => onMouseEnter(company)}
+            onMouseLeave={() => onMouseLeave(company)}
           >
-            <span className={`company-name ${selectedCountry === company.country.id ? 'highlighted' : ''}`}>{name}</span>
+            <span className={`company-name ${this.handleCountryHighlight() || selectedCompany === id ? 'highlighted' : ''}`}>{name}</span>
           </div>
           {visibility &&
             <CompaniesListTooltip

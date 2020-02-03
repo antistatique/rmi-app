@@ -45,7 +45,6 @@ class LibraryFilters extends PureComponent {
             options={companies}
             onChange={this.handleCompany}
             selectedValue={company}
-            className="c-select-bordered"
           />
         </div>
       </div>

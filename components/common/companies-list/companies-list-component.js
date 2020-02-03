@@ -17,11 +17,16 @@ class CompaniesList extends PureComponent {
     loading: PropTypes.bool.isRequired,
     isCompanyPage: PropTypes.bool,
     currentLanguage: PropTypes.string.isRequired,
+    taxJurisdictions: PropTypes.array,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
+    onMouseListLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
     onCloseTooltip: PropTypes.func,
+    onClick: PropTypes.func,
     selectedCountry: PropTypes.string,
+    selectedCompany: PropTypes.string,
+    countrySource: PropTypes.string,
     companiesFromProps: PropTypes.array
   }
 
@@ -29,71 +34,16 @@ class CompaniesList extends PureComponent {
     isCompanyPage: true,
     onMouseEnter: () => {},
     onMouseLeave: () => {},
+    onMouseListLeave: () => {},
+    taxJurisdictions: null,
     onOpenTooltip: null,
     onCloseTooltip: null,
     selectedCountry: null,
-    companiesFromProps: null
+    selectedCompany: null,
+    companiesFromProps: null,
+    countrySource: null,
+    onClick: null
   };
-
-  renderCompaniesRow(companies, key) {
-    const {
-      isCompanyPage,
-      currentLanguage,
-      onMouseEnter,
-      onMouseLeave,
-      onOpenTooltip,
-      onCloseTooltip
-    } = this.props;
-
-    return (
-      <Fragment key={key} >
-        <style jsx>{styles}</style>
-        {this.props.companiesFromProps && this.props.companiesFromProps.map(company => (
-          <div key={company.id} className="col-xs-12 col-md-4">
-            <CompaniesListItem
-              key={company.id}
-              company={company}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-              isCompanyPage={isCompanyPage}
-              currentLanguage={currentLanguage}
-              onOpenTooltip={onOpenTooltip}
-              onCloseTooltip={onCloseTooltip}
-            />
-          </div>
-        ))}
-        {!this.props.companiesFromProps && companies.map(_company => (
-          <div key={_company.id} className="col-xs-12 col-md-4">
-            <CompaniesListItem
-              key={_company.id}
-              company={_company}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-              isCompanyPage={isCompanyPage}
-              currentLanguage={currentLanguage}
-              onOpenTooltip={onOpenTooltip}
-              onCloseTooltip={onCloseTooltip}
-            />
-          </div>
-        ))}
-      </Fragment>
-    );
-  }
-
-  renderCompanies() {
-    const { companies } = this.props;
-    const totalRows = (companies.length / COMPANIES_PER_ROW) > parseInt(companies.length / COMPANIES_PER_ROW, 10) ?
-      parseInt(companies.length / COMPANIES_PER_ROW, 10) + 1 : parseInt(companies.length / COMPANIES_PER_ROW, 10);
-    const slides = [];
-
-    for (let i = 0; i < totalRows; i++) {
-      const limit = ((i * COMPANIES_PER_ROW) + COMPANIES_PER_ROW);
-      const slicedcompanies = companies.slice(i * COMPANIES_PER_ROW, limit);
-      slides.push(this.renderCompaniesRow(slicedcompanies, i));
-    }
-
-    return slides;
-  }
 
   render() {
     const {
@@ -103,15 +53,19 @@ class CompaniesList extends PureComponent {
       currentLanguage,
       onMouseEnter,
       onMouseLeave,
+      taxJurisdictions,
+      onMouseListLeave,
       onOpenTooltip,
       onCloseTooltip,
       selectedCountry,
-      companiesFromProps
+      selectedCompany,
+      companiesFromProps,
+      countrySource,
+      onClick
     } = this.props;
-    // const companies = this.renderCompanies();
 
     return (
-      <div className="c-companies-list">
+      <div className="c-companies-list" onMouseLeave={onMouseListLeave}>
         <style jsx>{styles}</style>
         <div className="content">
           {loading && <Spinner />}
@@ -123,10 +77,14 @@ class CompaniesList extends PureComponent {
               currentLanguage={currentLanguage}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
+              onClick={onClick}
               isCompanyPage={isCompanyPage}
               onOpenTooltip={onOpenTooltip}
               onCloseTooltip={onCloseTooltip}
               selectedCountry={selectedCountry}
+              selectedCompany={selectedCompany}
+              countrySource={countrySource}
+              taxJurisdictions={taxJurisdictions}
             />
           ))}
 
@@ -141,10 +99,14 @@ class CompaniesList extends PureComponent {
               currentLanguage={currentLanguage}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
+              onClick={onClick}
               isCompanyPage={isCompanyPage}
               onOpenTooltip={onOpenTooltip}
               onCloseTooltip={onCloseTooltip}
               selectedCountry={selectedCountry}
+              selectedCompany={selectedCompany}
+              countrySource={countrySource}
+              taxJurisdictions={taxJurisdictions}
             />
           ))}
         </div>

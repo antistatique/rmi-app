@@ -77,6 +77,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
         <div className="l-layout">
           {summary && <Summary title="Summary of Results" content={summary} />}
           <div className="page-break" />
+          {/*
           <section className="section measurement-scores-container pb-3">
             <div className="row center-md -no-text-align">
               <div className="col-xs-12">
@@ -116,13 +117,14 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               }
             </div>
           </section>
+            */}
         </div>
 
         <section className="section overall-measurement-container">
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
-                <h3 className="title mb-3 text-left">Results per measurement areas</h3>
+                <h3 className="title mb-3 text-left">Results per measurement area</h3>
               </div>
               <div className="col-xs-12">
                 {!printable && phone && <Slider />}
@@ -229,7 +231,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <h3 className="title">Investor / State Disputes
-                  <div className="title -small d-inline ml-1">(involvements since 2014)</div>
+                  <div className="title -small d-inline ml-1">(since 2014)</div>
                 </h3>
                 {investmentDisputes.length ?
                   <Gradient className="-gray">

@@ -33,7 +33,7 @@ export const getSubsidiaries = createThunkAction('subsidiaries/getSubsidiaries',
       'page[number]': page,
       'page[size]': limit,
       'filter[name]': search === '' || !search ? undefined : search,
-      'filter[company]': company
+      'filter[company]': company !== undefined ? company : _options['filter[company]']
     };
 
     dispatch(setLoading(true));

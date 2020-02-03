@@ -3,14 +3,15 @@
 .c-stacked-bars-chart {
   width: 100%;
 
+  :global(.recharts-xAxis),
   :global(.recharts-cartesian-grid) {
     :global(line) {
-      stroke: rgba($color-5, .3);
+      stroke: $color-7;
     }
   }
 
   :global(.recharts-yAxis tspan) {
-    fill: rgba($color-5, .3);
+    fill: $color-7;
   }
 
   :global(.recharts-xAxis tspan) {
@@ -23,10 +24,8 @@
   }
 
   :global(.recharts-label) {
-    transform: translate(0, -12px);
 
     > :global(tspan) {
-      fill: $color-8;
       font-size: $font-size-regular;
       font-weight: $font-weight-bold;
       text-transform: uppercase;

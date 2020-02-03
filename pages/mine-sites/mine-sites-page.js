@@ -35,7 +35,10 @@ class MineSitesPage extends Page {
       }));
 
       // gets indicators
-      await context.store.dispatch(getIndicators({ 'page[size]': 1000 }));
+      await context.store.dispatch(getIndicators({
+        include: 'companies-max-scores',
+        'page[size]': 1000
+      }));
 
       // gets documents
       await context.store.dispatch(getDocumentMineSites({
@@ -44,7 +47,7 @@ class MineSitesPage extends Page {
       }));
     } else {
       await context.store.dispatch(getCompanies({
-        include: ['country', 'mine-sites', 'selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities', 'selected-mine-sites.companies'].join(','),
+        include: ['country', 'mine-sites', 'selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities'].join(','),
         sort: 'name'
       }));
 

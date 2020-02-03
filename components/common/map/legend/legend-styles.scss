@@ -1,7 +1,7 @@
 @import 'css/settings';
 
 
-$circle-size: 14px;
+$circle-size: 16px;
 
 .c-legend {
   display: inline-flex;
@@ -28,6 +28,14 @@ $circle-size: 14px;
         margin: 0 7px;
         border-radius: 50%;
         border: 2px solid rgba($color-1, .5);
+      }
+
+      &.-square {
+        position: relative;
+        min-width: 8px;
+        min-height: 8px;
+        margin: 0 7px;
+        transform: rotate(45deg);
       }
 
       @media print {

@@ -36,7 +36,9 @@
       }
 
       :global(> td) {
-        padding: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 10px;
         font-size: $font-size-regular;
         text-align: left;
 
@@ -67,6 +69,10 @@
 
   &.-theme-2 {
     color: $color-7;
+
+    :global(th) {
+      background-color: #121B2F;
+    }
 
     :global(> tbody) {
       :global(> tr) {

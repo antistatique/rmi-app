@@ -67,7 +67,16 @@ class ResultsDetailAccordion extends PureComponent {
         <div key={d.id} className="category-block">
           <div className="row center-sm between-md -no-text-align">
             <div className="col-xs-12 col-md-8">
-              <h4 className="block-title">{d.name}</h4>
+              <div className="row">
+                <div className="col-xs-4 col-md-3">
+                  <h4 className="block-title mb-3">{d.name.split(' ')[0]}</h4>
+                  <span>{d.measurementArea}</span>
+                </div>
+                <div className="col-xs-8 col-md-9">
+                  <p className="block-title">{d.label}</p>
+                </div>
+              </div>
+
               {d.summary &&
                 <div className="block-section">
                   <h5 className="block-section-name">Observation</h5>

@@ -70,13 +70,8 @@ class MineSite extends PureComponent {
               </div>
               <div className="col-md-6">
                 <p>
-                  In addition to the company-wide indicators,
-                  six indicators are applied at a mine-site
-                  level for the individually selected 127 mine
-                  sites. Although these indicators are scored
-                  to indicate each site’s level of performance,
-                  these scores are not included in the thematic-area-level
-                  scores for company-wide indicators.
+                  In addition to the company-wide indicators, ten very basic indicators are applied at a mine-site level for the individually selected 180 mine sites, to provide information that is disaggregated to the level of individual mining operations, although not included in the company scores.
+                  It is possible to filter by company, using the list on the left-hand side, and also to select a specific mine site, using the field below or directly on the map.
                 </p>
               </div>
             </div>
@@ -94,7 +89,7 @@ class MineSite extends PureComponent {
                   >
                     <MineSitesFilters />
                   </MediaQuery>
-                  <h4 class="title text-white mb-3">List of all companies</h4>
+                  <h4 className="title text-white mb-3">List of all companies</h4>
                   <CompaniesList
                     isCompanyPage={false}
                     onOpenTooltip={this.handleOpenTooltip}

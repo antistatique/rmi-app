@@ -14,12 +14,13 @@ export const parseScores = createSelector(
     const overallScores = _issueArea.scores.filter(score => score.kind === 'overall_indicator');
     const scoresByCompanies = groupBy(absoluteScores, 'company-id');
     const bestPracticeScore = _issueArea.scores.find(score => (score.kind === 'current_best_practice' && !score.name.includes('PREVIOUS'))) || {};
-    const previousBestPracticeScore = _issueArea.scores.find(score => (score.kind === 'current_best_practice' && score.name.includes('PREVIOUS'))) || {};
     const totalScores = [];
+    let averageScore = 0;
 
     Object.values(scoresByCompanies).forEach((company) => {
       const barScore = {};
       company.forEach((scoreCell) => {
+        averageScore += scoreCell.value;
         Object.assign(barScore, {
           name: scoreCell.company.name,
           ...scoreCell.label === 'Action' && { action: scoreCell.value },
@@ -35,13 +36,15 @@ export const parseScores = createSelector(
       totalScores.push(barScore);
     });
 
+    averageScore /= totalScores.length;
+
     return ({
       id: _issueArea.id,
       name: _issueArea.name,
       slug: _issueArea.slug,
       scores: orderBy(totalScores, 'overallScore', 'desc'),
       bestPracticeScore: bestPracticeScore.value,
-      previousBestPracticeScore: previousBestPracticeScore.value
+      averageScore
     });
   }
 );

@@ -51,7 +51,7 @@ class CompaniesDetailHeader extends PureComponent {
               <div className="right-side">
                 { extraLanguages.length !== 0 &&
                   <div className="extra-languages">
-                    This page is available in&nbsp;
+                    This page is also available in&nbsp;
                     { extraLanguages.map((extraLanguage, index) => (
                       <span key={index}>
                         <Link
@@ -88,6 +88,7 @@ class CompaniesDetailHeader extends PureComponent {
             <div className="row">
               <div className="col-6">
                 <Scrollspy
+                  offset={250}
                   items={[
                     {
                       anchor: 'overall-results',
@@ -111,7 +112,11 @@ class CompaniesDetailHeader extends PureComponent {
                     },
                     {
                       anchor: 'known-shareholders',
-                      label: 'Shareholders & Subsidiaries'
+                      label: 'Shareholders'
+                    },
+                    {
+                      anchor: 'known-shareholders',
+                      label: 'Subsidiaries'
                     },
                     {
                       anchor: 'known-beneficial-owners',

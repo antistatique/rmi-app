@@ -81,37 +81,51 @@ class ScoreComparison extends PureComponent {
             </div>
           }
 
-          <div
-            className="score-max"
-            style={{ left: `calc(${ScoreComparison.getWidth(max)} + 1px)` }}
-            onClick={this.handleClickMax}
-          >
-            <div className={`${(!this.state.maxScoreDisplay && !phone) ? 'legend legend-max' : 'legend legend-max closed'}`}>
-              <span>&#9660; Max</span>
-              <span>{fixedValue(max)}</span>
-            </div>
-            <div className={`${(this.state.maxScoreDisplay || phone) ? 'legend-popup opened' : 'legend-popup'}`}>
-              <div className="header">
-                <span>&#9650; Max</span>
+          {
+            companies === undefined && <div
+              className="score-max"
+              style={{ left: ScoreComparison.getWidth(max) }}
+            >
+              <div className="legend">
+                <span>Max</span>
                 <span>{fixedValue(max)}</span>
               </div>
-              <div className="content">
-                {companies.map(company => (
-                  <span key={company.id}>
-                    <Link
-                      route="company"
-                      params={{
-                        language: currentLanguage,
-                        company: company.id
-                      }}
-                    >
-                      <a>{company.name}</a>
-                    </Link>
-                  </span>
-                ))}
+            </div>
+          }
+
+          {
+            companies && <div
+                className="score-max"
+                style={{ left: `calc(${ScoreComparison.getWidth(max)} + 1px)` }}
+                onClick={this.handleClickMax}
+              >
+              <div className={`${(!this.state.maxScoreDisplay && !phone) ? 'legend legend-max' : 'legend legend-max closed'}`}>
+                <span>&#9660; Max</span>
+                <span>{fixedValue(max)}</span>
+              </div>
+              <div className={`${(this.state.maxScoreDisplay || phone) ? 'legend-popup opened' : 'legend-popup'}`}>
+                <div className="header">
+                  <span>&#9650; Max</span>
+                  <span>{fixedValue(max)}</span>
+                </div>
+                <div className="content">
+                  {companies.map(company => (
+                    <span key={company.id}>
+                      <Link
+                        route="company"
+                        params={{
+                          language: currentLanguage,
+                          company: company.id
+                        }}
+                      >
+                        <a>{company.name}</a>
+                      </Link>
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          }
         </div>
       </div>
     );
