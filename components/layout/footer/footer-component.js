@@ -17,9 +17,7 @@ class Footer extends PureComponent {
                   <div className="copyright">
                     <p className="text-size-big text-style-normal text-weight-bold">Copyright notice</p>
                     <p>
-                      All data and written content are licensed
-                      under the Creative Commons Attribution-NonCommercial
-                      4.0 International License (CC BY-NC 4.0).
+                      All data and written content are licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).
                     </p>
                     <a
                       href="https://creativecommons.org/licenses/by-nc/4.0/"
@@ -34,16 +32,7 @@ class Footer extends PureComponent {
                       />
                     </a>
                     <p>
-                      Users are free to share and adapt the material but must give
-                      appropriate credit, provide a link to the license
-                      and indicate if changes were made. The licensed
-                      material may not be used for commercial purposes,
-                      or in a discriminating, degrading or distorting way.
-                      When cited, attribute to: "Responsible Mining Index
-                      2020 (RMI), Responsible Mining Foundation (RMF)."
-                      Images, photographs, and video content depicted on
-                      RMI and RMF websites are excluded from this license,
-                      except where noted.
+                    The licensed material may not be used for commercial purposes, or in a discriminating, degrading or distorting way. When cited, attribute to: “Responsible Mining Foundation (2020), RMI Report 2020.” Images, photographs, and video content depicted on RMF websites are excluded from this license, except where noted.
                     </p>
                   </div>
                 </div>
