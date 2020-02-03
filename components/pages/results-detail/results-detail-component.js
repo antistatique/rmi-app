@@ -44,7 +44,7 @@ class ResultsDetail extends PureComponent {
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
-              <div className="col-xs-12 col-sm-6 col-md-6">
+              <div className="col-xs-12 col-sm-6 col-md-4">
                 <h2 className="title">Results</h2>
                 <Select
                   onChange={this.handleAreaSelection}
@@ -54,7 +54,7 @@ class ResultsDetail extends PureComponent {
                   className="-underline"
                 />
               </div>
-              <div className="col-xs-12 col-sm-8 col-md-6">
+              <div className="col-xs-12 col-sm-8 col-md-offset-2 col-md-6">
                 {observation &&
                   <div
                     className="thematic-description"
