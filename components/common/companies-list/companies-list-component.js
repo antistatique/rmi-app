@@ -14,6 +14,7 @@ import styles from './companies-list-styles.scss';
 class CompaniesList extends PureComponent {
   static propTypes = {
     companies: PropTypes.array.isRequired,
+    isFiveColumns: PropTypes.bool,
     loading: PropTypes.bool.isRequired,
     isCompanyPage: PropTypes.bool,
     currentLanguage: PropTypes.string.isRequired,
@@ -32,6 +33,7 @@ class CompaniesList extends PureComponent {
 
   static defaultProps = {
     isCompanyPage: true,
+    isFiveColumns: false,
     onMouseEnter: () => {},
     onMouseLeave: () => {},
     onMouseListLeave: () => {},
@@ -49,6 +51,7 @@ class CompaniesList extends PureComponent {
     const {
       companies,
       loading,
+      isFiveColumns,
       isCompanyPage,
       currentLanguage,
       onMouseEnter,
@@ -65,7 +68,7 @@ class CompaniesList extends PureComponent {
     } = this.props;
 
     return (
-      <div className="c-companies-list" onMouseLeave={onMouseListLeave}>
+      <div className={`c-companies-list ${isFiveColumns ? 'five-columns' : ''}`} onMouseLeave={onMouseListLeave}>
         <style jsx>{styles}</style>
         <div className="content">
           {loading && <Spinner />}
