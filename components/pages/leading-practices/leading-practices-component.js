@@ -12,7 +12,6 @@ import styles from './leading-practices-styles.scss';
 class LeadingPracticesPage extends PureComponent {
   static propTypes = {
     companies: PropTypes.array.isRequired,
-    indicators: PropTypes.array.isRequired,
     topics: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     leadingPracticesPagination: PropTypes.object.isRequired,
@@ -49,9 +48,9 @@ class LeadingPracticesPage extends PureComponent {
   }
 
   render() {
-    const { companies, indicators, leadingPracticesPagination, filters, topics } = this.props;
+    const { companies, leadingPracticesPagination, filters, topics } = this.props;
     const { size, page, limit } = leadingPracticesPagination;
-    const { indicator, company, topic } = filters;
+    const { company, topic } = filters;
 
     return (
       <div className="c-leading-practices-page">

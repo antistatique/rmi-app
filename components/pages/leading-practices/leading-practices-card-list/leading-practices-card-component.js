@@ -8,6 +8,7 @@ import Modal from 'components/common/custom-modal';
 
 // styles
 import styles from './leading-practices-card-styles.scss';
+import leadingPractices from '..';
 
 class LeadingPracticesCard extends PureComponent {
   static propTypes = {
