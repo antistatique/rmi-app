@@ -29,7 +29,11 @@ export const getCountries = createSelector(
   (_countries = [], _companies = []) => {
     const filteredCompanies = _companies.filter(company => company['producing-countries'].length > 0);
     const tempProducingCountries = filteredCompanies.map(company => company['producing-countries']);
-    const tempCountries = uniqBy(tempProducingCountries, 'id')[0];
+    let array = [];
+    tempProducingCountries.forEach((countries) => {
+      array = array.concat(countries);
+    })
+    const tempCountries = uniqBy(array, 'id');
     const producingCountries = tempCountries.map(country => country.id);
     return _countries.filter(country => producingCountries.includes(country.id));
   }
@@ -41,8 +45,12 @@ export const getPaths = createSelector(
     return paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
       .map((geography, index) => {
         const filteredCompanies = _companies.filter(company => company['producing-countries'].length > 0);
-        const producingCountries = filteredCompanies.map(company => company['producing-countries']);
-        const tempCountries = uniqBy(producingCountries, 'id')[0];
+        const tempProducingCountries = filteredCompanies.map(company => company['producing-countries']);
+        let array = [];
+        tempProducingCountries.forEach((countries) => {
+          array = array.concat(countries);
+        })
+        const tempCountries = uniqBy(array, 'id');
         const iso = geography.properties.ISO_A3;
         const country = tempCountries.find(tempCountry => tempCountry.code === iso);
         let isHighlighted = undefined;

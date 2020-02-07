@@ -9,7 +9,11 @@ export const getCountries = createSelector(
   (_countries = [], _companies = []) => {
     const filteredCompanies = _companies.filter(company => company['producing-countries'].length > 0);
     const tempProducingCountries = filteredCompanies.map(company => company['producing-countries']);
-    const tempCountries = uniqBy(tempProducingCountries, 'id')[0];
+    let array = [];
+    tempProducingCountries.forEach((countries) => {
+      array = array.concat(countries);
+    })
+    const tempCountries = uniqBy(array, 'id');
     const producingCountries = tempCountries.map(country => country.id);
     const filteredCountries = _countries.filter(country => producingCountries.includes(country.id));
     return filteredCountries.map(country => ({ label: country.name, value: country.id }));
