@@ -127,8 +127,14 @@ class MapTaxJurisdictions extends PureComponent {
             />
           </div>
         </div>
-        <div className="row mb-4 text-white">
-          <a className="downloadable-links" href="/static/files/RMI_Report_2020_Tax_Jurisdictions.xlsx" download>Summary file</a>
+        <div className="row mb-2 text-white">
+          <span style={{ fontSize: '20px' }}>Download data :</span>
+        </div>
+        <div className="row mb-2 text-white">
+          <a className="downloadable-links" href="/static/files/RMI_Report_2020_Tax_Jurisdictions.xlsx" download>RMI_Report_2020_Tax_Jurisdictions</a>
+        </div>
+        <div className="row mb-2 text-white">
+          <a className="downloadable-links" href="/static/files/RMI_Report_2020_Raw_Data_Tax_Jurisdictions.csv" download>RMI_Report_2020_Raw_Data_Tax_Jurisdictions</a>
         </div>
       </div>
     );
