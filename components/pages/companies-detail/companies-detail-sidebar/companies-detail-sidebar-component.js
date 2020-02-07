@@ -12,6 +12,50 @@ import styles from './companies-detail-sidebar-styles.scss';
 class CompaniesDetailSidebar extends PureComponent {
   static propTypes = { company: PropTypes.object.isRequired }
 
+  renderFatalities(year, originalReports) {
+    // Ensure all fatalities categories are here
+    // and set the value to NULL to display the 'Not reported' if not present.
+    const expectedCategories = ['Employees', 'Contract workers', 'Others'];
+    const fatalityReports = [];
+    expectedCategories.forEach((category) => {
+      const report = find(originalReports, (r) => r.category === category);
+
+      if (report) {
+        fatalityReports.push(report);
+      } else {
+        fatalityReports.push({
+          category: category,
+          value: null // 'Not reported'
+        });
+      }
+    });
+
+    const onlyWorkerFatalities = fatalityReports.filter((report) => report.category !== 'Others');
+    const otherFatalities = fatalityReports.filter((report) => report.category === 'Others');
+
+    // when 'Employees' or 'Contract workers' are not specified,
+    // the total workers fatality is regrouped under a category 'Workers'.
+    const specifiedWorkersFatality = find(originalReports, (r) => r.category === 'Workers');
+    const totalWorkerFatalities = specifiedWorkersFatality ? specifiedWorkersFatality.value : onlyWorkerFatalities.reduce((acc, report) => acc + report.value, 0);
+    const otherFatality = otherFatalities.length > 0 ? otherFatalities[0] : null;
+
+    return (
+      <div key={year} className="col-xs-6 col-sm-4 col-md-3 mb-3">
+        <style jsx>{styles}</style>
+        <div className="definition-item">
+          <div className="definition-key">{`${year} Fatalities`}</div>
+          <div className="definition-value">Total worker fatalities: <span>{totalWorkerFatalities}</span></div>
+          <ul className="definition-sublist">
+            {onlyWorkerFatalities.length && onlyWorkerFatalities.map((fatalityReport, key) => (
+              <li key={key} className="definition-sublist-item"><span>{fatalityReport.category}</span>: {fatalityReport.value === null ? 'not reported' : fatalityReport.value}</li>
+            ))}
+          </ul>
+          { otherFatality && <div className="definition-value">{otherFatality.category}: <span>{otherFatality.value === null ? 'not reported' : otherFatality.value}</span></div> }
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const { company } = this.props;
     const {
@@ -31,6 +75,12 @@ class CompaniesDetailSidebar extends PureComponent {
       'number-employees-date': employeesDate,
       listings: stockExchange
     } = company;
+
+    let displayGovernmentOwnership = true;
+
+    if (governmentOwnershipPercent === 0) {
+      displayGovernmentOwnership = false;
+    }
 
     const groupedFatalityReports = fatalityReports ? groupBy(fatalityReports, 'year') : {};
 
@@ -118,10 +168,17 @@ class CompaniesDetailSidebar extends PureComponent {
                   {governmentOwnership !== null &&
                   <div className="definition-item">
                     <div className="definition-key">State Ownership</div>
-                    <div className="definition-value">{governmentOwnership.name ? governmentOwnership.name : 'Not reported'}
-                      {governmentOwnershipPercent !== null && governmentOwnershipPercent !== 'NULL' &&
-                      <span>: {governmentOwnershipPercent}%</span>
-                    }
+                    <div className="definition-value">
+                      {!displayGovernmentOwnership &&
+                      <span>No State ownership</span>
+                      }
+
+                      {displayGovernmentOwnership && governmentOwnership.name
+                      }
+
+                      {displayGovernmentOwnership &&
+                        <span>: {governmentOwnershipPercent}%</span>
+                      }
                     </div>
                   </div>}
                 </div>
@@ -131,50 +188,6 @@ class CompaniesDetailSidebar extends PureComponent {
               </div>
             </div>
           </div>}
-      </div>
-    );
-  }
-
-  renderFatalities(year, originalReports) {
-    // Ensure all fatalities categories are here
-    // and set the value to NULL to display the 'Not reported' if not present.
-    const expectedCategories = ['Employees', 'Contract workers', 'Others'];
-    const fatalityReports = [];
-    expectedCategories.forEach((category) => {
-      const report = find(originalReports, (r) => r.category === category);
-
-      if (report) {
-        fatalityReports.push(report);
-      } else {
-        fatalityReports.push({
-          category: category,
-          value: null // 'Not reported'
-        });
-      }
-    });
-
-    const onlyWorkerFatalities = fatalityReports.filter((report) => report.category !== 'Others');
-    const otherFatalities = fatalityReports.filter((report) => report.category === 'Others');
-
-    // when 'Employees' or 'Contract workers' are not specified,
-    // the total workers fatality is regrouped under a category 'Workers'.
-    const specifiedWorkersFatality = find(originalReports, (r) => r.category === 'Workers');
-    const totalWorkerFatalities = specifiedWorkersFatality ? specifiedWorkersFatality.value : onlyWorkerFatalities.reduce((acc, report) => acc + report.value, 0);
-    const otherFatality = otherFatalities.length > 0 ? otherFatalities[0] : null;
-
-    return (
-      <div key={year} className="col-xs-6 col-sm-4 col-md-3 mb-3">
-        <style jsx>{styles}</style>
-        <div className="definition-item">
-          <div className="definition-key">{`${year} Fatalities`}</div>
-          <div className="definition-value">Total worker fatalities: <span>{totalWorkerFatalities}</span></div>
-          <ul className="definition-sublist">
-            {onlyWorkerFatalities.length && onlyWorkerFatalities.map((fatalityReport, key) => (
-              <li key={key} className="definition-sublist-item"><span>{fatalityReport.category}</span>: {fatalityReport.value === null ? 'not reported' : fatalityReport.value}</li>
-            ))}
-          </ul>
-          { otherFatality && <div className="definition-value">{otherFatality.category}: <span>{otherFatality.value === null ? 'not reported' : otherFatality.value}</span></div> }
-        </div>
       </div>
     );
   }
