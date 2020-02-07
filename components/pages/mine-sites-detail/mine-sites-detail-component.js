@@ -77,18 +77,6 @@ class MineSitesDetail extends PureComponent {
               </div>
             </div>
           </section>
-
-          {/* Mine Site Assessments */}
-          <div className="page-break" />
-          <section className="section">
-            <div className="l-layout">
-              <div className="row center-xs">
-                <div className="col-xs-12">
-                  <MineSitesDetailAssessmentTable />
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
         {this.props.printable && <Disclaimer />}
       </div>
