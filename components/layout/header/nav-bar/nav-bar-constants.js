@@ -75,8 +75,8 @@ export const INDEX_NAVIGATION = [
           },
           {
             id: '9-2-6',
-            label: 'Environmental Integrity',
-            slug: 'environmental-integrity',
+            label: 'Environmental Responsibility',
+            slug: 'environmental-responsibility',
             query: {
               route: 'results-thematic',
               params: { id: 320 }
