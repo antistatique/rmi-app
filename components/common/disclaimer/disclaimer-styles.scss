@@ -1,7 +1,13 @@
 @import 'css/settings';
 
 .c-disclaimer {
-  columns: 2;
+  @media #{$mq-sm} {
+    columns: 1;
+  }
+
+  @media #{$mq-md} {
+    columns: 2;
+  }
 
   > .disclaimer-text {
     font-size: 12px;
