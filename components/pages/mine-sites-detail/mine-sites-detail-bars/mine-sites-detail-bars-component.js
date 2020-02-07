@@ -41,7 +41,7 @@ class MineSitesDetailBars extends PureComponent {
           <div className="col-xs-12">
             <div className="overall-core-score-container">
               <span className="overall-score-title">Mine Site Score</span>
-              <span className="overall-score-value"><span className="current">{fixedValue(overallScore)}</span> / 30</span>
+              <span className="overall-score-value" style={{ fontWeight: 'bold' }}><span className="current">{fixedValue(overallScore)}</span>%</span>
             </div>
           </div>
         </div>
