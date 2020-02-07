@@ -15,15 +15,6 @@ class Disclaimer extends PureComponent {
           </p>
 
           <p className="disclaimer-text">
-            This report is intended to be for information purposes only and is not intended as
-            promotional material in any respect. The report is not intended to provide accounting,
-            legal, tax or investment advice or recommendations, neither is it intended as an offer
-            or solicitation for the purchase or sale of any financial instrument. In order to fully
-            understand the methodology of the 2020 Responsible Mining Index, the respective sections
-            on the website should be consulted.
-          </p>
-
-          <p className="disclaimer-text">
           This report is intended to be for information purposes only and is not intended as promotional material in any respect. The report is not intended to provide accounting, legal, tax or investment advice or recommendations, neither is it intended as an offer or solicitation for the purchase or sale of any financial instrument. In order to fully understand the methodology of the RMI Report 2020, the respective sections on the website should be consulted.
           </p>
 
