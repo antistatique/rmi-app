@@ -62,6 +62,7 @@ export const TOOLTIP_TABLE_COLUMNS = [
       label: 'Products',
       props: {
         style: {
+          paddingLeft: 10,
           backgroundColor: '#000',
           color: '#fff',
           fontWeight: 500,
