@@ -14,7 +14,7 @@ export const INDEX_NAVIGATION = [
         label: 'Findings',
         slug: 'findings',
         query: {
-          route: 'static-page',
+          route: 'static-pages',
           params: { slug: 'key-findings' }
         }
       },
@@ -87,7 +87,7 @@ export const INDEX_NAVIGATION = [
             label: 'Mine-site Results',
             slug: 'mine-sites-results',
             query: {
-              route: 'static-page',
+              route: 'static-pages',
               params: { slug: 'mine-sites-results' }
             }
           }
@@ -163,7 +163,7 @@ export const INDEX_NAVIGATION = [
         label: 'Summary Reports',
         slug: 'summary-reports',
         query: {
-          route: 'static-page',
+          route: 'static-pages',
           params: { slug: 'summary-reports' }
         }
       },
@@ -172,7 +172,7 @@ export const INDEX_NAVIGATION = [
         label: 'Additional Translations',
         slug: 'additional-translations',
         query: {
-          route: 'static-page',
+          route: 'static-pages',
           params: { slug: 'downloads' }
         }
       },
@@ -181,7 +181,7 @@ export const INDEX_NAVIGATION = [
         label: 'Raw Data',
         slug: 'raw-data',
         query: {
-          route: 'static-page',
+          route: 'static-pages',
           params: { slug: 'raw-data' }
         }
       },
@@ -190,7 +190,7 @@ export const INDEX_NAVIGATION = [
         label: 'Scoring Framework',
         slug: 'scoring-framework',
         query: {
-          route: 'static-page',
+          route: 'static-pages',
           params: { slug: 'scoring-framework' }
         }
       },
@@ -199,7 +199,7 @@ export const INDEX_NAVIGATION = [
         label: 'Methodology',
         slug: 'methodology',
         query: {
-          route: 'static-page',
+          route: 'static-pages',
           params: { slug: 'methodology' }
         }
       },
@@ -208,7 +208,7 @@ export const INDEX_NAVIGATION = [
         label: 'Corrigenda',
         slug: 'Corrigenda',
         query: {
-          route: 'static-page',
+          route: 'static-pages',
           params: { slug: 'corrigenda' }
         }
       }

@@ -14,7 +14,7 @@ routes.add('leading-practices', '/:language/leading-practices', 'leading-practic
 routes.add('library', '/:language/library', 'library');
 routes.add('subsidiaries', '/:language/subsidiaries', 'subsidiaries');
 routes.add('maps-and-tables', '/:language/maps-and-tables', 'maps-and-tables');
-routes.add('static-page', '/:language/:slug', 'static-pages');
+routes.add('static-pages', '/:language/:slug', 'static-pages');
 routes.add('index', '/:language', 'index');
 
 // 404
