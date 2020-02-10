@@ -61,13 +61,13 @@ class CompanyPage extends Page {
     // gets shareholders
     await context.store.dispatch(getShareholders({
       'filter[company]': context.query.company,
-      sort: 'name'
+      sort: '-percent_shares'
     }));
 
     // get beneficial owners
     await context.store.dispatch(getBeneficialOwners({
       'filter[company]': context.query.company,
-      sort: 'name'
+      sort: '-percent_ownership_number'
     }));
 
     // get all scores

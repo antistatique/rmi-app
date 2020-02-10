@@ -62,7 +62,7 @@ class ShareholdersTable extends PureComponent {
                   header: { label: `As of: ${shareholdersDate || 'unknown'}` }
                 },
                 {
-                  property: 'percent-shares',
+                  property: 'percent-shares-string',
                   header: { label: 'Shares (%)' },
                   props: {
                       style: {

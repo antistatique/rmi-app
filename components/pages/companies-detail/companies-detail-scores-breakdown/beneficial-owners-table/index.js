@@ -10,8 +10,6 @@ import {
   resetPagination
 } from 'modules/beneficial-owners/beneficial-owners-actions';
 
-import { getSortedBeneficialOwners } from './beneficial-owners-table-selectors';
-
 import BeneficialOwnersTable from './beneficial-owners-table-component';
 
 class BeneficialOwnerseTableContainer extends PureComponent {
@@ -31,7 +29,7 @@ class BeneficialOwnerseTableContainer extends PureComponent {
 
     const paginationChanged = !isEqual(pagination, nextPagination);
 
-    if (paginationChanged) { this.props.getBeneficialOwners({ 'filter[company]': id }); }
+    if (paginationChanged) { this.props.getBeneficialOwners({ 'filter[company]': id , sort: '-percent_ownership_number' }); }
   }
 
   componentWillUnmount() {
@@ -47,7 +45,7 @@ class BeneficialOwnerseTableContainer extends PureComponent {
 
 export default connect(
   state => ({
-    beneficialOwners: getSortedBeneficialOwners(state),
+    beneficialOwners: state.beneficialOwners.list,
     pagination: state.beneficialOwners.pagination,
     company: state.companies.currentCompany || {},
     beneficialOwnersDate: (state.companies.currentCompany || {})['beneficial-owners-date']

@@ -13,8 +13,6 @@ import {
   resetSearch
 } from 'modules/shareholders/shareholders-actions';
 
-import { getSortedShareholders } from './shareholders-table-selectors';
-
 import ShareholdersTable from './shareholders-table-component';
 
 class ShareholdersTableContainer extends PureComponent {
@@ -40,7 +38,7 @@ class ShareholdersTableContainer extends PureComponent {
     const searchChanged = search !== nextSearch;
 
     if (paginationChanged || searchChanged) {
-      this.props.getShareholders({ 'filter[company]': id });
+      this.props.getShareholders({ 'filter[company]': id, sort: '-percent_shares' });
     }
   }
 
@@ -58,7 +56,7 @@ class ShareholdersTableContainer extends PureComponent {
 
 export default connect(
   state => ({
-    shareholders: getSortedShareholders(state),
+    shareholders: state.shareholders.list,
     pagination: state.shareholders.pagination,
     shareholdersDate: (state.companies.currentCompany || {})['shareholders-date'],
     company: state.companies.currentCompany || {},

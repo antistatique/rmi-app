@@ -51,7 +51,6 @@ export const getBreakdownScores = createSelector(
     return Object.keys(groupedByParent).map((parentId) => {
       const scoreGroup = groupedByParent[parentId];
       const parentScore = _companyScores.find(score => score.id === parentId) || {};
-      const collectiveBestScore = _scores.find(score => (score.kind === 'current_best_practice' && score['indicator-id'] === parentScore['indicator-id'] && !score.name.includes('PREVIOUS')));
 
       return ({
         id: parentScore.id,
@@ -59,7 +58,6 @@ export const getBreakdownScores = createSelector(
         indicatorId: parentScore['indicator-id'],
         slug: parentScore.slug,
         value: parentScore.value,
-        collectiveBestScore,
         children: scoreGroup.map(scoreChild => ({
           id: scoreChild.id,
           name: scoreChild.label,
