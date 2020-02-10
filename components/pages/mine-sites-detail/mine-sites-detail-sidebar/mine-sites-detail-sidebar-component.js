@@ -46,7 +46,7 @@ class MineSitesDetailSidebar extends PureComponent {
           </div>
 
           <div className="row">
-            <div className="col-xs-6">
+            <div className="col-xs-10">
               <div className="definition-item">
                 <div className="definition-key">Fatalities (company-reported):</div>
                 <ul className="definition-sublist">
