@@ -20,7 +20,7 @@ export const getMineSiteIndicatorsTree = createSelector(
     });
 
     return sortedMsIndicators.map((indicator) => {
-      const indScores = _scores.filter(score => score['indicator-id'] === parseInt(indicator.id, 10));
+      const indScores = uniqBy(_scores.filter(score => score['indicator-id'] === parseInt(indicator.id, 10)), 'indicator-id');
       return {
         name: indicator.name,
         children: indScores.map((score) => {
