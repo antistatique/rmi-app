@@ -46,7 +46,7 @@ class OverallChart extends PureComponent {
       data: nextData,
       config: nextConfig
     } = nextProps;
-    const { bestPracticeScore } = nextData;
+    const { bestPracticeScore, averageScore } = nextData;
 
     const referenceLines = [
       {
