@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 // components
 import Select from 'components/common/select';
-import Paginator from 'components/common/paginator';
 import LeadingPracticesCardList from './leading-practices-card-list';
 
 // styles
@@ -14,42 +13,28 @@ class LeadingPracticesPage extends PureComponent {
     companies: PropTypes.array.isRequired,
     topics: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
-    leadingPracticesPagination: PropTypes.object.isRequired,
-    setPaginationPage: PropTypes.func.isRequired,
-    resetPagination: PropTypes.func.isRequired,
-    getLeadingPractices: PropTypes.func.isRequired,
     setLeadingPracticesFilters: PropTypes.func.isRequired,
     resetLeadingPracticesFilters: PropTypes.func.isRequired
   }
 
   componentWillUnmount() {
     this.props.resetLeadingPracticesFilters();
-    this.props.resetPagination();
-  }
-
-  handlePagination = (nextPage) => {
-    this.props.setPaginationPage(nextPage);
-    this.props.getLeadingPractices({ include: ['companies', 'topics'].join(',') });
   }
 
   handleIndicator = (selectedIndicator) => {
-    this.props.setPaginationPage(1);
     this.props.setLeadingPracticesFilters({ indicator: selectedIndicator.value });
   }
 
   handleCompany = (selectedCompany) => {
-    this.props.setPaginationPage(1);
     this.props.setLeadingPracticesFilters({ company: selectedCompany.value });
   }
 
   handleTopic = (selectedTopic) => {
-    this.props.setPaginationPage(1);
     this.props.setLeadingPracticesFilters({ topic: selectedTopic.value });
   }
 
   render() {
-    const { companies, leadingPracticesPagination, filters, topics } = this.props;
-    const { size, page, limit } = leadingPracticesPagination;
+    const { companies, filters, topics } = this.props;
     const { company, topic } = filters;
 
     return (
@@ -104,16 +89,6 @@ class LeadingPracticesPage extends PureComponent {
                 </div>
               </div>
               <LeadingPracticesCardList />
-              <div className="paginator-container">
-                <Paginator
-                  options={{
-                    size,
-                    page,
-                    limit
-                  }}
-                  onChange={this.handlePagination}
-                />
-              </div>
             </div>
           </div>
         </div>

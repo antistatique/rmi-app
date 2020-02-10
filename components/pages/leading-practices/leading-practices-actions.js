@@ -15,17 +15,14 @@ export const resetPagination = createAction('leading-practices-page/resetPaginat
 export const getLeadingPractices = createThunkAction('leading-practices-page/getLeadingPractices', (_options = {}) =>
   (dispatch, getState) => {
     const { leadingPracticesPage } = getState();
-    const { pagination, filters } = leadingPracticesPage.leadingPractices;
+    const { filters } = leadingPracticesPage.leadingPractices;
     const { company, topic } = filters;
-    const { limit, page } = pagination;
     const deserializer = new Deserializer({});
 
     const options = {
       ..._options,
       'filter[companies]': company,
-      'filter[topics]': topic,
-      'page[number]': page,
-      'page[size]': limit
+      'filter[topics]': topic
     };
 
     return new Promise((resolve, reject) => {
