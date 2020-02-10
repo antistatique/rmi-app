@@ -29,7 +29,7 @@ class LeadingPracticesPage extends PureComponent {
 
   handlePagination = (nextPage) => {
     this.props.setPaginationPage(nextPage);
-    this.props.getLeadingPractices({ include: ['companies'].join(',') });
+    this.props.getLeadingPractices({ include: ['companies', 'topics'].join(',') });
   }
 
   handleIndicator = (selectedIndicator) => {
