@@ -43,7 +43,8 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     company: PropTypes.object.isRequired,
     responsive: PropTypes.object.isRequired,
     printable: PropTypes.bool,
-    setPreviousYearVisibility: PropTypes.func.isRequired
+    setPreviousYearVisibility: PropTypes.func.isRequired,
+    averageMineSite: PropTypes.string.isRequired
   };
 
   static defaultProps = { printable: false }
@@ -56,7 +57,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     const {
       company, breakdownScores, previousBreakdownScores,
       shareholders, investmentDisputes, knownTaxJurisdictions,
-      responsive, printable
+      responsive, printable, averageMineSite
     } = this.props;
     const {
       'shareholders-date': shareholdersDate,
@@ -102,9 +103,18 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                       data={[breakdownScore, previousBreakdownScores[index]]}
                       colors={measurementColors[index]}
                       className={`mb-2 ${index < (breakdownScores.length - 1) ? 'mr-4' : ''}`}
-                      style={{ width: `${100 / breakdownScores.length}%` }}
+                      style={{ width: `${100 / (breakdownScores.length + 1)}%` }}
                     />
                   ))}
+                  {
+                    <StackedBarsVertical
+                      key={averageMineSite}
+                      data={[averageMineSite]}
+                      colors={[]}
+                      className="mb-2"
+                      style={{ width: `${100 / (breakdownScores.length + 1)}%` }}
+                    />
+                  }
                 </div>
                 { previousBreakdownScores.length > 0 &&
                   <div className="d-flex align-items-center mt-2 mb-3">

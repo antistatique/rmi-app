@@ -6,7 +6,8 @@ import {
   parseMineSitesScores,
   parseKnownTaxJurisdictions,
   parseInvestmentDisputes,
-  getPreviousBreakdownScores
+  getPreviousBreakdownScores,
+  getAverageMineSites
 } from './companies-detail-scores-breakdown-selectors';
 import { setPreviousYearVisibility } from 'modules/chart/chart-actions';
 
@@ -19,7 +20,8 @@ export default connect(
     knownTaxJurisdictions: parseKnownTaxJurisdictions(state),
     company: state.companies.currentCompany,
     responsive: state.responsive,
-    printable: state.app.printable
+    printable: state.app.printable,
+    averageMineSite: getAverageMineSites(state)
   }),
   { setPreviousYearVisibility }
 )(CompaniesDetailScoresBreakdown);

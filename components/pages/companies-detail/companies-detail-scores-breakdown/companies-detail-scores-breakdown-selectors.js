@@ -2,7 +2,6 @@
 import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
-import { valueParser, fixedValue } from 'utils/value-parser'
 
 const companyScores = state => (state.companies.currentCompany || {}).scores;
 const scores = state => state.scores.list;
@@ -19,25 +18,26 @@ export const parseInvestmentDisputes = createSelector(
 
 export const parseMineSitesScores = createSelector(
   [selectedMineSites, currentLanguage],
-  (_selectedMineSites = [], _currentLanguage) =>
-    orderBy(_selectedMineSites.map(mineSite => ({
+  (_selectedMineSites = [], _currentLanguage) => {
+    return orderBy(_selectedMineSites.map(mineSite => ({
       id: mineSite.id,
       name: mineSite.name,
       scores: {
-        localProcurment: ((mineSite.scores || []).find(score => score.slug.includes('ms-02')) || {}).value,
-        localEmployment: ((mineSite.scores || []).find(score => score.slug.includes('ms-01')) || {}).value,
-        communityGrievance: ((mineSite.scores || []).find(score => score.slug.includes('ms-04')) || {}).value,
-        workersGrievance: ((mineSite.scores || []).find(score => score.slug.includes('ms-05')) || {}).value,
-        waterQuality: ((mineSite.scores || []).find(score => score.slug.includes('ms-07')) || {}).value,
-        postClosurePlans: ((mineSite.scores || []).find(score => score.slug.includes('ms-03')) || {}).value,
-        airQuality: ((mineSite.scores || []).find(score => score.slug.includes('ms-06')) || {}).value,
-        waterQuantity: ((mineSite.scores || []).find(score => score.slug.includes('ms-08')) || {}).value,
-        tailingsManagement: ((mineSite.scores || []).find(score => score.slug.includes('ms-09')) || {}).value,
-        emergencyPreparedness: ((mineSite.scores || []).find(score => score.slug.includes('ms-10')) || {}).value
+        localProcurment: mineSite.scores[0].value,
+        localEmployment: mineSite.scores[1].value,
+        communityGrievance: mineSite.scores[2].value,
+        workersGrievance: mineSite.scores[3].value,
+        waterQuality: mineSite.scores[4].value,
+        postClosurePlans: mineSite.scores[5].value,
+        airQuality: mineSite.scores[6].value,
+        waterQuantity: mineSite.scores[7].value,
+        tailingsManagement: mineSite.scores[8].value,
+        emergencyPreparedness: mineSite.scores[9].value
       },
-      overall: fixedValue(valueParser(((mineSite.scores || []).find(score => score.kind === 'overal_mine_site') || {}).value)),
+      overall: mineSite.scores[10].value,
       language: _currentLanguage
-    })), 'name', ['asc'])
+    })), 'name', ['asc']);
+  }
 );
 
 
@@ -97,7 +97,12 @@ export const getPreviousBreakdownScores = createSelector(
       });
     });
   }
-)
+);
+
+export const getAverageMineSites = createSelector(
+  [companyScores],
+  (_companyScores = []) => _companyScores.find(score => score.kind === '-').value
+);
 
 export const parseKnownTaxJurisdictions = createSelector(
   [knownTaxJurisdictions],
