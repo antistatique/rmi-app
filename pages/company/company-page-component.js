@@ -17,6 +17,7 @@ import { getShareholders } from 'modules/shareholders/shareholders-actions';
 import { getBeneficialOwners } from 'modules/beneficial-owners/beneficial-owners-actions';
 import { getScores } from 'modules/scores/scores-actions';
 import { getCountries } from 'modules/countries/countries-actions';
+import { getIssueAreas } from 'components/pages/results-detail/results-detail-actions';
 
 class CompanyPage extends Page {
   static propTypes = { company: PropTypes.object }
@@ -48,6 +49,12 @@ class CompanyPage extends Page {
     // gets indicators
     await context.store.dispatch(getIndicators({
       include: ['leading-practices', 'leading-practices.companies', 'companies-max-scores', 'measurement-area'].join(','),
+      'page[size]': 1000
+    }));
+
+    await context.store.dispatch(getIssueAreas({
+      'filter[kind]': 'issue_areas',
+      include: ['children', 'scores', 'scores.company', 'children.children', 'children.children.scores', 'children.children.leading-practices', 'children.children.companies-max-scores', 'children.children.leading-practices.companies', 'children.children.measurement-area'].join(','),
       'page[size]': 1000
     }));
 
