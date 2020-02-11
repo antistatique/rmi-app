@@ -23,7 +23,7 @@ class IndexPage extends Page {
       queryParams: {
         include: ['company'].join(','),
         'filter[kind]': 'absolute_breakdown',
-        'page[size]': 1000
+        'page[size]': 2000
       }
     }));
 
