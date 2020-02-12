@@ -56,7 +56,7 @@ class ScoreComparison extends PureComponent {
           >
             {!hideInnerValue &&
               <span className={scoreValueClass}>
-                {fixedValue(value)}
+                {value.toFixed(1)}
               </span>}
           </div>
           <div
@@ -65,7 +65,7 @@ class ScoreComparison extends PureComponent {
           >
             <div className="legend">
               <span>Avg</span>
-              <span>{fixedValue(avg)}</span>
+              <span>{avg.toFixed(1)}</span>
             </div>
           </div>
 
@@ -76,7 +76,7 @@ class ScoreComparison extends PureComponent {
             >
               <div className="legend">
                 <span>Min</span>
-                <span>{fixedValue(min)}</span>
+                <span>{min.toFixed(1)}</span>
               </div>
             </div>
           }
@@ -88,7 +88,7 @@ class ScoreComparison extends PureComponent {
             >
               <div className="legend">
                 <span>Max</span>
-                <span>{fixedValue(max)}</span>
+                <span>{max.toFixed(1)}</span>
               </div>
             </div>
           }
@@ -101,12 +101,12 @@ class ScoreComparison extends PureComponent {
               >
               <div className={`${(!this.state.maxScoreDisplay && !phone) ? 'legend legend-max' : 'legend legend-max closed'}`}>
                 <span>&#9660; Max</span>
-                <span>{fixedValue(max)}</span>
+                <span>{max.toFixed(1)}</span>
               </div>
               <div className={`${(this.state.maxScoreDisplay || phone) ? 'legend-popup opened' : 'legend-popup'}`}>
                 <div className="header">
                   <span>&#9650; Max</span>
-                  <span>{fixedValue(max)}</span>
+                  <span>{max.toFixed(1)}</span>
                 </div>
                 <div className="content">
                   {companies.map(company => (
