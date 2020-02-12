@@ -22,7 +22,7 @@ class MapTaxJurisdictionsFiltersContainer extends PureComponent {
     const filtersChanged = !isEqual(filters, nextFilters);
 
     if (filtersChanged) {
-      this.props.getTaxJurisdictions({ queryParams: { include: ['country', 'company'].join(',') } });
+      this.props.getTaxJurisdictions({ queryParams: { include: ['country', 'company', 'company.secondary-country'].join(','), 'page[size]': 1000 } });
     }
   }
 
