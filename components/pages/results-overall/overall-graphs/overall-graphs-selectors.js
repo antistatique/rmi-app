@@ -5,13 +5,12 @@ import orderBy from 'lodash/orderBy';
 
 const scores = state => state.resultsOverallPage.breakdownScores.list;
 const bestPracticesScores = state => (state.resultsOverallPage.bestPracticesScores || {}).list;
-const overallScores = state => (state.resultsOverallPage.overallScores || {}).list;
 const indicators = state => state.indicators.list;
 const selectedCompany = state => state.resultsOverallPage.selectedCompany;
 
 export const getScoresByIssueArea = createSelector(
-  [scores, indicators, bestPracticesScores, overallScores, selectedCompany],
-  (_scores = [], _indicators = [], _bestPracticesScores = [], _overallScores = [], _selectedCompany) => {
+  [scores, indicators, bestPracticesScores, selectedCompany],
+  (_scores = [], _indicators = [], _bestPracticesScores = [], _selectedCompany) => {
     const scoresByIndicator = groupBy(_scores, 'indicator-id');
 
     const companiesByIndicator = {};
@@ -35,11 +34,11 @@ export const getScoresByIssueArea = createSelector(
             ...scoreCell.label === 'Action' && { action: scoreCell.value },
             ...scoreCell.label === 'Effectiveness' && { effectiveness: scoreCell.value },
             ...scoreCell.label === 'Commitment' && { commitment: scoreCell.value },
-            selected: scoreCell.company.name === _selectedCompany,
-            overallScore: (_overallScores.find(score =>
-              score.company.id === scoreCell.company.id && score['indicator-id'] === +issueArea.id) || {}).value
+            selected: scoreCell.company.name === _selectedCompany
           });
         });
+
+        barScore.overallScore = parseFloat((barScore.action + barScore.effectiveness + barScore.commitment).toFixed(2));
         totalScores.push(barScore);
       });
 
