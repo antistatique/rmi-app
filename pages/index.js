@@ -36,6 +36,22 @@ class IndexPage extends Page {
       }
     }));
 
+    // scores for top companies
+    await context.store.dispatch(getScores({
+      key: 'overallScores',
+      queryParams: {
+        include: ['company'].join(','),
+        'filter[kind]': 'overall_indicator',
+        'page[size]': 1000
+      }
+    }));
+
+    await context.store.dispatch(getScores({
+      include: ['company'].join(','),
+      'filter[kind]': 'overall_indicator',
+      'page[size]': 1000
+    }));
+
     await context.store.dispatch(getIndicators({ 'page[size]': 500 }));
 
     await context.store.dispatch(getCompanies({
