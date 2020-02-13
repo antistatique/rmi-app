@@ -27,16 +27,16 @@ export const parseScores = createSelector(
           ...scoreCell.label === 'Effectiveness' && { effectiveness: scoreCell.value },
           ...scoreCell.label === 'Commitment' && { commitment: scoreCell.value },
           companyId: scoreCell.company.id,
-          selected: scoreCell.company.id === _selectedCompany,
-          overallScore: (overallScores.find(score =>
-            score.company.id === scoreCell.company.id) || {}).value
+          selected: scoreCell.company.id === _selectedCompany
         });
+
+        barScore.overallScore = parseFloat((barScore.action + barScore.effectiveness + barScore.commitment).toFixed(2));
       });
 
       totalScores.push(barScore);
     });
 
-    averageScore /= totalScores.length;
+    averageScore /= (totalScores.length * 3);
 
     return ({
       id: _issueArea.id,
