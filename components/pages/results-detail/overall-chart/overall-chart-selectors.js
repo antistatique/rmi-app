@@ -10,33 +10,30 @@ const selectedCompany = state => state.resultsDetailPage.selectedCompany;
 export const parseScores = createSelector(
   [getIssueArea, selectedCompany],
   (_issueArea = {}, _selectedCompany) => {
-    const absoluteScores = _issueArea.scores.filter(score => score.kind === 'absolute_breakdown');
-    const overallScores = _issueArea.scores.filter(score => score.kind === 'overall_indicator');
+    const absoluteScores = _issueArea.scores.filter(score => score.kind === 'absolute_breakdown' && !score.name.includes('PREVIOUS'));
+    const overallScores = _issueArea.scores.filter(score => score.kind === 'overall_indicator' && !score.name.includes('PREVIOUS'));
+    const averageScore = (_issueArea.scores.find(score => score.kind === 'average-line' && !score.name.includes('PREVIOUS')) || {}).value;
     const scoresByCompanies = groupBy(absoluteScores, 'company-id');
     const bestPracticeScore = _issueArea.scores.find(score => (score.kind === 'current_best_practice' && !score.name.includes('PREVIOUS'))) || {};
     const totalScores = [];
-    let averageScore = 0;
 
     Object.values(scoresByCompanies).forEach((company) => {
       const barScore = {};
       company.forEach((scoreCell) => {
-        averageScore += scoreCell.value;
         Object.assign(barScore, {
           name: scoreCell.company.name,
           ...scoreCell.label === 'Action' && { action: scoreCell.value },
           ...scoreCell.label === 'Effectiveness' && { effectiveness: scoreCell.value },
           ...scoreCell.label === 'Commitment' && { commitment: scoreCell.value },
           companyId: scoreCell.company.id,
-          selected: scoreCell.company.id === _selectedCompany
+          selected: scoreCell.company.id === _selectedCompany,
+          overallScore: (overallScores.find(score =>
+            score.company.id === scoreCell.company.id) || {}).value
         });
-
-        barScore.overallScore = parseFloat((barScore.action + barScore.effectiveness + barScore.commitment).toFixed(2));
       });
 
       totalScores.push(barScore);
     });
-
-    averageScore /= (totalScores.length * 3);
 
     return ({
       id: _issueArea.id,
