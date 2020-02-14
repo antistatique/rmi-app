@@ -80,7 +80,7 @@ class CompaniesDetailSidebar extends PureComponent {
 
     let displayGovernmentOwnership = true;
 
-    if (governmentOwnershipPercent === 0) {
+    if (governmentOwnershipPercent == 0 || governmentOwnershipPercent == '-') {
       displayGovernmentOwnership = false;
     }
 
@@ -182,7 +182,7 @@ class CompaniesDetailSidebar extends PureComponent {
                       }
 
                       {displayGovernmentOwnership &&
-                        <span>: {governmentOwnershipPercent}%</span>
+                        <span>: {governmentOwnershipPercent}</span>
                       }
                     </div>
                   </div>}
