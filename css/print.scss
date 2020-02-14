@@ -6,6 +6,13 @@
   :global(.c-search) {
     display: none;
   }
+
+  :global(.print-none) {
+    display: none !important;
+  }
+  :global(div.print-none) {
+    display: none !important;
+  }
 }
 
 .print-logo {

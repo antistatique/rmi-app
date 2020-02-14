@@ -104,7 +104,7 @@ class ScrollSpy extends PureComponent {
         options={selectItems}
         selectedValue={currentTarget}
         onChange={this.handleChange}
-        className=""
+        className="print-none"
         hideResetButton
       />
     );

@@ -117,7 +117,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                   }
                 </div>
                 { previousBreakdownScores.length > 0 &&
-                  <div className="d-flex align-items-center mt-2 mb-3">
+                  <div className="d-flex align-items-center mt-2 mb-3 print-none">
                     <ToggleSwitch onStateChanged={this.handleToggleClick} />
                     <span className="ml-2">Compare with 2018 results</span>
                   </div>
@@ -192,7 +192,8 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           </div>
         </section>
         <div className="page-break" />
-        <div className="accordion-header bg-darkblue">
+
+        <div className="accordion-header bg-darkblue print-none">
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
@@ -204,7 +205,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           </div>
         </div>
 
-        <section className="section -dark">
+        <section className="section -dark print-none">
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
@@ -213,6 +214,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
           </div>
         </section>
+
         <section id="shareholders-and-subsidiaries" className="section -gray miscellaneous-lists">
           <div className="l-layout">
             <div className="row between-md">
