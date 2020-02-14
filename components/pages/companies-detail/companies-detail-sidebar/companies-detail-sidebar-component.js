@@ -73,6 +73,8 @@ class CompaniesDetailSidebar extends PureComponent {
       'revenues-date': revenuesDate,
       'number-workers-date': workersDate,
       'number-employees-date': employeesDate,
+      'number-workers-total': totalWorkers,
+      'number-workers-total-date': totalWorkersDate,
       listings: stockExchange
     } = company;
 
@@ -129,7 +131,10 @@ class CompaniesDetailSidebar extends PureComponent {
                         }
                       </div>
                       <div>
-                        Total: {(employees !== null && workers !== null && !isNaN(employees) && !isNaN(workers)) ? employees + workers : 'not reported'}
+                        Total: { parseInt(totalWorkers, 10) ? (+totalWorkers).toLocaleString() : totalWorkers}
+                        {totalWorkersDate !== null && totalWorkersDate !== 'NULL' &&
+                          <span>{totalWorkersDate && ` (${totalWorkersDate})`}</span>
+                        }
                       </div>
                     </div>
                   </div>
