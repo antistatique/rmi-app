@@ -1,6 +1,21 @@
 import React from 'react';
 import { Link } from 'routes';
 
+export const MINE_SITE_INDICATORS_ID = {
+  localEmployment: 263,
+  localProcurment: 264,
+  communityGrievance: 266,
+  workersGrievance: 267,
+  waterQuality: 269,
+  postClosurePlans: 265,
+  airQuality: 268,
+  waterQuantity: 270,
+  tailingsManagement: 271,
+  emergencyPreparedness: 272,
+
+  mineSiteIndicators: 321
+};
+
 export const MINE_SITE_TABLE_COLUMNS = [
   {
     property: 'name',

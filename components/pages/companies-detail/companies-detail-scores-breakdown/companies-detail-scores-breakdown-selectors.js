@@ -2,6 +2,10 @@
 import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
+import find from 'lodash/find';
+
+// constants
+import { MINE_SITE_INDICATORS_ID } from './companies-detail-scores-breakdown-constants';
 
 const companyScores = state => (state.companies.currentCompany || {}).scores;
 const scores = state => state.scores.list;
@@ -19,24 +23,41 @@ export const parseInvestmentDisputes = createSelector(
 export const parseMineSitesScores = createSelector(
   [selectedMineSites, currentLanguage],
   (_selectedMineSites = [], _currentLanguage) => {
-    return orderBy(_selectedMineSites.map(mineSite => ({
-      id: mineSite.id,
-      name: mineSite.name,
-      scores: {
-        localProcurment: mineSite.scores[0].value,
-        localEmployment: mineSite.scores[1].value,
-        communityGrievance: mineSite.scores[2].value,
-        workersGrievance: mineSite.scores[3].value,
-        waterQuality: mineSite.scores[4].value,
-        postClosurePlans: mineSite.scores[5].value,
-        airQuality: mineSite.scores[6].value,
-        waterQuantity: mineSite.scores[7].value,
-        tailingsManagement: mineSite.scores[8].value,
-        emergencyPreparedness: mineSite.scores[9].value
-      },
-      overall: mineSite.scores[10].value,
-      language: _currentLanguage
-    })), 'name', ['asc']);
+    return orderBy(
+      _selectedMineSites.map((mineSite) => {
+
+        const localProcurment = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localProcurment]);
+        const localEmployment = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localProcurment]);
+        const communityGrievance = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.communityGrievance]);
+        const workersGrievance = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.workersGrievance]);
+        const waterQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuality]);
+        const postClosurePlans = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.postClosurePlans]);
+        const airQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuantity]);
+        const waterQuantity = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.airQuality]);
+        const tailingsManagement = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.tailingsManagement]);
+        const emergencyPreparedness = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.emergencyPreparedness]);
+        const overall = mineSite.scores[10];
+
+        return {
+        id: mineSite.id,
+        name: mineSite.name,
+        scores: {
+          localProcurment: localProcurment ? localProcurment.value : '-',
+          localEmployment: localEmployment ? localEmployment.value : '-',
+          communityGrievance: communityGrievance ? communityGrievance.value : '-',
+          workersGrievance: workersGrievance ? workersGrievance.value : '-',
+          waterQuality: waterQuality ? waterQuality.value : '-',
+          postClosurePlans: postClosurePlans ? postClosurePlans.value : '-',
+          airQuality: airQuality ? airQuality.value : '-',
+          waterQuantity: waterQuantity ? waterQuantity.value : '-',
+          tailingsManagement: tailingsManagement ? tailingsManagement.value : '-',
+          emergencyPreparedness: emergencyPreparedness ? emergencyPreparedness.value : '-',
+        },
+        overall: overall ? overall.value : '-',
+        language: _currentLanguage
+      };
+    }),
+    'name', ['asc']);
   }
 );
 
