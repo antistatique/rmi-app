@@ -81,7 +81,7 @@ class StackedBars extends PureComponent {
                 </div>
                 <div className="score">
                   <span className="current-score">{currentTotalScore.toFixed(3)} <span className="total-score"> / { dataScale.toFixed(3) }</span></span>
-                  <span className="ml-2">2020</span>
+                  <span className="ml-2 print-none">2020</span>
                 </div>
               </div>
               { data[1] !== undefined &&
