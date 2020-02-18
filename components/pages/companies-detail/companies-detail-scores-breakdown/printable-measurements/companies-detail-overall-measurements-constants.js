@@ -4,7 +4,6 @@ export const CHART_CONFIG = {
   xAxisHeight: 5,
   YAxisHide: false,
   domain: [0, 6],
-  YAxisTicks: ['0.00', '0.20', '0.40', '0.60', '0.80', '1.00'],
   setBarFill: item => (item.currentCompany ? '#272626' : '#9c9aa2')
 };
 
