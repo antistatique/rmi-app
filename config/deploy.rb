@@ -32,13 +32,6 @@ set :ssh_options, {
  forward_agent: true
 }
 
-# Configure Slakkistrano
-set :slackistrano, {
- klass: Slackistrano::CustomMessaging,
- channel: fetch(:slackistrano_channel, '#dev-notifications'),
- webhook: 'https://hooks.slack.com/services/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'
-}
-
 namespace :deploy do
   desc '(re)Start docker containers'
   task :restart do
