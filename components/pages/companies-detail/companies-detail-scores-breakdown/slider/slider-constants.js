@@ -15,9 +15,9 @@ export const CHART_CONFIG = {
 };
 
 export const OVERALL_CHARTS_TITLES = {
-  'Overall commitment': 'Commitment (11 indicators)',
-  'Overall action': 'Action (41 indicators)',
-  'Overall effectiveness': 'Effectiveness (21 indicators)'
+  'Overall commitment': 'Commitment (9 indicators)',
+  'Overall action': 'Action (42 indicators)',
+  'Overall effectiveness': 'Effectiveness (20 indicators)'
 };
 
 export default { SLIDER_OPTIONS, CHART_CONFIG, OVERALL_CHARTS_TITLES };

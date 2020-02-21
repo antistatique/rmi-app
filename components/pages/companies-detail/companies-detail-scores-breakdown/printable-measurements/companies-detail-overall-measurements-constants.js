@@ -8,9 +8,9 @@ export const CHART_CONFIG = {
 };
 
 export const OVERALL_CHARTS_TITLES = {
-  'Overall commitment': { title: 'Commitment', subtitle: '(11 indicators)' },
-  'Overall action': { title: 'Action', subtitle: '(41 indicators)' },
-  'Overall effectiveness': { title: 'Effectiveness', subtitle: '(21 indicators)' }
+  'Overall commitment': { title: 'Commitment', subtitle: '(9 indicators)' },
+  'Overall action': { title: 'Action', subtitle: '(42 indicators)' },
+  'Overall effectiveness': { title: 'Effectiveness', subtitle: '(20 indicators)' }
 };
 
 export default {
