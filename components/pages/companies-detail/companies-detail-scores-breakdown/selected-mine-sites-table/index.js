@@ -32,67 +32,67 @@ class SelectedMineSitesTable extends PureComponent {
           <tr>
             <td className="score-title">Local Employment<br /><span>(score /3)</span></td>
             {mineSites.map((mineSite, index) => (
-              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.localEmployment}</td>
+              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.localEmployment !== null ? mineSite.scores.localEmployment.toFixed(1) : '-'}</td>
             ))}
           </tr>
           <tr>
             <td className="score-title">Local Procurement<br /><span>(score /3)</span></td>
             {mineSites.map((mineSite, index) => (
-              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.localProcurment}</td>
+              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.localProcurment !== null ? mineSite.scores.localProcurment.toFixed(1) : '-'}</td>
             ))}
           </tr>
           <tr>
             <td className="score-title">Post-Closure Plans<br /><span>(score /3)</span></td>
             {mineSites.map((mineSite, index) => (
-              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.postClosurePlans}</td>
+              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.postClosurePlans !== null ? mineSite.scores.postClosurePlans.toFixed(1) : '-'}</td>
             ))}
           </tr>
           <tr>
             <td className="score-title">Community Grievances<br /><span>(score /3)</span></td>
             {mineSites.map((mineSite, index) => (
-              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.communityGrievance}</td>
+              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.communityGrievance !== null ? mineSite.scores.communityGrievance.toFixed(1) : '-'}</td>
             ))}
           </tr>
           <tr>
             <td className="score-title">Worker Grievances<br /><span>(score /3)</span></td>
             {mineSites.map((mineSite, index) => (
-              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.workersGrievance}</td>
+              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.workersGrievance !== null ? mineSite.scores.workersGrievance.toFixed(1) : '-'}</td>
             ))}
           </tr>
           <tr>
             <td className="score-title">Air Quality<br /><span>(score /3)</span></td>
             {mineSites.map((mineSite, index) => (
-              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.airQuality}</td>
+              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.workersGrievance !== null ? mineSite.scores.airQuality.toFixed(1) : '-'}</td>
             ))}
           </tr>
           <tr>
             <td className="score-title">Water Quality<br /><span>(score /3)</span></td>
             {mineSites.map((mineSite, index) => (
-              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.waterQuality}</td>
+              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.waterQuality !== null ? mineSite.scores.waterQuality.toFixed(1) : '-'}</td>
             ))}
           </tr>
           <tr>
             <td className="score-title">Water Quantity<br /><span>(score /3)</span></td>
             {mineSites.map((mineSite, index) => (
-              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.waterQuantity}</td>
+              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.waterQuantity !== null ? mineSite.scores.waterQuantity.toFixed(1) : '-'}</td>
             ))}
           </tr>
           <tr>
             <td className="score-title">Tailings Management<br /><span>(score /3)</span></td>
             {mineSites.map((mineSite, index) => (
-              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.tailingsManagemen}</td>
+              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.tailingsManagement !== null ? mineSite.scores.tailingsManagement.toFixed(1) : '-'}</td>
             ))}
           </tr>
           <tr>
             <td className="score-title">Emergency Preparedness<br /><span>(score /3)</span></td>
             {mineSites.map((mineSite, index) => (
-              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.emergencyPreparedness}</td>
+              <td key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'}>{mineSite.scores.emergencyPreparedness !== null ? mineSite.scores.emergencyPreparedness.toFixed(1) : '-'}</td>
             ))}
           </tr>
           <tr className="bg-darkblue">
             <td className="score-title">Mine-site Score<br /><span>(%)</span></td>
             {mineSites.map(mineSite => (
-              <td key={mineSite.id}>{mineSite.overall}</td>
+              <td key={mineSite.id}>{mineSite.overall !== null ? mineSite.overall.toFixed(1) : '-'}</td>
             ))}
           </tr>
         </tbody>

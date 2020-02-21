@@ -27,13 +27,13 @@ export const parseMineSitesScores = createSelector(
       _selectedMineSites.map((mineSite) => {
 
         const localProcurment = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localProcurment]);
-        const localEmployment = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localProcurment]);
+        const localEmployment = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localEmployment]);
         const communityGrievance = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.communityGrievance]);
         const workersGrievance = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.workersGrievance]);
         const waterQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuality]);
         const postClosurePlans = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.postClosurePlans]);
-        const airQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuantity]);
-        const waterQuantity = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.airQuality]);
+        const airQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.airQuality]);
+        const waterQuantity = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuantity]);
         const tailingsManagement = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.tailingsManagement]);
         const emergencyPreparedness = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.emergencyPreparedness]);
         const overall = mineSite.scores[10];

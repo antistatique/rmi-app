@@ -4,11 +4,11 @@ import { Link } from 'routes';
 export const MINE_SITE_INDICATORS_ID = {
   localEmployment: 263,
   localProcurment: 264,
+  postClosurePlans: 265,
   communityGrievance: 266,
   workersGrievance: 267,
-  waterQuality: 269,
-  postClosurePlans: 265,
   airQuality: 268,
+  waterQuality: 269,
   waterQuantity: 270,
   tailingsManagement: 271,
   emergencyPreparedness: 272,
