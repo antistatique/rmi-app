@@ -28,8 +28,8 @@ class ResultsDetailPage extends Page {
   render() {
     return (
       <Layout
-        title="Results | Detail"
-        description="Welcome to RMI | Results - Detail"
+        title="Thematic Results"
+        description="Discover the Thematic Results"
       >
         <ResultsDetail />
       </Layout>

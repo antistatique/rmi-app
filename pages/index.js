@@ -64,8 +64,8 @@ class IndexPage extends Page {
   render() {
     return (
       <Layout
-        title="Index"
-        description="Welcome to RMI | Index"
+        title="Home"
+        description="Welcome to the RMI Report | Homepage"
       >
         <IndexPageComponent />
       </Layout>
