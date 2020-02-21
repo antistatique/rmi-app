@@ -44,7 +44,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     responsive: PropTypes.object.isRequired,
     printable: PropTypes.bool,
     setPreviousYearVisibility: PropTypes.func.isRequired,
-    averageMineSite: PropTypes.string.isRequired
+    averageMineSite: PropTypes.number.isRequired
   };
 
   static defaultProps = { printable: false }
