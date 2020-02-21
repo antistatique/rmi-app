@@ -19,6 +19,7 @@ class ScoreComparison extends PureComponent {
     currentLanguage: PropTypes.string.isRequired
   }
 
+  // @TODO: 3 for mine-sites, 6 for companies
   static getWidth(value) {
     return `${((value * 100) / 6)}%`;
   }
@@ -43,20 +44,26 @@ class ScoreComparison extends PureComponent {
       'zero-value': value === 0
     });
 
+    let barStyles = {
+      backgroundColor: color,
+      width: `calc(${ScoreComparison.getWidth(value)} + 2px)`
+    };
+
+    if (null === value) {
+      barStyles.width = '0px';
+    }
+
     return (
       <div className="c-score-comparison">
         <style jsx>{styles}</style>
         <div className={`score-bar ${this.state.maxScoreDisplay ? 'max-opened' : ''}`}>
           <div
             className="score-value"
-            style={{
-              backgroundColor: color,
-              width: `calc(${ScoreComparison.getWidth(value)} + 2px)`
-            }}
+            style={barStyles}
           >
             {!hideInnerValue &&
               <span className={scoreValueClass}>
-                {value.toFixed(1)}
+                {value !== null ? value.toFixed(1) : 'Exception'}
               </span>}
           </div>
           <div
