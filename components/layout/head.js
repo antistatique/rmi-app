@@ -40,7 +40,7 @@ class Head extends PureComponent {
 
     return (
       <HeadNext>
-        <title>{title} | RMI - Responsible Mining Index 2020</title>
+        <title>{title} | RMI Report 2020</title>
 
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,7 +70,7 @@ class Head extends PureComponent {
         {/* Social media sharing  */}
         {!isFoundation &&
           <Fragment>
-            <meta property="og:title" content={`${title} | RMI - Responsible Mining Index 2020`} />
+            <meta property="og:title" content={`${title} | RMI Report 2020`} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content="http://rmi.vizzuality.com/static/images/homepage_background.jpg" />
           </Fragment>

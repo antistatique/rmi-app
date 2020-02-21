@@ -87,12 +87,12 @@ class StackedBarsVertical extends PureComponent {
                     key={data[0]}
                     placement="bottom"
                     trigger={['hover']}
-                    overlay={<span>Average of mine-sites</span>}
+                    overlay={<span>Average of mine-site scores</span>}
                     mouseLeaveDelay={0}
                   >
                     <div
                       className="bar-node"
-                      style={{ height: `${data[0]}%`, backgroundColor: '#D9D9D9' }}
+                      style={{ height: `${data[0]}%`, backgroundColor: '#4e504f' }}
                     />
                   </Tooltip>
                 </div>
@@ -140,7 +140,7 @@ class StackedBarsVertical extends PureComponent {
               <h3 className="bar-title">{data[0].name}</h3>
             }
             {data[0].children === undefined &&
-              <h3 className="bar-title">Mine-sites</h3>
+              <h3 className="bar-title">Mine-site Score</h3>
             }
           </div>
 
