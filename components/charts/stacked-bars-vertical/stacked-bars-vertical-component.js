@@ -75,6 +75,7 @@ class StackedBarsVertical extends PureComponent {
                 </div>
               </div>
             }
+            {/* display mine-site results bar */}
             {data[0].children === undefined &&
               <div className="bar-wrapper mr-1">
                 <div className="score">
@@ -126,21 +127,23 @@ class StackedBarsVertical extends PureComponent {
           </div>
           <div
             className="bar-icon"
+            style={{
+              backgroundColor: data[0].children !== undefined ? AREA_ISSUE_COLOURS[data[0].indicatorId] : '#4e504f',
+            }}
           >
-            {data[0].children !== undefined &&
-              <Icon
-                name={data[0].indicatorId.toString()}
-                className="-x-big"
-                style={{ background: `${AREA_ISSUE_COLOURS[data[0].indicatorId]} !important`, padding: '5px' }}
-              />
-              }
+            <Icon
+              name={data[0].children !== undefined ? data[0].indicatorId.toString() : 'mine-site-results'}
+              className="-x-big"
+              style={{ padding: '5px' }}
+            />
           </div>
           <div className="bar-header mt-2">
             {data[0].children !== undefined &&
               <h3 className="bar-title">{data[0].name}</h3>
             }
+            {/* display mine-site results label */}
             {data[0].children === undefined &&
-              <h3 className="bar-title">Mine-site Score</h3>
+              <h3 className="bar-title">Average Mine-Site Score</h3>
             }
           </div>
 

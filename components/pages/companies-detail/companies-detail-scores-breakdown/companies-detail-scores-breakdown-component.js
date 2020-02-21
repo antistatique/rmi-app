@@ -94,6 +94,14 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                       className="mb-4"
                     />
                   ))}
+                  {
+                    <StackedBars
+                      key={averageMineSite}
+                      data={[averageMineSite]}
+                      colors={[]}
+                      className="mb-4"
+                    />
+                  }
                 </div>
 
                 <div className="stacked-bars-vertical-container d-none d-md-flex">
