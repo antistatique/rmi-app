@@ -160,11 +160,11 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-4',
-        label: 'Summary Reports',
-        slug: 'summary-reports',
+        label: 'Summary',
+        slug: 'summary',
         query: {
           route: 'static-pages',
-          params: { slug: 'summary-reports' }
+          params: { slug: 'summary' }
         }
       },
       {
