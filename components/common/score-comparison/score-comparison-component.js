@@ -16,15 +16,18 @@ class ScoreComparison extends PureComponent {
     config: PropTypes.object.isRequired,
     // phone is the prop to see if the device used is a phone
     phone: PropTypes.bool,
-    currentLanguage: PropTypes.string.isRequired
+    currentLanguage: PropTypes.string.isRequired,
+    scaleScore: PropTypes.number
   }
 
-  // @TODO: 3 for mine-sites, 6 for companies
-  static getWidth(value) {
-    return `${((value * 100) / 6)}%`;
+  static getWidth(value, scaleScore = 6) {
+    return `${((value * 100) / scaleScore)}%`;
   }
 
-  static defaultProps = { phone: false }
+  static defaultProps = {
+    phone: false,
+    scaleScore: 6
+  }
 
   constructor(props) {
     super(props);
@@ -36,7 +39,7 @@ class ScoreComparison extends PureComponent {
   }
 
   render() {
-    const { data, config, phone, currentLanguage } = this.props;
+    const { data, config, phone, currentLanguage, scaleScore } = this.props;
     const { avg, min, max, value, companies } = data;
     const { color, hideInnerValue } = config;
     const scoreValueClass = classnames({
@@ -46,7 +49,7 @@ class ScoreComparison extends PureComponent {
 
     let barStyles = {
       backgroundColor: color,
-      width: `calc(${ScoreComparison.getWidth(value)} + 2px)`
+      width: `calc(${ScoreComparison.getWidth(value, scaleScore)} + 2px)`
     };
 
     if (null === value) {
@@ -68,7 +71,7 @@ class ScoreComparison extends PureComponent {
           </div>
           <div
             className="score-avg"
-            style={{ left: ScoreComparison.getWidth(avg) }}
+            style={{ left: ScoreComparison.getWidth(avg, scaleScore) }}
           >
             <div className="legend">
               <span>Avg</span>
@@ -79,7 +82,7 @@ class ScoreComparison extends PureComponent {
           {
             (min !== undefined) && <div
               className="score-min"
-              style={{ left: ScoreComparison.getWidth(min) }}
+              style={{ left: ScoreComparison.getWidth(min, scaleScore) }}
             >
               <div className="legend">
                 <span>Min</span>
@@ -91,7 +94,7 @@ class ScoreComparison extends PureComponent {
           {
             companies === undefined && <div
               className="score-max"
-              style={{ left: ScoreComparison.getWidth(max) }}
+              style={{ left: ScoreComparison.getWidth(max, scaleScore) }}
             >
               <div className="legend">
                 <span>Max</span>
@@ -103,7 +106,7 @@ class ScoreComparison extends PureComponent {
           {
             companies && <div
                 className="score-max"
-                style={{ left: `calc(${ScoreComparison.getWidth(max)} + 1px)` }}
+                style={{ left: `calc(${ScoreComparison.getWidth(max, scaleScore)} + 1px)` }}
                 onClick={this.handleClickMax}
               >
               <div className={`${(!this.state.maxScoreDisplay && !phone) ? 'legend legend-max' : 'legend legend-max closed'}`}>

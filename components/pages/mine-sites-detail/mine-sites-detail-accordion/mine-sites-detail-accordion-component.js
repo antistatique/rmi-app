@@ -39,6 +39,7 @@ class MineSitesDetailAccordion extends PureComponent {
                   companies: d.companiesMaxScores
                 }}
                 config={{ color: SCORE_COMPARISON_CONFIG['mine-sites'] }}
+                scaleScore={3}
               />
             </div>
           </div>
