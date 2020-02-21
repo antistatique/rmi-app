@@ -1,11 +1,48 @@
 
 import { createSelector } from 'reselect';
 
-const topics = state => state.leadingPracticesPage.topics.list;
+const companies = state => state.companies.list;
+const indicators = state => state.indicators.list;
+const topics = state => state.topics.list;
+const leadingPractices = state => state.leadingPracticesPage.leadingPractices.list;
 
-export const parseTopics = createSelector(
-  [topics],
-  (_topics = []) => _topics.map(topic => ({ label: topic.name, value: topic.id }))
+export const parseIndicators = createSelector(
+  [indicators],
+  (_indicators = []) => _indicators.map(indicator => ({ label: indicator.name, value: indicator.id }))
 );
 
-export default { parseTopics };
+export const parseCompanies = createSelector(
+  [companies, leadingPractices],
+  (_companies = [], _leadingPractices = []) => {
+    let companyIds = [];
+    _leadingPractices.forEach((leading) => {
+      leading.companies.map((company) => {
+        companyIds = [
+          ...companyIds,
+          company.id
+        ];
+      });
+    });
+    const finalCompanies = _companies.filter(company => companyIds.includes(company.id));
+    return finalCompanies.map(company => ({ label: company.name, value: company.id }));
+  }
+);
+
+export const parseTopics = createSelector(
+  [topics, leadingPractices],
+  (_topics = [], _leadingPractices = []) =>  {
+    let topicIds = [];
+    _leadingPractices.forEach((leading) => {
+      leading.topics.map((topic) => {
+        topicIds = [
+          ...topicIds,
+          topic.id
+        ];
+      });
+    });
+    const finalTopics = _topics.filter(topic => topicIds.includes(topic.id));
+    return finalTopics.map(topic => ({ label: topic.name, value: topic.id }));
+  }
+);
+
+export default { parseCompanies, parseIndicators, parseTopics };

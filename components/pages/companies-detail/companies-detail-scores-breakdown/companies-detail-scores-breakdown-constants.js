@@ -1,6 +1,21 @@
 import React from 'react';
 import { Link } from 'routes';
 
+export const MINE_SITE_INDICATORS_ID = {
+  localEmployment: 263,
+  localProcurment: 264,
+  postClosurePlans: 265,
+  communityGrievance: 266,
+  workersGrievance: 267,
+  airQuality: 268,
+  waterQuality: 269,
+  waterQuantity: 270,
+  tailingsManagement: 271,
+  emergencyPreparedness: 272,
+
+  mineSiteIndicators: 321
+};
+
 export const MINE_SITE_TABLE_COLUMNS = [
   {
     property: 'name',
@@ -97,53 +112,11 @@ export const INVESTMENT_DISPUTES_COLUMNS = [
 
 export const TAX_JURISDICTIONS_COLUMNS = [
   {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction1 || {}).country && rowData.jurisdiction1.country.name
-      ]
-    }
+    property: 'country_col1',
   },
   {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction2 || {}).country && rowData.jurisdiction2.country.name
-      ]
-    }
+    property: 'country_col2',
   },
-  {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction3 || {}).country && rowData.jurisdiction3.country.name
-      ]
-    }
-  },
-  {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction4 || {}).country && rowData.jurisdiction4.country.name
-      ]
-    }
-  },
-  {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction5 || {}).country && rowData.jurisdiction5.country.name
-      ]
-    }
-  },
-  {
-    cell: {
-      formatters: [
-        (countryName, { rowData }) =>
-          (rowData.jurisdiction6 || {}).country && rowData.jurisdiction6.country.name
-      ]
-    }
-  }
 ];
 
 export default {

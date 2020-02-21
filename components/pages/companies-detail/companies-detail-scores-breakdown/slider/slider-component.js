@@ -54,7 +54,6 @@ class SimpleSlider extends Component {
             options={SLIDER_OPTIONS}
             selectedValue={this.state.selectedItem}
             onChange={this.handleMeasurement}
-            className="-underline"
           />
         </div>
       </div>

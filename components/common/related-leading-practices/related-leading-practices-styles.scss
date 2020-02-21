@@ -1,0 +1,11 @@
+@import 'css/settings';
+
+.related-leading-practices {
+  ul {
+    margin-left: 28px;
+    font-size: $font-size-big;
+    list-style: initial;
+    font-weight: normal;
+    list-style: square;
+  }
+}

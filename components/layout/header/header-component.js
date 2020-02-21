@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { Link } from 'routes';
 
 
@@ -19,31 +18,23 @@ class Header extends PureComponent {
   render() {
     const { root, currentLanguage } = this.props;
 
-    const logo = root === 'index' ?
-      'RMI_Index_Color' : 'RMI_Foundation_Color';
-
-    const headerClass = classnames({
-      'c-header': true,
-      '-theme-1': root === 'index',
-      '-theme-2': root !== 'index'
-    });
-
     return (
-      <header className={headerClass}>
+      <header className="c-header">
         <style jsx>{styles}</style>
         <div className="l-layout">
           <div className="row">
-            <div className="col-md-4">
-              <div className="logo">
-                <Link
-                  route={root}
-                  params={{ language: currentLanguage }}
-                >
-                  <a><img className="logo-img" src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
-                </Link>
-              </div>
+            <div className="col-xs-4">
+              <Link
+                route={root}
+                params={{ language: currentLanguage }}
+              >
+                <a className="logo">
+                  <img className="logo-img" src={`/static/logos/RMI_Index_Color.svg`} alt="RMI logo" />
+                  <span className="logo-year">2020</span>
+                </a>
+              </Link>
             </div>
-            <div className="col-md-8">
+            <div className="col-xs-8">
               <div className="row float-right">
                 <LanguageBar />
               </div>

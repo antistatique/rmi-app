@@ -1,5 +1,9 @@
 import React from 'react';
 
+// redux
+import withRedux from 'next-redux-wrapper';
+import { initStore } from 'store';
+
 // components
 import Page from 'components/page';
 import Layout from 'components/layout';
@@ -26,4 +30,8 @@ class ErrorPage extends Page {
   }
 }
 
-export default ErrorPage;
+export default withRedux(
+  initStore,
+  state => ({}),
+  {}
+)(ErrorPage);

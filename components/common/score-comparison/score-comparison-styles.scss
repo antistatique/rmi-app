@@ -16,6 +16,10 @@ $bar-height: 40px;
       page-break-inside: avoid;
       border: 1px dashed $color-1;
     }
+
+    &.max-opened {
+      z-index: 2;
+    }
   }
 
   > .score-bar > .score-value {
@@ -56,14 +60,29 @@ $bar-height: 40px;
 
   > .score-bar > .score-avg,
   > .score-bar > .score-min,
-  > .score-bar > .score-max {
+  > .score-bar > .score-max,
+  > .score-bar > .score-max-hovered {
     > .legend {
+      display: block;
       position: absolute;
       bottom: 0;
       padding: 0 0 0 10px;
+      transition: opacity 1s;
+      opacity: 1;
+      text-align: right;
+
+      &.legend-max {
+        width: 70px;
+      }
+
+      &.closed {
+        display: block;
+        opacity: 0;
+      }
 
       span {
         display: block;
+        cursor: pointer;
         line-height: 1.1;
         color: $color-7;
 
@@ -76,6 +95,48 @@ $bar-height: 40px;
         }
       }
     }
+
+    > .legend-popup {
+      display: block;
+      position: absolute;
+      top: calc(100% - 34px);
+      width: 0;
+      border: 1px solid $color-5;
+      opacity: 0;
+      transition: width 0.350s ease-out, opacity 0.150s;
+      cursor: pointer;
+
+      span {
+        display: block;
+        opacity: 0;
+        transition: opacity 0.50s linear 0.380s;
+      }
+
+      &.opened {
+        display: block;
+        width: 130px;
+        opacity: 1;
+
+        span {
+          opacity: 1;
+        }
+      }
+
+      > .header {
+        background-color: #CACBC5;
+        span {
+          line-height: 1.1;
+          text-align: right;
+          padding-right: 10px;
+          color: black;
+        }
+      }
+
+      > .content {
+        padding: $grid-gap/4;
+        background-color: $color-2;
+      }
+    }
   }
 
   > .score-bar > .score-avg {
@@ -86,12 +147,14 @@ $bar-height: 40px;
 
   > .score-bar > .score-min,
   > .score-bar > .score-max,
+  > .score-bar > .score-max-hovered,
   > .score-bar > .score-avg {
     transform: translate(-1px, 0);
   }
 
   > .score-bar > .score-min,
-  > .score-bar > .score-max {
+  > .score-bar > .score-max,
+  > .score-bar > .score-max-hovered {
     position: absolute;
     top: 0;
     height: #{(($bar-height * 2) - 1px)};
@@ -102,11 +165,16 @@ $bar-height: 40px;
     }
   }
 
-  > .score-bar > .score-max {
+  > .score-bar > .score-max,
+  > .score-bar > .score-max-hovered {
     height: #{(($bar-height * 3) - 1px)};
 
     > .legend {
       padding: 0 10px 0 0;
+      transform: translate(-100%, 0)
+    }
+
+    > .legend-popup {
       transform: translate(-100%, 0)
     }
   }

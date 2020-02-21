@@ -28,9 +28,13 @@ export const getUpdatedPaths = createSelector(
           properties: {
             ...geography.properties,
             id: index,
+            isClickable: !!((country.companies || []).length ||
+              (country.secondaryCompanies || []).length ||
+              (country.producingCompanies || []).length),
             isHome: !!((country.companies || []).length ||
               (country.secondaryCompanies || []).length),
-            isProducing: !!((country.producingCompanies || []).length)
+            isProducing: !!((country.producingCompanies || []).length),
+            countryId: country.id
           }
         };
       })
@@ -38,10 +42,9 @@ export const getUpdatedPaths = createSelector(
 
 export const getMarkers = createSelector(
   [companies, filters, currentLanguage],
-  (_companies = [], _filters, _currentLanguage) =>
-    flatten(_companies.map(company =>
+  (_companies = [], _filters, _currentLanguage) => {
+    return flatten(_companies.map(company =>
       (company['selected-mine-sites'] || [])
-        .filter(mineSite => mineSiteFilter(mineSite, _filters))
         .map(ms => ({
           id: ms.id,
           name: ms.name,
@@ -49,6 +52,7 @@ export const getMarkers = createSelector(
           coordinates: [ms['coord-y'], ms['coord-x']],
           language: _currentLanguage
         }))))
+  }
 );
 
 export default {

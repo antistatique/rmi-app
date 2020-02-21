@@ -7,11 +7,13 @@ const scores = state => state.resultsOverallPage.breakdownScores.list;
 const bestPracticesScores = state => (state.resultsOverallPage.bestPracticesScores || {}).list;
 const overallScores = state => (state.resultsOverallPage.overallScores || {}).list;
 const indicators = state => state.indicators.list;
+const selectedCompany = state => state.resultsOverallPage.selectedCompany;
 
 export const getScoresByIssueArea = createSelector(
-  [scores, indicators, bestPracticesScores, overallScores],
-  (_scores = [], _indicators = [], _bestPracticesScores = [], _overallScores = []) => {
-    const scoresByIndicator = groupBy(_scores, 'indicator-id');
+  [scores, indicators, bestPracticesScores, overallScores, selectedCompany],
+  (_scores = [], _indicators = [], _bestPracticesScores = [], _overallScores = [], _selectedCompany) => {
+    const filteredScores = _scores.filter(score => !score.name.includes('PREVIOUS'));
+    const scoresByIndicator = groupBy(filteredScores, 'indicator-id');
 
     const companiesByIndicator = {};
     Object.keys(scoresByIndicator).forEach((indicatorId) => {
@@ -34,10 +36,12 @@ export const getScoresByIssueArea = createSelector(
             ...scoreCell.label === 'Action' && { action: scoreCell.value },
             ...scoreCell.label === 'Effectiveness' && { effectiveness: scoreCell.value },
             ...scoreCell.label === 'Commitment' && { commitment: scoreCell.value },
-            overallScore: (_overallScores.find(score =>
+            selected: scoreCell.company.name === _selectedCompany,
+            overallScore: (_overallScores.find(score =>	
               score.company.id === scoreCell.company.id && score['indicator-id'] === +issueArea.id) || {}).value
           });
         });
+
         totalScores.push(barScore);
       });
 

@@ -17,7 +17,7 @@ export const SUBSIDIARIES_TABLE_COLUMNS = [
       formatters: [
         (name, { rowData }) => (
           <Link
-            route="companies"
+            route="company"
             params={{
               language: rowData.language,
               company: rowData.companyId

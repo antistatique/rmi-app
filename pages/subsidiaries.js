@@ -6,6 +6,7 @@ import { initStore } from 'store';
 
 // actions
 import { getSubsidiaries } from 'modules/subsidiaries/subsidiaries-actions';
+import { getCompanies } from 'modules/companies/companies-actions';
 
 // components
 import Page from 'components/page';
@@ -22,10 +23,16 @@ class SubsidiariesPage extends Page {
       sort: 'name'
     }));
 
+    await context.store.dispatch(getCompanies({ sort: 'name' }));
+
     return { ...props };
   }
 
   render() {
+    if (this.props.companies.length === 0) {
+      this.props.getCompanies({ sort: 'name' });
+    }
+
     return (
       <Layout
         title="Subsidiaries"
@@ -39,6 +46,6 @@ class SubsidiariesPage extends Page {
 
 export default withRedux(
   initStore,
-  () => ({}),
-  {}
+  state => ({ companies: state.companies.list }),
+  { getCompanies }
 )(SubsidiariesPage);

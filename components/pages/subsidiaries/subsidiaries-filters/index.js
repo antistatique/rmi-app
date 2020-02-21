@@ -1,15 +1,20 @@
 import { connect } from 'react-redux';
 
 // actions
-import { setSearch, setPaginationPage } from 'modules/subsidiaries/subsidiaries-actions';
+import { setSearch, setPaginationPage, setFilters, resetFilters } from 'modules/subsidiaries/subsidiaries-actions';
 
 // component
 import SubsidiariesFilters from './subsidiaries-filters-component';
 
+// selectors
+import { parseCompanies } from './subsidiaries-filters-selectors';
+
 export default connect(
-  state => ({}),
+  state => ({ companies: parseCompanies(state), selectedCompany: state.subsidiaries.filters.company }),
   {
     setSearch,
-    setPaginationPage
+    setPaginationPage,
+    setFilters,
+    resetFilters
   }
 )(SubsidiariesFilters);

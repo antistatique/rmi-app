@@ -6,11 +6,12 @@ import { SCORE_COMPARISON_CONFIG } from 'components/common/score-comparison/scor
 
 const indicators = state => state.indicators.list;
 const currentIssueArea = state => state.companiesDetailPage.issueArea;
-const scores = state => (state.companies.list[0] || {}).scores;
+const scores = state => (state.companies.currentCompany || {}).scores;
+const company = state => state.companies.currentCompany;
 
 export const getIssueAreaTree = createSelector(
-  [indicators, currentIssueArea, scores],
-  (_indicators, _currentIssueArea, _scores) => {
+  [indicators, currentIssueArea, scores, company],
+  (_indicators, _currentIssueArea, _scores, _company) => {
     // A. Lorem ipsum...
     const category = _indicators.find(indicator => indicator.id === _currentIssueArea) || {};
 
@@ -28,12 +29,21 @@ export const getIssueAreaTree = createSelector(
           .map(ind => ({
             id: ind.id,
             name: ind.name,
+            label: ind.label,
             slug: ind.slug,
             min: ind.min,
             max: ind.max,
             avg: ind.avg,
+            measurementArea: ind['measurement-area']['measurement-area'],
             value: (_scores.find(score => score['indicator-id'] === +ind.id) || {}).value,
-            color: SCORE_COMPARISON_CONFIG[category.slug]
+            color: SCORE_COMPARISON_CONFIG[category.slug],
+            leadingPractices: ind['leading-practices'].filter((leadingPractice) => {
+              const companyFound = leadingPractice.companies.filter(leadingCompany => leadingCompany.id === _company.id);
+              if (companyFound.length !== 0) {
+                return leadingPractice;
+              }
+            }),
+            companiesMaxScores: ind['companies-max-scores']
           }))
       }))
     };

@@ -60,6 +60,7 @@ class LibraryTable extends PureComponent {
             placeholder={limit}
             options={TABLE_SIZE_VALUES}
             onChange={this.handleSize}
+            className="c-select-tiny"
           />
         </div>
 

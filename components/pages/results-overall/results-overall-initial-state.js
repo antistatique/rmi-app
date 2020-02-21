@@ -6,5 +6,6 @@ export default {
   overallScores: {
     list: [],
     loading: false
-  }
+  },
+  selectedCompany: null
 };

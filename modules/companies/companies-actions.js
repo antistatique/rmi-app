@@ -10,6 +10,9 @@ export const resetCompanies = createAction('companies/resetCompanies');
 export const setCompaniesLoading = createAction('companies/setCompaniesLoading');
 export const setCompaniesScores = createAction('companies/setCompaniesScores');
 export const setCompaniesError = createAction('companies/setCompaniesError');
+export const setTaxJurisdictions = createAction('companies/setTaxJurisdictions');
+export const setCurrentCompany = createAction('companies/setCurrentCompany');
+export const resetCurrentCompany = createAction('companies/resetCurrentCompany');
 
 export const getCompanies = createThunkAction('companies/getCompanies', _options =>
   (dispatch, getState) => {
@@ -18,7 +21,7 @@ export const getCompanies = createThunkAction('companies/getCompanies', _options
 
     const options = {
       ..._options,
-      'filter[country]': country,
+      'filter[countries]': country,
       'filter[commodities]': commodities ? commodities.join(',') : undefined
     };
 
@@ -28,8 +31,17 @@ export const getCompanies = createThunkAction('companies/getCompanies', _options
       CompaniesService.getCompanies(options)
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
-
-          resolve(parsedData);
+          resolve(parsedData.sort((currentElement, nextElement) => {
+            // Due to API inconsistency, the array of companies needs to be ordered
+            const currentElementNormalized = currentElement.name.toLowerCase();
+            const nextElementNormalized = nextElement.name.toLowerCase();
+            if (currentElementNormalized < nextElementNormalized) {
+              return -1;
+            } else if (currentElementNormalized > nextElementNormalized) {
+              return 1;
+            }
+            return 0;
+          }));
           dispatch(setCompaniesLoading(false));
           dispatch(setCompanies(parsedData));
         })
@@ -49,9 +61,9 @@ export const getCompany = createThunkAction('companies/getCompany', _options =>
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
 
-          resolve([parsedData]);
+          resolve(parsedData);
           dispatch(setCompaniesLoading(false));
-          dispatch(setCompanies([parsedData]));
+          dispatch(setCurrentCompany(parsedData));
         })
         .catch(errors => reject(errors));
     });
@@ -70,11 +82,29 @@ export const getCompaniesScores = createThunkAction('companies/getCompaniesScore
         .catch(errors => reject(errors));
     }));
 
+export const getTaxJurisdictions = createThunkAction('companies/getTaxJurisdictions', _options =>
+  (dispatch) => {
+    const { queryParams } = _options;
+    return new Promise((resolve, reject) => {
+      CompaniesService.getTaxJurisdictions(queryParams)
+        .then((data) => {
+          const parsedData = new Jsona().deserialize(data);
+
+          resolve(parsedData);
+          dispatch(setTaxJurisdictions(parsedData));
+        })
+        .catch(errors => reject(errors));
+    });
+  });
+
 
 export default {
   setCompanies,
   setCompaniesError,
   getCompanies,
   getCompany,
-  getCompaniesScores
+  getCompaniesScores,
+  getTaxJurisdictions,
+  setTaxJurisdictions,
+  setCurrentCompany
 };

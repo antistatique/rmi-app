@@ -25,7 +25,7 @@ class MineSitesDetailAccordion extends PureComponent {
 
     return (
       data.map(d => (
-        <div key={d.slug} className="category-block">
+        <div key={d.id} className="category-block">
           <div className="row center-sm  between-md -no-text-align">
             <div className="col-xs-12 col-md-8">
               <h4 className="block-title">{d.name}</h4>
@@ -35,9 +35,11 @@ class MineSitesDetailAccordion extends PureComponent {
                 data={{
                   avg: d.avg,
                   max: d.max,
-                  value: d.value
+                  value: d.value,
+                  companies: d.companiesMaxScores
                 }}
                 config={{ color: SCORE_COMPARISON_CONFIG['mine-sites'] }}
+                scaleScore={3}
               />
             </div>
           </div>

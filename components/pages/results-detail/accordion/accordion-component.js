@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Accordion from 'components/common/accordion';
 import ScoreComparison from 'components/common/score-comparison';
+import RelatedLeadingPractices from 'components/common/related-leading-practices';
 
 class ResultsDetailAccordion extends PureComponent {
   static propTypes = {
@@ -32,12 +33,14 @@ class ResultsDetailAccordion extends PureComponent {
                     avg: d.avg,
                     min: d.min,
                     max: d.max,
-                    value: d.avg
+                    value: d.avg,
+                    companies: d.companiesMaxScores
                   }}
                   config={{
                     color: d.color,
                     hideInnerValue: true
                   }}
+                  phone={phone}
                 />
               </div>
               <div className="col-xs-12">
@@ -47,6 +50,13 @@ class ResultsDetailAccordion extends PureComponent {
                     <div dangerouslySetInnerHTML={{ __html: d.summary }} />
                   </div>}
               </div>
+              { d.leadingPractices.length > 0 &&
+                <div className="row mt-4">
+                  <div className="col-xs-12">
+                    <RelatedLeadingPractices leadingPractices={d.leadingPractices} />
+                  </div>
+                </div>
+              }
             </div>
           </div>
         )));
@@ -57,7 +67,16 @@ class ResultsDetailAccordion extends PureComponent {
         <div key={d.id} className="category-block">
           <div className="row center-sm between-md -no-text-align">
             <div className="col-xs-12 col-md-8">
-              <h4 className="block-title">{d.name}</h4>
+              <div className="row">
+                <div className="col-xs-4 col-md-3">
+                  <h4 className="block-title mb-3">{d.name.split(' ')[0]}</h4>
+                  <span>{d.measurementArea}</span>
+                </div>
+                <div className="col-xs-8 col-md-9">
+                  <p className="block-title">{d.label}</p>
+                </div>
+              </div>
+
               {d.summary &&
                 <div className="block-section">
                   <h5 className="block-section-name">Observation</h5>
@@ -70,14 +89,23 @@ class ResultsDetailAccordion extends PureComponent {
                   avg: d.avg,
                   min: d.min,
                   max: d.max,
-                  value: d.avg
+                  value: d.avg,
+                  companies: d.companiesMaxScores
                 }}
                 config={{
                   color: d.color,
                   hideInnerValue: true
                 }}
+                phone={phone}
               />
             </div>
+            { d.leadingPractices.length > 0 &&
+              <div className="row mt-4">
+                <div className="col-xs-12">
+                  <RelatedLeadingPractices leadingPractices={d.leadingPractices} />
+                </div>
+              </div>
+            }
           </div>
         </div>
       )));

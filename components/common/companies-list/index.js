@@ -11,7 +11,8 @@ import CompaniesList from './companies-list-component';
 class CompaniesListContainer extends PureComponent {
   static propTypes = {
     filters: PropTypes.object.isRequired,
-    getCompanies: PropTypes.func.isRequired
+    getCompanies: PropTypes.func.isRequired,
+    companies: PropTypes.array.isRequired
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,8 +21,8 @@ class CompaniesListContainer extends PureComponent {
 
     const filtersChanged = !isEqual(filters, nextFilters);
 
-    if (filtersChanged) {
-      this.props.getCompanies({ include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') });
+    if (filtersChanged || (nextProps.companies.length === 0 && filters.country === undefined)) {
+      this.props.getCompanies({ include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'producing-countries'].join(',') });
     }
   }
 
@@ -35,7 +36,8 @@ export default connect(
     companies: state.companies.list,
     filters: state.companiesPage.filters,
     loading: state.companies.loading,
-    currentLanguage: state.language.current
+    currentLanguage: state.language.current,
+    selectedCountry: state.map.selectedCountry
   }),
   { getCompanies }
 )(CompaniesListContainer);

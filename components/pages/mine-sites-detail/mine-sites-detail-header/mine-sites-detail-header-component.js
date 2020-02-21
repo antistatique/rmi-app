@@ -18,10 +18,10 @@ class MineSitesDetailHeader extends PureComponent {
   handlePrint = () => { this.props.togglePrintable(true); };
 
   render() {
-    const { currentLanguage, mineSite } = this.props;
-    const { name, country } = mineSite;
+    const { mineSite, currentLanguage } = this.props;
+    const { id, country, name, 'extra-languages': extraLanguages } = mineSite;
     const { name: countryName } = country;
-
+    
     return (
       <div className="c-mine-sites-detail-header">
         <style jsx>{styles}</style>
@@ -52,6 +52,24 @@ class MineSitesDetailHeader extends PureComponent {
             </div>
             <div className="col-xs-12 col-sm-6">
               <div className="right-side">
+                { extraLanguages.length !== 0 &&
+                  <div className="extra-languages">
+                  This page is available in&nbsp;
+                  { extraLanguages.map((extraLanguage, index) => (
+                    <span>
+                      <Link
+                        route="mine-sites"
+                        params={{
+                          language: extraLanguage['web-code'],
+                          mineSite: id
+                        }}
+                      >
+                        <a style={{ fontStyle: 'italic' }}>{extraLanguage.name} {extraLanguages.length - 1 === index ? '' : '&'} </a>
+                      </Link>
+                    </span>
+                  ))}
+                  </div>
+                }
                 <div className="pdf-print">
                   <button
                     className="print-btn"

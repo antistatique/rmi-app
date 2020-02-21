@@ -1,16 +1,30 @@
 @import 'css/settings';
 
+:global(.layout-content-mobile) {
+  .c-companies-detail-header {
+    top: 43px;
+  }
+}
+
 .c-companies-detail-header {
   z-index: 3;
   position: fixed;
+  top: 100px;
   left: 0;
   width: 100%;
-  padding: 20px 0;
   background: $color-3;
   transform: translate(0, -1px);
-
-  border-bottom: 1px solid rgba($color-7, .2);
   box-shadow: 0 4px 16px 0 rgba($color-1, .1);
+
+  .main-section-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .anchor-navigation-container {
+    padding: 10px 0 10px;
+    background: white;
+  }
 
   .left-side,
   .right-side {
@@ -41,47 +55,20 @@
 
   .right-side {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 15px 0 0;
+    justify-content: flex-end;
 
-    > .company-listing {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      margin: -5px 0 0 0;
+    > .extra-languages {
+      flex-grow: 1;
+      font-size: $font-size-small;
+      color: $color-7;
+      padding: 0 1.5em;
 
-      .company-listing-item {
-        flex-basis: 33.333%;
-        padding: 0 5px 0 0;
-        margin: 5px 0 0 0;
-
-        @media #{$mq-md} {
-          flex-basis: 22.5%;
-        }
-
-        > .company-listing-item-key,
-        > .company-listing-item-value {
-          color: $color-7;
-
-          @media print {
-            color: $color-1;
-          }
-        }
-
-        > .company-listing-item-value {
-          margin: 0 0 0 5px;
-          font-weight: $font-weight-bold;
-        }
-      }
-
-      @media #{$mq-sm} {
-        margin: -5px 0 0 25px;
+      a {
+        color: inherit;
       }
     }
 
     > .pdf-print {
-      position: relative;
       display: flex;
       align-items: center;
       min-width: 115px;

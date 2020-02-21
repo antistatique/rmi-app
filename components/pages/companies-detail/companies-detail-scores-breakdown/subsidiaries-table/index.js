@@ -52,9 +52,9 @@ class SubsidiariesTableContainer extends PureComponent {
 export default connect(
   state => ({
     subsidiaries: state.subsidiaries.list,
-    subsidiariesDate: (state.companies.list[0] || {})['subsidiaries-date'],
+    subsidiariesDate: (state.companies.currentCompany || {})['subsidiaries-date'],
     pagination: state.subsidiaries.pagination,
-    company: state.companies.list[0] || {},
+    company: state.companies.currentCompany || {},
     search: state.subsidiaries.search
   }),
   {

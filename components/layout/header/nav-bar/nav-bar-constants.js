@@ -1,104 +1,231 @@
-
-export const INDEX_NAVIGATION = [{
-  id: 1,
-  label: 'Results',
-  query: {
-    route: 'results',
-    params: {}
-  },
-  noLink: true,
-  children: [{
-    id: '1-1',
-    label: 'Overall results',
-    slug: 'results-overall',
+export const INDEX_NAVIGATION = [
+  {
+    id: 9,
+    label: 'Results & Reports',
+    slug: 'results-and-reports',
     query: {
-      route: 'results',
-      params: { section: 'overall' }
-    }
-  }, {
-    id: '1-2',
-    label: 'Thematic Areas',
-    slug: 'thematic-areas',
-    query: {
-      route: 'results',
-      params: { route: 'results' }
+      route: 'results-and-reports',
+      params: {}
     },
-    children: [],
-    noLink: true
-  }]
-}, {
-  id: 2,
-  label: 'Leading Practices',
-  slug: 'leading-practices',
-  query: {
-    route: 'leading-practices',
-    params: {}
-  }
-}, {
-  id: 3,
-  label: 'Companies',
-  slug: 'companies',
-  query: {
-    route: 'companies',
-    params: {}
-  }
-}, {
-  id: 4,
-  label: 'Mine Sites',
-  slug: 'mine-sites',
-  query: {
-    route: 'mine-sites',
-    params: {}
-  }
-}];
-
-export const FOUNDATION_NAVIGATION = [{
-  id: 5,
-  label: 'About',
-  slug: 'about',
-  query: {
-    route: 'about',
-    params: {}
+    noLink: true,
+    children: [
+      {
+        id: '9-1',
+        label: 'Findings',
+        slug: 'findings',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'key-findings' }
+        }
+      },
+      {
+        id: '9-2',
+        label: 'Results',
+        slug: 'results',
+        query: {
+          route: 'results',
+          params: {}
+        },
+        noLink: true,
+        children: [
+          {
+            id: '9-2-1',
+            label: 'Economic Development',
+            slug: 'economic-development',
+            query: {
+              route: 'results-thematic',
+              params: { id: 315 }
+            }
+          },
+          {
+            id: '9-2-2',
+            label: 'Business Conduct',
+            slug: 'business-conduct',
+            query: {
+              route: 'results-thematic',
+              params: { id: 316 }
+            }
+          },
+          {
+            id: '9-2-3',
+            label: 'Lifecycle Management',
+            slug: 'lifecycle-management',
+            query: {
+              route: 'results-thematic',
+              params: { id: 317 }
+            }
+          },
+          {
+            id: '9-2-4',
+            label: 'Community Wellbeing',
+            slug: 'community-wellbeing',
+            query: {
+              route: 'results-thematic',
+              params: { id: 318 }
+            }
+          },
+          {
+            id: '9-2-5',
+            label: 'Working Conditions',
+            slug: 'working-conditions',
+            query: {
+              route: 'results-thematic',
+              params: { id: 319 }
+            }
+          },
+          {
+            id: '9-2-6',
+            label: 'Environmental Responsibility',
+            slug: 'environmental-responsibility',
+            query: {
+              route: 'results-thematic',
+              params: { id: 320 }
+            }
+          },
+          {
+            id: '9-2-7',
+            label: 'Mine-site Results',
+            slug: 'mine-sites-results',
+            query: {
+              route: 'static-pages',
+              params: { slug: 'mine-sites-results' }
+            }
+          }
+        ]
+      },
+      {
+        id: '9-3',
+        label: 'Company Reports',
+        slug: 'company-reports',
+        query: {
+          route: 'companies',
+          params: {}
+        }
+      },
+      {
+        id: '9-4',
+        label: 'Mine-site Reports',
+        slug: 'mine-site-reports',
+        query: {
+          route: 'mine-sites',
+          params: {}
+        }
+      }
+    ]
   },
-  noLink: true
-}, {
-  id: 6,
-  label: 'Our work',
-  slug: 'our-work',
-  query: {
-    route: 'our-work',
-    params: {}
-  },
-  children: [{
-    id: '6-1',
-    label: 'Responsible Mining Index 2018',
-    slug: 'index',
+  {
+    id: 1,
+    label: 'Leading Practices',
     query: {
-      route: 'index',
+      route: 'leading-practices',
       params: {}
     }
-  }]
-},
+  },
   {
-  id: 7,
-  label: 'Media',
-  slug: 'media',
-  query: {
-    route: 'media',
-    params: {}
-  }
-},
+    id: 10,
+    label: 'Resources',
+    slug: 'resources',
+    query: {
+      route: 'resources',
+      params: {}
+    },
+    noLink: true,
+    children: [
+      {
+        id: '10-1',
+        label: 'Document Library',
+        slug: 'document-library',
+        query: {
+          route: 'library',
+          params: {}
+        }
+      },
+      {
+        id: '10-2',
+        label: 'Company Subsidiaries',
+        slug: 'company-subsidiaries',
+        query: {
+          route: 'subsidiaries',
+          params: {}
+        }
+      },
+      {
+        id: '10-3',
+        label: 'Maps & Tables',
+        slug: 'maps-and-tables',
+        query: {
+          route: 'maps-and-tables',
+          params: {}
+        }
+      },
+      {
+        id: '10-4',
+        label: 'Summary',
+        slug: 'summary',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'summary' }
+        }
+      },
+      {
+        id: '10-5',
+        label: 'Additional Translations',
+        slug: 'additional-translations',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'downloads' }
+        }
+      },
+      {
+        id: '10-6',
+        label: 'Raw Data',
+        slug: 'raw-data',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'raw-data' }
+        }
+      },
+      {
+        id: '10-7',
+        label: 'Scoring Framework',
+        slug: 'scoring-framework',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'scoring-framework' }
+        }
+      },
+      {
+        id: '10-8',
+        label: 'Methodology',
+        slug: 'methodology',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'methodology' }
+        }
+      },
+      {
+        id: '10-9',
+        label: 'Corrigenda',
+        slug: 'Corrigenda',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'corrigenda' }
+        }
+      }
+    ]
+  },
   {
-  id: 8,
-  label: 'Contact',
-  slug: 'contact',
-  query: {
-    route: 'contact',
-    params: {}
+    id: 11,
+    label: 'About',
+    query: {
+      route: 'about',
+      params: {}
+    },
+    externalUrl: 'https://responsibleminingfoundation.org',
+    icon: 'target-blank'
   }
-}];
+];
 
 export default {
-  INDEX_NAVIGATION,
-  FOUNDATION_NAVIGATION
+  INDEX_NAVIGATION
 };

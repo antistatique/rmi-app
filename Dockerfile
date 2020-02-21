@@ -25,5 +25,3 @@ RUN yarn install --production
 
 # Bundle app source
 COPY . /usr/src/app
-
-RUN yarn run build

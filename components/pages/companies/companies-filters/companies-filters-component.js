@@ -44,16 +44,13 @@ class CompaniesFilters extends PureComponent {
       [className]: !!className
     });
 
-    const filtersClass = classnames({ '-underline': mobile && !tablet });
-
     return (
       <div className={componentClass}>
         <style jsx>{styles}</style>
         <Select
-          placeholder="Select a home country"
+          placeholder="Select a producing country"
           options={countries}
           theme="light"
-          className={filtersClass}
           selectedValue={country}
           onChange={this.handleCountry}
         />
@@ -62,7 +59,6 @@ class CompaniesFilters extends PureComponent {
           options={commodities}
           multiple
           theme="light"
-          className={filtersClass}
           onChange={this.handleCommodities}
         />
       </div>

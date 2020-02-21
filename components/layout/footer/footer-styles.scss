@@ -1,10 +1,21 @@
 @import 'css/settings';
 
 .c-footer {
-  padding: 25px 0;
+  padding: 25px 0 25px;
   background: $color-3;
-
   color: $color-7;
+
+  .copyright {
+    > h3 {
+      font-size: $font-size-small;
+      font-weight: bold;
+      margin-bottom: 0.25em;
+    }
+
+    > p {
+      font-size: $font-size-small;
+    }
+  }
 
   .footer-section {
     &:not(:first-child) {
@@ -16,7 +27,7 @@
         display: flex;
         align-items: center;
 
-        > a  {
+        > a {
           margin: 0 0 0 5px;
         }
       }
@@ -32,17 +43,9 @@
     }
 
     .footer-section {
-      &:last-child {
-        padding: 25px 0 0;
-
-        @media #{$mq-md} {
-          padding: 150px 0 45px;
-        }
-      }
-
       > .footer-nav-links-list {
         @media #{$mq-sm} {
-          column-count: 2
+          column-count: 2;
         }
 
         > .footer-nav-links-item {
@@ -56,27 +59,10 @@
           }
         }
       }
-
-      .foundation-link {
-        display: inline-block;
-        margin: 55px 0 0;
-        padding: 10px 0 0;
-        border-top: 2px solid rgba($color-7, .2);
-
-        font-weight: $font-weight-bold;
-        text-decoration: underline;
-      }
-
-      .copyright {
-        > p {
-          font-size: $font-size-small;
-        }
-      }
     }
   }
 
   .right-side {
-
     .footer-section {
       &:first-child {
         margin: 25px 0 0;
@@ -98,10 +84,9 @@
         input[type="text"],
         input[type="email"] {
           width: 100%;
-          padding: 20px;
           margin: 5px 0 0 0;
+          padding: 20px;
           background: $color-1;
-
           font-size: $font-size-small;
 
           &::placeholder {
@@ -126,7 +111,6 @@
           margin: 5px 0 0;
           padding: 20px 0;
           background: $color-2;
-
           font-size: $font-size-small;
 
           @media #{$mq-sm} {
@@ -150,8 +134,8 @@
 
   .license {
     display: inline-block;
-    height: 35px;
     width: 110px;
+    height: 35px;
     margin: 10px 0;
 
     > img {

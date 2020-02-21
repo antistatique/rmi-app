@@ -14,113 +14,104 @@ import styles from './companies-list-styles.scss';
 class CompaniesList extends PureComponent {
   static propTypes = {
     companies: PropTypes.array.isRequired,
+    isFiveColumns: PropTypes.bool,
     loading: PropTypes.bool.isRequired,
     isCompanyPage: PropTypes.bool,
     currentLanguage: PropTypes.string.isRequired,
+    taxJurisdictions: PropTypes.array,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
+    onMouseListLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
-    onCloseTooltip: PropTypes.func
+    onCloseTooltip: PropTypes.func,
+    onClick: PropTypes.func,
+    selectedCountry: PropTypes.string,
+    selectedCompany: PropTypes.string,
+    countrySource: PropTypes.string,
+    companiesFromProps: PropTypes.array
   }
 
   static defaultProps = {
     isCompanyPage: true,
+    isFiveColumns: false,
     onMouseEnter: () => {},
     onMouseLeave: () => {},
+    onMouseListLeave: () => {},
+    taxJurisdictions: null,
     onOpenTooltip: null,
-    onCloseTooltip: null
+    onCloseTooltip: null,
+    selectedCountry: null,
+    selectedCompany: null,
+    companiesFromProps: null,
+    countrySource: null,
+    onClick: null
   };
-
-  renderCompaniesRow(companies, key) {
-    const {
-      isCompanyPage,
-      currentLanguage,
-      onMouseEnter,
-      onMouseLeave,
-      onOpenTooltip,
-      onCloseTooltip
-    } = this.props;
-
-    return (
-      <Fragment key={key} >
-        <style jsx>{styles}</style>
-        <div className="row -equal-height">
-          {companies.map(_company => (
-            <div key={_company.id} className="col-xs-12 col-md-4">
-              <CompaniesListItem
-                key={_company.id}
-                company={_company}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-                isCompanyPage={isCompanyPage}
-                currentLanguage={currentLanguage}
-                onOpenTooltip={onOpenTooltip}
-                onCloseTooltip={onCloseTooltip}
-              />
-            </div>
-          ))}
-        </div>
-      </Fragment>
-    );
-  }
-
-  renderCompanies() {
-    const { companies } = this.props;
-    const totalRows = (companies.length / COMPANIES_PER_ROW) > parseInt(companies.length / COMPANIES_PER_ROW, 10) ?
-      parseInt(companies.length / COMPANIES_PER_ROW, 10) + 1 : parseInt(companies.length / COMPANIES_PER_ROW, 10);
-    const slides = [];
-
-    for (let i = 0; i < totalRows; i++) {
-      const limit = ((i * COMPANIES_PER_ROW) + COMPANIES_PER_ROW);
-      const slicedcompanies = companies.slice(i * COMPANIES_PER_ROW, limit);
-      slides.push(this.renderCompaniesRow(slicedcompanies, i));
-    }
-
-    return slides;
-  }
 
   render() {
     const {
       companies,
       loading,
+      isFiveColumns,
       isCompanyPage,
       currentLanguage,
       onMouseEnter,
       onMouseLeave,
+      taxJurisdictions,
+      onMouseListLeave,
       onOpenTooltip,
-      onCloseTooltip
+      onCloseTooltip,
+      selectedCountry,
+      selectedCompany,
+      companiesFromProps,
+      countrySource,
+      onClick
     } = this.props;
-    // const companies = this.renderCompanies();
 
     return (
-      <div className="c-companies-list">
+      <div className={`c-companies-list ${isFiveColumns ? 'five-columns' : ''}`} onMouseLeave={onMouseListLeave}>
         <style jsx>{styles}</style>
         <div className="content">
           {loading && <Spinner />}
 
-          {!companies.length &&
+          {companiesFromProps && companiesFromProps.map(company => (
+            <CompaniesListItem
+              key={company.id}
+              company={company}
+              currentLanguage={currentLanguage}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              onClick={onClick}
+              isCompanyPage={isCompanyPage}
+              onOpenTooltip={onOpenTooltip}
+              onCloseTooltip={onCloseTooltip}
+              selectedCountry={selectedCountry}
+              selectedCompany={selectedCompany}
+              countrySource={countrySource}
+              taxJurisdictions={taxJurisdictions}
+            />
+          ))}
+
+          {!companiesFromProps && !companies.length &&
             <div className="not-found">
               <span>No companies found under this criteria</span>
             </div>}
-
-          <div className="row -equal-height">
-            {companies.map(company => (
-              <div
-                key={company.id}
-                className="col-xs-6 col-sm-4"
-              >
-                <CompaniesListItem
-                  company={company}
-                  currentLanguage={currentLanguage}
-                  onMouseEnter={onMouseEnter}
-                  onMouseLeave={onMouseLeave}
-                  isCompanyPage={isCompanyPage}
-                  onOpenTooltip={onOpenTooltip}
-                  onCloseTooltip={onCloseTooltip}
-                />
-              </div>
-            ))}
-          </div>
+          {!companiesFromProps && companies.map(company => (
+            <CompaniesListItem
+              key={company.id}
+              company={company}
+              currentLanguage={currentLanguage}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              onClick={onClick}
+              isCompanyPage={isCompanyPage}
+              onOpenTooltip={onOpenTooltip}
+              onCloseTooltip={onCloseTooltip}
+              selectedCountry={selectedCountry}
+              selectedCompany={selectedCompany}
+              countrySource={countrySource}
+              taxJurisdictions={taxJurisdictions}
+            />
+          ))}
         </div>
       </div>
     );

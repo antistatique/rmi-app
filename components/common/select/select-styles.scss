@@ -1,18 +1,14 @@
 @import 'css/settings';
 
 .c-select {
-  max-width: 85%;
+  border: 1px solid $color-5;
+  padding: 2px 5px;
 
-  &.-underline {
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+  &-tiny {
+    width: 100px;
 
-    &.dark {
-      border-bottom-color: $color-1;
-    }
-
-    &.light {
-      border-bottom-color: $color-7;
+    .react-selectize {
+      min-width: auto !important;
     }
   }
 
@@ -33,7 +29,6 @@
         display: flex;
         align-items: flex-start;
         position: relative;
-        padding: 2px;
         border: 0;
         background: none;
 
@@ -44,13 +39,14 @@
 
         .react-selectize-placeholder {
           display: block;
-          line-height: 30px;
+          line-height: 33px;
           overflow: hidden;
           text-overflow: ellipsis;
           vertical-align: middle;
           white-space: nowrap;
           position: initial !important;
           max-width: calc(100% - 56px);
+          order: 2;
         }
 
         .react-selectize-search-field-and-selected-values {
@@ -58,6 +54,7 @@
           min-height: 30px;
           flex-grow: 1;
           flex-wrap: wrap;
+          order: 3;
 
           .resizable-input {
             width: 0px;
@@ -89,6 +86,7 @@
           align-items: center;
           justify-content: center;
           height: 30px;
+          order: 4;
         }
 
         .react-selectize-reset-button-container {
@@ -97,7 +95,8 @@
 
         .react-selectize-toggle-button-container {
           width: auto;
-          margin: 0 0 0 10px;
+          margin: 1px 10px 0 5px;
+          order: 1;
         }
 
         .react-selectize-reset-button-container:hover
@@ -236,18 +235,21 @@
     display: inline-block;
     margin: 2px;
     vertical-align: middle;
+
     span {
       display: inline-block;
-      padding: 2px 5px 4px;
       vertical-align: center;
+      padding: 0 6px 0 0;
     }
   }
 
   .simple-select.react-selectize.root-node .simple-value {
     margin: 2px;
+
     span {
       display: inline-block;
       vertical-align: center;
+      padding: 0 6px 0 0;
     }
   }
 

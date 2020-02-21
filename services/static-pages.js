@@ -1,16 +1,11 @@
-import * as queryString from 'query-string';
-
 class StaticPagesService {
   /**
    * Retrieve static page content
    * @param {*} options contains endpoint and queryparams
    */
-  static getStaticPage(options = {}) {
-    const { endpoint, qParams } = options;
-    const queryParams = queryString.stringify(qParams);
-
+  static getStaticPage(slug = '') {
     return new Promise((resolve, reject) => {
-      fetch(`${process.env.API_URL}/${endpoint}?${queryParams}`, {
+      fetch(`${process.env.API_URL}/static-pages?filter[slug]=${slug}`, {
         method: 'GET',
         headers: { Authorization: process.env.API_TOKEN }
       })

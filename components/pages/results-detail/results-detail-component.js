@@ -28,9 +28,8 @@ class ResultsDetail extends PureComponent {
     Router.pushRoute(route, params);
   }
 
-  handleArea = areaId => Router.pushRoute('results', {
+  handleArea = areaId => Router.pushRoute('results-thematic', {
     language: this.props.currentLanguage,
-    section: 'thematic',
     id: areaId
   })
 
@@ -45,7 +44,7 @@ class ResultsDetail extends PureComponent {
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
-              <div className="col-xs-12 col-sm-6 col-md-6">
+              <div className="col-xs-12 col-sm-6 col-md-4">
                 <h2 className="title">Results</h2>
                 <Select
                   onChange={this.handleAreaSelection}
@@ -55,7 +54,7 @@ class ResultsDetail extends PureComponent {
                   className="-underline"
                 />
               </div>
-              <div className="col-xs-12 col-sm-8 col-md-6">
+              <div className="col-xs-12 col-sm-8 col-md-offset-2 col-md-6">
                 {observation &&
                   <div
                     className="thematic-description"
@@ -66,13 +65,13 @@ class ResultsDetail extends PureComponent {
           </div>
         </div>
 
-        <div className="page-content">
+        <div id="indicator-by-indicator-results" className="page-content">
           <section className="section -dark">
             <div className="l-layout">
               <div className="row">
                 <div className="col-xs-12 col-md-1">
                   <IssueAreasBar
-                    selectedissueArea={id}
+                    selectedIssueArea={id}
                     setIssueArea={this.handleArea}
                   />
                 </div>
@@ -82,12 +81,7 @@ class ResultsDetail extends PureComponent {
                     <OverallChart />
                     {phone ? <Slider /> : <MeasurementCharts />}
                     <div className="explanation">
-                      <p><span className="aggregation-line" />Current Best Practice: Aggregation of best scores for all indicators in the given thematic area.</p>
-                      <p>The &apos;Current Best Practice&apos; value represents the aggregation of best
-                        scores achieved for all indicators in the given thematic area, taking into
-                        account all companies&apos; results.<br />
-                        The 0.00-6.00 scale is the scoring scale used in the assessment.
-                      </p>
+                      <p>The 0.00-6.00 scale is the scoring scale used in the assessment.</p>
                     </div>
                     {summary &&
                       <Summary

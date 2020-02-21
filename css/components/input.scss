@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.form-control {
+  padding: 0.4em;
+
+  &-bordered {
+    border: 1px solid $color-5;
+  }
+}

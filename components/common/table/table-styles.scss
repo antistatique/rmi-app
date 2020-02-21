@@ -5,7 +5,8 @@
 
   > :global(thead) {
     :global(th) {
-      padding: 15px;
+      padding-top: 15px;
+      padding-bottom: 15px;
       text-align: left;
       vertical-align: middle;
       font-weight: $font-weight-light;
@@ -15,8 +16,6 @@
       }
 
       &:last-child {
-        padding-right: 0;
-
         @media print {
           color: $color-1 !important;
         }
@@ -24,6 +23,7 @@
 
       @media print {
         font-size: 12px;
+        background-color: #fff !important;
         color: $color-1 !important;
         padding: 15px 5px;
       }
@@ -37,7 +37,9 @@
       }
 
       :global(> td) {
-        padding: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 10px;
         font-size: $font-size-regular;
         text-align: left;
 
@@ -69,6 +71,10 @@
   &.-theme-2 {
     color: $color-7;
 
+    :global(th) {
+      background-color: #121B2F;
+    }
+
     :global(> tbody) {
       :global(> tr) {
         &:not(:last-child) {
@@ -86,4 +92,8 @@
     color: $color-1 !important;
     page-break-after: always;
   }
+}
+
+:global(.c-table.borderless tr) {
+  border: none !important;
 }

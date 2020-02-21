@@ -11,6 +11,10 @@ export const setLoading = createAction('subsidiaries/setLoading');
 export const setSearch = createAction('subsidiaries/setSearch');
 export const resetSearch = createAction('subsidiaries/resetSearch');
 
+// filters
+export const setFilters = createAction('subsidiaries/setFilters');
+export const resetFilters = createAction('subsidiaries/resetFilters');
+
 // pagination
 export const setPaginationPage = createAction('subsidiaries/setPaginationPage');
 export const setPaginationSize = createAction('subsidiaries/setPaginationSize');
@@ -20,14 +24,16 @@ export const resetPagination = createAction('subsidiaries/resetPagination');
 export const getSubsidiaries = createThunkAction('subsidiaries/getSubsidiaries', _options =>
   (dispatch, getState) => {
     const { subsidiaries } = getState();
-    const { pagination, search } = subsidiaries;
+    const { pagination, search, filters } = subsidiaries;
     const { page, limit } = pagination;
+    const { company } = filters;
 
     const options = {
       ..._options,
       'page[number]': page,
       'page[size]': limit,
-      'filter[name]': search === '' || !search ? undefined : search
+      'filter[name]': search === '' || !search ? undefined : search,
+      'filter[company]': company !== undefined ? company : _options['filter[company]']
     };
 
     dispatch(setLoading(true));

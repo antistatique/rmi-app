@@ -41,23 +41,28 @@ export const TOOLTIP_TABLE_COLUMNS = [
   {
     property: 'country',
     header: {
-      label: 'Mine countries',
+      label: 'Country',
       props: {
         style: {
           backgroundColor: '#000',
           color: '#fff',
-          fontWeight: 500
+          fontWeight: 500,
+          paddingLeft: 5
         }
       }
     },
-    cell: { formatters: [country => (country || {}).name] }
+    cell: {
+      formatters: [country => (country || {}).name],
+      props: { style: { paddingLeft: 5 } }
+    }
   },
   {
     property: 'commodities',
     header: {
-      label: 'Commodities',
+      label: 'Products',
       props: {
         style: {
+          paddingLeft: 10,
           backgroundColor: '#000',
           color: '#fff',
           fontWeight: 500,

@@ -10,10 +10,11 @@ const selectedCompany = state => state.resultsDetailPage.selectedCompany;
 export const parseScores = createSelector(
   [getIssueArea, selectedCompany],
   (_issueArea = {}, _selectedCompany) => {
-    const absoluteScores = _issueArea.scores.filter(score => score.kind === 'absolute_breakdown');
-    const overallScores = _issueArea.scores.filter(score => score.kind === 'overall_indicator');
+    const absoluteScores = _issueArea.scores.filter(score => score.kind === 'absolute_breakdown' && !score.name.includes('PREVIOUS'));
+    const overallScores = _issueArea.scores.filter(score => score.kind === 'overall_indicator' && !score.name.includes('PREVIOUS'));
+    const averageScore = (_issueArea.scores.find(score => score.kind === 'average-line' && !score.name.includes('PREVIOUS')) || {}).value;
     const scoresByCompanies = groupBy(absoluteScores, 'company-id');
-    const bestPracticeScore = _issueArea.scores.find(score => score.kind === 'current_best_practice') || {};
+    const bestPracticeScore = _issueArea.scores.find(score => (score.kind === 'current_best_practice' && !score.name.includes('PREVIOUS'))) || {};
     const totalScores = [];
 
     Object.values(scoresByCompanies).forEach((company) => {
@@ -39,7 +40,8 @@ export const parseScores = createSelector(
       name: _issueArea.name,
       slug: _issueArea.slug,
       scores: orderBy(totalScores, 'overallScore', 'desc'),
-      bestPracticeScore: bestPracticeScore.value
+      bestPracticeScore: bestPracticeScore.value,
+      averageScore
     });
   }
 );

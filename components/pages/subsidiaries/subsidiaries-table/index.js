@@ -17,20 +17,23 @@ class SubsidiariesTableContainer extends PureComponent {
     search: PropTypes.string.isRequired,
     pagination: PropTypes.object.isRequired,
     getSubsidiaries: PropTypes.func.isRequired,
-    resetSearch: PropTypes.func.isRequired
+    resetSearch: PropTypes.func.isRequired,
+    filters: PropTypes.object.isRequired
   }
 
   componentWillReceiveProps(nextProps) {
-    const { search, pagination } = this.props;
+    const { search, pagination, filters } = this.props;
     const {
       search: nextSearch,
-      pagination: nextPagination
+      pagination: nextPagination,
+      filters: nextFilters
     } = nextProps;
 
     const searchChanged = search !== nextSearch;
     const paginationChanged = !isEqual(pagination, nextPagination);
+    const filtersChanged = !isEqual(filters, nextFilters);
 
-    if (searchChanged || paginationChanged) {
+    if (searchChanged || paginationChanged || filtersChanged) {
       this.props.getSubsidiaries({
         include: ['company', 'country'].join(','),
         sort: 'name'

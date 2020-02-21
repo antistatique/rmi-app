@@ -11,6 +11,7 @@ import Header from 'components/layout/header';
 import HeaderMobile from 'components/layout/header-mobile';
 import Sidebar from 'components/layout/sidebar';
 import Footer from 'components/layout/footer';
+import GoTopButton from 'components/layout/go-top-button/go-top-button-component';
 
 import styles from 'css/index.scss';
 
@@ -84,10 +85,28 @@ class Layout extends PureComponent {
           <Header />
         </MediaQuery>
 
+        {/* content mobile */}
+        <MediaQuery
+          minDeviceWidth={breakpoints.sm}
+          maxDeviceWidth={breakpoints.lg - 1}
+          values={{ deviceWidth: responsive.fakeWidth }}
+        >
+          <div className="layout-content layout-content-mobile" id="main-content">
+            {children}
+            <GoTopButton />
+          </div>
+        </MediaQuery>
+
         {/* content */}
-        <div className="layout-content">
-          {children}
-        </div>
+        <MediaQuery
+          minDeviceWidth={breakpoints.lg}
+          values={{ deviceWidth: responsive.fakeWidth }}
+        >
+          <div className="layout-content" id="main-content">
+            {children}
+            <GoTopButton />
+          </div>
+        </MediaQuery>
 
         {/* footer */}
         {footer && <Footer />}

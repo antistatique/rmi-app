@@ -5,7 +5,6 @@ import { Router } from 'routes';
 // components
 import Select from 'components/common/select';
 import OverallGraph from './overall-graphs';
-import TopCompanies from './top-companies';
 
 class ResultsOverall extends PureComponent {
   static propTypes = { issueAreas: PropTypes.array.isRequired }
@@ -28,17 +27,13 @@ class ResultsOverall extends PureComponent {
                   onChange={this.handleAreaSelection}
                   options={issueAreas}
                   placeholder="Overall"
-                  className="-underline"
                 />
               </div>
               <div className="col-xs-12 col-sm-8 col-md-6">
-                <p className="thematic-description">Performances of the 30 companies vary widely within each of the
-                  thematic areas of the Index. Many companies are performing relatively
-                  well in certain areas and leading practices are found even on issues
-                  for which performances are generally weak. At the same time, performance
-                  levels indicate clear potential for companies to continuously improve
-                  their policies and practices on the EESG issues represented
-                  in all thematic areas.
+                <p className="thematic-description">
+                  Relative results among the 38 companies vary greatly across the six different thematic areas, with 13 of the companies showing one of the five strongest results in at least one thematic area. While absolute results are considerably below that of society expectations of large-scale mining companies, individual examples of leading practices are found among a wide range of companies.
+                  For the 29 companies previously assessed in the RMI Report 2018, a small improvement is seen in many company results, reflecting new or strengthened policies or practices and, in some cases, stronger disclosure on certain issues.
+                  Nonetheless, there is still much progress to be made before the companies meet society expectations, as can be seen from the large vertical spaces above the company results in the thematic area charts.
                 </p>
               </div>
             </div>
@@ -51,11 +46,6 @@ class ResultsOverall extends PureComponent {
               <div className="row">
                 <div className="col-xs-12">
                   <OverallGraph />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-xs-12">
-                  <TopCompanies />
                 </div>
               </div>
             </div>

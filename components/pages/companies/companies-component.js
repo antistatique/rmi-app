@@ -48,14 +48,9 @@ class Companies extends PureComponent {
               </div>
               <div className="col-xs-12 col-sm-7">
                 <p>
-                  This first Index, RMI 2018, covers 30 companies
-                  from 16 home countries, including publicly-listed,
-                  state-owned and private companies.
-                </p>
-                <p>
-                  These companies operate in more than 850 sites in
-                  over 40 producing countries, and the assessment covers
-                  most mined commodities, excluding oil and gas.
+                The RMI Report 2020 covers 38 companies from 19 home countries, including publicly-listed, state-owned and private companies.
+                These companies operate in more than 780 mine sites in 49 producing countries and control over 200 closed or suspended mine sites. The assessment covers most mined commodities, excluding oil and gas.
+                It is possible to filter by company, using the list of all companies on the left-hand side, and also to filter by producing country or commodity, using the fields below.
                 </p>
               </div>
             </div>
@@ -66,14 +61,15 @@ class Companies extends PureComponent {
           <div className="section -dark">
             <div className="l-layout">
               <div className="row">
-                <div className="col-xs-12 col-md-3">
+                <div className="col-xs-12 col-md-4">
                   <CompaniesFilters className="-no-tablet" />
+                  <h4 className="title text-white mb-3">List of all companies</h4>
                   <CompaniesList
                     onMouseEnter={({ id }) => { setSelectedCompany(id); }}
                     onMouseLeave={() => { resetSelectedCompany(); }}
                   />
                 </div>
-                <div className="col-xs-12 col-md-9">
+                <div className="col-xs-12 col-md-8">
                   <CompaniesFilters className="-no-mobile" />
                   <div className="map-container">
                     <Map
@@ -81,6 +77,7 @@ class Companies extends PureComponent {
                       setCountryColor={Companies.setCountryColor}
                       legend={MAP_LEGEND}
                       onClickGeography={this.handleClickGeography}
+                      center={[40, 10]}
                     />
                   </div>
                 </div>

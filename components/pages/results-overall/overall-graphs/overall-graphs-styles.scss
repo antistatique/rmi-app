@@ -32,11 +32,15 @@
 
     @media #{$mq-md} {
       justify-content: flex-start;
-      margin: 0 0 0 65px;
+      margin: 0 0 0 25px;
     }
 
     > .icon-background {
       display: inline-flex;
+
+      :hover {
+        cursor: pointer;
+      }
 
       > :global(.c-icon) {
         fill: $color-7;
@@ -51,6 +55,11 @@
       font-family: $font-family-1;
       font-size: $font-size-big;
       color: $color-7;
+      text-decoration: underline;
+
+      :hover {
+        color: $color-5;
+      }
     }
   }
 }

@@ -1,0 +1,25 @@
+@import 'css/settings';
+
+.c-overall-chart {
+  .aggregation-line {
+    margin: 35px 0 0;
+    display: inline-block;
+    width: 45px;
+    margin: 0 10px 0 0;
+    transform: translate(0, -2px);
+
+    &.collective {
+      border: 2px dashed $color-8;
+    }
+
+    &.average {
+      border: 2px dashed $color-5;
+    }
+  }
+
+  > p {
+    color: $color-7;
+    font-style: italic;
+  }
+}
+

@@ -1,14 +1,56 @@
 @import 'css/settings';
 
+:global(.layout-content-mobile) {
+  .c-index-page .splash {
+    margin-top: unset;
+  }
+}
+
 .c-index-page {
+  background: $color-2;
 
-  .splash {
-    padding: 55px 0;
+  .hero-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
 
-    background-image: url('/static/images/homepage_background.jpg');
-    background-size: cover;
-    background-position: 50% 75%;
-    background-repeat: no-repeat;
+  .hero-cover {
+    width: 100%;
+    height: auto;
+  }
+
+  .image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .hero-credits {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: block;
+      font-size: $font-size-smallest;
+      font-style: italic;
+      color: $color-7;
+      margin-right: 0.5em;
+
+      @media #{$mq-md} {
+        transform: rotate(-90deg) translate(100%, -100%);
+        transform-origin: 100% 50%;
+        margin-right: 0em;
+      }
+    }
+  }
+
+  .title-container {
+    background: $color-3;
+    width: 100%;
+    padding: 2.5rem;
+
+    @media #{$mq-md} {
+      padding-right: calc(25% + 90px);
+    }
 
     .title {
       font-family: $font-family-2;
@@ -24,39 +66,53 @@
 
     .subtitle {
       color: $color-7;
-      margin-top: 25px;
-    }
-
-    @media #{$mq-md} {
-      padding: 150px 0;
-    }
-
-    @media #{$mq-lg} {
-      padding: 250px 0;
+      margin-top: 0.5em;
     }
   }
 
-  .download-summary {
-    padding: 50px 0;
+  .quick-access {
+    position: static;
+    width: 100%;
+    padding: 25px;
     background: $color-2;
+    font-size: $font-size-big;
+    color: $color-7;
 
-    border-bottom: 1px solid rgba($color-7, .2);
+    @media #{$mq-md} {
+      position: absolute;
+      width: 25%;
+      right: 30px;
+      bottom: 70px;
+    }
 
-    .download-button-container {
-      display: flex;
-      flex-direction: column;
+    .title {
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
 
-      @media #{$mq-md} {
-        flex-direction: row;
-        justify-content: center;
+    ul > li {
+      margin-bottom: $gutter-width / 2;
+      padding-bottom: $gutter-width / 2;
+      border-bottom: 1px solid $color-4;
+
+      &:last-child {
+        border-bottom: none;
+        margin: 0;
+      }
+
+      a {
+        transition: margin ease-in-out 100ms;
+
+        &:hover {
+          margin-left: 10px;
+        }
       }
     }
   }
 
   .intro {
-
     .text-section {
-
       &:first-child {
         margin: 0 0 20px;
       }
@@ -110,17 +166,6 @@
     }
   }
 
-  .splash-credits {
-    padding: 10px 0;
-    background: $color-2;
-
-    .credits {
-      font-size: $font-size-smallest;
-      font-style: italic;
-      color: $color-7;
-    }
-  }
-
   .summary-link {
     display: inline-flex;
     align-items: center;
@@ -133,6 +178,19 @@
 
     @media #{$mq-lg} {
       margin: 0;
+    }
+  }
+
+  .bordered-section {
+    padding: 0 1rem 1rem;
+    border: 1px solid $color-3;
+
+    .bordered-section-title {
+      margin: 0 -1rem 1rem;
+      padding: 1rem;
+      font-size: 1.5rem;
+      background: $color-3;
+      color: $color-6;
     }
   }
 }

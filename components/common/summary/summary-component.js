@@ -30,6 +30,7 @@ class Summary extends PureComponent {
       <div className={summaryClass}>
         <style jsx>{styles}</style>
         {title && <h2 className="title">{title}</h2>}
+        <br />
         <div dangerouslySetInnerHTML={{__html: content}}></div>
       </div>
     );

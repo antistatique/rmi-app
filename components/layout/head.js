@@ -40,7 +40,7 @@ class Head extends PureComponent {
 
     return (
       <HeadNext>
-        <title>{title} | RMI - Responsible Mining Index 2018</title>
+        <title>{title} | RMI Report 2020</title>
 
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,7 +70,7 @@ class Head extends PureComponent {
         {/* Social media sharing  */}
         {!isFoundation &&
           <Fragment>
-            <meta property="og:title" content={`${title} | RMI - Responsible Mining Index 2018`} />
+            <meta property="og:title" content={`${title} | RMI Report 2020`} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content="http://rmi.vizzuality.com/static/images/homepage_background.jpg" />
           </Fragment>
@@ -107,11 +107,11 @@ class Head extends PureComponent {
               _paq.push(['trackPageView']);
               _paq.push(['enableLinkTracking']);
               (function() {
-                var u="${process.env.ANALYTICS_URL}";
-                _paq.push(['setTrackerUrl', u+'piwik.php']);
-                _paq.push(['setSiteId', '1']);
+                var u="https://responsibleminingindex.innocraft.cloud/";
+                _paq.push(['setTrackerUrl', u+'matomo.php']);
+                _paq.push(['setSiteId', '3']);
                 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-                g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+                g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.innocraft.cloud/responsibleminingindex.innocraft.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
               })();`
           }}
         />
