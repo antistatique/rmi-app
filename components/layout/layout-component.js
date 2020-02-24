@@ -13,8 +13,6 @@ import Sidebar from 'components/layout/sidebar';
 import Footer from 'components/layout/footer';
 import GoTopButton from 'components/layout/go-top-button/go-top-button-component';
 
-import styles from 'css/index.scss';
-
 // utils
 import breakpoints from 'utils/responsive';
 
@@ -48,7 +46,6 @@ class Layout extends PureComponent {
 
     return (
       <div className="app">
-        <style jsx global>{styles}</style>
         <Head
           title={title}
           description={description}

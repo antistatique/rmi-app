@@ -30,6 +30,7 @@ node_modules
 .publish
 .bundle
 npm-debug.log
+/static/css/global.css
 
 # Ignore server side rendering files
 ./next.config.js

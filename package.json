@@ -85,10 +85,11 @@
     "eslint-plugin-babel": "4.1.2"
   },
   "scripts": {
-    "dev": "NODE_ENV=development node index.js",
+    "dev": "NODE_ENV=development npm run css && node index.js",
     "test": "eslint .",
-    "build": "next build",
-    "start": "node index.js"
+    "build": "npm run css && next build",
+    "start": "node index.js",
+    "css": "node-sass css/index.scss static/css/global.css"
   },
   "engines": {
     "node": "8.10.x"

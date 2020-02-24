@@ -2,23 +2,23 @@
   -webkit-print-color-adjust: exact;
   color: $color-1;
 
-  :global(.c-paginator),
-  :global(.c-search) {
+  .c-paginator,
+  .c-search {
     display: none;
   }
 
-  :global(.print-none) {
+  .print-none {
     display: none !important;
   }
-  :global(div.print-none) {
+  div.print-none {
     display: none !important;
   }
 
-  :global(p) {
+  p {
     font-size: 16px;
   }
 
-  :global(li) {
+  li {
     font-size: 14px;
   }
 }
