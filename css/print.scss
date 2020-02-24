@@ -13,6 +13,14 @@
   :global(div.print-none) {
     display: none !important;
   }
+
+  :global(p) {
+    font-size: 16px;
+  }
+
+  :global(li) {
+    font-size: 14px;
+  }
 }
 
 .print-logo {
