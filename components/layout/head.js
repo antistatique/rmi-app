@@ -44,7 +44,7 @@ class Head extends PureComponent {
 
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="Vizzuality" />
+        <meta name="author" content="Antistatique" />
 
         {/* Favicon */}
         <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png" />
@@ -72,7 +72,7 @@ class Head extends PureComponent {
           <Fragment>
             <meta property="og:title" content={`${title} | RMI Report 2020`} />
             <meta property="og:description" content={description} />
-            <meta property="og:image" content="http://rmi.vizzuality.com/static/images/homepage_background.jpg" />
+            <meta property="og:image" content="https://2020.responsibleminingindex.org/resources/images/webbanner_2020.jpg" />
           </Fragment>
         }
 
