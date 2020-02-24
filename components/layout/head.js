@@ -83,6 +83,7 @@ class Head extends PureComponent {
         {/* Styles and scripts */}
         <link href="https://fonts.googleapis.com/css?family=Yantramanav:300,400,500" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet" />
+        <link href="/static/css/global.css" rel="stylesheet" />
 
         {/* Analytics */}
         <script

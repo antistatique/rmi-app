@@ -86,13 +86,13 @@
       font-size: $font-size-small;
       color: $color-1 !important;
 
-      :global(.row) {
-        :global(.col-xs-12:first-child) {
+      .row {
+        .col-xs-12:first-child {
           flex-basis: 75%;
           max-width: 75%;
         }
 
-        :global(.col-xs-12:last-child) {
+        .col-xs-12:last-child {
           flex-basis: 25%;
           max-width: 25%;
         }
@@ -101,7 +101,7 @@
 
 
     @media print {
-      :global(.block-title) {
+      .block-title {
         color: $color-1 !important;
       }
     }
