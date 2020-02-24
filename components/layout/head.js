@@ -35,7 +35,6 @@ class Head extends PureComponent {
 
   render() {
     const { title, description, root } = this.props;
-    const isFoundation = root !== 'index';
     const originalUrl = this.props.originalUrl || window.location.pathname;
 
     return (
@@ -68,29 +67,17 @@ class Head extends PureComponent {
         <meta name="theme-color" content="#ffffff" />
 
         {/* Social media sharing  */}
-        {!isFoundation &&
-          <Fragment>
-            <meta property="og:title" content={`${title} | RMI Report 2020`} />
-            <meta property="og:description" content={description} />
-            <meta property="og:image" content="https://2020.responsibleminingindex.org/resources/images/webbanner_2020.jpg" />
-          </Fragment>
-        }
-
-        {isFoundation &&
-          <Fragment>
-            <meta property="og:title" content={title} />
-            <meta
-              property="og:description"
-              content="Encouraging continuous improvement in
-                responsible mining in the minerals and metals industry by transparently assessing the
-                performance of mining companies, highlighting leading practice and supporting learning"
-            />
-            <meta property="og:image" content="http://rmi.vizzuality.com/static/images/rmf-social-og.png" />
-
-          </Fragment>
-        }
+        <Fragment>
+          <meta property="og:title" content={`${title} | RMI Report 2020`} />
+          <meta property="og:description" content={description} />
+          <meta property="og:image" content="https://2020.responsibleminingindex.org/resources/images/webbanner_2020.jpg" />
+        </Fragment>
 
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@RMF_foundation" />
+        <meta name="twitter:title" content={`${title} | RMI Report 2020`} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content="https://www.responsibleminingfoundation.org/app/uploads/webbanner_2020.jpg" />
         <meta property="og:url" content={originalUrl} />
 
         {/* Styles and scripts */}
