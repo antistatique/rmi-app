@@ -74,6 +74,10 @@ class Head extends PureComponent {
         </Fragment>
 
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@RMF_foundation" />
+        <meta name="twitter:title" content={`${title} | RMI Report 2020`} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content="https://www.responsibleminingfoundation.org/app/uploads/webbanner_2020.jpg" />
         <meta property="og:url" content={originalUrl} />
 
         {/* Styles and scripts */}
