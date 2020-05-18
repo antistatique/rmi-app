@@ -72,8 +72,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
       '-dark': !printable
     });
 
-    console.log(previousBreakdownScores);
-
     return (
       <div className="c-companies-detail-scores-breakdown">
         <style jsx>{styles}</style>
