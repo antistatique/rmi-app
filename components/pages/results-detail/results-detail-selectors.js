@@ -47,7 +47,7 @@ export const parseIssueAreas = createSelector(
       label: issueArea.label,
       value: issueArea.slug,
       query: {
-        route: 'results-thematic',
+        route: 'results-detail',
         params: {
           id: issueArea.id,
           language: _currentLanguage
