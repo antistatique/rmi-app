@@ -59,6 +59,14 @@ class IndexPage extends PureComponent {
                     <a><span className="arrow">⟶</span> Mine-site Reports</a>
                   </Link>
                 </li>
+                <li className="link-item">
+                  <Link
+                    route="library"
+                    params={{ language: currentLanguage }}
+                  >
+                    <a><span className="arrow">⟶</span> Document Library</a>
+                  </Link>
+                </li>
 
                 <li className="link-item">
                   <Link
