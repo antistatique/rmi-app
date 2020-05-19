@@ -22,11 +22,11 @@ class MapsAndTablesAccordionItem extends PureComponent {
     return (
       <div style={{ borderBottom: '1px solid white' }}>
         <div onClick={onClick} style={{ cursor: 'pointer', fontSize: '24px', marginBottom: '60px', marginTop: '60px' }}>
-          <span style={{ color: 'white' }}>{label}</span>
-          <div style={{ float: 'right', color: 'white' }}>
-            {!isOpen && <span>&#9660;</span>}
-            {isOpen && <span>&#9650;</span>}
+          <div style={{ float: 'left', color: 'white', paddingRight: '20px' }}>
+            {!isOpen && <span style={{ fontSize: '30px' }}>&#43;</span>}
+            {isOpen && <span style={{ fontSize: '30px' }}>&#8722;</span>}
           </div>
+          <span style={{ color: 'white' }}>{label}</span>
         </div>
         {isOpen &&
           <div style={{ padding: '10px' }}>
