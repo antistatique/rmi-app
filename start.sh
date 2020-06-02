@@ -2,7 +2,7 @@
 echo "RMI APP production"
 
 echo "doing pull"
-git pull origin master
+git pull origin 2018
 
 echo "Building project"
 sudo docker-compose build
