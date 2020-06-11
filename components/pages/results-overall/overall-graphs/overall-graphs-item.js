@@ -38,14 +38,14 @@ class OverallGraphs extends PureComponent {
               className="icon-background"
               style={{ background: AREA_ISSUE_COLOURS[id] }}
             >
-              <Link to="results-thematic" params={{ language: currentLanguage, id }}>
+              <Link to="results-detail" params={{ language: currentLanguage, id }}>
                 <Icon
                   name={id}
                   className="-x-big"
                 />
               </Link>
             </div>
-            <Link to="results-thematic" params={{ language: currentLanguage, id }}><a title="Click here" className="title">{label} →</a></Link>
+            <Link to="results-detail" params={{ language: currentLanguage, id }}><a title="Click here" className="title">{label} →</a></Link>
           </div>
         </div>
       </div>

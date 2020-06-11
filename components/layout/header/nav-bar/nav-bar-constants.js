@@ -33,7 +33,7 @@ export const INDEX_NAVIGATION = [
             label: 'Economic Development',
             slug: 'economic-development',
             query: {
-              route: 'results-thematic',
+              route: 'results-detail',
               params: { id: 315 }
             }
           },
@@ -42,7 +42,7 @@ export const INDEX_NAVIGATION = [
             label: 'Business Conduct',
             slug: 'business-conduct',
             query: {
-              route: 'results-thematic',
+              route: 'results-detail',
               params: { id: 316 }
             }
           },
@@ -51,7 +51,7 @@ export const INDEX_NAVIGATION = [
             label: 'Lifecycle Management',
             slug: 'lifecycle-management',
             query: {
-              route: 'results-thematic',
+              route: 'results-detail',
               params: { id: 317 }
             }
           },
@@ -60,7 +60,7 @@ export const INDEX_NAVIGATION = [
             label: 'Community Wellbeing',
             slug: 'community-wellbeing',
             query: {
-              route: 'results-thematic',
+              route: 'results-detail',
               params: { id: 318 }
             }
           },
@@ -69,7 +69,7 @@ export const INDEX_NAVIGATION = [
             label: 'Working Conditions',
             slug: 'working-conditions',
             query: {
-              route: 'results-thematic',
+              route: 'results-detail',
               params: { id: 319 }
             }
           },
@@ -78,7 +78,7 @@ export const INDEX_NAVIGATION = [
             label: 'Environmental Responsibility',
             slug: 'environmental-responsibility',
             query: {
-              route: 'results-thematic',
+              route: 'results-detail',
               params: { id: 320 }
             }
           },

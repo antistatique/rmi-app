@@ -22,7 +22,7 @@ export const parseIssueAreas = createSelector(
       label: filteredIssueArea.label,
       value: filteredIssueArea.slug,
       query: {
-        route: 'results-thematic',
+        route: 'results-detail',
         params: {
           id: filteredIssueArea.id,
           language: _currentLanguage
