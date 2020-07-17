@@ -51,6 +51,7 @@ class IndexPage extends PureComponent {
                     <a><span className="arrow">⟶</span> Company Reports</a>
                   </Link>
                 </li>
+
                 <li className="link-item">
                   <Link
                     route="mine-sites"
@@ -59,6 +60,7 @@ class IndexPage extends PureComponent {
                     <a><span className="arrow">⟶</span> Mine-site Reports</a>
                   </Link>
                 </li>
+
                 <li className="link-item">
                   <Link
                     route="library"
@@ -70,18 +72,19 @@ class IndexPage extends PureComponent {
 
                 <li className="link-item">
                   <Link
-                    route="maps-and-tables"
-                    params={{ language: currentLanguage }}
-                  >
-                    <a><span className="arrow">⟶</span> Maps & Tables</a>
-                  </Link>
-                </li>
-                <li className="link-item">
-                  <Link
                     route="leading-practices"
                     params={{ language: currentLanguage }}
                   >
                     <a><span className="arrow">⟶</span> Leading Practices</a>
+                  </Link>
+                </li>
+
+                <li className="link-item">
+                  <Link
+                    route="summary"
+                    params={{ language: currentLanguage }}
+                  >
+                    <a><span className="arrow">🔗</span> Download Summary</a>
                   </Link>
                 </li>
               </ul>
