@@ -81,8 +81,11 @@ class IndexPage extends PureComponent {
 
                 <li className="link-item">
                   <Link
-                    route="summary"
-                    params={{ language: currentLanguage }}
+                    route="static-pages"
+                    params={{
+                      slug: 'summary',
+                      language: currentLanguage
+                    }}
                   >
                     <a><span className="arrow">🔗</span> Download Summary</a>
                   </Link>
