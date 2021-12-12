@@ -82,10 +82,7 @@ yarn dev
 
 We use Ansible to provisining the staging and production server and Capistrano to deploy.
 
-```
-# To provisioning or update server
-ansible-playbook --ask-become-pass .ansible/appservers.yml
-```
+The Ansible playbook is on the [API repository](https://github.com/antistatique/rmi-api/#-deployment).
 
 Deployment:
 
