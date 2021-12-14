@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
 
-set :application, 'rmi_2020_app'
+set :application, 'rmi_app'
 set :repo_url, 'git@github.com:antistatique/rmi-app.git'
 
 set :docker_app_name, -> {

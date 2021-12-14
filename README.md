@@ -94,9 +94,9 @@ Deployment:
 bundle install
 
 # To deploy on staging environement
-bundle exec cap staging deploy
+bundle exec cap dev deploy
 
 # To deploy on production environement
-bundle exec cap production deploy
+bundle exec cap 2020 deploy
 
 ```
