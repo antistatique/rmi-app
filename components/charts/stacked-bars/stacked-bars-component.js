@@ -14,7 +14,7 @@ import styles from './stacked-bars-styles.scss';
 /**
  * Data scale received from the backend.
  */
-const dataScale = 6;
+const dataScale = 100;
 
 class StackedBars extends PureComponent {
 

@@ -9,7 +9,7 @@ export const CHART_CONFIG = {
   xAxisTick: { width: 100, fill: '#f2f2f2' },
   xAxisInterval: 0,
   // y Axis
-  YAxisTicks: ['0.00', '1.00', '2.00', '3.00', '4.00', '5.00', '6.00'],
+  YAxisTicks: ['10', '20', '30', '40', '50', '60', '70', '80', '90', '100'],
   YAxisTick: { fill: '#f2f2f2' }
 };
 

@@ -3,7 +3,7 @@ export const CHART_CONFIG = {
   xAxis: false,
   xAxisHeight: 5,
   YAxisHide: false,
-  domain: [0, 6],
+  domain: [0, 100],
   setBarFill: item => (item.currentCompany ? '#272626' : '#9c9aa2')
 };
 
