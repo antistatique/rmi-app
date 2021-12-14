@@ -153,7 +153,7 @@ class Map extends PureComponent {
         </div>
         <ComposableMap
           projection="winkel3"
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: '100%', height: '100%' }}
           {...mobile && { height: 250 }}
           defs={
             <PatternLines

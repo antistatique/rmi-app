@@ -53,7 +53,7 @@ class MapsAndTablesAccordion extends PureComponent {
     } = this;
 
     return (
-      <div style={{ backgroundColor: '#151F36', padding: '10px' }}>
+      <div style={{ backgroundColor: '#210a2d', padding: '10px' }}>
         {React.Children.map(children, child => (
           <MapsAndTablesAccordionItem
             isOpen={!!openSections[child.props.label]}
