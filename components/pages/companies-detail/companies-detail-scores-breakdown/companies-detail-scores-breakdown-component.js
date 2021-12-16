@@ -76,7 +76,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
       <div className="c-companies-detail-scores-breakdown">
         <style jsx>{styles}</style>
         <div className="l-layout">
-          {summary && <Summary title="Summary of Results" content={summary} />}
+          {summary && <Summary title="Summary of Results" content={summary} data={breakdownScores} company={company} />}
           <div className="page-break" />
           <section className="section measurement-scores-container pb-3">
             <div className="row center-md -no-text-align">
