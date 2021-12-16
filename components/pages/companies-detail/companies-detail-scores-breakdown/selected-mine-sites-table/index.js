@@ -20,7 +20,7 @@ class SelectedMineSitesTable extends PureComponent {
           <tr>
             <th className="title-head" />
             {mineSites.map((mineSite, index) => (
-              <th key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'} style={{width: `${(80 / mineSites.length)}%`}}>
+              <th key={mineSite.id} className={(mineSites.length - 1) === index ? '' : 'bordered'} style={{ width: `${(80 / mineSites.length)}%` }}>
                 <Link route="mine-sites" params={{ language: mineSite.language, mineSite: mineSite.id }}>
                   <a>{mineSite.name}</a>
                 </Link>

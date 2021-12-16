@@ -12,15 +12,11 @@ import Table from 'components/common/table';
 import Summary from 'components/common/summary';
 import Gradient from 'components/common/gradient';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
-import CompaniesDetailTailingsList from './companies-detail-tailings-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import PrintableIssueAreas from './printable-issue-areas';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
 import PrintableMeasurements from './printable-measurements';
 import Slider from './slider';
-import SubsidiariesTable from './subsidiaries-table';
-import ShareholdersTable from './shareholders-table';
-import BeneficialOwnersTable from './beneficial-owners-table';
 import Unknowndata from './unknown-data';
 import ToggleSwitch from 'components/common/toggle-switch';
 import SelectedMineSitesTable from './selected-mine-sites-table';
@@ -201,41 +197,8 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
         </section>
         <div className="page-break" />
 
-        <div className="accordion-header bg-darkblue print-none">
-          <div className="l-layout">
-            <div className="row">
-              <div className="col-xs-12">
-                <h2 id="tailings" className="text-left">
-                  Tailings (known)
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <section className="section -dark print-none">
-          <div className="l-layout">
-            <div className="row">
-              <div className="col-xs-12">
-                <CompaniesDetailTailingsList />
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section id="shareholders-and-subsidiaries" className="section -gray miscellaneous-lists">
           <div className="l-layout">
-            <div className="row between-md">
-              <div className="col-xs-12 col-md-5">
-                <ShareholdersTable />
-                <div className="mb-4" />
-                <BeneficialOwnersTable />
-              </div>
-              <div className="col-xs-12 col-md-5">
-                <SubsidiariesTable />
-              </div>
-            </div>
-
             <div className="row">
               <div className="col-xs-12">
                 <h3 id="known-tax-jurisdictions" className="title">Tax Jurisdictions (known)</h3>
@@ -244,20 +207,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                     <p key={knownTaxJurisdiction.id}>{knownTaxJurisdiction.country}</p>
                   ))}
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-xs-12">
-                <h3 className="title">Investor / State Disputes
-                  <div className="title -small d-inline ml-1">(since 2014)</div>
-                </h3>
-                {investmentDisputes.length ?
-                  <Gradient className="-gray">
-                    <Table
-                      columns={INVESTMENT_DISPUTES_COLUMNS}
-                      rows={investmentDisputes}
-                    />
-                  </Gradient> : <Unknowndata asOf={false} text="No case" />}
               </div>
             </div>
           </div>
