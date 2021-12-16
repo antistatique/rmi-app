@@ -30,8 +30,8 @@ class Piechart extends PureComponent {
           <Radar
             animationDuration={0}
             dataKey="value"
-            stroke="#8884d8"
-            fill="#8884d8"
+            stroke="#88789f"
+            fill="#88789f"
             fillOpacity={0.6}
           />
           <Radar
@@ -69,7 +69,7 @@ class Piechart extends PureComponent {
             iconSize={8}
             wrapperStyle={{ fontSize: 12 }}
             payload={[
-              { value: `${company.name}`, type: 'square', id: 'value', color: '#8884d8' },
+              { value: `${company.name}`, type: 'square', id: 'value', color: '#88789f' },
               { value: 'RMI average', type: 'line', id: 'average', color: '#4d4c52' },
               { value: 'Collective Best Score', type: 'line', id: 'best', color: '#bf3132' }
             ]}

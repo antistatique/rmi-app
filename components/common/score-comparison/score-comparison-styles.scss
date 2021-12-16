@@ -73,6 +73,10 @@ $bar-height: 40px;
 
       &.legend-max {
         width: 70px;
+        background: #1D829F;
+        padding: 4px;
+        border-radius: 12px;
+        bottom: -8px;
       }
 
       &.closed {
