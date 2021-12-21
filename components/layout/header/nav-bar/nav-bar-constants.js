@@ -142,15 +142,6 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '10-2',
-        label: 'Company Subsidiaries',
-        slug: 'company-subsidiaries',
-        query: {
-          route: 'subsidiaries',
-          params: {}
-        }
-      },
-      {
-        id: '10-3',
         label: 'Maps & Tables',
         slug: 'maps-and-tables',
         query: {
@@ -159,7 +150,7 @@ export const INDEX_NAVIGATION = [
         }
       },
       {
-        id: '10-4',
+        id: '10-3',
         label: 'Summary',
         slug: 'summary',
         query: {
@@ -168,16 +159,7 @@ export const INDEX_NAVIGATION = [
         }
       },
       {
-        id: '10-5',
-        label: 'Additional Translations',
-        slug: 'additional-translations',
-        query: {
-          route: 'static-pages',
-          params: { slug: 'downloads' }
-        }
-      },
-      {
-        id: '10-6',
+        id: '10-4',
         label: 'Raw Data',
         slug: 'raw-data',
         query: {
@@ -186,7 +168,7 @@ export const INDEX_NAVIGATION = [
         }
       },
       {
-        id: '10-7',
+        id: '10-5',
         label: 'Scoring Framework',
         slug: 'scoring-framework',
         query: {
@@ -195,7 +177,7 @@ export const INDEX_NAVIGATION = [
         }
       },
       {
-        id: '10-8',
+        id: '10-6',
         label: 'Methodology',
         slug: 'methodology',
         query: {
@@ -204,12 +186,21 @@ export const INDEX_NAVIGATION = [
         }
       },
       {
-        id: '10-9',
+        id: '10-7',
         label: 'Corrigenda',
         slug: 'Corrigenda',
         query: {
           route: 'static-pages',
           params: { slug: 'corrigenda' }
+        }
+      },
+      {
+        id: '10-8',
+        label: 'Previous RMI Reports',
+        slug: 'previous-reports',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'previous-reports' }
         }
       }
     ]
