@@ -26,32 +26,42 @@ export const parseMineSitesScores = createSelector(
   [selectedMineSites, currentLanguage],
   (_selectedMineSites = [], _currentLanguage) => orderBy(
     _selectedMineSites.map((mineSite) => {
-      const localProcurment = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localProcurment]);
       const localEmployment = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localEmployment]);
-      const communityGrievance = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.communityGrievance]);
-      const workersGrievance = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.workersGrievance]);
-      const waterQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuality]);
-      const postClosurePlans = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.postClosurePlans]);
+      const localProcurement = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localProcurement]);
       const airQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.airQuality]);
+      const waterQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuality]);
       const waterQuantity = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuantity]);
-      const tailingsManagement = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.tailingsManagement]);
-      const emergencyPreparedness = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.emergencyPreparedness]);
-      const overall = mineSite.scores[10];
+      const rehabilitationandPostClosure = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.rehabilitationandPostClosure]);
+      const tailings = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.tailings]);
+      const safetyofCommunities = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.safetyofCommunities]);
+      const communityComplaintsandGrievances = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.communityComplaintsandGrievances]);
+      const safetyandHealthofWorkers = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.safetyandHealthofWorkers]);
+      const womenWorkers = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.womenWorkers]);
+      const workplaceDeathsandInjuries = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.workplaceDeathsandInjuries]);
+      const trainingofWorkers = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.trainingofWorkers]);
+      const decentLivingWage = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.decentLivingWage]);
+      const workerComplaintsandGrievances = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.workerComplaintsandGrievances]);
+      const overall = mineSite.scores[15];
 
       return {
         id: mineSite.id,
         name: mineSite.name,
         scores: {
-          localProcurment: localProcurment ? localProcurment.value : '-',
-          localEmployment: localEmployment ? localEmployment.value : '-',
-          communityGrievance: communityGrievance ? communityGrievance.value : '-',
-          workersGrievance: workersGrievance ? workersGrievance.value : '-',
-          waterQuality: waterQuality ? waterQuality.value : '-',
-          postClosurePlans: postClosurePlans ? postClosurePlans.value : '-',
-          airQuality: airQuality ? airQuality.value : '-',
-          waterQuantity: waterQuantity ? waterQuantity.value : '-',
-          tailingsManagement: tailingsManagement ? tailingsManagement.value : '-',
-          emergencyPreparedness: emergencyPreparedness ? emergencyPreparedness.value : '-'
+          localEmployment: localEmployment !== undefined ? localEmployment.value : '-',
+          localProcurement: localProcurement !== undefined ? localProcurement.value : '-',
+          airQuality: airQuality !== undefined ? airQuality.value : '-',
+          waterQuality: waterQuality !== undefined ? waterQuality.value : '-',
+          waterQuantity: waterQuantity !== undefined ? waterQuantity.value : '-',
+          rehabilitationandPostClosure: rehabilitationandPostClosure !== undefined ? rehabilitationandPostClosure.value : '-',
+          tailings: tailings !== undefined ? tailings.value : '-',
+          safetyofCommunities: safetyofCommunities !== undefined ? safetyofCommunities.value : '-',
+          communityComplaintsandGrievances: communityComplaintsandGrievances !== undefined ? communityComplaintsandGrievances.value : '-',
+          safetyandHealthofWorkers: safetyandHealthofWorkers !== undefined ? safetyandHealthofWorkers.value : '-',
+          womenWorkers: womenWorkers !== undefined ? womenWorkers.value : '-',
+          workplaceDeathsandInjuries: workplaceDeathsandInjuries !== undefined ? workplaceDeathsandInjuries.value : '-',
+          trainingofWorkers: trainingofWorkers !== undefined ? trainingofWorkers.value : '-',
+          decentLivingWage: decentLivingWage !== undefined ? decentLivingWage.value : '-',
+          workerComplaintsandGrievances: workerComplaintsandGrievances !== undefined ? workerComplaintsandGrievances.value : '-'
         },
         overall: overall ? overall.value : '-',
         language: _currentLanguage
@@ -74,11 +84,9 @@ export const getBreakdownScores = createSelector(
       const scoreGroup = groupedByParent[parentId];
       const parentScore = _companyScores.find(score => score.id === parentId) || {};
 
-      const averageScore = (_issueAreas[findIndex(_issueAreas, i => i['root-id'] === parentScore['indicator-id'])]
-        .scores.find(score => score.kind === 'average-line' && !score.name.includes('PREVIOUS')) || {}).value;
-
-      const bestScore = (_issueAreas[findIndex(_issueAreas, i => i['root-id'] === parentScore['indicator-id'])]
-        .scores.find(score => score.kind === 'current_best_practice' && !score.name.includes('PREVIOUS')) || {}).value;
+      const issueAreasItem = _issueAreas[findIndex(_issueAreas, i => +i.id === parentScore['indicator-id'])] || { scores: [] };
+      const averageScore = (issueAreasItem.scores.find(score => score.kind === 'average-line' && !score.name.includes('PREVIOUS')) || {}).value;
+      const bestScore = (issueAreasItem.scores.find(score => score.kind === 'current_best_practice' && !score.name.includes('PREVIOUS')) || {}).value;
 
       return ({
         id: parentScore.id,

@@ -17,7 +17,6 @@ import styles from './stacked-bars-styles.scss';
 const dataScale = 100;
 
 class StackedBars extends PureComponent {
-
   static propTypes = {
     data: PropTypes.array.isRequired,
     colors: PropTypes.array.isRequired,
@@ -46,7 +45,7 @@ class StackedBars extends PureComponent {
 
     return (
       <div>
-        <div className={`c-stacked-bars ${ this.props.className }`}>
+        <div className={`c-stacked-bars ${this.props.className}`}>
           <style jsx>{styles}</style>
 
           <div
@@ -63,7 +62,7 @@ class StackedBars extends PureComponent {
               <Icon
                 name="mine-site-results"
                 className="-x-big"
-                style={{ background: `#4e504f !important`, padding: '5px' }}
+                style={{ background: '#4e504f !important', padding: '5px' }}
               />
             }
           </div>
@@ -107,18 +106,18 @@ class StackedBars extends PureComponent {
                 { data[0].children !== undefined &&
                   <div className="score">
                     <span className="current-score">{currentTotalScore.toFixed(2)} <span className="total-score"> / { dataScale.toFixed(2) }</span></span>
-                    <span className="ml-2 print-none">2020</span>
+                    <span className="ml-2 print-none">2022</span>
                   </div>
                 }
                 { data[0].children === undefined &&
                   <div className="score">
                     <span className="current-score">{data[0]}%</span>
-                    <span className="ml-2 print-none">2020</span>
+                    <span className="ml-2 print-none">2022</span>
                   </div>
                 }
               </div>
               { data[1] !== undefined &&
-                <div className={`bar-wrapper bar-wrapper-alt ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
+                <div className={`bar-wrapper bar-wrapper-alt ${!isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
                   <div className="bar">
                     {(data[1].children).map((bar, index) => (
                       <Tooltip
@@ -137,8 +136,11 @@ class StackedBars extends PureComponent {
                   </div>
                   <div className="score">
                     <span className="current-score">{previousTotalScore.toFixed(2)} <span
-                      className="total-score"> / { dataScale.toFixed(2) }</span></span>
-                    <span className="ml-2">2018</span>
+                      className="total-score"
+                    > / { dataScale.toFixed(2) }
+                    </span>
+                    </span>
+                    <span className="ml-2">2020</span>
                   </div>
                 </div>
               }

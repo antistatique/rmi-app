@@ -32,7 +32,7 @@ class Footer extends PureComponent {
                       />
                     </a>
                     <p>
-                    The licensed material may not be used for commercial purposes, or in a discriminating, degrading or distorting way. When cited, attribute to: “Responsible Mining Foundation (RMF), RMI Report 2020.” Images, photographs, and video content depicted on RMF websites are excluded from this license, except where noted.
+                    The licensed material may not be used for commercial purposes, or in a discriminating, degrading or distorting way. When cited, attribute to: “Responsible Mining Foundation (RMF), RMI Report 2022.” Images, photographs, and video content depicted on RMF websites are excluded from this license, except where noted.
                     </p>
                   </div>
                 </div>

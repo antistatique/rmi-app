@@ -13,7 +13,8 @@ import styles from './header-styles.scss';
 class Header extends PureComponent {
   static propTypes = {
     root: PropTypes.string.isRequired,
-    currentLanguage: PropTypes.string.isRequired }
+    currentLanguage: PropTypes.string.isRequired
+  }
 
   render() {
     const { root, currentLanguage } = this.props;
@@ -29,8 +30,8 @@ class Header extends PureComponent {
                 params={{ language: currentLanguage }}
               >
                 <a className="logo">
-                  <img className="logo-img" src={`/static/logos/RMI_Index_Color.svg`} alt="RMI logo" />
-                  <span className="logo-year">2020</span>
+                  <img className="logo-img" src="/static/logos/RMI_Index_Color.svg" alt="RMI logo" />
+                  <span className="logo-year">2022</span>
                 </a>
               </Link>
             </div>

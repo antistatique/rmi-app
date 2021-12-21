@@ -17,7 +17,6 @@ import styles from './stacked-bars-vertical-styles.scss';
 const dataScale = 100;
 
 class StackedBarsVertical extends PureComponent {
-
   static propTypes = {
     data: PropTypes.array.isRequired,
     colors: PropTypes.array.isRequired,
@@ -46,14 +45,14 @@ class StackedBarsVertical extends PureComponent {
 
     return (
       <div {...restProps}>
-        <div className={`c-stacked-bars-vertical ${ className }`}>
+        <div className={`c-stacked-bars-vertical ${className}`}>
           <style jsx>{styles}</style>
 
           <div className="stacked-bars-vertical-container">
             {data[0].children !== undefined &&
               <div className="bar-wrapper mr-1">
                 <div className="score">
-                  <div>2020</div>
+                  <div>2022</div>
                   <div className="current-score text-size-big">{currentTotalScore.toFixed(2)}</div>
                   <span className="total-score">score / { dataScale.toFixed() }</span>
                 </div>
@@ -79,7 +78,7 @@ class StackedBarsVertical extends PureComponent {
             {data[0].children === undefined &&
               <div className="bar-wrapper mr-1">
                 <div className="score">
-                  <div>2020</div>
+                  <div>2022</div>
                   <div className="current-score text-size-big">{data[0]}</div>
                   <span className="total-score">%</span>
                 </div>
@@ -100,9 +99,9 @@ class StackedBarsVertical extends PureComponent {
               </div>
             }
             {data[1] !== undefined &&
-              <div className={`bar-wrapper bar-wrapper-alt ${ !isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
+              <div className={`bar-wrapper bar-wrapper-alt ${!isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
                 <div className="score">
-                  <div>2018</div>
+                  <div>2020</div>
                   <div className="current-score text-size-big">{previousTotalScore.toFixed(2)}</div>
                   <span className="total-score">score / { dataScale.toFixed() }</span>
                 </div>
@@ -127,9 +126,7 @@ class StackedBarsVertical extends PureComponent {
           </div>
           <div
             className="bar-icon"
-            style={{
-              backgroundColor: data[0].children !== undefined ? AREA_ISSUE_COLOURS[data[0].indicatorId] : '#4e504f',
-            }}
+            style={{ backgroundColor: data[0].children !== undefined ? AREA_ISSUE_COLOURS[data[0].indicatorId] : '#4e504f' }}
           >
             <Icon
               name={data[0].children !== undefined ? data[0].indicatorId.toString() : 'mine-site-results'}
