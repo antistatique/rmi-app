@@ -11,7 +11,7 @@ export const INDEX_NAVIGATION = [
     children: [
       {
         id: '9-1',
-        label: 'Findings',
+        label: 'Findings 2022',
         slug: 'findings',
         query: {
           route: 'static-pages',
@@ -20,6 +20,15 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '9-2',
+        label: 'Observations 2018-2022',
+        slug: 'observations-2018-2022',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'observations-2018-2022' }
+        }
+      },
+      {
+        id: '9-3',
         label: 'Results',
         slug: 'results',
         query: {
@@ -29,61 +38,61 @@ export const INDEX_NAVIGATION = [
         noLink: true,
         children: [
           {
-            id: '9-2-1',
+            id: '9-3-1',
             label: 'Economic Development',
             slug: 'economic-development',
             query: {
               route: 'results-detail',
-              params: { id: 315 }
+              params: { id: 1450 }
             }
           },
           {
-            id: '9-2-2',
+            id: '9-3-2',
             label: 'Business Conduct',
             slug: 'business-conduct',
             query: {
               route: 'results-detail',
-              params: { id: 316 }
+              params: { id: 1451 }
             }
           },
           {
-            id: '9-2-3',
+            id: '9-3-3',
             label: 'Lifecycle Management',
             slug: 'lifecycle-management',
             query: {
               route: 'results-detail',
-              params: { id: 317 }
+              params: { id: 1452 }
             }
           },
           {
-            id: '9-2-4',
+            id: '9-3-4',
             label: 'Community Wellbeing',
             slug: 'community-wellbeing',
             query: {
               route: 'results-detail',
-              params: { id: 318 }
+              params: { id: 1453 }
             }
           },
           {
-            id: '9-2-5',
+            id: '9-3-5',
             label: 'Working Conditions',
             slug: 'working-conditions',
             query: {
               route: 'results-detail',
-              params: { id: 319 }
+              params: { id: 1454 }
             }
           },
           {
-            id: '9-2-6',
+            id: '9-3-6',
             label: 'Environmental Responsibility',
             slug: 'environmental-responsibility',
             query: {
               route: 'results-detail',
-              params: { id: 320 }
+              params: { id: 1455 }
             }
           },
           {
-            id: '9-2-7',
+            id: '9-3-7',
             label: 'Mine-site Results',
             slug: 'mine-sites-results',
             query: {
@@ -94,7 +103,7 @@ export const INDEX_NAVIGATION = [
         ]
       },
       {
-        id: '9-3',
+        id: '9-4',
         label: 'Company Reports',
         slug: 'company-reports',
         query: {
@@ -103,7 +112,7 @@ export const INDEX_NAVIGATION = [
         }
       },
       {
-        id: '9-4',
+        id: '9-5',
         label: 'Mine-site Reports',
         slug: 'mine-site-reports',
         query: {
@@ -207,7 +216,7 @@ export const INDEX_NAVIGATION = [
   },
   {
     id: 11,
-    label: 'About',
+    label: 'RMF website',
     query: {
       route: 'about',
       params: {}
