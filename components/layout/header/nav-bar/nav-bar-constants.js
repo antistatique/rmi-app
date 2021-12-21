@@ -226,6 +226,4 @@ export const INDEX_NAVIGATION = [
   }
 ];
 
-export default {
-  INDEX_NAVIGATION
-};
+export default { INDEX_NAVIGATION };

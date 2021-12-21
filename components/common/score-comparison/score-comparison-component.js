@@ -47,12 +47,12 @@ class ScoreComparison extends PureComponent {
       'zero-value': value === 0
     });
 
-    let barStyles = {
+    const barStyles = {
       backgroundColor: color,
       width: `calc(${ScoreComparison.getWidth(value, scaleScore)} + 2px)`
     };
 
-    if (null === value) {
+    if (value === null) {
       barStyles.width = '0px';
     }
 
@@ -88,7 +88,7 @@ class ScoreComparison extends PureComponent {
                 <span>Min</span>
                 <span>{min.toFixed(1)}</span>
               </div>
-            </div>
+                                   </div>
           }
 
           {
@@ -100,15 +100,15 @@ class ScoreComparison extends PureComponent {
                 <span>Max</span>
                 <span>{max.toFixed(1)}</span>
               </div>
-            </div>
+                                       </div>
           }
 
           {
             companies && <div
-                className="score-max"
-                style={{ left: `calc(${ScoreComparison.getWidth(max, scaleScore)} + 1px)` }}
-                onClick={this.handleClickMax}
-              >
+              className="score-max"
+              style={{ left: `calc(${ScoreComparison.getWidth(max, scaleScore)} + 1px)` }}
+              onClick={this.handleClickMax}
+            >
               <div className={`${(!this.state.maxScoreDisplay && !phone) ? 'legend legend-max' : 'legend legend-max closed'}`}>
                 <span>&#9660; Max</span>
                 <span>{max.toFixed(1)}</span>
@@ -134,7 +134,7 @@ class ScoreComparison extends PureComponent {
                   ))}
                 </div>
               </div>
-            </div>
+                         </div>
           }
         </div>
       </div>
