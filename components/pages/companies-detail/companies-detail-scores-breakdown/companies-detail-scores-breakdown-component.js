@@ -177,7 +177,8 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 <h2 id="mine-site-results" className="title text-left mb-1">Mine-site Results</h2>
                 <h5 className="mb-5 text-left">
                   Mine sites selected for individual assessment
-                  (but not included in the overall company score)
+                  (but not included in the overall company score)<br /><br />
+                  Click on a mine site name to open its individual result page
                 </h5>
                 <div className="table-container">
                   <SelectedMineSitesTable />
