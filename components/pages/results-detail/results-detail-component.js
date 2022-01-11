@@ -80,9 +80,6 @@ class ResultsDetail extends PureComponent {
                   <div className="col-xs-12 col-md-11">
                     <OverallChart />
                     {phone ? <Slider /> : <MeasurementCharts />}
-                    <div className="explanation">
-                      <p>The 0.00-6.00 scale is the scoring scale used in the assessment.</p>
-                    </div>
                     {summary &&
                       <Summary
                         title="Summary of results"
@@ -91,9 +88,9 @@ class ResultsDetail extends PureComponent {
                       />}
                     <Accordion />
                   </div>}
-                </div>
               </div>
-            </section>
+            </div>
+          </section>
         </div>
       </div>
     );

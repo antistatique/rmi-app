@@ -7,7 +7,7 @@ export default {
   yDomain: [0, 100],
   yAxisLine: false,
   yAxisTick: {},
-  yAxisTicks: ['10', '20', '30', '40', '50', '60', '70', '80', '90', '100'],
+  yAxisTicks: ['0', '10', '20', '30', '40', '50', '60', '70', '80', '90', '100'],
   // x axis config
   xAxisTickLine: false,
   xAxisTick: {},

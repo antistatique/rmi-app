@@ -55,7 +55,7 @@ class Piechart extends PureComponent {
           {/* <Tooltip isAnimationActive={false} /> */}
           <PolarRadiusAxis
             angle={90}
-            domain={[0, 10]}
+            domain={[0, 100]}
             tick={{ fontSize: 10 }}
             orientation="left"
             tickFormatter={tick => `${tick}%`}

@@ -53,8 +53,8 @@ class StackedBarsVertical extends PureComponent {
               <div className="bar-wrapper mr-1">
                 <div className="score">
                   <div>2022</div>
-                  <div className="current-score text-size-big">{currentTotalScore.toFixed(2)}</div>
-                  <span className="total-score">score / { dataScale.toFixed() }</span>
+                  <div className="current-score text-size-big">{currentTotalScore.toFixed(0)}</div>
+                  <span className="total-score">%</span>
                 </div>
                 <div className="bar">
                   {(data[0].children).map((bar, index) => (
@@ -102,8 +102,8 @@ class StackedBarsVertical extends PureComponent {
               <div className={`bar-wrapper bar-wrapper-alt ${!isPrevYearVisible ? 'bar-wrapper-hidden' : ''}`}>
                 <div className="score">
                   <div>2020</div>
-                  <div className="current-score text-size-big">{previousTotalScore.toFixed(2)}</div>
-                  <span className="total-score">score / { dataScale.toFixed() }</span>
+                  <div className="current-score text-size-big">{previousTotalScore.toFixed(0)}</div>
+                  <span className="total-score">%</span>
                 </div>
                 <div className="bar">
                   {(data[1].children).map((bar, index) => (
