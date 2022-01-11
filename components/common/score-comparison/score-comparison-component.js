@@ -88,7 +88,7 @@ class ScoreComparison extends PureComponent {
                 <span>Min</span>
                 <span>{min.toFixed(1)}</span>
               </div>
-                                   </div>
+            </div>
           }
 
           {
@@ -100,11 +100,11 @@ class ScoreComparison extends PureComponent {
                 <span>Max</span>
                 <span>{max.toFixed(1)}</span>
               </div>
-                                       </div>
+            </div>
           }
 
           {
-            companies && <div
+            companies && config.noMaxInteractive === undefined && <div
               className="score-max"
               style={{ left: `calc(${ScoreComparison.getWidth(max, scaleScore)} + 1px)` }}
               onClick={this.handleClickMax}
@@ -134,7 +134,19 @@ class ScoreComparison extends PureComponent {
                   ))}
                 </div>
               </div>
-                         </div>
+            </div>
+          }
+
+          {companies && config.noMaxInteractive && <div
+            className="score-max"
+            style={{ left: `calc(${ScoreComparison.getWidth(max, scaleScore)} + 1px)` }}
+          >
+            <div className="legend" style={{ whiteSpace: 'nowrap' }}>
+              <span>&#9660; Max</span>
+              <span>{max.toFixed(1)}</span>
+            </div>
+
+          </div>
           }
         </div>
       </div>
