@@ -11,10 +11,17 @@ import ResultsDetail from 'components/pages/results-detail';
 
 // actions
 import { getIssueAreas } from 'components/pages/results-detail/results-detail-actions';
+import { getIndicators } from 'modules/indicators/indicators-actions';
 
 class ResultsDetailPage extends Page {
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
+
+    // gets indicators
+    await context.store.dispatch(getIndicators({
+      include: ['leading-practices', 'leading-practices.companies', 'companies-max-scores', 'measurement-area'].join(','),
+      'page[size]': 1000
+    }));
 
     await context.store.dispatch(getIssueAreas({
       'filter[kind]': 'issue_areas',
