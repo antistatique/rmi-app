@@ -45,12 +45,6 @@ React & Node powered.
     ```
     API_TOKEN=
     ```
-   
-    Set the TRANSIFEX API key, which can be found 1Password under `RMI - Responsible Mining Index (RMI) - API` in the *.env* section
-
-    ```
-    API_TOKEN=
-    ```
 
 1. Complie & run the server
 

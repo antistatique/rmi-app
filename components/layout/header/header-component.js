@@ -4,7 +4,6 @@ import { Link } from 'routes';
 
 
 // components
-import LanguageBar from 'components/layout/header/language-bar';
 import NavBar from 'components/layout/header/nav-bar';
 
 // styles
@@ -24,7 +23,7 @@ class Header extends PureComponent {
         <style jsx>{styles}</style>
         <div className="l-layout">
           <div className="row">
-            <div className="col-xs-4">
+            <div className="col-xs-5">
               <Link
                 route={root}
                 params={{ language: currentLanguage }}
@@ -35,11 +34,8 @@ class Header extends PureComponent {
                 </a>
               </Link>
             </div>
-            <div className="col-xs-8">
-              <div className="row float-right">
-                <LanguageBar />
-              </div>
-              <div className="row float-right">
+            <div className="col-xs-7" style={{ overflowX: 'auto' }}>
+              <div className="float-right">
                 <NavBar />
               </div>
             </div>

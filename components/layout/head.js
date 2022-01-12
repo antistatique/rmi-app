@@ -19,20 +19,6 @@ class Head extends PureComponent {
 
   static defaultProps = { originalUrl: null }
 
-  componentDidMount() {
-    const script = document.createElement('script');
-    script.onload = () => {
-      Transifex.live.onFetchLanguages((languages) => {
-        this.props.setLanguages(languages);
-        this.props.setLanguagesLoading(false);
-      });
-
-      window.Transifex.live.getAllLanguages();
-    };
-    script.src = '//cdn.transifex.com/live.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
-  }
-
   render() {
     const { title, description, root } = this.props;
     const originalUrl = this.props.originalUrl || window.location.pathname;
@@ -101,19 +87,6 @@ class Head extends PureComponent {
                 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
                 g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.innocraft.cloud/responsibleminingindex.innocraft.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
               })();`
-          }}
-        />
-
-        {/* Transifex */}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.liveSettings={
-                api_key: "${process.env.TRANSIFEX_API_KEY}",
-                detectlang: true,
-                staging: ${process.env.TRANSIFEX_STAGING || false}
-              }`
           }}
         />
 
