@@ -28,7 +28,7 @@ class IndexPage extends PureComponent {
                 srcSet="/static/images/homepage_background.jpg 1x,
                         /static/images/homepage_background@2x.jpg 2x"
                 src="/static/images/homepage_background.jpg"
-                alt=""
+                alt="© Cristian Leyva (all rights reserved)"
               />
               <p className="hero-credits">
                 © JATAM KALTIM (all rights reserved)
