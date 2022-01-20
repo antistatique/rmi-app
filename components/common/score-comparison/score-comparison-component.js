@@ -142,7 +142,7 @@ class ScoreComparison extends PureComponent {
             style={{ left: `calc(${ScoreComparison.getWidth(max, scaleScore)} + 1px)` }}
           >
             <div className="legend" style={{ whiteSpace: 'nowrap' }}>
-              <span>&#9660; Max</span>
+              <span>Max</span>
               <span>{max.toFixed(1)}</span>
             </div>
 
