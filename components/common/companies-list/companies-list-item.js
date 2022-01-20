@@ -116,7 +116,7 @@ class CompaniesListItem extends PureComponent {
                 company: id
               }}
             >
-              <a className={`company-name ${(selectedCountry && (selectedCountry === company.country.id || selectedCountry === company['secondary-country'].id)) ? 'highlighted' : ''}`}>{name}</a>
+              <a className={`company-name ${(selectedCountry && (selectedCountry === company.country.id || company['producing-countries'].some(i => i.id === selectedCountry))) ? 'highlighted' : ''}`}>{name}</a>
             </Link>
           </div>
         </Fragment>

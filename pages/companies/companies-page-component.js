@@ -27,7 +27,7 @@ class CompaniesPage extends Page {
 
     await context.store.dispatch(getCommodities({
       'fields[commodities]': ['name'].join(','),
-      'filter[used]': true,
+      // 'filter[used]': true,
       sort: 'name'
     }));
 

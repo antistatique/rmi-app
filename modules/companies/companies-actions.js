@@ -17,11 +17,11 @@ export const resetCurrentCompany = createAction('companies/resetCurrentCompany')
 export const getCompanies = createThunkAction('companies/getCompanies', _options =>
   (dispatch, getState) => {
     const { companiesPage } = getState();
-    const { country, commodities } = companiesPage.filters;
+    const { commodities } = companiesPage.filters;
 
     const options = {
       ..._options,
-      'filter[countries]': country,
+      // 'filter[countries]': country,
       'filter[commodities]': commodities ? commodities.join(',') : undefined
     };
 
