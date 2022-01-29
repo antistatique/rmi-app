@@ -48,9 +48,9 @@ class Companies extends PureComponent {
               </div>
               <div className="col-xs-12 col-sm-7">
                 <p>
-                The RMI Report 2020 covers 38 companies from 19 home countries, including publicly-listed, state-owned and private companies.
-                These companies operate in more than 780 mine sites in 49 producing countries and control over 200 closed or suspended mine sites. The assessment covers most mined commodities, excluding oil and gas.
-                It is possible to filter by company, using the list of all companies on the left-hand side, and also to filter by producing country or commodity, using the fields below.
+                The RMI Report 2022 covers 40 companies from 22 home countries, including publicly-listed, state-owned and private companies.
+                These companies control more than 1,000 mine sites across 57 countries. The assessment covers most mined commodities, excluding oil and gas.
+                It is possible to filter by company, using the names on the left-hand side, and also to by producing country or commodity, using the fields below.
                 </p>
               </div>
             </div>
