@@ -31,7 +31,7 @@ class IndexPage extends PureComponent {
                 alt="© Cristian Leyva (all rights reserved)"
               />
               <p className="hero-credits">
-                © JATAM KALTIM (all rights reserved)
+                © Cristian Leyva (all rights reserved)
               </p>
             </div>
             <div className="title-container">

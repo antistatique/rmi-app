@@ -38,7 +38,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '9-mine-sites-results',
-        label: 'Mine-site Results',
+        label: 'Mine Site Results',
         slug: 'mine-sites-results',
         query: {
           route: 'static-pages',
@@ -47,7 +47,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: '9-4',
-        label: 'Results',
+        label: 'Thematic Results',
         slug: 'results',
         query: {
           route: 'results',
@@ -134,7 +134,7 @@ export const INDEX_NAVIGATION = [
       },
       {
         id: 'reports-minesites',
-        label: 'Mine-site Reports',
+        label: 'Mine Site Reports',
         slug: 'mine-site-reports',
         query: {
           route: 'mine-sites',

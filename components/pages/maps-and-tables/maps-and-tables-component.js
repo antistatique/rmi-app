@@ -16,8 +16,16 @@ class MapsAndTables extends PureComponent {
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
-              <div className="col-12">
+              <div className="col-xs-12 col-md-5">
                 <h2 className="title">Maps and Tables</h2>
+              </div>
+              <div className="col-xs-12 col-md-7">
+                <p>
+                  These maps and tables are based on public domain information and any additional data providedby the assessed companies.
+                  They provide contextual data on the 40 assessed companies and their 1,000 mine sites, as complementary information to the results of the assessment.
+                  Click on the categories below to view the data.
+                  It is possible to download the datasets as spreadsheets or as CSV files.
+                </p>
               </div>
             </div>
           </div>

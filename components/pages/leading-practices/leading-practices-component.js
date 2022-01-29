@@ -48,13 +48,9 @@ class LeadingPracticesPage extends PureComponent {
               </div>
               <div className="col-lg-7">
                 <p>
-                  In line with its emphasis on encouraging continuous
-                  improvement and learning, RMI recognises companies
-                  that are developing innovative approaches. Potential
-                  leading practices were identified by RMI analysts
-                  during the assessment, and companies were invited to
-                  provide information on any of their activities or
-                  processes they consider to be leading practices.
+                  This section summarises 88 Leading Practices that have been identified during the assessments for the RMI Reports 2018, 2020 and 2022.
+                  The practices included here show a level of innovation or ambition beyond current industry norms. While some of the information may no longer be current,
+                  the 88 summaries are shown here in order to support industry-wide learning on these topics.
                 </p>
               </div>
             </div>

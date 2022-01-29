@@ -70,8 +70,10 @@ class MineSite extends PureComponent {
               </div>
               <div className="col-md-6">
                 <p>
-                  In addition to the company-wide indicators, ten very basic indicators are applied at a mine-site level for the individually selected 180 mine sites, to provide information that is disaggregated to the level of individual mining operations, although not included in the company scores.
-                  It is possible to filter by company, using the list on the left-hand side, and also to select a specific mine site, using the field below or directly on the map.
+                  Besides company-wide indicators, 250 individual mine sites are assessed
+                  against 15 basic site-level indicators related to stakeholder engagement and disaggregated data sharing.
+                  It is possible to filter by company, using the names on the left-hand side, and also to select a specific mine site,
+                  using the field below or directly on the map.
                 </p>
               </div>
             </div>
