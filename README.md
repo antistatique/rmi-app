@@ -45,12 +45,6 @@ React & Node powered.
     ```
     API_TOKEN=
     ```
-   
-    Set the TRANSIFEX API key, which can be found 1Password under `RMI - Responsible Mining Index (RMI) - API` in the *.env* section
-
-    ```
-    API_TOKEN=
-    ```
 
 1. Complie & run the server
 
@@ -82,10 +76,7 @@ yarn dev
 
 We use Ansible to provisining the staging and production server and Capistrano to deploy.
 
-```
-# To provisioning or update server
-ansible-playbook --ask-become-pass .ansible/appservers.yml
-```
+The Ansible playbook is on the [API repository](https://github.com/antistatique/rmi-api/#-deployment).
 
 Deployment:
 
@@ -94,9 +85,9 @@ Deployment:
 bundle install
 
 # To deploy on staging environement
-bundle exec cap staging deploy
+bundle exec cap dev deploy
 
 # To deploy on production environement
-bundle exec cap production deploy
+bundle exec cap 2020 deploy
 
 ```

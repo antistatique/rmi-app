@@ -15,7 +15,7 @@ export const ALLMINE_SITE_TABLE_COLUMNS = [
   {
     property: 'aliases',
     header: {
-      label: 'Aliases',
+      label: 'Aliases/Other names',
       props: { style: { ...defaultCellPaddingStyle, width: '250px', fontWeight: 'bold' } }
     },
     cell: { props: { style: { ...defaultCellPaddingStyle } } }

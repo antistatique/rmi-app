@@ -16,8 +16,16 @@ class MapsAndTables extends PureComponent {
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
-              <div className="col-12">
+              <div className="col-xs-12 col-md-5">
                 <h2 className="title">Maps and Tables</h2>
+              </div>
+              <div className="col-xs-12 col-md-7">
+                <p>
+                  These maps and tables are based on public domain information and any additional data providedby the assessed companies.
+                  They provide contextual data on the 40 assessed companies and their 1,000 mine sites, as complementary information to the results of the assessment.
+                  Click on the categories below to view the data.
+                  It is possible to download the datasets as spreadsheets or as CSV files.
+                </p>
               </div>
             </div>
           </div>
@@ -32,19 +40,8 @@ class MapsAndTables extends PureComponent {
                 <div label="Tax Jurisdictions (known)">
                   <MapTaxJurisdictions />
                 </div>
-                <div label="Stock Exchanges">
+                <div label="Stock Exchanges (primary listings)">
                   <MapStockExchanges />
-                </div>
-                <div label="Tailings Storage Facilities">
-                  <div className="row mb-2 text-white">
-                    <span style={{ fontSize: '20px' }}>Download data :</span>
-                  </div>
-                  <div className="row mb-2 text-white">
-                    <a className="downloadable-links" href="/static/files/RMI_Report_2020_Tailing_Storage_Facilities.xlsx" download>RMI_Report_2020_Tailing_Storage_Facilities</a>
-                  </div>
-                  <div className="row mb-2 text-white">
-                    <a className="downloadable-links" href="/static/files/RMI_Report_2020_Raw_Data_Tailing_Storage_Facilities.csv" download>RMI_Report_2020_Raw_Data_Tailing_Storage_Facilities</a>
-                  </div>
                 </div>
                 <div label="Fatality Reports">
                   <div className="row mb-2 text-white">
@@ -68,23 +65,12 @@ class MapsAndTables extends PureComponent {
                     <a className="downloadable-links" href="/static/files/RMI_Report_2020_Raw_Data_Mines_Sites.csv" download>RMI_Report_2020_Raw_Data_Mines_Sites</a>
                   </div>
                 </div>
-                <div label="Shareholders">
-                  <div className="row mb-2 text-white">
-                    <span style={{ fontSize: '20px' }}>Download data :</span>
-                  </div>
-                  <div className="row mb-2 text-white">
-                    <a className="downloadable-links" href="/static/files/RMI_Report_2020-All_Shareholders_20191031.xlsx" download>RMI_Report_2020_Shareholders</a>
-                  </div>
-                  <div className="row mb-2 text-white">
-                    <a className="downloadable-links" href="/static/files/RMI_Report_2020_Raw_Data_Shareholders.csv" download>RMI_Report_2020_Raw_Data_Shareholders</a>
-                  </div>
-                </div>
               </MapsAndTablesAccordion>
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

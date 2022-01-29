@@ -19,27 +19,13 @@ class Head extends PureComponent {
 
   static defaultProps = { originalUrl: null }
 
-  componentDidMount() {
-    const script = document.createElement('script');
-    script.onload = () => {
-      Transifex.live.onFetchLanguages((languages) => {
-        this.props.setLanguages(languages);
-        this.props.setLanguagesLoading(false);
-      });
-
-      window.Transifex.live.getAllLanguages();
-    };
-    script.src = '//cdn.transifex.com/live.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
-  }
-
   render() {
     const { title, description, root } = this.props;
     const originalUrl = this.props.originalUrl || window.location.pathname;
 
     return (
       <HeadNext>
-        <title>{title} | RMI Report 2020</title>
+        <title>{title} | RMI Report 2022</title>
 
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,14 +54,14 @@ class Head extends PureComponent {
 
         {/* Social media sharing  */}
         <Fragment>
-          <meta property="og:title" content={`${title} | RMI Report 2020`} />
+          <meta property="og:title" content={`${title} | RMI Report 2022`} />
           <meta property="og:description" content={description} />
-          <meta property="og:image" content="https://2020.responsibleminingindex.org/resources/images/webbanner_2020.jpg" />
+          <meta property="og:image" content="https://2022.responsibleminingindex.org/resources/images/webbanner_2020.jpg" />
         </Fragment>
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@RMF_foundation" />
-        <meta name="twitter:title" content={`${title} | RMI Report 2020`} />
+        <meta name="twitter:title" content={`${title} | RMI Report 2022`} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="https://www.responsibleminingfoundation.org/app/uploads/webbanner_2020.jpg" />
         <meta property="og:url" content={originalUrl} />
@@ -101,19 +87,6 @@ class Head extends PureComponent {
                 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
                 g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.innocraft.cloud/responsibleminingindex.innocraft.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
               })();`
-          }}
-        />
-
-        {/* Transifex */}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.liveSettings={
-                api_key: "${process.env.TRANSIFEX_API_KEY}",
-                detectlang: true,
-                staging: ${process.env.TRANSIFEX_STAGING || false}
-              }`
           }}
         />
 

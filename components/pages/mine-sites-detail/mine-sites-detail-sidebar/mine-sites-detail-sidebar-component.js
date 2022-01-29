@@ -97,7 +97,7 @@ class MineSitesDetailSidebar extends PureComponent {
           <div className="row">
             <div className="col-xs-6">
               <div className="definition-item">
-                <div className="definition-key">Aliases:</div>
+                <div className="definition-key">Aliases/Other names:</div>
                 <div className="definition-value">{aliases || '-'}</div>
               </div>
             </div>

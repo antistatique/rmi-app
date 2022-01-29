@@ -7,7 +7,6 @@ import { Link } from 'routes';
 import Button from 'components/common/button';
 import Icon from 'components/common/icon';
 import NavBarMobile from 'components/layout/nav-bar-mobile';
-import LanguageBarMobile from 'components/layout/language-bar-mobile';
 
 // styles
 import styles from './sidebar-styles.scss';
@@ -39,7 +38,7 @@ class Sidebar extends Component {
 
     const sidebarClasses = classnames({
       'c-sidebar': true,
-      '-visible': open,
+      '-visible': open
     });
 
     return (
@@ -67,9 +66,6 @@ class Sidebar extends Component {
             <div className="nav-bar-mobile-container">
               <NavBarMobile />
             </div>
-          </div>
-          <div className="language-bar-container">
-            <LanguageBarMobile />
           </div>
         </div>
         <div

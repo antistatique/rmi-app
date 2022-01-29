@@ -16,7 +16,7 @@ export const getIssueAreaTree = createSelector(
     const category = _indicators.find(indicator => indicator.id === _currentIssueArea) || {};
 
     // A.01 Lorem ipsum...
-    const subCategories = _indicators.filter(indicator => indicator['parent-id'] === +category.id);
+    const subCategories = _indicators.filter(indicator => indicator['parent-id'] === category['root-id']);
 
     return {
       name: category.label,

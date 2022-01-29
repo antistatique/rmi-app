@@ -6,14 +6,18 @@ import { SCORE_COMPARISON_CONFIG } from 'components/common/score-comparison/scor
 // selectors
 import { getIssueArea } from '../results-detail-selectors';
 
+const indicators = state => state.indicators.list;
+
 export const parseIndicators = createSelector(
-  [getIssueArea],
-  (_issueArea) =>  {
-    return orderBy(_issueArea.children || [], 'code')
+  [getIssueArea, indicators],
+  (_issueArea, _indicators) => {
+    const children = _indicators.filter(indicator => indicator['parent-id'] === _issueArea['root-id']);
+
+    const results = orderBy(children || [], 'code')
       .map((indicator = {}) => ({
         id: indicator.id,
         name: indicator.name,
-        children: orderBy(indicator.children || [], 'code')
+        children: orderBy(_indicators.filter(i => i['parent-id'] === +indicator.id) || [], 'code')
           .map(child => ({
             id: child.id,
             name: child.name,
@@ -28,7 +32,9 @@ export const parseIndicators = createSelector(
             leadingPractices: child['leading-practices'],
             companiesMaxScores: child['companies-max-scores']
           }))
-      }))
+      }));
+
+    return results;
   }
 );
 

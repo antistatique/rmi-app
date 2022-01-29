@@ -107,22 +107,6 @@ class CompaniesDetailHeader extends PureComponent {
                       label: 'Mine-sites'
                     },
                     {
-                      anchor: 'tailings',
-                      label: 'Tailings'
-                    },
-                    {
-                      anchor: 'known-shareholders',
-                      label: 'Shareholders'
-                    },
-                    {
-                      anchor: 'known-shareholders',
-                      label: 'Subsidiaries'
-                    },
-                    {
-                      anchor: 'known-beneficial-owners',
-                      label: 'Beneficial Owners'
-                    },
-                    {
                       anchor: 'known-tax-jurisdictions',
                       label: 'Tax Jurisdictions'
                     }

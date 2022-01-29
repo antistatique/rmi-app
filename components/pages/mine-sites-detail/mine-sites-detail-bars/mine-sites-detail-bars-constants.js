@@ -1,15 +1,15 @@
 export const CHART_CONFIG = {
-  height: 375,
+  height: 440,
   barSize: 85,
   setBarFill: () => '#bf3132',
-  domain: [0, 3],
+  domain: [0, 4],
   // xAxis
   xAxisKey: 'label',
-  xAxisHeight: 85,
-  xAxisTick: { width: 100, fill: '#f2f2f2' },
+  xAxisHeight: 150,
+  xAxisTick: { width: 200, fill: '#f2f2f2', angle: -45, textAnchor: 'end' },
   xAxisInterval: 0,
   // y Axis
-  YAxisTicks: ['0.00', '1.00', '2.00', '3.00', '4.00', '5.00', '6.00'],
+  YAxisTicks: ['0', '1', '2', '3', '4'],
   YAxisTick: { fill: '#f2f2f2' }
 };
 

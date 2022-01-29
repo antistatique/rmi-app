@@ -28,7 +28,8 @@ class CompaniesList extends PureComponent {
     selectedCountry: PropTypes.string,
     selectedCompany: PropTypes.string,
     countrySource: PropTypes.string,
-    companiesFromProps: PropTypes.array
+    companiesFromProps: PropTypes.array,
+    filters: PropTypes.object
   }
 
   static defaultProps = {
@@ -44,7 +45,8 @@ class CompaniesList extends PureComponent {
     selectedCompany: null,
     companiesFromProps: null,
     countrySource: null,
-    onClick: null
+    onClick: null,
+    filters: null
   };
 
   render() {
@@ -73,7 +75,8 @@ class CompaniesList extends PureComponent {
         <div className="content">
           {loading && <Spinner />}
 
-          {companiesFromProps && companiesFromProps.map(company => (
+          {/* Sorry for the 🤮🤮🤮🤮🤮🤮 conditions below */}
+          {companiesFromProps && companiesFromProps.filter(i => (this.props.filters.country && (i.country.id === this.props.filters.country || i['producing-countries'].some(j => j.id === this.props.filters.country))) || this.props.filters.country === undefined).map(company => (
             <CompaniesListItem
               key={company.id}
               company={company}
@@ -91,11 +94,11 @@ class CompaniesList extends PureComponent {
             />
           ))}
 
-          {!companiesFromProps && !companies.length &&
-            <div className="not-found">
+          {!companiesFromProps && !companies.filter(i => (this.props.filters.country && (i.country.id === this.props.filters.country || i['producing-countries'].some(j => j.id === this.props.filters.country))) || this.props.filters.country === undefined).length &&
+            <div style={{ color: '#f5821f' }}>
               <span>No companies found under this criteria</span>
             </div>}
-          {!companiesFromProps && companies.map(company => (
+          {!companiesFromProps && companies.filter(i => (this.props.filters.country && (i.country.id === this.props.filters.country || i['producing-countries'].some(j => j.id === this.props.filters.country))) || this.props.filters.country === undefined).map(company => (
             <CompaniesListItem
               key={company.id}
               company={company}

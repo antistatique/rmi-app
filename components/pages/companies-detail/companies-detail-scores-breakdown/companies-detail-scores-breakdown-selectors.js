@@ -2,6 +2,7 @@
 import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
+import findIndex from 'lodash/findIndex';
 import find from 'lodash/find';
 
 // constants
@@ -9,6 +10,7 @@ import { MINE_SITE_INDICATORS_ID } from './companies-detail-scores-breakdown-con
 
 const companyScores = state => (state.companies.currentCompany || {}).scores;
 const scores = state => state.scores.list;
+const issueAreas = state => state.resultsDetailPage.issueAreas;
 const selectedMineSites = state => (state.companies.currentCompany || {})['selected-mine-sites'];
 const currentLanguage = state => state.language.current;
 const investmentDisputes = state => (state.companies.currentCompany || {})['investment-disputes'];
@@ -18,60 +20,73 @@ const knownTaxJurisdictions = state =>
 export const parseInvestmentDisputes = createSelector(
   [investmentDisputes],
   (_investmentDisputes = []) => orderBy(_investmentDisputes, 'name', ['asc'])
-)
+);
 
 export const parseMineSitesScores = createSelector(
   [selectedMineSites, currentLanguage],
-  (_selectedMineSites = [], _currentLanguage) => {
-    return orderBy(
-      _selectedMineSites.map((mineSite) => {
+  (_selectedMineSites = [], _currentLanguage) => orderBy(
+    _selectedMineSites.map((mineSite) => {
+      const localEmployment = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localEmployment]);
+      const localProcurement = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localProcurement]);
+      const airQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.airQuality]);
+      const waterQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuality]);
+      const waterQuantity = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuantity]);
+      const rehabilitationandPostClosure = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.rehabilitationandPostClosure]);
+      const tailings = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.tailings]);
+      const safetyofCommunities = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.safetyofCommunities]);
+      const communityComplaintsandGrievances = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.communityComplaintsandGrievances]);
+      const safetyandHealthofWorkers = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.safetyandHealthofWorkers]);
+      const womenWorkers = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.womenWorkers]);
+      const workplaceDeathsandInjuries = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.workplaceDeathsandInjuries]);
+      const trainingofWorkers = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.trainingofWorkers]);
+      const decentLivingWage = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.decentLivingWage]);
+      const workerComplaintsandGrievances = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.workerComplaintsandGrievances]);
+      const overall = mineSite.scores[15];
 
-        const localProcurment = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localProcurment]);
-        const localEmployment = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.localEmployment]);
-        const communityGrievance = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.communityGrievance]);
-        const workersGrievance = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.workersGrievance]);
-        const waterQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuality]);
-        const postClosurePlans = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.postClosurePlans]);
-        const airQuality = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.airQuality]);
-        const waterQuantity = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.waterQuantity]);
-        const tailingsManagement = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.tailingsManagement]);
-        const emergencyPreparedness = find(mineSite.scores, ['indicator-id', MINE_SITE_INDICATORS_ID.emergencyPreparedness]);
-        const overall = mineSite.scores[10];
-
-        return {
+      return {
         id: mineSite.id,
         name: mineSite.name,
         scores: {
-          localProcurment: localProcurment ? localProcurment.value : '-',
-          localEmployment: localEmployment ? localEmployment.value : '-',
-          communityGrievance: communityGrievance ? communityGrievance.value : '-',
-          workersGrievance: workersGrievance ? workersGrievance.value : '-',
-          waterQuality: waterQuality ? waterQuality.value : '-',
-          postClosurePlans: postClosurePlans ? postClosurePlans.value : '-',
-          airQuality: airQuality ? airQuality.value : '-',
-          waterQuantity: waterQuantity ? waterQuantity.value : '-',
-          tailingsManagement: tailingsManagement ? tailingsManagement.value : '-',
-          emergencyPreparedness: emergencyPreparedness ? emergencyPreparedness.value : '-',
+          localEmployment: localEmployment !== undefined ? localEmployment.value : '-',
+          localProcurement: localProcurement !== undefined ? localProcurement.value : '-',
+          airQuality: airQuality !== undefined ? airQuality.value : '-',
+          waterQuality: waterQuality !== undefined ? waterQuality.value : '-',
+          waterQuantity: waterQuantity !== undefined ? waterQuantity.value : '-',
+          rehabilitationandPostClosure: rehabilitationandPostClosure !== undefined ? rehabilitationandPostClosure.value : '-',
+          tailings: tailings !== undefined ? tailings.value : '-',
+          safetyofCommunities: safetyofCommunities !== undefined ? safetyofCommunities.value : '-',
+          communityComplaintsandGrievances: communityComplaintsandGrievances !== undefined ? communityComplaintsandGrievances.value : '-',
+          safetyandHealthofWorkers: safetyandHealthofWorkers !== undefined ? safetyandHealthofWorkers.value : '-',
+          womenWorkers: womenWorkers !== undefined ? womenWorkers.value : '-',
+          workplaceDeathsandInjuries: workplaceDeathsandInjuries !== undefined ? workplaceDeathsandInjuries.value : '-',
+          trainingofWorkers: trainingofWorkers !== undefined ? trainingofWorkers.value : '-',
+          decentLivingWage: decentLivingWage !== undefined ? decentLivingWage.value : '-',
+          workerComplaintsandGrievances: workerComplaintsandGrievances !== undefined ? workerComplaintsandGrievances.value : '-'
         },
         overall: overall ? overall.value : '-',
         language: _currentLanguage
       };
     }),
-    'name', ['asc']);
-  }
+    'name', ['asc']
+  )
 );
 
 
 export const getBreakdownScores = createSelector(
-  [companyScores, scores],
-  (_companyScores = [], _scores = []) => {
+  [companyScores, scores, issueAreas],
+  (_companyScores = [], _scores = [], _issueAreas = []) => {
     const breakdownScores = _companyScores.filter(score => ((score || {}).kind === 'absolute_breakdown') && !score.name.includes('PREVIOUS'));
     const groupedByParent = groupBy(breakdownScores, 'parent-id');
     const scoreOrder = ['Commitment', 'Action', 'Effectiveness'];
 
+
     return Object.keys(groupedByParent).map((parentId) => {
       const scoreGroup = groupedByParent[parentId];
       const parentScore = _companyScores.find(score => score.id === parentId) || {};
+
+      const issueAreasItem = _issueAreas[findIndex(_issueAreas, i => +i.id === parentScore['indicator-id'])] || { scores: [] };
+      const averageScore = (issueAreasItem.scores.find(score => score.kind === 'average-line' && !score.name.includes('PREVIOUS')) || {}).value;
+      const bestScore = (issueAreasItem.scores.find(score => score.kind === 'current_best_practice' && !score.name.includes('PREVIOUS')) || {}).value;
 
       return ({
         id: parentScore.id,
@@ -79,6 +94,8 @@ export const getBreakdownScores = createSelector(
         indicatorId: parentScore['indicator-id'],
         slug: parentScore.slug,
         value: parentScore.value,
+        average: averageScore,
+        best: bestScore,
         children: scoreGroup.map(scoreChild => ({
           id: scoreChild.id,
           name: scoreChild.label,
@@ -134,7 +151,7 @@ export const parseKnownTaxJurisdictions = createSelector(
     sorted.forEach((item, index) => {
       rows.push({
         id: index,
-        country: sorted[index].country.name,
+        country: sorted[index].country.name
       });
     });
 

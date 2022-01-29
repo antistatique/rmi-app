@@ -4,10 +4,10 @@ export default {
   // cartesian grid config
   strokeDasharray: null,
   // y axis config
-  yDomain: [0, 6],
+  yDomain: [0, 100],
   yAxisLine: false,
   yAxisTick: {},
-  yAxisTicks: ['0.00', '1.00', '2.00', '3.00', '4.00', '5.00', '6.00'],
+  yAxisTicks: ['0', '10', '20', '30', '40', '50', '60', '70', '80', '90', '100'],
   // x axis config
   xAxisTickLine: false,
   xAxisTick: {},
