@@ -189,6 +189,15 @@ export const INDEX_NAVIGATION = [
         }
       },
       {
+        id: '10-3',
+        label: 'Additional translations',
+        slug: 'additional-translations',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'additional-translations' }
+        }
+      },
+      {
         id: '10-4',
         label: 'Raw Data',
         slug: 'raw-data',
