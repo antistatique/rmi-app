@@ -117,10 +117,10 @@ class MapStockExchanges extends PureComponent {
           <span style={{ fontSize: '20px' }}>Download data :</span>
         </div>
         <div className="row mb-2 text-white">
-          <a className="downloadable-links" href="/static/files/RMI_Report_2020_Stock_Exchanges.xlsx" download>RMI_Report_2020_Stock_Exchanges</a>
+          <a className="downloadable-links" href="/static/files/RMI_Report_2022_Stock_Exchanges.xlsx" download>RMI_Report_2022_Stock_Exchanges</a>
         </div>
         <div className="row mb-2 text-white">
-          <a className="downloadable-links" href="/static/files/RMI_Report_2020_Raw_Data_Stock_Exchanges.csv" download>RMI_Report_2020_Raw_Data_Stock_Exchanges</a>
+          <a className="downloadable-links" href="/static/files/RMI_Report_2022_Raw_Data_Stock_Exchanges.csv" download>RMI_Report_2022_Raw_Data_Stock_Exchanges</a>
         </div>
       </div>
     );

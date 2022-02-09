@@ -48,10 +48,10 @@ class MapsAndTables extends PureComponent {
                     <span style={{ fontSize: '20px' }}>Download data :</span>
                   </div>
                   <div className="row mb-2 text-white">
-                    <a className="downloadable-links" href="/static/files/RMI_Report_2020_Company_Fatalities.xlsx" download>RMI_Report_2020_Company_Fatalities</a>
+                    <a className="downloadable-links" href="/static/files/RMI_Report_2022_Company_Fatalities.xlsx" download>RMI_Report_2022_Company_Fatalities</a>
                   </div>
                   <div className="row mb-2 text-white">
-                    <a className="downloadable-links" href="/static/files/RMI_Report_2020_Raw_Data_Fatalities.csv" download>RMI_Report_2020_Raw_Data_Fatalities</a>
+                    <a className="downloadable-links" href="/static/files/RMI_Report_2022_Raw_Data_Fatalities.csv" download>RMI_Report_2022_Raw_Data_Fatalities</a>
                   </div>
                 </div>
                 <div label="Mine Sites">
@@ -59,10 +59,10 @@ class MapsAndTables extends PureComponent {
                     <span style={{ fontSize: '20px' }}>Download data :</span>
                   </div>
                   <div className="row mb-2 text-white">
-                    <a className="downloadable-links" href="/static/files/RMI_Report_2020_Mines_Sites.xlsx" download>RMI_Report_2020_Mines_Sites</a>
+                    <a className="downloadable-links" href="/static/files/RMI_Report_2022_Mines_Sites.xlsx" download>RMI_Report_2022_Mines_Sites</a>
                   </div>
                   <div className="row mb-2 text-white">
-                    <a className="downloadable-links" href="/static/files/RMI_Report_2020_Raw_Data_Mines_Sites.csv" download>RMI_Report_2020_Raw_Data_Mines_Sites</a>
+                    <a className="downloadable-links" href="/static/files/RMI_Report_2022_Raw_Data_Mines_Sites.csv" download>RMI_Report_2022_Raw_Data_Mines_Sites</a>
                   </div>
                 </div>
               </MapsAndTablesAccordion>

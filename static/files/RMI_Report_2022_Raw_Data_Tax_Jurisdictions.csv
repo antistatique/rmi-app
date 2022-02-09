@@ -5,22 +5,18 @@ Anglo American,Argentina
 Anglo American,Australia
 Anglo American,Belgium
 Anglo American,Bermuda
-Anglo American,Venezuela
 Anglo American,Botswana
 Anglo American,Brazil
 Anglo American,British Virgin Islands
 Anglo American,Canada
-Anglo American,Cayman Islands
 Anglo American,Chile
 Anglo American,China
 Anglo American,Colombia
-Anglo American,Cyprus
 Anglo American,DRC
 Anglo American,Ecuador
 Anglo American,Finland
 Anglo American,Gabon
 Anglo American,Germany
-Anglo American,Guernsey
 Anglo American,Hong Kong
 Anglo American,India
 Anglo American,Indonesia
@@ -30,16 +26,16 @@ Anglo American,Israel
 Anglo American,Italy
 Anglo American,Japan
 Anglo American,Jersey
-Anglo American,Lesotho
-Anglo American,Liberia
 Anglo American,Luxembourg
+Anglo American,Macao
 Anglo American,Madagascar
-Anglo American,Malta
 Anglo American,Mauritius
 Anglo American,Mexico
 Anglo American,Mozambique
 Anglo American,Namibia
 Anglo American,Netherlands
+Anglo American,North Macedonia
+Anglo American,Panama
 Anglo American,Papua New Guinea
 Anglo American,Peru
 Anglo American,Philippines
@@ -52,6 +48,7 @@ Anglo American,Tanzania
 Anglo American,UAE
 Anglo American,UK
 Anglo American,USA
+Anglo American,Venezuela
 Anglo American,Zambia
 Anglo American,Zimbabwe
 AngloGold Ashanti,Argentina
@@ -62,29 +59,31 @@ AngloGold Ashanti,Guinea
 AngloGold Ashanti,Isle of Man
 AngloGold Ashanti,Jersey
 AngloGold Ashanti,Mali
-AngloGold Ashanti,South Africa
 AngloGold Ashanti,Tanzania
 AngloGold Ashanti,USA
 Antofagasta,Australia
 Antofagasta,Bermuda
+Antofagasta,Bolivia
 Antofagasta,British Virgin Islands
 Antofagasta,Canada
 Antofagasta,Chile
 Antofagasta,China
 Antofagasta,Jersey
 Antofagasta,Peru
-Antofagasta,Bolivia
 Antofagasta,UK
 Antofagasta,USA
 ArcelorMittal,Argentina
 ArcelorMittal,Belgium
 ArcelorMittal,Bermuda
+ArcelorMittal,Bosnia and Herzegovina
 ArcelorMittal,Brazil
 ArcelorMittal,Canada
 ArcelorMittal,China
+ArcelorMittal,Costa Rica
 ArcelorMittal,Czechia
 ArcelorMittal,France
 ArcelorMittal,Germany
+ArcelorMittal,India
 ArcelorMittal,Italy
 ArcelorMittal,Kazakhstan
 ArcelorMittal,Liberia
@@ -97,40 +96,39 @@ ArcelorMittal,Spain
 ArcelorMittal,Turkey
 ArcelorMittal,Ukraine
 ArcelorMittal,USA
+ArcelorMittal,Venezuela
 Banpu,Australia
 Banpu,British Virgin Islands
 Banpu,Cayman Islands
 Banpu,China
-Banpu,Hong Kong
 Banpu,Indonesia
 Banpu,Japan
+Banpu,Lao PDR
 Banpu,Mauritius
 Banpu,Mongolia
 Banpu,Singapore
 Banpu,Thailand
 Banpu,USA
 Banpu,Viet Nam
-Banpu,Lao PDR
-Barrick Gold Corp,Argentina
-Barrick Gold Corp,Australia
-Barrick Gold Corp,Barbados
-Barrick Gold Corp,British Virgin Islands
-Barrick Gold Corp,Canada
-Barrick Gold Corp,Cayman Islands
-Barrick Gold Corp,Chile
-Barrick Gold Corp,Côte d'Ivoire
-Barrick Gold Corp,DRC
-Barrick Gold Corp,Jersey
-Barrick Gold Corp,Mali
-Barrick Gold Corp,Mauritius
-Barrick Gold Corp,Pakistan
-Barrick Gold Corp,Papua New Guinea
-Barrick Gold Corp,Peru
-Barrick Gold Corp,Saudi Arabia
-Barrick Gold Corp,Tanzania
-Barrick Gold Corp,UK
-Barrick Gold Corp,USA
-Barrick Gold Corp,Zambia
+Barrick,Argentina
+Barrick,Australia
+Barrick,Barbados
+Barrick,British Virgin Islands
+Barrick,Canada
+Barrick,Cayman Islands
+Barrick,Chile
+Barrick,Côte d'Ivoire
+Barrick,Dominican Republic
+Barrick,DRC
+Barrick,Jersey
+Barrick,Mali
+Barrick,Pakistan
+Barrick,Papua New Guinea
+Barrick,Peru
+Barrick,Saudi Arabia
+Barrick,Tanzania
+Barrick,USA
+Barrick,Zambia
 BHP,Algeria
 BHP,Anguilla
 BHP,Argentina
@@ -143,7 +141,6 @@ BHP,Cayman Islands
 BHP,Chile
 BHP,China
 BHP,Colombia
-BHP,DRC
 BHP,Ecuador
 BHP,Guernsey
 BHP,India
@@ -156,8 +153,6 @@ BHP,Malaysia
 BHP,Mexico
 BHP,Netherlands
 BHP,Panama
-BHP,Papua New Guinea
-BHP,Peru
 BHP,Philippines
 BHP,Saint Lucia
 BHP,Singapore
@@ -166,7 +161,18 @@ BHP,Switzerland
 BHP,Trinidad and Tobago
 BHP,UK
 BHP,USA
-BHP,Zambia
+Boliden,Canada
+Boliden,Denmark
+Boliden,Finland
+Boliden,Germany
+Boliden,Ireland
+Boliden,Netherlands
+Boliden,Norway
+Boliden,Spain
+Boliden,Sweden
+Boliden,UK
+Buenaventura,Mexico
+Buenaventura,Peru
 Bumi Resources,Australia
 Bumi Resources,Cayman Islands
 Bumi Resources,Indonesia
@@ -176,15 +182,12 @@ Bumi Resources,Seychelles
 Bumi Resources,Singapore
 Bumi Resources,USA
 Bumi Resources,Yemen
-MMG,Australia
-MMG,British Virgin Islands
-MMG,Canada
-MMG,DRC
-MMG,Hong Kong
-MMG,Netherlands
-MMG,Peru
-MMG,Singapore
-MMG,Switzerland
+China Shenhua,Australia
+China Shenhua,China
+China Shenhua,Hong Kong
+China Shenhua,Indonesia
+China Shenhua,Russian Federation
+China Shenhua,USA
 Coal India,India
 Coal India,Mozambique
 CODELCO,Bermuda
@@ -194,37 +197,70 @@ CODELCO,Chile
 CODELCO,China
 CODELCO,Ecuador
 CODELCO,Germany
+CODELCO,Italy
+CODELCO,Japan
 CODELCO,Jersey
 CODELCO,UK
 CODELCO,USA
 ERG,Brazil
+ERG,China
 ERG,DRC
 ERG,Kazakhstan
 ERG,Luxembourg
-ERG,UK
+ERG,Mali
+ERG,Mauritius
+ERG,Mozambique
+ERG,Netherlands
+ERG,Russian Federation
+ERG,South Africa
+ERG,Switzerland
+ERG,UAE
 ERG,Zambia
+ERG,Zimbabwe
 Evraz,Canada
 Evraz,Cyprus
 Evraz,Czechia
-Evraz,Italy
 Evraz,Kazakhstan
 Evraz,Luxembourg
-Evraz,Mexico
-Evraz,Netherlands
 Evraz,Russian Federation
-Evraz,Singapore
-Evraz,South Africa
 Evraz,Switzerland
-Evraz,Ukraine
 Evraz,UK
 Evraz,USA
-Exxaro Resources,Australia
-Exxaro Resources,Botswana
-Exxaro Resources,China
-Exxaro Resources,Hong Kong
-Exxaro Resources,Netherlands
-Exxaro Resources,South Africa
-Exxaro Resources,Switzerland
+Exxaro,Australia
+Exxaro,China
+Exxaro,Hong Kong
+Exxaro,Netherlands
+Exxaro,South Africa
+Exxaro,Switzerland
+First Quantum,Argentina
+First Quantum,Australia
+First Quantum,Canada
+First Quantum,Finland
+First Quantum,Mauritania
+First Quantum,Panama
+First Quantum,Peru
+First Quantum,Spain
+First Quantum,Turkey
+First Quantum,Zambia
+Fortescue,Argentina
+Fortescue,Brazil
+Fortescue,Chile
+Fortescue,China
+Fortescue,Colombia
+Fortescue,DRC
+Fortescue,Ecuador
+Fortescue,Greenland
+Fortescue,Hong Kong
+Fortescue,Indonesia
+Fortescue,Kazakhstan
+Fortescue,New Zealand
+Fortescue,Papua New Guinea
+Fortescue,Peru
+Fortescue,Portugal
+Fortescue,Singapore
+Fortescue,South Africa
+Fortescue,USA
+Freeport-McMoRan,Chile
 Freeport-McMoRan,Indonesia
 Freeport-McMoRan,Peru
 Freeport-McMoRan,USA
@@ -232,6 +268,8 @@ Glencore,Antigua and Barbuda
 Glencore,Argentina
 Glencore,Australia
 Glencore,Bermuda
+Glencore,Bolivia
+Glencore,Botswana
 Glencore,Brazil
 Glencore,British Virgin Islands
 Glencore,Canada
@@ -241,6 +279,8 @@ Glencore,DRC
 Glencore,France
 Glencore,Germany
 Glencore,Hong Kong
+Glencore,Indonesia
+Glencore,Ireland
 Glencore,Italy
 Glencore,Jersey
 Glencore,Kazakhstan
@@ -250,13 +290,11 @@ Glencore,New Caledonia
 Glencore,Norway
 Glencore,Peru
 Glencore,Philippines
-Glencore,Bolivia
 Glencore,Russian Federation
 Glencore,Singapore
 Glencore,South Africa
 Glencore,Spain
 Glencore,Switzerland
-Glencore,Tanzania
 Glencore,UAE
 Glencore,UK
 Glencore,USA
@@ -267,27 +305,46 @@ Gold Fields,Ghana
 Gold Fields,Peru
 Gold Fields,South Africa
 Grupo México,Mexico
+Grupo México,Peru
 Grupo México,Spain
 Grupo México,USA
-Industrias Peñoles,Mexico
-Industrias Peñoles,USA
+KGHM,Canada
+KGHM,Chile
+KGHM,China
+KGHM,Germany
+KGHM,Poland
+KGHM,USA
+MMG,Australia
+MMG,British Virgin Islands
+MMG,Canada
+MMG,China
+MMG,DRC
+MMG,Hong Kong
+MMG,Netherlands
+MMG,Peru
+MMG,Singapore
+MMG,Switzerland
 Navoi MMC,Uzbekistan
-Newcrest Mining,Australia
-Newcrest Mining,Canada
-Newcrest Mining,Côte d'Ivoire
-Newcrest Mining,Ecuador
-Newcrest Mining,Fiji
-Newcrest Mining,Indonesia
-Newcrest Mining,Papua New Guinea
-Newcrest Mining,Singapore
-Newcrest Mining,USA
+Newcrest,Australia
+Newcrest,Canada
+Newcrest,Chile
+Newcrest,Côte d'Ivoire
+Newcrest,Ecuador
+Newcrest,Fiji
+Newcrest,Indonesia
+Newcrest,Papua New Guinea
+Newcrest,Singapore
+Newcrest,UK
+Newcrest,USA
 Newmont,Argentina
 Newmont,Australia
 Newmont,Bermuda
+Newmont,Bolivia
 Newmont,British Virgin Islands
 Newmont,Canada
 Newmont,Chile
 Newmont,Colombia
+Newmont,Dominican Republic
 Newmont,France
 Newmont,Ghana
 Newmont,Guinea
@@ -302,7 +359,6 @@ Newmont,Mexico
 Newmont,Netherlands
 Newmont,Papua New Guinea
 Newmont,Peru
-Newmont,Bolivia
 Newmont,Solomon Islands
 Newmont,Suriname
 Newmont,UK
@@ -311,171 +367,6 @@ NMDC,Australia
 NMDC,India
 NMDC,Madagascar
 NMDC,South Africa
-Rio Tinto,Australia
-Rio Tinto,Belgium
-Rio Tinto,Bermuda
-Rio Tinto,Venezuela
-Rio Tinto,Brazil
-Rio Tinto,British Virgin Islands
-Rio Tinto,Canada
-Rio Tinto,Chile
-Rio Tinto,China
-Rio Tinto,France
-Rio Tinto,Gabon
-Rio Tinto,Germany
-Rio Tinto,Guinea
-Rio Tinto,Hong Kong
-Rio Tinto,Iceland
-Rio Tinto,India
-Rio Tinto,Indonesia
-Rio Tinto,Italy
-Rio Tinto,Japan
-Rio Tinto,Jersey
-Rio Tinto,Kazakhstan
-Rio Tinto,Luxembourg
-Rio Tinto,Madagascar
-Rio Tinto,Malaysia
-Rio Tinto,Malta
-Rio Tinto,Mexico
-Rio Tinto,Mongolia
-Rio Tinto,Morocco
-Rio Tinto,Mozambique
-Rio Tinto,Namibia
-Rio Tinto,Netherlands
-Rio Tinto,New Zealand
-Rio Tinto,Oman
-Rio Tinto,Papua New Guinea
-Rio Tinto,Peru
-Rio Tinto,Philippines
-Rio Tinto,Serbia
-Rio Tinto,Singapore
-Rio Tinto,South Africa
-Rio Tinto,South Korea
-Rio Tinto,Spain
-Rio Tinto,Sweden
-Rio Tinto,Switzerland
-Rio Tinto,UAE
-Rio Tinto,UK
-Rio Tinto,USA
-Rio Tinto,Zambia
-Rio Tinto,Lao PDR
-Rio Tinto,Aruba
-Zijin,Australia
-Zijin,Barbados
-Zijin,Canada
-Zijin,China
-Zijin,Hong Kong
-Zijin,Kyrgyzstan
-Zijin,Russian Federation
-Zijin,Serbia
-Teck,Canada
-Teck,Chile
-Teck,Peru
-Teck,USA
-RUSAL,Armenia
-RUSAL,Australia
-RUSAL,British Virgin Islands
-RUSAL,Cyprus
-RUSAL,Guinea
-RUSAL,Ireland
-RUSAL,Italy
-RUSAL,Jamaica
-RUSAL,Jersey
-RUSAL,Luxembourg
-RUSAL,Netherlands
-RUSAL,Russian Federation
-RUSAL,Sweden
-RUSAL,Switzerland
-RUSAL,Ukraine
-RUSAL,USA
-Vale,Argentina
-Vale,Australia
-Vale,Austria
-Vale,Barbados
-Vale,Belgium
-Vale,Bermuda
-Vale,Brazil
-Vale,Canada
-Vale,Cayman Islands
-Vale,Chile
-Vale,China
-Vale,Colombia
-Vale,France
-Vale,India
-Vale,Indonesia
-Vale,Isle of Man
-Vale,Japan
-Vale,Jersey
-Vale,Liberia
-Vale,Luxembourg
-Vale,Malaysia
-Vale,Malta
-Vale,Mauritius
-Vale,Mozambique
-Vale,Netherlands
-Vale,New Caledonia
-Vale,Oman
-Vale,Panama
-Vale,Paraguay
-Vale,Peru
-Vale,Philippines
-Vale,Singapore
-Vale,South Africa
-Vale,Switzerland
-Vale,Taiwan
-Vale,UAE
-Vale,UK
-Vale,USA
-Vale,Uruguay
-Vale,Zambia
-Vedanta Resources,Australia
-Vedanta Resources,Curaçao
-Vedanta Resources,Cyprus
-Vedanta Resources,India
-Vedanta Resources,Ireland
-Vedanta Resources,Japan
-Vedanta Resources,Jersey
-Vedanta Resources,Liberia
-Vedanta Resources,Mauritius
-Vedanta Resources,Namibia
-Vedanta Resources,Netherlands
-Vedanta Resources,South Africa
-Vedanta Resources,South Korea
-Vedanta Resources,Sri Lanka
-Vedanta Resources,Taiwan
-Vedanta Resources,UAE
-Vedanta Resources,UK
-Vedanta Resources,USA
-Vedanta Resources,Zambia
-China Shenhua,Australia
-China Shenhua,China
-China Shenhua,Hong Kong
-China Shenhua,Indonesia
-Peabody Energy,Australia
-Peabody Energy,Bermuda
-Peabody Energy,Venezuela
-Peabody Energy,British Virgin Islands
-Peabody Energy,China
-Peabody Energy,Germany
-Peabody Energy,Gibraltar
-Peabody Energy,India
-Peabody Energy,Indonesia
-Peabody Energy,Netherlands
-Peabody Energy,Singapore
-Peabody Energy,UK
-Peabody Energy,USA
-Fortescue,Australia
-Fortescue,Hong Kong
-Fortescue,Singapore
-First Quantum Minerals,Canada
-Sibanye-Stillwater,South Africa
-Buenaventura,Chile
-Buenaventura,Mexico
-Buenaventura,Peru
-Polymetal,Cyprus
-Polymetal,Kazakhstan
-Polymetal,Russian Federation
-Polymetal,UK
 Nordgold,British Virgin Islands
 Nordgold,Burkina Faso
 Nordgold,Canada
@@ -489,6 +380,33 @@ Nordgold,Kazakhstan
 Nordgold,Norway
 Nordgold,Russian Federation
 Nordgold,UK
+OCP Group,Argentina
+OCP Group,Belgium
+OCP Group,Benin
+OCP Group,Brazil
+OCP Group,Burkina Faso
+OCP Group,Cameroon
+OCP Group,China
+OCP Group,Côte d'Ivoire
+OCP Group,Ethiopia
+OCP Group,France
+OCP Group,Ghana
+OCP Group,India
+OCP Group,Kenya
+OCP Group,Morocco
+OCP Group,Netherlands
+OCP Group,Nigeria
+OCP Group,Romania
+OCP Group,Rwanda
+OCP Group,Senegal
+OCP Group,Singapore
+OCP Group,Spain
+OCP Group,Switzerland
+OCP Group,Tanzania
+OCP Group,Turkey
+OCP Group,UAE
+OCP Group,USA
+OCP Group,Zambia
 Orano,Australia
 Orano,Canada
 Orano,Central African Republic
@@ -505,5 +423,143 @@ Orano,Namibia
 Orano,Niger
 Orano,South Korea
 Orano,UK
-Orano,USA
 Orano,US Virgin Islands
+Orano,USA
+Peñoles,Mexico
+Peñoles,UK
+Peñoles,USA
+Polymetal,Cyprus
+Polymetal,Kazakhstan
+Polymetal,Russian Federation
+Polymetal,UK
+Rio Tinto,Aruba
+Rio Tinto,Australia
+Rio Tinto,Belgium
+Rio Tinto,Bermuda
+Rio Tinto,Brazil
+Rio Tinto,British Virgin Islands
+Rio Tinto,Canada
+Rio Tinto,Chile
+Rio Tinto,China
+Rio Tinto,Finland
+Rio Tinto,France
+Rio Tinto,Germany
+Rio Tinto,Guinea
+Rio Tinto,Hong Kong
+Rio Tinto,Iceland
+Rio Tinto,India
+Rio Tinto,Indonesia
+Rio Tinto,Italy
+Rio Tinto,Japan
+Rio Tinto,Jersey
+Rio Tinto,Kazakhstan
+Rio Tinto,Lao PDR
+Rio Tinto,Luxembourg
+Rio Tinto,Madagascar
+Rio Tinto,Malaysia
+Rio Tinto,Mexico
+Rio Tinto,Mongolia
+Rio Tinto,Mozambique
+Rio Tinto,Netherlands
+Rio Tinto,New Zealand
+Rio Tinto,Oman
+Rio Tinto,Papua New Guinea
+Rio Tinto,Peru
+Rio Tinto,Philippines
+Rio Tinto,Serbia
+Rio Tinto,Singapore
+Rio Tinto,South Africa
+Rio Tinto,South Korea
+Rio Tinto,Spain
+Rio Tinto,Sweden
+Rio Tinto,Switzerland
+Rio Tinto,UK
+Rio Tinto,USA
+Rio Tinto,Venezuela
+Rio Tinto,Zambia
+RUSAL,Armenia
+RUSAL,Australia
+RUSAL,British Virgin Islands
+RUSAL,China
+RUSAL,Cyprus
+RUSAL,Guinea
+RUSAL,Guyana
+RUSAL,Ireland
+RUSAL,Italy
+RUSAL,Jamaica
+RUSAL,Jersey
+RUSAL,Kazakhstan
+RUSAL,Netherlands
+RUSAL,Russian Federation
+RUSAL,Sweden
+RUSAL,Switzerland
+RUSAL,Ukraine
+RUSAL,USA
+Sibanye-Stillwater,Argentina
+Sibanye-Stillwater,Canada
+Sibanye-Stillwater,South Africa
+Sibanye-Stillwater,UK
+Sibanye-Stillwater,USA
+Sibanye-Stillwater,Zimbabwe
+Teck,Canada
+Teck,Chile
+Teck,Peru
+Teck,USA
+Vale,Argentina
+Vale,Australia
+Vale,Barbados
+Vale,Brazil
+Vale,Canada
+Vale,Chile
+Vale,China
+Vale,India
+Vale,Indonesia
+Vale,Japan
+Vale,Malawi
+Vale,Malaysia
+Vale,Mozambique
+Vale,Netherlands
+Vale,New Caledonia
+Vale,Oman
+Vale,Paraguay
+Vale,Peru
+Vale,Serbia
+Vale,Singapore
+Vale,South Korea
+Vale,Switzerland
+Vale,UAE
+Vale,UK
+Vale,Uruguay
+Vale,USA
+Vedanta,Australia
+Vedanta,Curaçao
+Vedanta,Cyprus
+Vedanta,India
+Vedanta,Ireland
+Vedanta,Japan
+Vedanta,Jersey
+Vedanta,Liberia
+Vedanta,Mauritius
+Vedanta,Namibia
+Vedanta,Netherlands
+Vedanta,South Africa
+Vedanta,South Korea
+Vedanta,Sri Lanka
+Vedanta,Taiwan
+Vedanta,UAE
+Vedanta,UK
+Vedanta,USA
+Vedanta,Zambia
+Zijin,Australia
+Zijin,Barbados
+Zijin,China
+Zijin,Colombia
+Zijin,DRC
+Zijin,Eritrea
+Zijin,Guyana
+Zijin,Hong Kong
+Zijin,Kyrgyzstan
+Zijin,Papua New Guinea
+Zijin,Russian Federation
+Zijin,Serbia
+Zijin,Tajikistan

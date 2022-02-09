@@ -117,10 +117,10 @@ class MapProducingCountries extends PureComponent {
           <span style={{ fontSize: '20px' }}>Download data :</span>
         </div>
         <div className="row mb-2 text-white">
-          <a className="downloadable-links" href="/static/files/RMI_Report_2020_Producing_Countries.xlsx" download>RMI_Report_2020_Producing_Countries</a>
+          <a className="downloadable-links" href="/static/files/RMI_Report_2022_Producing_Countries.xlsx" download>RMI_Report_2022_Producing_Countries</a>
         </div>
         <div className="row mb-2 text-white">
-          <a className="downloadable-links" href="/static/files/RMI_Report_2020_Raw_Data_Producing_Countries.csv" download>RMI_Report_2020_Raw_Data_Producing_Countries</a>
+          <a className="downloadable-links" href="/static/files/RMI_Report_2022_Raw_Data_Producing_Countries.csv" download>RMI_Report_2022_Raw_Data_Producing_Countries</a>
         </div>
       </div>
     );
