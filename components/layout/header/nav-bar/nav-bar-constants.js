@@ -11,7 +11,7 @@ export const INDEX_NAVIGATION = [
     children: [
       {
         id: '9-1',
-        label: 'Key Messages',
+        label: 'Key Findings',
         slug: 'findings',
         query: {
           route: 'static-pages',
