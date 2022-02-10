@@ -15,7 +15,7 @@ export const INDEX_NAVIGATION = [
         slug: 'findings',
         query: {
           route: 'static-pages',
-          params: { slug: 'key-messages' }
+          params: { slug: 'key-findings' }
         }
       },
       {
