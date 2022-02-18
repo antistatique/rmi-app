@@ -16,7 +16,7 @@ export const getIssueAreasList = createSelector(
       id: issueArea.id,
       name: issueArea.label,
       slug: issueArea.slug,
-      data: _indicators.filter(indicator => indicator['parent-id'] === +issueArea.id)
+      data: _indicators.filter(indicator => indicator['parent-id'] === issueArea['root-id'])
         .map(subCategory => ({
           id: subCategory.id,
           name: subCategory.name,
