@@ -11,11 +11,11 @@ export const INDEX_NAVIGATION = [
     children: [
       {
         id: '9-1',
-        label: 'Key Messages',
+        label: 'Key Findings',
         slug: 'findings',
         query: {
           route: 'static-pages',
-          params: { slug: 'key-messages' }
+          params: { slug: 'key-findings' }
         }
       },
       {
@@ -186,6 +186,15 @@ export const INDEX_NAVIGATION = [
         query: {
           route: 'maps-and-tables',
           params: {}
+        }
+      },
+      {
+        id: '10-3',
+        label: 'Additional translations',
+        slug: 'additional-translations',
+        query: {
+          route: 'static-pages',
+          params: { slug: 'additional-translations' }
         }
       },
       {
